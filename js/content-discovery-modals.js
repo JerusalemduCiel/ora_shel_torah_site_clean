@@ -132,7 +132,7 @@ function openContentDiscoveryModal(gameId, e) {
             overlay.style.width = '100vw';
             overlay.style.height = '100vh';
             overlay.style.zIndex = '999999';
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.85)';
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.98)'; // Opacité augmentée
             overlay.style.alignItems = 'center';
             overlay.style.justifyContent = 'center';
             
@@ -189,10 +189,59 @@ function openContentDiscoveryModal(gameId, e) {
                     closeBtn.style.right = '20px';
                     closeBtn.style.zIndex = '1000000';
                 }
+                
+                // Fond de la modale
+                modal.style.background = '#1a1a2e';
+                modal.style.color = '#ffffff';
+                
+                // Header et titre
+                const header = modal.querySelector('.content-discovery-header');
+                if (header) {
+                    const h2 = header.querySelector('h2');
+                    if (h2) {
+                        h2.style.color = '#d4af37'; // Or
+                        h2.style.fontSize = '2rem';
+                        h2.style.marginBottom = '1rem';
+                    }
+                    const subtitle = header.querySelector('.content-discovery-subtitle');
+                    if (subtitle) {
+                        subtitle.style.color = '#aaaaaa';
+                        subtitle.style.fontSize = '1.1rem';
+                    }
+                }
+                
+                // Body - sections h3 en or
+                const sections = modal.querySelectorAll('.content-discovery-section h3');
+                sections.forEach(h3 => {
+                    h3.style.color = '#d4af37'; // Or
+                    h3.style.fontSize = '1.5rem';
+                    h3.style.marginTop = '1.5rem';
+                    h3.style.marginBottom = '1rem';
+                });
+                
+                // Tous les paragraphes et listes en blanc
+                const paragraphs = modal.querySelectorAll('p, li');
+                paragraphs.forEach(p => {
+                    p.style.color = '#dddddd';
+                    p.style.lineHeight = '1.6';
+                });
+                
+                // Spécifications compactes
+                const specs = modal.querySelectorAll('.spec-item-compact');
+                specs.forEach(spec => {
+                    spec.style.background = 'rgba(255, 255, 255, 0.1)';
+                    spec.style.padding = '1rem';
+                    spec.style.borderRadius = '8px';
+                    const strong = spec.querySelector('strong');
+                    if (strong) strong.style.color = '#d4af37';
+                    const span = spec.querySelector('span');
+                    if (span) span.style.color = '#ffffff';
+                });
             }
             
             alert('6b. Styles inline appliqués !');
             alert('7. Layout interne appliqué !');
+            alert('8. Opacité et couleurs corrigées !');
         } else {
             alert('6. Desktop - CSS normal utilisé');
         }
