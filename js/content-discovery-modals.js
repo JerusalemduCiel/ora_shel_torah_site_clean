@@ -143,9 +143,56 @@ function openContentDiscoveryModal(gameId, e) {
                 modal.style.opacity = '1';
                 modal.style.transform = 'scale(1)';
                 modal.style.position = 'relative';
+                
+                // Styles pour les éléments internes de la modale
+                const wrapper = modal.querySelector('.content-discovery-wrapper');
+                if (wrapper) {
+                    wrapper.style.display = 'flex';
+                    wrapper.style.flexDirection = 'column'; // Stack sur mobile
+                    wrapper.style.width = '100%';
+                    wrapper.style.height = '100%';
+                    wrapper.style.overflow = 'hidden';
+                }
+                
+                const leftCol = modal.querySelector('.content-discovery-left');
+                if (leftCol) {
+                    leftCol.style.flex = '1';
+                    leftCol.style.overflowY = 'auto';
+                    leftCol.style.padding = '2rem';
+                    leftCol.style.maxHeight = '60vh'; // 60% pour le texte
+                }
+                
+                const rightCol = modal.querySelector('.content-discovery-right');
+                if (rightCol) {
+                    rightCol.style.flex = '1';
+                    rightCol.style.overflowY = 'auto';
+                    rightCol.style.padding = '1rem';
+                    rightCol.style.maxHeight = '40vh'; // 40% pour la galerie
+                    rightCol.style.display = 'flex';
+                    rightCol.style.flexDirection = 'column';
+                }
+                
+                const galleryGrid = modal.querySelector('.gallery-grid');
+                if (galleryGrid) {
+                    galleryGrid.style.display = 'grid';
+                    galleryGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                    galleryGrid.style.gap = '10px';
+                    galleryGrid.style.width = '100%';
+                }
+                
+                // Bouton fermer
+                const closeBtn = modal.querySelector('.content-discovery-close');
+                if (closeBtn) {
+                    closeBtn.style.display = 'flex';
+                    closeBtn.style.position = 'fixed';
+                    closeBtn.style.top = '20px';
+                    closeBtn.style.right = '20px';
+                    closeBtn.style.zIndex = '1000000';
+                }
             }
             
             alert('6b. Styles inline appliqués !');
+            alert('7. Layout interne appliqué !');
         } else {
             alert('6. Desktop - CSS normal utilisé');
         }
