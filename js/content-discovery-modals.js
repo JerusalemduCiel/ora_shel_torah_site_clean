@@ -3,6 +3,9 @@
    Gestion des modales avec layout 2/3 - 1/3
    Carrousel vertical et navigation
    ======================================== */
+   alert('🔥 SCRIPT CHARGÉ !');
+console.log('🔥 Script chargé');
+alert('Script chargé !');
 
 let isOpening = false;
 
@@ -25,7 +28,10 @@ function initContentDiscoveryModals() {
     console.log('🎯 Initialisation modales "Découvrir le contenu"');
     
     // Boutons d'ouverture avec data-modal
-    document.querySelectorAll('[data-modal^="content-discovery-"]').forEach(btn => {
+    const buttons = document.querySelectorAll('[data-modal^="content-discovery-"]');
+    alert('Boutons trouvés : ' + buttons.length);
+    
+    buttons.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
