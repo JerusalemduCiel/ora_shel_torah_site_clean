@@ -83,20 +83,15 @@
     left: 20px;
   }
   
-  /* Ajuster le texte fondateur sur mobile */
-  .founder-intro-text {
+  /* Ajuster le texte "En résumé" sur mobile */
+  .philosophy-slide.text-slide .en-resume-text {
     font-size: 0.9rem;
     line-height: 1.6;
   }
   
-  .founder-intro-text h3 {
+  .philosophy-slide.text-slide .en-resume-title {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-  }
-  
-  .founder-intro-photo {
-    max-width: 150px;
-    margin: 0 auto 1rem;
   }
   
   /* Container scrollable pour le texte - SOLUTION ROBUSTE POUR ANDROID */
@@ -110,12 +105,13 @@
     margin: 0 !important;
   }
   
-  /* FONDER-INTRO devient le container scrollable - CRITIQUE */
-  .philosophy-slide.text-slide .founder-intro {
+  /* EN-RESUME-CONTAINER devient le container scrollable - CRITIQUE */
+  .philosophy-slide.text-slide .en-resume-container {
     flex: none !important;
     width: 100% !important;
     height: 100% !important;
     max-height: 100% !important;
+    max-width: 100% !important;
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
@@ -130,25 +126,25 @@
     background: white !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    gap: 1rem !important;
+    position: relative !important;
   }
   
   /* Forcer la scrollbar VISIBLE en permanence sur Android/Chrome */
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar {
+  .philosophy-slide.text-slide .en-resume-container::-webkit-scrollbar {
     width: 12px !important;
     display: block !important;
     -webkit-appearance: none !important;
     background-color: rgba(0, 0, 0, 0.1) !important;
   }
   
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-track {
+  .philosophy-slide.text-slide .en-resume-container::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.15) !important;
     border-radius: 10px !important;
     -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.3) !important;
     margin: 5px 0 !important;
   }
   
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-thumb {
+  .philosophy-slide.text-slide .en-resume-container::-webkit-scrollbar-thumb {
     background: rgba(237, 162, 52, 0.95) !important;
     border-radius: 10px !important;
     border: 2px solid rgba(255, 255, 255, 0.4) !important;
@@ -156,12 +152,12 @@
     min-height: 40px !important;
   }
   
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-thumb:hover {
+  .philosophy-slide.text-slide .en-resume-container::-webkit-scrollbar-thumb:hover {
     background: rgba(237, 162, 52, 1) !important;
   }
   
   /* Assurer que le contenu peut dépasser */
-  .philosophy-slide.text-slide .founder-intro-text {
+  .philosophy-slide.text-slide .en-resume-content {
     height: auto !important;
     min-height: auto !important;
     overflow: visible !important;

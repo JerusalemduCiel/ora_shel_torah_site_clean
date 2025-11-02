@@ -2372,62 +2372,8 @@ html body #hero-bis-poz .hero-bis-background img {
   border-radius: 10px;
 }
 
-/* Présentation fondateur à droite de la vidéo */
-.founder-intro {
-  flex: 0 0 700px; /* Largeur élargie pour la présentation */
-  padding: 2rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  height: 100%; /* Même hauteur que le container */
-  overflow-y: hidden; /* Pas de scroll nécessaire */
-}
-
-.founder-intro-photo {
-  flex: 0 0 auto;
-  width: 100%;
-  max-width: 150px;
-  margin: 0 auto;
-}
-
-.founder-intro-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.founder-intro-text {
-  flex: 1;
-}
-
-.founder-intro-text h3 {
-  font-size: 1.5rem;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-  font-family: 'Crimson Text', serif;
-}
-
-.founder-intro-text p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #4a4a4a;
-  margin-bottom: 1rem;
-}
-
-.founder-intro-text strong {
-  color: #eda234;
-}
-
-.founder-intro-cta {
-  text-align: center;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #eee;
-}
+/* Présentation fondateur à droite de la vidéo - REMPLACÉ PAR .en-resume-container */
+/* Les styles pour .en-resume-container sont maintenant définis plus bas dans le fichier */
 
 .video-section[style*="display: block"] video {
   display: block !important;
@@ -4612,4 +4558,230 @@ html body #hero-bis-poz .hero-bis-background img {
     position: relative !important;
     margin: auto !important;
   }
+}
+
+/* ============================================
+   SECTION "EN RÉSUMÉ" - TEXTE RESSERRÉ
+   ============================================ */
+
+.en-resume-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 10px 40px rgba(237, 162, 52, 0.08);
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Pour le layout desktop avec vidéo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Desktop: adaptation au layout flex côte à côte */
+@media (min-width: 769px) {
+    .philosophy-slide.text-slide .en-resume-container {
+        flex: 0 0 700px; /* Largeur fixe pour la présentation */
+        margin: 0;
+        max-width: none;
+    }
+}
+
+/* Effet de lumière dorée subtile en fond */
+.en-resume-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(237, 162, 52, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.en-resume-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Titre décoratif */
+.en-resume-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #4d727b;
+    text-align: center;
+    margin-bottom: 28px;
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.en-resume-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #eda234, transparent);
+    border-radius: 2px;
+}
+
+/* Texte principal - RESSERRÉ */
+.en-resume-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: #2c2c2c;
+    text-align: left;
+}
+
+.en-resume-text p {
+    margin-bottom: 16px;
+}
+
+/* Première phrase en emphase */
+.en-resume-text .first-line {
+    font-size: 1.2rem;
+    color: #4d727b;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* La question centrale */
+.en-resume-text .question {
+    font-style: italic;
+    color: #72a691;
+    font-size: 1.15rem;
+    margin: 20px 0;
+    padding-left: 16px;
+    border-left: 3px solid #eda234;
+    line-height: 1.7;
+}
+
+/* Réponse : Ora Shel Torah */
+.en-resume-text .reponse {
+    font-weight: 600;
+    color: #4d727b;
+}
+
+/* Dernière phrase avec emphase */
+.en-resume-text .final {
+    font-size: 1.15rem;
+    color: #72a691;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(237, 162, 52, 0.2);
+}
+
+/* Effet de brillance sur certains mots */
+.highlight {
+    background: linear-gradient(120deg, transparent 0%, rgba(237, 162, 52, 0.15) 50%, transparent 100%);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Animation d'entrée */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE - BREAKPOINTS PRÉCIS
+   ============================================ */
+
+/* TABLETTE : 769px à 1024px */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .en-resume-container {
+        max-width: 600px;
+        padding: 35px 40px;
+    }
+
+    .en-resume-title {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
+    }
+
+    .en-resume-text {
+        font-size: 1.0625rem;
+    }
+}
+
+/* MOBILE GENERAL : max 768px (iPhone, Android) */
+@media (max-width: 768px) {
+    .en-resume-container {
+        padding: 32px 24px;
+        border-radius: 12px;
+    }
+
+    .en-resume-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+
+    .en-resume-title::after {
+        width: 50px;
+    }
+
+    .en-resume-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .en-resume-text p {
+        margin-bottom: 14px;
+    }
+
+    .en-resume-text .first-line {
+        font-size: 1.1rem;
+    }
+
+    .en-resume-text .question {
+        font-size: 1.05rem;
+        margin: 16px 0;
+        padding-left: 12px;
+        border-left-width: 2px;
+    }
+
+    .en-resume-text .final {
+        font-size: 1.05rem;
+        margin-top: 20px;
+        padding-top: 16px;
+    }
+}
+
+/* PETIT MOBILE : max 375px (iPhone SE, petits Android) */
+@media (max-width: 375px) {
+    .en-resume-container {
+        padding: 28px 20px;
+    }
+
+    .en-resume-title {
+        font-size: 1.35rem;
+    }
+
+    .en-resume-text {
+        font-size: 0.9375rem;
+    }
+}
+
+/* Support tactile amélioré pour iOS et Android */
+@media (hover: none) and (pointer: coarse) {
+    .en-resume-container {
+        -webkit-tap-highlight-color: transparent;
+    }
 }
