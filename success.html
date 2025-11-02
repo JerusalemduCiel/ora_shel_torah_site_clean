@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande confirmée - Ora Shel Torah</title>
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+            color: white;
+            padding: 2rem;
+        }
+        
+        .success-container {
+            max-width: 600px;
+            background: white;
+            color: #1a1a1a;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 1s ease infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            font-family: 'Crimson Text', serif;
+            color: #eda234;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        strong {
+            color: #1a1a1a;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #eda234;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: #eda234;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(237, 162, 52, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(237, 162, 52, 0.4);
+        }
+        
+        .secondary-link {
+            display: block;
+            margin-top: 1rem;
+            color: #eda234;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        
+        .secondary-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="icon">✅</div>
+        <h1>Commande confirmée !</h1>
+        <p>
+            Merci pour votre confiance. Un email de confirmation vient d'être envoyé 
+            à votre adresse avec tous les détails de votre commande.
+        </p>
+        
+        <div class="info-box">
+            <p style="margin: 0;">
+                <strong>📦 Livraison estimée :</strong> 5 à 7 jours ouvrés<br>
+                <strong>📧 Email :</strong> Vérifiez vos spams si vous ne recevez rien
+            </p>
+        </div>
+        
+        <p>
+            Vos jeux seront expédiés dans les meilleurs délais. 
+            Vous recevrez un numéro de suivi dès l'expédition.
+        </p>
+        
+        <a href="index.html" class="btn">Retour à l'accueil</a>
+        
+        <a href="mailto:contact@orasheltorah.com" class="secondary-link">
+            Une question ? Contactez-nous
+        </a>
+    </div>
+    
+    <script>
+        // Vider le panier après commande réussie
+        if (window.localStorage) {
+            localStorage.removeItem('cart');
+        }
+        console.log('✅ Commande validée, panier vidé');
+    </script>
+</body>
+</html>
+
+

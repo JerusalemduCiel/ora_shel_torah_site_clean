@@ -1,0 +1,20 @@
+{
+  "name": "ora-shel-torah-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site statique Ora Shel Torah avec fonctions Netlify (Stripe Checkout).",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "postinstall": "echo Postinstall completed",
+    "build": "echo Static site - no build step",
+    "start": "echo Serve statically with any server"
+  },
+  "dependencies": {
+    "stripe": "^16.6.0"
+  }
+}
+
+

@@ -1,0 +1,1536 @@
+ <!-- Test workflow GitHub → Netlify 3 nov 2025 -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ora Shel Torah - Jeux éducatifs juifs | De génération en génération</title>
+    <meta name="description" content="Découvrez les jeux éducatifs Ora Shel Torah : Jérusalem du Ciel, Minhag ou Halakha, Poztamitsvah. Transmettez la sagesse juive en famille avec plaisir.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ora Shel Torah - Jeux éducatifs juifs">
+    <meta property="og:description" content="Transmettez la sagesse millénaire du judaïsme en famille avec nos jeux éducatifs innovants.">
+    <meta property="og:image" content="images/logo/logo_large_gold.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container">
+            <a href="#acte-1" class="logo">
+                <img src="images/logo/logo_large_gold.png" alt="Ora Shel Torah">
+                <span class="tagline">De génération en génération</span>
+            </a>
+            
+            <nav class="main-nav">
+                <button id="btn-preorder" class="btn-preorder">Précommander</button>
+                <a href="#panier" class="cart-icon" id="cart-icon">
+                    🛒 <span class="cart-count">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ACTE 1: L'ÉNIGME (Hero mystérieux) -->
+    <section id="acte-1" class="hero-dark">
+        <div class="hero-background">
+            <!-- Image de fond temporaire -->
+            <img src="images/backgrounds/jerusalem_twilight.png" 
+                 alt="Jérusalem au crépuscule" 
+                 style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;">
+            
+            <!-- Overlay sombre pour la lisibilité -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 2;"></div>
+            
+            <!-- Particules dorées flottantes -->
+            <div class="particles-container" style="z-index: 3;"></div>
+            
+            <!-- Lettres hébraïques en filigrane -->
+            <div class="hebrew-letters" aria-hidden="true" style="z-index: 3;">
+                <svg class="letter-aleph" viewBox="0 0 100 100">
+                    <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="#eda234" opacity="0.03">א</text>
+                </svg>
+                <svg class="letter-shin" viewBox="0 0 100 100">
+                    <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="#eda234" opacity="0.03">ש</text>
+                </svg>
+                <svg class="letter-lamed" viewBox="0 0 100 100">
+                    <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="#eda234" opacity="0.03">ל</text>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="hero-content" style="position: relative; z-index: 4;">
+            <div class="hero-logo">
+                <img src="images/logo/logo_large_gold.png" alt="Ora Shel Torah">
+            </div>
+            <h1 class="hero-title">
+                ORA SHEL TORAH
+            </h1>
+            <p class="hero-subtitle">
+                Quand la sagesse millénaire<br>
+                rencontre le jeu moderne...
+            </p>
+            
+            <div class="hero-actions">
+                <button class="btn-primary" data-scroll-to="acte-2">
+                    🎬 Découvrir notre univers
+                </button>
+                <button class="btn-secondary" data-scroll-to="acte-6">
+                    🛒 Accéder à la boutique
+                </button>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span>↓ Scroll pour entrer ↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTE 2: L'HUMANITÉ (Histoire du fondateur) -->
+    <section id="acte-2" class="histoire-fondateur">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Pourquoi j'ai créé Ora Shel Torah</span>
+                <h2>D'où ça vient ?</h2>
+            </div>
+            
+            <!-- Container avec carrousel mobile -->
+            <div class="video-philosophy-container" data-mobile-slide="0">
+                
+                <!-- SLIDE 1 : Vidéo -->
+                <div class="philosophy-slide video-slide" data-slide="0">
+                    <div class="video-philosophy-wrapper">
+                        <video id="video-histoire" 
+                               controls 
+                               preload="metadata"
+                               muted="false">
+                            <source src="videos/philosophie_ora_shel_torah.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    
+                    <!-- Flèche SUIVANT (visible uniquement sur mobile) -->
+                    <button class="mobile-nav-arrow arrow-next" aria-label="Voir le texte">
+                        <span>→</span>
+                    </button>
+                </div>
+                
+                <!-- SLIDE 2 : Texte fondateur -->
+                <div class="philosophy-slide text-slide" data-slide="1">
+                    <div class="founder-intro">
+                        <div class="founder-intro-photo">
+                            <img src="images/auteur/michael_lumbroso.jpg" 
+                                 alt="Michael Lumbroso - Créateur d'Ora Shel Torah">
+                        </div>
+                        
+                        <div class="founder-intro-text">
+                            <h3>Un parcours de redécouverte</h3>
+                            <p>
+                                Pendant plus de cinquante ans, j'ai vécu en marge du judaïsme. 
+                                Synagogue une fois par an, distance avec les rabbins, transmission 
+                                quasi inexistante à mes enfants. Un parcours classique de "juif agnostique".
+                            </p>
+                            <p>
+                                La découverte tardive de la richesse insoupçonnée de notre tradition 
+                                m'a confronté à une question essentielle : comment transmettre ce 
+                                qu'on n'a jamais reçu ? Comment partager cette sagesse sans être érudit ?
+                            </p>
+                            <p>
+                                <strong>Ora Shel Torah est née de cette interrogation.</strong> Des jeux 
+                                pour apprendre ensemble, en famille, et transformer l'étude en moments 
+                                de joie partagée.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Flèche PRÉCÉDENT (visible uniquement sur mobile) -->
+                    <button class="mobile-nav-arrow arrow-prev" aria-label="Retour à la vidéo">
+                        <span>←</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTE 3: LA MISSION (Philosophie) -->
+    <section id="acte-3" class="philosophie">
+        <div class="container">
+            <div class="section-header center">
+                <span class="eyebrow">Notre raison d'être</span>
+                <h2>Rendre les trésors du judaïsme accessibles à tous</h2>
+            </div>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <span class="icon">🎯</span>
+                    <h3>Sans être érudit</h3>
+                    <p>Pas besoin d'être rabbin pour transmettre. Nos jeux permettent d'apprendre ensemble, parents et enfants.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <span class="icon">❤️</span>
+                    <h3>Avec joie</h3>
+                    <p>Le jeu crée des moments de partage et transforme l'étude en plaisir familial.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <span class="icon">📚</span>
+                    <h3>En famille</h3>
+                    <p>Plusieurs générations autour de la table, de 7 à 77 ans.</p>
+                </div>
+                
+                <div class="philosophy-card">
+                    <span class="icon">✡️</span>
+                    <h3>Fidèle aux sources</h3>
+                    <p>Contenu halakhique vérifié, respectueux de la tradition.</p>
+                </div>
+            </div>
+            
+            <div class="quote-block">
+                <blockquote>
+                    "Ce n'est pas à toi d'achever l'œuvre,<br>
+                    mais tu n'es pas libre de t'en désintéresser."
+                    <cite>— Pirké Avot 2:16</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTE 4: LA RÉVÉLATION (Les 3 jeux - SANS PRIX) -->
+    <section id="acte-4" class="revelation-jeux">
+        <div class="container">
+            <div class="section-header center">
+                <span class="eyebrow">Nos créations</span>
+                <h2>Les trois trésors d'Ora Shel Torah</h2>
+                <p class="intro">
+                    Trois univers complémentaires pour découvrir la richesse du judaïsme
+                </p>
+            </div>
+            
+            <!-- Triple Split Panels -->
+            <div class="triple-split-container">
+                <div class="split-panel" data-game="jdc" data-target="hero-bis-jdc">
+                    <div class="panel-background">
+                        <img src="images/produits/jdc_split.webp.png" alt="Jérusalem du Ciel">
+                    </div>
+                    <div class="panel-content">
+                        <h3>Jérusalem du Ciel</h3>
+                        <p>Traversez 3000 ans d'histoire</p>
+                    </div>
+                </div>
+                
+                <div class="split-panel" data-game="moh" data-target="hero-bis-moh">
+                    <div class="panel-background">
+                        <img src="images/produits/moh_split.webp.jpg" alt="Minhag ou Halakha">
+                    </div>
+                    <div class="panel-content">
+                        <h3>Minhag ou Halakha</h3>
+                        <p>Loi ou coutume ? Découvrez la différence</p>
+                    </div>
+                </div>
+                
+                <div class="split-panel" data-game="poz" data-target="hero-bis-poz">
+                    <div class="panel-background">
+                        <img src="images/produits/poz_split.webp.jpg" alt="Poztamitsvah">
+                    </div>
+                    <div class="panel-content">
+                        <h3>Poztamitsvah</h3>
+                        <p>140 mitzvot pour éclairer votre quotidien</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IMPORTANT: Aucun prix affiché ici -->
+            <p class="note">Cliquez sur un jeu pour en savoir plus</p>
+        </div>
+    </section>
+
+    <!-- HERO BIS - Jérusalem du Ciel -->
+    <section id="hero-bis-jdc" class="hero-bis jdc-hero">
+        <div class="hero-bis-background">
+            <img src="images/produits/jdc_hero_bg.png" alt="Univers Jérusalem du Ciel">
+        </div>
+        <div class="hero-bis-content">
+            <h2>Jérusalem du Ciel</h2>
+            <p class="hero-bis-subtitle">Traversez 3000 ans d'histoire juive</p>
+            <div class="hero-bis-actions">
+                <button class="btn-modal" data-action="video">
+                    🎬 Voir le teaser
+                </button>
+                <a href="/demo/" class="btn-modal" style="text-decoration: none;">
+                    🎮 Essayer la démo
+                </a>
+                <button class="btn-modal btn-store" data-modal="content-discovery-jdc">
+                    📦 Découvrir le contenu
+                </button>
+                <button class="btn-modal btn-store" data-action="store">
+                    🛒 Commander
+                </button>
+            </div>
+        </div>
+        
+        <!-- SECTION VIDÉO -->
+        <div class="video-section" style="display:none;">
+            <button class="btn-back">← Retour</button>
+            <button class="btn-close">×</button>
+            <div class="video-container">
+                <h3>Jérusalem du Ciel - Présentation vidéo</h3>
+                <video controls poster="images/produits/jdc_hero_bg.png">
+                    <source src="videos/teaser_jdc.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+        </div>
+        
+        <!-- SECTION DÉMO -->
+        <div class="demo-section" style="display:none;">
+            <button class="btn-back">← Retour</button>
+            <button class="btn-close">×</button>
+            <div class="demo-container">
+                <h3>Jérusalem du Ciel - Démo interactive</h3>
+                <iframe src="https://jerusalemduciel.netlify.app"
+                        width="100%" 
+                        height="600px" 
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <!-- SECTION CONTENU -->
+        <div class="content-section" style="display:none; background: transparent !important;">
+            <button class="btn-back">← Retour</button>
+            <h2 style="background: transparent !important;">Jérusalem du Ciel</h2>
+            
+            <div class="content-container">
+                <!-- QUADRANT 1 : Description (haut gauche) -->
+                <div class="content-quadrant quadrant-description">
+                    <h3>Description du jeu</h3>
+                    <p>
+                        <strong>Jérusalem du Ciel</strong> est un jeu d'exploration historique qui vous fait traverser 
+                        3000 ans d'histoire juive, de la Création à nos jours.
+                    </p>
+                    <p>
+                        À travers 6 périodes historiques, découvrez les événements clés, les personnages marquants 
+                        et les enseignements de la Torah. Chaque période révèle des mystères, des défis et des 
+                        opportunités d'apprentissage.
+                    </p>
+                    <p>
+                        Un voyage initiatique au cœur de notre héritage, conçu pour toute la famille.
+                    </p>
+                </div>
+                
+                <!-- QUADRANT 2 : Galerie (haut droite) -->
+                <div class="content-quadrant quadrant-gallery">
+                    <div class="gallery-carousel" data-current-slide="0">
+                        <div class="carousel-viewport">
+                            <!-- Slide 1 : Boîte -->
+                            <div class="carousel-item active" data-slide="0">
+                                <img src="images/produits/jdc-box-3d.jpg" alt="Boîte Jérusalem du Ciel">
+                            </div>
+                            
+                            <!-- Slide 2 : Plateau -->
+                            <div class="carousel-item" data-slide="1">
+                                <img src="images/produits/jdc_hero_bg.png" alt="Plateau de jeu">
+                            </div>
+                            
+                            <!-- Slide 3 : Vidéo teaser -->
+                            <div class="carousel-item" data-slide="2">
+                                <video controls>
+                                    <source src="videos/teaser_jdc.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation -->
+                        <button class="carousel-nav prev"><span>‹</span></button>
+                        <button class="carousel-nav next"><span>›</span></button>
+                        
+                        <!-- Indicateurs -->
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" data-index="0"></button>
+                            <button class="carousel-indicator" data-index="1"></button>
+                            <button class="carousel-indicator" data-index="2"></button>
+                        </div>
+                        
+                        <!-- Caption -->
+                        <div class="carousel-caption">
+                            <p>Image 1 sur 3</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QUADRANT 3 : Règles (bas gauche) -->
+                <div class="content-quadrant quadrant-rules">
+                    <h3>Objectif et règles du jeu</h3>
+                    <p><strong>Objectif :</strong> Être le premier à traverser les 6 périodes historiques en répondant correctement aux questions.</p>
+                    
+                    <p><strong>Déroulement :</strong></p>
+                    <ol>
+                        <li>Chaque joueur lance le dé et avance sur le plateau circulaire</li>
+                        <li>Répondez aux questions historiques ou talmudiques selon la case</li>
+                        <li>Collectez des gemmes en répondant correctement</li>
+                        <li>Progressez à travers les 6 périodes de l'histoire juive</li>
+                        <li>Le premier à compléter toutes les périodes remporte la partie</li>
+                    </ol>
+                    
+                    <p><strong>Durée :</strong> 60 à 90 minutes • <strong>Joueurs :</strong> 2 à 6 • <strong>Âge :</strong> 10 ans et plus</p>
+                </div>
+                
+                <!-- QUADRANT 4 : Contenu + Specs (bas droite) -->
+                <div class="content-quadrant quadrant-specs">
+                    <h3>Contenu de la boîte</h3>
+                    <ul>
+                        <li>1 plateau circulaire (6 périodes)</li>
+                        <li>150 cartes questions/défis</li>
+                        <li>6 pions de couleur</li>
+                        <li>1 dé • 50 gemmes</li>
+                        <li>1 livret de règles complet</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 1.5rem;">Spécifications</h3>
+                    <div class="specs-mini-grid">
+                        <div class="spec-item-mini">
+                            <strong>👥 Joueurs</strong>
+                            <p>2 à 6</p>
+                        </div>
+                        <div class="spec-item-mini">
+                            <strong>⏱️ Durée</strong>
+                            <p>60-90 min</p>
+                        </div>
+                        <div class="spec-item-mini">
+                            <strong>🎯 Âge</strong>
+                            <p>10 ans +</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 1.5rem;">Objectifs pédagogiques</h3>
+                    <ul>
+                        <li>Découvrir 3000 ans d'histoire juive</li>
+                        <li>Comprendre les événements clés</li>
+                        <li>Renforcer les liens familiaux</li>
+                        <li>Développer la curiosité</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO BIS - Minhag ou Halakha -->
+    <section id="hero-bis-moh" class="hero-bis moh-hero">
+        <div class="hero-bis-background">
+            <img src="images/produits/moh_hero_bg.png" alt="Univers Minhag ou Halakha">
+        </div>
+        <div class="hero-bis-content">
+            <h2>Minhag ou Halakha</h2>
+            <p class="hero-bis-subtitle">Loi ou coutume ? Découvrez la différence</p>
+            <div class="hero-bis-actions">
+                <button class="btn-modal" data-action="video">
+                    🎬 Voir le teaser
+                </button>
+                <button class="btn-modal" data-action="demo">
+                    🎮 Essayer la démo
+                </button>
+                <button class="btn-modal btn-store" data-modal="content-discovery-moh">
+                    📦 Découvrir le contenu
+                </button>
+                <button class="btn-modal btn-store" data-action="store">
+                    🛒 Commander
+                </button>
+            </div>
+        </div>
+        
+        <!-- SECTION VIDÉO -->
+        <div class="video-section" style="display:none;">
+            <button class="btn-back">← Retour</button>
+            <button class="btn-close">×</button>
+            <div class="video-container">
+                <h3>Minhag ou Halakha - Présentation vidéo</h3>
+                <video controls poster="images/produits/moh_hero_bg.png">
+                    <source src="videos/teaser_moh_livre.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+        </div>
+        
+        <!-- SECTION DÉMO -->
+        <div class="demo-section" style="display:none;">
+            <button class="btn-back">← Retour</button>
+            <button class="btn-close">×</button>
+            <div class="demo-container">
+                <h3>Minhag ou Halakha - Démo interactive</h3>
+                <iframe src="https://minhagouhalakha.netlify.app"
+                        width="100%" 
+                        height="600px" 
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <!-- SECTION CONTENU MOH -->
+        <div class="content-section" style="display:none; background: transparent !important;">
+            <button class="btn-back">← Retour</button>
+            <h2 style="background: transparent !important;">Minhag ou Halakha</h2>
+            
+            <div class="content-container">
+                <!-- QUADRANT 1 : Description (haut gauche) -->
+                <div class="content-quadrant quadrant-description">
+                    <h3>Description du jeu</h3>
+                    <p>
+                        <strong>Minhag ou Halakha</strong> est un jeu éducatif qui vous permet de découvrir 
+                        et de comprendre la différence fondamentale entre une loi halakhique (obligatoire) 
+                        et une simple coutume (minhag).
+                    </p>
+                    <p>
+                        À travers des questions pratiques et des débats passionnants, apprenez à distinguer 
+                        ce qui relève de la loi juive stricte de ce qui est une tradition particulière.
+                    </p>
+                    <p>
+                        Un jeu de débat et de réflexion pour toute la famille, qui stimule l'esprit critique 
+                        et la connaissance des sources.
+                    </p>
+                </div>
+                
+                <!-- QUADRANT 2 : Galerie (haut droite) -->
+                <div class="content-quadrant quadrant-gallery">
+                    <div class="gallery-carousel" data-current-slide="0">
+                        <div class="carousel-viewport">
+                            <div class="carousel-item active" data-slide="0">
+                                <img src="images/produits/moh_box_3d.png" alt="Boîte Minhag ou Halakha">
+                            </div>
+                            <div class="carousel-item" data-slide="1">
+                                <img src="images/produits/moh_hero_bg.png" alt="Plateau de jeu">
+                            </div>
+                            <div class="carousel-item" data-slide="2">
+                                <img src="images/produits/moh_hero_bg.png" alt="Cartes du jeu">
+                            </div>
+                            <div class="carousel-item" data-slide="3">
+                                <video controls>
+                                    <source src="videos/teaser_moh_livre.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-nav prev"><span>‹</span></button>
+                        <button class="carousel-nav next"><span>›</span></button>
+                        
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" data-index="0"></button>
+                            <button class="carousel-indicator" data-index="1"></button>
+                            <button class="carousel-indicator" data-index="2"></button>
+                            <button class="carousel-indicator" data-index="3"></button>
+                        </div>
+                        
+                        <div class="carousel-caption">
+                            <p>Image 1 sur 4</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QUADRANT 3 : Règles et objectif (bas gauche) -->
+                <div class="content-quadrant quadrant-rules">
+                    <h3>Objectif et règles du jeu</h3>
+                    <p><strong>Objectif :</strong> Être le premier à distinguer correctement les halakhot (lois) des minhagim (coutumes).</p>
+                    
+                    <p><strong>Déroulement :</strong></p>
+                    <ol>
+                        <li>Un joueur tire une carte et lit la question</li>
+                        <li>Tous les joueurs débattent pour déterminer s'il s'agit d'une Halakha ou d'un Minhag</li>
+                        <li>Le joueur qui a posé la question révèle la bonne réponse</li>
+                        <li>Les joueurs ayant trouvé la bonne réponse marquent des points</li>
+                        <li>Le premier à atteindre le score cible remporte la partie</li>
+                    </ol>
+                    
+                    <p><strong>Durée :</strong> 30 à 45 minutes • <strong>Joueurs :</strong> 2 à 8 • <strong>Âge :</strong> 12 ans et plus</p>
+                </div>
+                
+                <!-- QUADRANT 4 : Contenu + Specs (bas droite) -->
+                <div class="content-quadrant quadrant-specs">
+                    <h3>Contenu de la boîte</h3>
+                    <ul>
+                        <li>200 cartes questions Minhag/Halakha</li>
+                        <li>1 plateau de score</li>
+                        <li>6 pions de couleur</li>
+                        <li>1 livret explicatif</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 1.5rem;">Spécifications</h3>
+                    <div class="specs-mini-grid">
+                        <div class="spec-item-mini">
+                            <strong>👥 Joueurs</strong>
+                            <p>2 à 8</p>
+                        </div>
+                        <div class="spec-item-mini">
+                            <strong>⏱️ Durée</strong>
+                            <p>30-45 min</p>
+                        </div>
+                        <div class="spec-item-mini">
+                            <strong>🎯 Âge</strong>
+                            <p>12 ans +</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 1.5rem;">Objectifs pédagogiques</h3>
+                    <ul>
+                        <li>Comprendre la différence entre Halakha et Minhag</li>
+                        <li>Stimuler le débat et la réflexion</li>
+                        <li>Approfondir la connaissance des sources</li>
+                        <li>Développer l'esprit critique</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO BIS - Poztamitsvah -->
+    <section id="hero-bis-poz" class="hero-bis poz-hero">
+        <div class="hero-bis-background">
+            <img src="images/produits/poz_hero_bg.png" alt="Univers Poztamitsvah">
+        </div>
+        <div class="hero-bis-content">
+            <h2>Poztamitsvah</h2>
+            <p class="hero-bis-subtitle">140 mitzvot pour éclairer votre quotidien</p>
+            <div class="hero-bis-actions">
+                <button class="btn-modal" data-action="video">
+                    🎬 Voir le teaser
+                </button>
+                <button class="btn-modal" data-action="demo">
+                    🎮 Essayer la démo
+                </button>
+                <button class="btn-modal btn-store" data-modal="content-discovery-poz">
+                    📦 Découvrir le contenu
+                </button>
+                <button class="btn-modal btn-store" data-action="store">
+                    🛒 Commander
+                </button>
+            </div>
+        </div>
+        
+        <!-- SECTION VIDÉO -->
+        <div class="video-section" style="display:none;">
+            <button class="btn-back">← Retour</button>
+            <button class="btn-close">×</button>
+            <div class="video-container">
+                <h3>Poztamitsvah - Présentation vidéo</h3>
+                <p style="text-align: center; padding: 2rem; color: #666; font-size: 1.2rem;">
+                    🎬 La vidéo de présentation de Poztamitsvah sera disponible très prochainement.<br>
+                    En attendant, essayez la démo interactive !
+                </p>
+            </div>
+        </div>
+        
+        <!-- SECTION DÉMO -->
+        <div class="demo-section" style="display:none;">
+            <button class="btn-back">← Retour</button>
+            <button class="btn-close">×</button>
+            <div class="demo-container">
+                <h3>Poztamitsvah - Démo interactive</h3>
+                <iframe src="https://poztamitzvah.netlify.app"
+                        width="100%" 
+                        height="600px" 
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <!-- SECTION CONTENU POZ -->
+        <div class="content-section" style="display:none; background: transparent !important;">
+            <button class="btn-back">← Retour</button>
+            <h2 style="background: transparent !important;">Poztamitsvah</h2>
+            
+            <div class="content-container">
+                <!-- QUADRANT 1 : Description (haut gauche) -->
+                <div class="content-quadrant quadrant-description">
+                    <h3>Description du jeu</h3>
+                    <p>
+                        <strong>Poztamitsvah</strong> est un jeu pédagogique qui met en lumière 140 mitzvot 
+                        (commandements) essentiels de la vie juive quotidienne.
+                    </p>
+                    <p>
+                        Apprenez et mémorisez ces pratiques fondamentales tout en vous amusant en famille. 
+                        Chaque carte présente une mitzva avec son contexte, son origine et son application pratique.
+                    </p>
+                    <p>
+                        Un outil ludique et éducatif pour transmettre les valeurs et les pratiques du judaïsme 
+                        aux jeunes générations.
+                    </p>
+                </div>
+                
+                <!-- QUADRANT 2 : Galerie (haut droite) -->
+                <div class="content-quadrant quadrant-gallery">
+                    <div class="gallery-carousel" data-current-slide="0">
+                        <div class="carousel-viewport">
+                            <div class="carousel-item active" data-slide="0">
+                                <img src="images/produits/poz_box_3d.png" alt="Boîte Poztamitsvah">
+                            </div>
+                            <div class="carousel-item" data-slide="1">
+                                <img src="images/produits/poz_cartes_zoom.png" alt="Cartes du jeu">
+                            </div>
+                            <div class="carousel-item" data-slide="2">
+                                <img src="images/produits/poz_cartes_zoom.png" alt="Détail des cartes">
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-nav prev"><span>‹</span></button>
+                        <button class="carousel-nav next"><span>›</span></button>
+                        
+                        <div class="carousel-indicators">
+                            <button class="carousel-indicator active" data-index="0"></button>
+                            <button class="carousel-indicator" data-index="1"></button>
+                            <button class="carousel-indicator" data-index="2"></button>
+                        </div>
+                        
+                        <div class="carousel-caption">
+                            <p>Image 1 sur 3</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- QUADRANT 3 : Règles et objectif (bas gauche) -->
+                <div class="content-quadrant quadrant-rules">
+                    <h3>Objectif et règles du jeu</h3>
+                    <p><strong>Objectif :</strong> Découvrir et mémoriser 140 mitzvot essentielles de la vie juive quotidienne.</p>
+                    
+                    <p><strong>Déroulement :</strong></p>
+                    <ol>
+                        <li>Étalez les 140 cartes mitzvot sur la table</li>
+                        <li>Un joueur choisit une carte et lit la mitzva</li>
+                        <li>Les joueurs doivent expliquer ce qu'ils savent sur cette mitzva</li>
+                        <li>La carte révèle l'information complète (contexte, origine, application)</li>
+                        <li>Progressez dans la découverte des 140 mitzvot</li>
+                    </ol>
+                    
+                    <p><strong>Durée :</strong> 20 à 30 minutes • <strong>Joueurs :</strong> 2 à 6 • <strong>Âge :</strong> 8 ans et plus</p>
+                </div>
+                
+                <!-- QUADRANT 4 : Contenu + Specs (bas droite) -->
+                <div class="content-quadrant quadrant-specs">
+                    <h3>Contenu de la boîte</h3>
+                    <ul>
+                        <li>140 cartes mitzvot illustrées</li>
+                        <li>1 livret explicatif</li>
+                        <li>1 boîte de rangement</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 1.5rem;">Spécifications</h3>
+                    <div class="specs-mini-grid">
+                        <div class="spec-item-mini">
+                            <strong>👥 Joueurs</strong>
+                            <p>2 à 6</p>
+                        </div>
+                        <div class="spec-item-mini">
+                            <strong>⏱️ Durée</strong>
+                            <p>20-30 min</p>
+                        </div>
+                        <div class="spec-item-mini">
+                            <strong>🎯 Âge</strong>
+                            <p>8 ans +</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 1.5rem;">Objectifs pédagogiques</h3>
+                    <ul>
+                        <li>Découvrir 140 mitzvot essentielles</li>
+                        <li>Comprendre le contexte et l'origine</li>
+                        <li>Apprendre l'application pratique</li>
+                        <li>Transmettre les valeurs juives en famille</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ACTE 5: L'APPARTENANCE (Communauté) -->
+    <section id="acte-5" class="communaute">
+        <div class="container">
+            <div class="section-header center">
+                <span class="eyebrow">Vous n'êtes pas seul</span>
+                <h2>Rejoignez la communauté Ora Shel Torah</h2>
+            </div>
+            
+            <!-- Chiffres communauté -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">1 200+</span>
+                    <span class="stat-label">Familles utilisatrices</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Établissements scolaires</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Pays conquis</span>
+                </div>
+            </div>
+            
+            <!-- Témoignages -->
+            <div class="testimonials">
+                <h3>Ce qu'ils en disent</h3>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                "Enfin un jeu qui permet d'apprendre et de rire ensemble ! 
+                                Mes enfants réclament une partie tous les Chabbat."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/famille/jdc_famille.png" alt="Sarah L.">
+                            <div class="author-info">
+                                <strong>Sarah L.</strong>
+                                <span>Maman de 3 enfants, Paris</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                "Je ne connaissais rien au judaïsme. 
+                                Avec Jérusalem du Ciel, j'ai découvert mon héritage."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/famille/moh_famille.png" alt="David M.">
+                            <div class="author-info">
+                                <strong>David M.</strong>
+                                <span>En chemin de retour, Lyon</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                "Un outil pédagogique exceptionnel pour nos cours de Talmud Torah. 
+                                Les enfants adorent !"
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/famille/poz_famille.png" alt="Rav Cohen">
+                            <div class="author-info">
+                                <strong>Rav Yossef Cohen</strong>
+                                <span>Enseignant, Ozar Hatorah Marseille</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partenaires -->
+            <div class="partners">
+                <h3>Ils nous soutiennent</h3>
+                <div class="partners-logos">
+                    <div class="partner-logo">FSJU</div>
+                    <div class="partner-logo">Consistoire de Paris</div>
+                    <div class="partner-logo">Ozar Hatorah</div>
+                </div>
+                <p class="partner-badge">
+                    🏆 Nominé au Prix d'Innovation Éducative NOÉ 2025
+                </p>
+            </div>
+            
+            <!-- Newsletter -->
+            <div class="newsletter-block">
+                <h3>Restez informés</h3>
+                <p>Recevez nos actualités, contenus exclusifs et offres spéciales</p>
+                <form class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="email" 
+                           name="email" 
+                           placeholder="Votre email" 
+                           required>
+                    <button type="submit" class="btn-primary">
+                        S'inscrire
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT / PARTENARIAT -->
+    <section id="contact-partenariat" class="contact-partenariat">
+        <div class="container">
+            <div class="section-header center">
+                <span class="eyebrow">Contactez-nous</span>
+                <h2>Une question ? Un projet de partenariat ?</h2>
+                <p class="intro">Nous sommes à votre écoute pour répondre à vos questions ou discuter de collaborations</p>
+            </div>
+            
+            <div class="forms-grid">
+                <!-- Formulaire Contact -->
+                <div class="form-wrapper">
+                    <h3>Contact</h3>
+                    <p class="form-description">Une question générale ? N'hésitez pas à nous écrire.</p>
+                    <form class="contact-form" action="https://formspree.io/f/xwprpgvk" method="POST">
+                        <div class="form-group">
+                            <input type="text" 
+                                   name="name" 
+                                   id="contact-name"
+                                   placeholder="Votre nom" 
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" 
+                                   name="email" 
+                                   id="contact-email"
+                                   placeholder="Votre email" 
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" 
+                                      id="contact-message"
+                                      rows="6" 
+                                      placeholder="Votre message" 
+                                      required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Envoyer
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Formulaire Partenariat -->
+                <div class="form-wrapper">
+                    <h3>Partenariat</h3>
+                    <p class="form-description">Vous souhaitez collaborer avec nous ? Parlons-en !</p>
+                    <form class="partnership-form" action="https://formspree.io/f/xvgwgezy" method="POST">
+                        <div class="form-group">
+                            <input type="text" 
+                                   name="name" 
+                                   id="partnership-name"
+                                   placeholder="Votre nom" 
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" 
+                                   name="organization" 
+                                   id="partnership-org"
+                                   placeholder="Votre organisation" 
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <select name="partnership_type" 
+                                    id="partnership-type"
+                                    required>
+                                <option value="">Type de partenariat</option>
+                                <option value="commercial">Partenariat commercial</option>
+                                <option value="educatif">Partenariat éducatif</option>
+                                <option value="distribution">Distribution</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" 
+                                      id="partnership-message"
+                                      rows="6" 
+                                      placeholder="Décrivez votre projet" 
+                                      required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Envoyer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTE 7: L'INVITATION (CTA Final + Boutique AVEC PRIX) -->
+    <section id="acte-6" class="cta-final">
+        <div class="container">
+            <div class="section-header center">
+                <span class="eyebrow">Prêt à commencer l'aventure ?</span>
+                <h2>Offrez à votre famille ces trésors de sagesse</h2>
+                <p class="intro">
+                    Précommandez maintenant et recevez vos jeux avant Hanoucca
+                </p>
+            </div>
+            
+            <!-- Produits avec PRIX -->
+            <div class="products-grid">
+                <!-- Produit 1: Jérusalem du Ciel -->
+                <div class="product-card" data-product-id="jdc">
+                    <div class="product-image">
+                        <img src="images/produits/jdc-box-3d.jpg" alt="Jérusalem du Ciel">
+                        <span class="badge">Best-seller</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jérusalem du Ciel</h3>
+                        <p class="product-tagline">Traversez 3000 ans d'histoire</p>
+                        
+                        <div class="product-specs">
+                            <span>👥 2-6 joueurs</span>
+                            <span>⏱️ 60-90 min</span>
+                            <span>🎯 10 ans+</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="price-original">49,90 €</span>
+                            <span class="price-current">39,90 €</span>
+                            <span class="price-save">Économisez 10 €</span>
+                        </div>
+                        
+                        <button class="btn-add-to-cart" data-product="jdc" data-price="39.90">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produit 2: Minhag ou Halakha -->
+                <div class="product-card" data-product-id="moh">
+                    <div class="product-image">
+                        <img src="images/produits/moh_box_3d.png" alt="Minhag ou Halakha">
+                    </div>
+                    <div class="product-info">
+                        <h3>Minhag ou Halakha</h3>
+                        <p class="product-tagline">Loi ou coutume ?</p>
+                        
+                        <div class="product-specs">
+                            <span>👥 2-8 joueurs</span>
+                            <span>⏱️ 30-45 min</span>
+                            <span>🎯 8 ans+</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="price-original">27,90 €</span>
+                            <span class="price-current">19,90 €</span>
+                            <span class="price-save">Économisez 8 €</span>
+                        </div>
+                        
+                        <button class="btn-add-to-cart" data-product="moh" data-price="19.90">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produit 3: Poztamitsvah -->
+                <div class="product-card" data-product-id="poz">
+                    <div class="product-image">
+                        <img src="images/produits/poz_box_3d.png" alt="Poztamitsvah">
+                        <span class="badge">Nouveauté</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Poztamitsvah</h3>
+                        <p class="product-tagline">140 mitzvot au quotidien</p>
+                        
+                        <div class="product-specs">
+                            <span>👥 2-6 joueurs</span>
+                            <span>⏱️ 20-40 min</span>
+                            <span>🎯 7 ans+</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="price-original">27,90 €</span>
+                            <span class="price-current">19,90 €</span>
+                            <span class="price-save">Économisez 8 €</span>
+                        </div>
+                        
+                        <button class="btn-add-to-cart" data-product="poz" data-price="19.90">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- PACK COMPLET (en vedette) -->
+                <div class="product-card featured" data-product-id="pack">
+                    <div class="featured-badge">
+                        ⭐ Offre Pack Famille ⭐
+                    </div>
+                    <div class="product-image">
+                        <img src="images/pack-3d.png" alt="Pack 3 jeux">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pack Complet Ora Shel Torah</h3>
+                        <p class="product-tagline">Les 3 jeux + contenus exclusifs</p>
+                        
+                        <div class="pack-includes">
+                            <p><strong>Inclus dans le pack:</strong></p>
+                            <ul>
+                                <li>✓ Jérusalem du Ciel</li>
+                                <li>✓ Minhag ou Halakha</li>
+                                <li>✓ Poztamitsvah</li>
+                                <li>✓ Guide pédagogique familial (PDF)</li>
+                                <li>✓ Accès aux extensions futures</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-price pack-price">
+                            <span class="price-original">105,50 €</span>
+                            <span class="price-current">79,90 €</span>
+                            <span class="price-save">
+                                Économisez 25,60 € !<br>
+                                <small>Soit 26,63 € par jeu</small>
+                            </span>
+                        </div>
+                        
+                        <button class="btn-add-to-cart featured-btn" data-product="pack" data-price="79.90">
+                            🎁 J'offre le Pack Famille
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Garanties & Confiance -->
+            <div class="trust-signals">
+                <div class="trust-item">
+                    <span class="icon">🚚</span>
+                    <strong>Livraison offerte</strong>
+                    <small>dès 50€ d'achat</small>
+                </div>
+                <div class="trust-item">
+                    <span class="icon">✅</span>
+                    <strong>Satisfait ou remboursé</strong>
+                    <small>30 jours</small>
+                </div>
+                <div class="trust-item">
+                    <span class="icon">🔒</span>
+                    <strong>Paiement sécurisé</strong>
+                    <small>Stripe SSL</small>
+                </div>
+                <div class="trust-item">
+                    <span class="icon">📦</span>
+                    <strong>Expédition rapide</strong>
+                    <small>sous 48-72h</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Panier Sidebar -->
+    <aside id="panier-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Votre panier</h3>
+            <button class="close-cart">×</button>
+        </div>
+        
+        <div class="cart-items">
+            <!-- Items ajoutés dynamiquement via JS -->
+        </div>
+        
+        <div class="cart-summary">
+            <div class="cart-subtotal">
+                <span>Sous-total:</span>
+                <span class="subtotal-amount">0,00 €</span>
+            </div>
+            <div class="cart-shipping">
+                <span>Livraison:</span>
+                <span class="shipping-amount">Offerte</span>
+            </div>
+            <div class="cart-total">
+                <span>Total TTC:</span>
+                <span class="total-amount">0,00 €</span>
+            </div>
+        </div>
+        
+        <div class="cart-actions">
+            <button class="btn-secondary" onclick="closeCart()">
+                Continuer mes achats
+            </button>
+            <button class="btn-primary" onclick="proceedToCheckout()">
+                Passer commande
+            </button>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Colonne 1: À propos -->
+                <div class="footer-column">
+                    <h4>À Propos</h4>
+                    <ul>
+                        <li><a href="#acte-2">Notre histoire</a></li>
+                        <li><a href="#acte-3">Notre philosophie</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/partenariats">Partenariats</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 2: Légal -->
+                <div class="footer-column">
+                    <h4>Informations Légales</h4>
+                    <ul>
+                        <li><a href="/legal/mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="/legal/cgv.html">Conditions générales de vente</a></li>
+                        <li><a href="/legal/politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="/legal/retours-remboursements.html">Retours & Remboursements</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 3: Suivez-nous -->
+                <div class="footer-column">
+                    <h4>Suivez-nous</h4>
+                    <ul class="social-links">
+                        <li><a href="https://instagram.com/orasheltorah" target="_blank">📷 Instagram</a></li>
+                        <li><a href="https://facebook.com/orasheltorah" target="_blank">👥 Facebook</a></li>
+                        <li><a href="https://linkedin.com/company/orasheltorah" target="_blank">💼 LinkedIn</a></li>
+                    </ul>
+                    
+                    <div class="footer-contact">
+                        <p><strong>Ora Shel Torah</strong></p>
+                        <p>27 Boulevard des Belges<br>69006 Lyon, France</p>
+                        <p>📧 contact@orasheltorah.com</p>
+                        <p>📞 06 18 06 10 00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Ora Shel Torah - Tous droits réservés</p>
+                <p class="footer-tagline">
+                    ✨ "De génération en génération" ✨
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bouton retour en haut -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Retour en haut">
+        ↑
+    </button>
+
+    <!-- ========================================
+     REMPLACER LES 3 MODALES "DÉCOUVRIR LE CONTENU"
+     Copiez ce code et remplacez les 3 modales dans index.html
+     (cherchez "MODALE DÉCOUVRIR LE CONTENU")
+     ======================================== -->
+
+<!-- Modale JDC -->
+<div class="content-discovery-overlay" id="content-discovery-jdc">
+    <div class="content-discovery-modal">
+        <button class="content-discovery-close" aria-label="Fermer">×</button>
+        
+        <div class="content-discovery-wrapper">
+            <!-- Colonne gauche : Contenu (2/3) -->
+            <div class="content-discovery-left">
+                <div class="content-discovery-header">
+                    <h2>Jérusalem du Ciel</h2>
+                    <p class="content-discovery-subtitle">Un voyage familial à travers 3000 ans d'histoire juive</p>
+                </div>
+                
+                <div class="content-discovery-body">
+                    <!-- Texte principal -->
+                    <div class="content-discovery-section">
+                        <p>
+                            Imaginez traverser six grandes périodes de l'histoire juive - des Patriarches à la Diaspora - 
+                            tout en construisant ensemble le Temple de Jérusalem. Ce n'est pas qu'un jeu : c'est une expérience 
+                            de transmission multigénérationnelle.
+                        </p>
+                        <p>
+                            Chaque case du plateau circulaire propose une épreuve différente : questions sur les fêtes et la halakha, 
+                            dilemmes moraux, mimes, énigmes inspirées du midrash. Les joueurs ne s'affrontent pas, ils s'entraident 
+                            grâce aux cartes "Hessed" qui valorisent la bienveillance et le partage de connaissances.
+                        </p>
+                    </div>
+                    
+                    <!-- Ce que vous découvrirez -->
+                    <div class="content-discovery-section">
+                        <h3>Ce que vous découvrirez</h3>
+                        <ul>
+                            <li>Les six grandes périodes de l'histoire juive avec leurs événements clés</li>
+                            <li>Les fondements de la halakha adaptés à tous les niveaux</li>
+                            <li>Les fêtes juives replacées dans leur contexte historique</li>
+                            <li>L'importance du lien familial et de l'entraide</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contenu complet -->
+                    <div class="content-discovery-section">
+                        <h3>Contenu complet</h3>
+                        <ul>
+                            <li>1 plateau circulaire représentant 6 périodes historiques</li>
+                            <li>850 cartes questions/défis réparties sur 3 niveaux</li>
+                            <li>Cartes Hessed (entraide)</li>
+                            <li>Pièces du Temple à construire</li>
+                            <li>2 pions et 1 dé numéroté</li>
+                            <li>Glossaire hébreu français</li>
+                            <li>Règles complètes illustrées</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Spécifications -->
+                    <div class="content-discovery-specs">
+                        <div class="spec-item-compact">
+                            <strong>👥 Joueurs</strong>
+                            <span>2-6 joueurs ou équipes</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>⏱️ Durée</strong>
+                            <span>60-90 minutes</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>🎯 Âge</strong>
+                            <span>10 ans+</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>✅ Shabbat</strong>
+                            <span>Compatible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colonne droite : Carrousel vertical (1/3) -->
+            <div class="content-discovery-right">
+                <div class="vertical-carousel">
+                    <div class="vertical-carousel-viewport">
+                        <!-- Généré dynamiquement par JS -->
+                    </div>
+                    
+                    <!-- Navigation verticale -->
+                    <button class="vertical-carousel-nav prev" aria-label="Image précédente">↑</button>
+                    <button class="vertical-carousel-nav next" aria-label="Image suivante">↓</button>
+                    
+                    <!-- Indicateurs -->
+                    <div class="vertical-carousel-indicators">
+                        <button class="vertical-carousel-indicator active" data-index="0"></button>
+                        <button class="vertical-carousel-indicator" data-index="1"></button>
+                        <button class="vertical-carousel-indicator" data-index="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modale MOH -->
+<div class="content-discovery-overlay" id="content-discovery-moh">
+    <div class="content-discovery-modal">
+        <button class="content-discovery-close" aria-label="Fermer">×</button>
+        
+        <div class="content-discovery-wrapper">
+            <!-- Colonne gauche : Contenu (2/3) -->
+            <div class="content-discovery-left">
+                <div class="content-discovery-header">
+                    <h2>Minhag ou Halakha ?</h2>
+                    <p class="content-discovery-subtitle">Apprenez à distinguer les lois des coutumes... et à en comprendre les sources</p>
+                </div>
+                
+                <div class="content-discovery-body">
+                    <!-- Texte principal -->
+                    <div class="content-discovery-section">
+                        <p>
+                            Savez-vous faire la différence entre une obligation halakhique, une coutume communautaire et une 
+                            simple superstition ? Ce jeu de réflexion et de débat vous invite à explorer 330 pratiques juives 
+                            pour développer votre sens critique et votre connaissance des sources.
+                        </p>
+                        <p>
+                            Chaque carte présente cinq pratiques à classer : Halakha (obligation religieuse), Minhag (coutume), 
+                            ou Autre (usage sans base halakhique). Les joueurs discutent, argumentent, puis découvrent la réponse 
+                            avec des explications pédagogiques détaillées et des sources rabbiniques précises.
+                        </p>
+                    </div>
+                    
+                    <!-- Ce que vous apprendrez -->
+                    <div class="content-discovery-section">
+                        <h3>Ce que vous apprendrez</h3>
+                        <ul>
+                            <li>Distinguer obligation, coutume et usage populaire</li>
+                            <li>Identifier les sources authentiques (Torah, Talmud, Shulhan Aroukh)</li>
+                            <li>Comprendre l'évolution des pratiques à travers l'histoire</li>
+                            <li>Développer un regard éclairé sur votre propre pratique</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contenu complet -->
+                    <div class="content-discovery-section">
+                        <h3>Contenu complet</h3>
+                        <ul>
+                            <li>330 cartes pratiques juives avec explications et sources</li>
+                            <li>Guide de jeu avec variantes (duel, équipes, havruta)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Spécifications -->
+                    <div class="content-discovery-specs">
+                        <div class="spec-item-compact">
+                            <strong>👥 Joueurs</strong>
+                            <span>2-8 joueurs</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>⏱️ Durée</strong>
+                            <span>20-40 minutes</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>🎯 Âge</strong>
+                            <span>12 ans+</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>✅ Shabbat</strong>
+                            <span>Compatible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colonne droite : Carrousel vertical (1/3) -->
+            <div class="content-discovery-right">
+                <div class="vertical-carousel">
+                    <div class="vertical-carousel-viewport">
+                        <!-- Généré dynamiquement par JS -->
+                    </div>
+                    
+                    <!-- Navigation verticale -->
+                    <button class="vertical-carousel-nav prev" aria-label="Image précédente">↑</button>
+                    <button class="vertical-carousel-nav next" aria-label="Image suivante">↓</button>
+                    
+                    <!-- Indicateurs -->
+                    <div class="vertical-carousel-indicators">
+                        <button class="vertical-carousel-indicator active" data-index="0"></button>
+                        <button class="vertical-carousel-indicator" data-index="1"></button>
+                        <button class="vertical-carousel-indicator" data-index="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modale POZ -->
+<div class="content-discovery-overlay" id="content-discovery-poz">
+    <div class="content-discovery-modal">
+        <button class="content-discovery-close" aria-label="Fermer">×</button>
+        
+        <div class="content-discovery-wrapper">
+            <!-- Colonne gauche : Contenu (2/3) -->
+            <div class="content-discovery-left">
+                <div class="content-discovery-header">
+                    <h2>Poztamitsvah</h2>
+                    <p class="content-discovery-subtitle">Découvrez les mitzvot au quotidien et préparez votre bar/bat mitzvah</p>
+                </div>
+                
+                <div class="content-discovery-body">
+                    <!-- Texte principal -->
+                    <div class="content-discovery-section">
+                        <p>
+                            Conçu spécialement pour accompagner les jeunes vers leur majorité religieuse, ce jeu transforme la 
+                            découverte des mitzvot en aventure ludique et familiale. Fini l'apprentissage par cœur : ici, on 
+                            comprend le sens, on identifie les sources, on relie chaque mitsva à la vie quotidienne.
+                        </p>
+                        <p>
+                            Les cartes présentent des situations concrètes à relier aux mitzvot correspondantes. Pourquoi séparer 
+                            la viande et le lait ? D'où vient l'obligation du tsitsit ? Quelle est la source de la tsedaka ? 
+                            Chaque réponse est accompagnée d'explications claires, de références bibliques et talmudiques, et 
+                            d'applications pratiques.
+                        </p>
+                    </div>
+                    
+                    <!-- Ce que vous découvrirez -->
+                    <div class="content-discovery-section">
+                        <h3>Ce que vous découvrirez</h3>
+                        <ul>
+                            <li>145 mitsvot et minhagim essentiels de la vie juive quotidienne</li>
+                            <li>40 averot (transgressions) à connaître et éviter</li>
+                            <li>35 lieux saints et leur signification</li>
+                            <li>Leurs sources dans la Torah et le Talmud</li>
+                            <li>Leur dimension spirituelle et éthique</li>
+                            <li>Des repères pour la préparation bar/bat mitzvah</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contenu complet -->
+                    <div class="content-discovery-section">
+                        <h3>Contenu complet</h3>
+                        <ul>
+                            <li>220 cartes au total (145 mitsvot/minhagim + 40 averot + 35 lieux)</li>
+                            <li>Guide de jeu avec variantes</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Spécifications -->
+                    <div class="content-discovery-specs">
+                        <div class="spec-item-compact">
+                            <strong>👥 Joueurs</strong>
+                            <span>2-6 joueurs</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>⏱️ Durée</strong>
+                            <span>30-45 minutes</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>🎯 Âge</strong>
+                            <span>11 ans+</span>
+                        </div>
+                        <div class="spec-item-compact">
+                            <strong>✅ Shabbat</strong>
+                            <span>Compatible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colonne droite : Carrousel vertical (1/3) -->
+            <div class="content-discovery-right">
+                <div class="vertical-carousel">
+                    <div class="vertical-carousel-viewport">
+                        <!-- Généré dynamiquement par JS -->
+                    </div>
+                    
+                    <!-- Navigation verticale -->
+                    <button class="vertical-carousel-nav prev" aria-label="Image précédente">↑</button>
+                    <button class="vertical-carousel-nav next" aria-label="Image suivante">↓</button>
+                    
+                    <!-- Indicateurs -->
+                    <div class="vertical-carousel-indicators">
+                        <button class="vertical-carousel-indicator active" data-index="0"></button>
+                        <button class="vertical-carousel-indicator" data-index="1"></button>
+                        <button class="vertical-carousel-indicator" data-index="2"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- OVERLAY PLEIN ÉCRAN POUR CAROUSEL -->
+    <div class="fullscreen-overlay" id="fullscreen-overlay" style="display: none;">
+        <button class="fullscreen-close" id="fullscreen-close">
+            <span>×</span>
+        </button>
+        
+        <div class="fullscreen-container" id="fullscreen-container"></div>
+        
+        <button class="fullscreen-nav prev" id="fullscreen-prev">
+            <span>‹</span>
+        </button>
+        <button class="fullscreen-nav next" id="fullscreen-next">
+            <span>›</span>
+        </button>
+        
+        <div class="fullscreen-indicators" id="fullscreen-indicators"></div>
+        
+        <div class="fullscreen-caption" id="fullscreen-caption">
+            Image 1 sur 4
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/animations.js"></script>
+    <!-- Redéploiement pour activer STRIPE_SECRET_KEY - 30 oct 2025 -->
+    
+    <!-- Script modales découvrir -->
+    <script src="js/gallery-config.js"></script>
+    <script src="js/content-discovery-modals.js"></script>
+</body>
+</html>

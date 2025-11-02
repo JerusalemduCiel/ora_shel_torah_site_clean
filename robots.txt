@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.orasheltorah.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.netlify/
+
+# Allow all images
+Allow: /images/
+Allow: /videos/
+Allow: /animations/
+
+# Crawl delay
+Crawl-delay: 1

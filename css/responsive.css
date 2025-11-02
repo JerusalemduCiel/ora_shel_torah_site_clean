@@ -1,0 +1,856 @@
+/* ========================================
+   ORA SHEL TORAH - RESPONSIVE DESIGN
+   ======================================== */
+
+/* ========================================
+   SECTION PHILOSOPHIE - RESPONSIVE MOBILE
+   ======================================== */
+
+/* Desktop : affichage côte à côte (comportement par défaut) */
+.philosophy-slide {
+  flex: 1;
+  position: relative;
+}
+
+.mobile-nav-arrow {
+  display: none; /* Caché sur desktop */
+}
+
+/* MOBILE : Carrousel avec flèches de navigation */
+@media (max-width: 768px) {
+  .video-philosophy-container {
+    position: relative;
+    overflow: visible;
+    display: block;
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  .philosophy-slide {
+    display: none; /* Cacher tous les slides par défaut */
+    width: 100%;
+    padding: 1rem;
+    min-height: auto;
+  }
+  
+  /* Afficher uniquement le slide actif */
+  .philosophy-slide[data-slide="0"] {
+    display: block;
+  }
+  
+  .video-philosophy-container[data-mobile-slide="1"] .philosophy-slide[data-slide="0"] {
+    display: none;
+  }
+  
+  .video-philosophy-container[data-mobile-slide="1"] .philosophy-slide[data-slide="1"] {
+    display: block;
+  }
+  
+  /* Styles des flèches de navigation */
+  .mobile-nav-arrow {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(237, 162, 52, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  .mobile-nav-arrow:hover {
+    background: rgba(237, 162, 52, 1);
+    transform: scale(1.1);
+  }
+  
+  .mobile-nav-arrow span {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .arrow-next {
+    right: 20px;
+  }
+  
+  .arrow-prev {
+    left: 20px;
+  }
+  
+  /* Ajuster le texte fondateur sur mobile */
+  .founder-intro-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .founder-intro-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .founder-intro-photo {
+    max-width: 150px;
+    margin: 0 auto 1rem;
+  }
+  
+  /* Container scrollable pour le texte - SOLUTION ROBUSTE POUR ANDROID */
+  .philosophy-slide.text-slide {
+    position: relative !important;
+    display: block !important;
+    height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* FONDER-INTRO devient le container scrollable - CRITIQUE */
+  .philosophy-slide.text-slide .founder-intro {
+    flex: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 1rem !important;
+    padding-bottom: 100px !important;
+    margin: 0 !important;
+    display: block !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(237, 162, 52, 0.9) rgba(0, 0, 0, 0.2) !important;
+    box-sizing: border-box !important;
+    /* Annuler tous les styles desktop */
+    background: white !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    gap: 1rem !important;
+  }
+  
+  /* Forcer la scrollbar VISIBLE en permanence sur Android/Chrome */
+  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar {
+    width: 12px !important;
+    display: block !important;
+    -webkit-appearance: none !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.15) !important;
+    border-radius: 10px !important;
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.3) !important;
+    margin: 5px 0 !important;
+  }
+  
+  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-thumb {
+    background: rgba(237, 162, 52, 0.95) !important;
+    border-radius: 10px !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.5) !important;
+    min-height: 40px !important;
+  }
+  
+  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-thumb:hover {
+    background: rgba(237, 162, 52, 1) !important;
+  }
+  
+  /* Assurer que le contenu peut dépasser */
+  .philosophy-slide.text-slide .founder-intro-text {
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+}
+
+/* Mobile First Approach */
+
+/* Base styles = Mobile (< 768px) */
+@media (max-width: 767px) {
+  /* Container */
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  /* Header */
+  #main-header {
+    padding: var(--space-sm) 0;
+  }
+
+  .logo .tagline {
+    display: none;
+  }
+
+  .main-nav {
+    gap: var(--space-md);
+  }
+
+  .btn-preorder {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  /* Hero */
+  .hero-logo img {
+    height: 120px;
+    max-width: 250px;
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    letter-spacing: 1px;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-lg);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-base);
+  }
+
+  /* Sections */
+  .section-header h2 {
+    font-size: var(--text-3xl);
+  }
+
+  /* Philosophie */
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Triple Split */
+  .triple-split-container {
+    flex-direction: column;
+    height: auto;
+    margin: var(--space-xl) 0;
+  }
+
+  .split-panel {
+    height: 200px;
+    flex: none;
+  }
+
+  .split-panel:hover {
+    flex: none;
+    height: 220px;
+  }
+
+  .panel-content h3 {
+    font-size: var(--text-2xl);
+  }
+
+  .panel-content p {
+    font-size: var(--text-base);
+  }
+
+  /* Hero Bis */
+  .hero-bis-content h2 {
+    font-size: var(--text-3xl);
+  }
+
+  .hero-bis-subtitle {
+    font-size: var(--text-lg);
+  }
+
+  .hero-bis-actions {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .hero-bis-actions .btn-modal {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-base);
+  }
+
+  /* Boîtes de jeux */
+  .boxes-container {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .game-box {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .box-inner img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .box-glow {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Démos */
+  .demos-grid {
+    gap: var(--space-xl);
+  }
+
+  .demo-card iframe {
+    height: 400px;
+  }
+
+  /* Produits */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .product-card.featured {
+    transform: none;
+  }
+
+  .product-specs {
+    justify-content: center;
+  }
+
+  /* Panier */
+  .cart-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-item-quantity {
+    justify-content: center;
+  }
+
+  .cart-actions {
+    flex-direction: column;
+  }
+
+  /* Modales */
+  .modal-hero {
+    padding: 1rem;
+    width: 95vw;
+    max-width: 500px;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .modal-hero-image {
+    flex: none;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .modal-content-text {
+    flex: none;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .modal-actions {
+    gap: var(--space-sm);
+  }
+
+  .btn-modal {
+    padding: var(--space-md);
+  }
+
+  .btn-modal .icon {
+    font-size: var(--text-lg);
+  }
+
+  .btn-modal .label {
+    font-size: var(--text-sm);
+  }
+
+  .btn-modal .sublabel {
+    font-size: var(--text-xs);
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  /* Statistiques */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .stat-number {
+    font-size: var(--text-4xl);
+  }
+
+  /* Témoignages */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .testimonial-author {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Partenaires */
+  .partners-logos {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  /* Trust signals */
+  .trust-signals {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  /* Animations réduites sur mobile */
+  .particles-container {
+    display: none;
+  }
+
+  .hebrew-letters {
+    display: none;
+  }
+
+  .box-glow {
+    animation: none;
+  }
+
+  .game-box.fall-animation {
+    animation: boxFallMobile 0.5s ease-out forwards;
+  }
+
+  @keyframes boxFallMobile {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Tablet (≥ 768px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .hero-title {
+    font-size: var(--text-5xl);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boxes-container {
+    gap: var(--space-xl);
+  }
+
+  .game-box {
+    flex: 1;
+    max-width: 250px;
+  }
+
+  .philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-signals {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-hero-image {
+    max-width: 400px;
+  }
+
+  .modal-content {
+    max-width: 400px;
+  }
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .modal-hero {
+    padding: var(--space-2xl);
+  }
+
+  .modal-hero-image {
+    max-width: 500px;
+  }
+
+  .modal-content {
+    max-width: 450px;
+  }
+
+  .boxes-container {
+    gap: var(--space-2xl);
+  }
+
+  .game-box {
+    max-width: 280px;
+  }
+}
+
+/* Wide (≥ 1280px) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container-max-width);
+  }
+
+  .hero-logo img {
+    height: 200px;
+    max-width: 450px;
+  }
+
+  .hero-title {
+    font-size: 5rem;
+    letter-spacing: 3px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .philosophy-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .boxes-container {
+    gap: var(--space-3xl);
+  }
+
+  .game-box {
+    max-width: 300px;
+  }
+
+  .modal-hero-image {
+    max-width: 600px;
+  }
+
+  .modal-content {
+    max-width: 500px;
+  }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) and (max-height: 600px) {
+  .hero-dark {
+    min-height: 100vh;
+    padding: var(--space-lg) 0;
+  }
+
+  .hero-content {
+    padding: 0 var(--space-md);
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-actions {
+    margin-bottom: var(--space-lg);
+  }
+
+  .modal-hero {
+    padding: var(--space-sm);
+  }
+
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo img,
+  .product-image img,
+  .game-box img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .hero-dark {
+    background: white !important;
+    color: black !important;
+  }
+
+  .hero-title {
+    color: black !important;
+  }
+
+  .btn-primary, .btn-secondary, .btn-add-to-cart {
+    border: 1px solid black !important;
+    background: white !important;
+  }
+
+  .modal-hero, .cart-sidebar {
+    display: none !important;
+  }
+
+  .container {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .section-header, .philosophy-card, .product-card {
+    break-inside: avoid;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .particles-container {
+    display: none;
+  }
+
+  .box-glow {
+    animation: none;
+  }
+
+  .game-box.fall-animation {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .pulse, .bounce, .rotate, .float {
+    animation: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-dark: #ecf0f1;
+    --color-off-white: #2c3e50;
+  }
+
+  .histoire-fondateur,
+  .revelation-jeux,
+  .demos-interactives,
+  .communaute,
+  .cta-final {
+    background: #1a1a1a;
+  }
+
+  .philosophy-card,
+  .testimonial-card,
+  .product-card,
+  .demo-card {
+    background: #2c2c2c;
+    border-color: #444;
+  }
+
+  .cart-sidebar {
+    background: #2c2c2c;
+  }
+
+  .modal-content {
+    background: #2c2c2c;
+    color: #ecf0f1;
+  }
+}
+
+/* Focus styles for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  *:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  .btn-primary:focus,
+  .btn-secondary:focus,
+  .btn-add-to-cart:focus {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+}
+
+/* Hover effects only on devices that support hover */
+@media (hover: hover) {
+  .game-box:hover .box-inner img {
+    transform: scale(1.05);
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .philosophy-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary, .btn-secondary, .btn-add-to-cart {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .cart-item-quantity button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .modal-close {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .close-cart {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  .hero-title {
+    font-size: var(--text-3xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  .product-specs {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .newsletter-form {
+    gap: var(--space-sm);
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    padding: var(--space-sm);
+    font-size: var(--text-sm);
+  }
+}
+
+/* Large screens */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .hero-title {
+    font-size: 6rem;
+  }
+
+  .boxes-container {
+    gap: var(--space-4xl);
+  }
+
+  .game-box {
+    max-width: 350px;
+  }
+
+  .box-inner img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .box-glow {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+
+  .hero-title {
+    font-size: 7rem;
+  }
+
+  .section-header h2 {
+    font-size: var(--text-5xl);
+  }
+}
