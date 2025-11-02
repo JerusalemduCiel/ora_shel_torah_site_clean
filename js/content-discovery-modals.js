@@ -151,6 +151,14 @@ function closeContentDiscoveryModal(overlay) {
    ======================================== */
 
 function buildCarousel(overlay, gameId) {
+    console.log('🔧 buildCarousel appelé pour', gameId);
+    
+    // Vérification stricte de l'overlay
+    if (!overlay || !overlay.classList.contains('content-discovery-overlay')) {
+        console.error('❌ Overlay invalide');
+        return;
+    }
+    
     // Récupérer la config pour ce jeu
     const config = GALLERY_CONFIG[gameId];
     if (!config || !config.length) {
@@ -163,13 +171,26 @@ function buildCarousel(overlay, gameId) {
     // Trouver le container de droite
     const rightContainer = overlay.querySelector('.content-discovery-right');
     if (!rightContainer) {
-        console.error('❌ Container droite introuvable');
+        console.error('❌ Container droite introuvable pour', gameId);
         return;
     }
     
-    // Créer la grille
-    rightContainer.innerHTML = `<div class="gallery-grid"></div>`;
-    const grid = rightContainer.querySelector('.gallery-grid');
+    // Vérifier que rightContainer est bien dans overlay
+    if (!overlay.contains(rightContainer)) {
+        console.error('❌ rightContainer n\'est pas dans overlay !');
+        return;
+    }
+    
+    console.log('✅ rightContainer trouvé, construction du carousel');
+    
+    // Vider proprement SANS innerHTML
+    while (rightContainer.firstChild) {
+        rightContainer.removeChild(rightContainer.firstChild);
+    }
+    
+    // Créer la gallery-grid
+    const galleryGrid = document.createElement('div');
+    galleryGrid.className = 'gallery-grid';
     
     // Ajouter les items
     config.forEach((item, index) => {
@@ -189,8 +210,13 @@ function buildCarousel(overlay, gameId) {
             openLightbox(config, index);
         });
         
-        grid.appendChild(galleryItem);
+        galleryGrid.appendChild(galleryItem);
     });
+    
+    // Ajouter la grille au container
+    rightContainer.appendChild(galleryGrid);
+    
+    console.log('✅ Carousel construit avec', config.length, 'items');
 }
 
 /* ========================================
