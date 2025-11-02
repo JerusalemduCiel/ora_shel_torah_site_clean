@@ -119,6 +119,37 @@ function openContentDiscoveryModal(gameId, e) {
         overlay.classList.add('active');
         alert('4. Classes : ' + overlay.className);
         
+        // FORCER STYLES UNIQUEMENT SUR MOBILE (< 1024px)
+        if (window.innerWidth < 1024) {
+            alert('6a. Mode mobile détecté, application styles inline');
+            
+            overlay.style.display = 'flex';
+            overlay.style.opacity = '1';
+            overlay.style.visibility = 'visible';
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100vw';
+            overlay.style.height = '100vh';
+            overlay.style.zIndex = '999999';
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.85)';
+            overlay.style.alignItems = 'center';
+            overlay.style.justifyContent = 'center';
+            
+            const modal = overlay.querySelector('.content-discovery-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                modal.style.visibility = 'visible';
+                modal.style.opacity = '1';
+                modal.style.transform = 'scale(1)';
+                modal.style.position = 'relative';
+            }
+            
+            alert('6b. Styles inline appliqués !');
+        } else {
+            alert('6. Desktop - CSS normal utilisé');
+        }
+        
         // Réactiver les clics après l'animation
         setTimeout(() => {
             overlay.style.pointerEvents = 'auto';
