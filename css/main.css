@@ -4551,3 +4551,26 @@ html body #hero-bis-poz .hero-bis-background img {
         padding: 30px 20px;
     }
 }
+
+/* Correction hauteur modale iPhone */
+@media (max-width: 768px) {
+  .content-discovery-modal {
+    height: 95vh !important;
+    max-height: 95vh !important;
+  }
+  
+  .vertical-carousel-viewport {
+    height: 100% !important;
+    min-height: 500px !important;
+  }
+  
+  .vertical-carousel-item {
+    padding: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-discovery-modal {
+    height: 98vh !important;
+  }
+}
