@@ -1,7 +1,4 @@
-/**
- * Configuration des galeries pour les modales "Découvrir le contenu"
- * Pour ajouter/retirer des images : modifiez simplement les tableaux ci-dessous
- */
+alert('✅ GALLERY CONFIG CHARGÉ');
 
 const GALLERY_CONFIG = {
     jdc: [

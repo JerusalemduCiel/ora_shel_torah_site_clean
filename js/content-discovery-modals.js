@@ -1,11 +1,6 @@
-/* ========================================
-   MODALES DÉCOUVRIR LE CONTENU
-   Gestion des modales avec layout 2/3 - 1/3
-   Carrousel vertical et navigation
-   ======================================== */
-   alert('🔥 SCRIPT CHARGÉ !');
+alert('🔥 SCRIPT CHARGÉ !');
+alert('🔥 SCRIPT CHARGÉ 2 !');
 console.log('🔥 Script chargé');
-alert('Script chargé !');
 
 let isOpening = false;
 

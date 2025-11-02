@@ -1,3 +1,4 @@
+try {
 /* ========================================
    SYSTÈME DE MODALES - VERSION SIMPLE
    ======================================== */
@@ -410,4 +411,8 @@ function resetVerticalCarousel(carousel) {
     
     if (prevBtn) prevBtn.disabled = true;
     if (nextBtn) nextBtn.disabled = items.length <= 1;
+}
+
+} catch(e) {
+    alert('ERREUR modals.js : ' + e.message);
 }

@@ -1,3 +1,4 @@
+try {
 /* ========================================
    ORA SHEL TORAH - SCRIPT PRINCIPAL
    ======================================== */
@@ -725,3 +726,7 @@ window.OraShelTorah = {
     debounce,
     throttle
 };
+
+} catch(e) {
+    alert('ERREUR main.js : ' + e.message);
+}
