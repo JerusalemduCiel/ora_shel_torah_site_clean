@@ -31,6 +31,8 @@ function initContentDiscoveryModals() {
             e.stopPropagation();
             
             const modalId = this.getAttribute('data-modal');
+            alert('1. Clic détecté sur : ' + modalId);
+            
             const gameId = modalId.replace('content-discovery-', '');
             
             if (gameId) {
@@ -93,6 +95,7 @@ function openContentDiscoveryModal(gameId, e) {
     console.log('🎯 Ouverture modale découverte contenu:', gameId);
     
     const overlay = document.getElementById(`content-discovery-${gameId}`);
+    alert('2. Overlay trouvé : ' + (overlay ? 'OUI' : 'NON'));
     if (!overlay) {
         console.error('❌ Overlay introuvable:', gameId);
         return;
@@ -110,8 +113,10 @@ function openContentDiscoveryModal(gameId, e) {
     // Afficher l'overlay avec animation
     overlay.style.display = 'flex';
     setTimeout(() => {
+        alert('3. Ajout classe active');
         overlay.dataset.openTime = Date.now();
         overlay.classList.add('active');
+        alert('4. Classes : ' + overlay.className);
         
         // Réactiver les clics après l'animation
         setTimeout(() => {
@@ -151,6 +156,7 @@ function closeContentDiscoveryModal(overlay) {
    ======================================== */
 
 function buildCarousel(overlay, gameId) {
+    alert('5. buildCarousel appelé pour ' + gameId);
     console.log('🔧 buildCarousel appelé pour', gameId);
     
     // Vérification stricte de l'overlay
