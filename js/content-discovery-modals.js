@@ -1,5 +1,3 @@
-alert('🔥 SCRIPT CHARGÉ !');
-alert('🔥 SCRIPT CHARGÉ 2 !');
 console.log('🔥 Script chargé');
 
 let isOpening = false;
@@ -24,7 +22,6 @@ function initContentDiscoveryModals() {
     
     // Boutons d'ouverture avec data-modal
     const buttons = document.querySelectorAll('[data-modal^="content-discovery-"]');
-    alert('Boutons trouvés : ' + buttons.length);
     
     buttons.forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -32,7 +29,6 @@ function initContentDiscoveryModals() {
             e.stopPropagation();
             
             const modalId = this.getAttribute('data-modal');
-            alert('1. Clic détecté sur : ' + modalId);
             
             const gameId = modalId.replace('content-discovery-', '');
             
@@ -96,7 +92,6 @@ function openContentDiscoveryModal(gameId, e) {
     console.log('🎯 Ouverture modale découverte contenu:', gameId);
     
     const overlay = document.getElementById(`content-discovery-${gameId}`);
-    alert('2. Overlay trouvé : ' + (overlay ? 'OUI' : 'NON'));
     if (!overlay) {
         console.error('❌ Overlay introuvable:', gameId);
         return;
@@ -114,14 +109,11 @@ function openContentDiscoveryModal(gameId, e) {
     // Afficher l'overlay avec animation
     overlay.style.display = 'flex';
     setTimeout(() => {
-        alert('3. Ajout classe active');
         overlay.dataset.openTime = Date.now();
         overlay.classList.add('active');
-        alert('4. Classes : ' + overlay.className);
         
         // FORCER STYLES UNIQUEMENT SUR MOBILE (< 1024px)
         if (window.innerWidth < 1024) {
-            alert('6a. Mode mobile détecté, application styles inline');
             
             overlay.style.display = 'flex';
             overlay.style.opacity = '1';
@@ -238,12 +230,6 @@ function openContentDiscoveryModal(gameId, e) {
                     if (span) span.style.color = '#ffffff';
                 });
             }
-            
-            alert('6b. Styles inline appliqués !');
-            alert('7. Layout interne appliqué !');
-            alert('8. Opacité et couleurs corrigées !');
-        } else {
-            alert('6. Desktop - CSS normal utilisé');
         }
         
         // Réactiver les clics après l'animation
@@ -284,7 +270,6 @@ function closeContentDiscoveryModal(overlay) {
    ======================================== */
 
 function buildCarousel(overlay, gameId) {
-    alert('5. buildCarousel appelé pour ' + gameId);
     console.log('🔧 buildCarousel appelé pour', gameId);
     
     // Vérification stricte de l'overlay

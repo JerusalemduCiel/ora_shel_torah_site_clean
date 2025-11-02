@@ -1,5 +1,3 @@
-alert('✅ GALLERY CONFIG CHARGÉ');
-
 const GALLERY_CONFIG = {
     jdc: [
         { 
