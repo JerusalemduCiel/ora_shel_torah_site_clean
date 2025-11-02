@@ -4567,6 +4567,17 @@ html body #hero-bis-poz .hero-bis-background img {
   .vertical-carousel-item {
     padding: 1rem !important;
   }
+  
+  .content-discovery-right {
+    padding-top: 1rem !important;
+    display: flex !important;
+    align-items: flex-start !important;
+  }
+  
+  .gallery-grid {
+    margin-top: 0 !important;
+    align-self: flex-start !important;
+  }
 }
 
 @media (max-width: 480px) {
