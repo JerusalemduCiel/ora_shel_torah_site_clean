@@ -5034,7 +5034,7 @@ html body #hero-bis-poz .hero-bis-background img {
 /* Hero À Propos - Image de fond avec overlay */
 .hero-about {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.7)),
-                url('../images/backgrounds/jerusalem_twilight.jpg') center/cover;
+                url('../images/backgrounds/back_a_propos.png') center/cover;
     padding: 8rem 2rem 6rem;
     text-align: center;
     color: #ffffff;
