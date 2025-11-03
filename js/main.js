@@ -742,69 +742,199 @@ function initRevelationVideos() {
     
     if (!v1 || !v2 || !v3) return;
     
+    // ============================================
+    // DÉLAI AVANT DÉSATURATION
+    // ============================================
+    const DELAY_BEFORE_DESATURATE = 2000; // 2 secondes
+    
+    // ============================================
+    // APPARITION DES TITRES (UNE SEULE FOIS)
+    // ============================================
+    
+    // Fonction pour afficher le titre à 50% de l'animation
+    function setupTitleAppearance(video, titleElement) {
+        if (!video || !titleElement) return;
+        
+        let labelShown = false; // Flag pour ne montrer qu'une fois
+        
+        video.addEventListener('timeupdate', function() {
+            if (!video.duration) return;
+            
+            // Afficher le titre à 50% de l'animation
+            if (!labelShown && video.currentTime / video.duration >= 0.5) {
+                titleElement.classList.add('visible');
+                labelShown = true; // Ne plus jamais cacher
+                console.log('✅ Titre affiché:', titleElement.textContent);
+            }
+        });
+    }
+    
+    // ============================================
+    // BOUTON REPLAY - Apparition et fonctionnalité
+    // ============================================
+    
+    // Fonction pour afficher le bouton replay après la fin de la vidéo
+    function showReplayButton(videoElement) {
+        const wrapper = videoElement.closest('.revelation-video-wrapper');
+        const replayBtn = wrapper?.querySelector('.revelation-replay-btn');
+        
+        if (replayBtn) {
+            // Afficher le bouton après la désaturation (2s + 500ms)
+            setTimeout(() => {
+                replayBtn.classList.add('visible');
+                console.log('🔄 Bouton replay affiché');
+            }, DELAY_BEFORE_DESATURATE + 500);
+        }
+    }
+    
+    // Fonction pour rejouer l'animation
+    function replayAnimation(videoElement, titleElement) {
+        if (!videoElement || !titleElement) return;
+        
+        const wrapper = videoElement.closest('.revelation-video-wrapper');
+        const replayBtn = wrapper?.querySelector('.revelation-replay-btn');
+        
+        console.log('🔄 Replay:', videoElement.id);
+        
+        // 1. Cacher le bouton replay
+        if (replayBtn) {
+            replayBtn.classList.remove('visible');
+        }
+        
+        // 2. Retirer la classe inactive pour réinitialiser les couleurs
+        videoElement.classList.remove('inactive');
+        wrapper?.classList.remove('inactive');
+        
+        // 3. Le titre reste visible (pas touché)
+        
+        // 4. Réinitialiser la vidéo
+        videoElement.currentTime = 0;
+        
+        // 5. Redémarrer la vidéo
+        videoElement.play().catch(err => {
+            console.log('Erreur replay:', err);
+        });
+        
+        // 6. La progression du titre sera gérée automatiquement par setupTitleAppearance
+        // qui est déjà configuré via les event listeners
+    }
+    
+    // Attacher les event listeners de replay
+    const replayButtons = document.querySelectorAll('.revelation-replay-btn');
+    replayButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Empêcher le clic sur le wrapper
+            const videoId = this.getAttribute('data-video');
+            const textId = this.getAttribute('data-text');
+            
+            const video = document.getElementById(videoId);
+            const text = document.getElementById(textId);
+            
+            if (video && text) {
+                replayAnimation(video, text);
+            }
+        });
+    });
+    
     // Vidéo 1 : autoplay (déjà dans HTML)
     v1.addEventListener('loadeddata', () => {
         console.log('🎬 Vidéo 1 (JDC) chargée');
-        // Afficher le texte "L'HISTOIRE" en fondu après 2 secondes
-        setTimeout(() => {
-            if (text1) {
-                text1.style.opacity = '0';
-                text1.style.transition = 'opacity 1s ease-in';
-                setTimeout(() => {
-                    text1.style.opacity = '1';
-                }, 100);
-            }
-        }, 2000);
+        setupTitleAppearance(v1, text1);
     });
     
-    // Vidéo 2 : démarrer avec chevauchement (8 secondes après le début de v1)
+    // Vidéo 2 (MOH) : démarrer 5 secondes après JDC (t=5s)
     setTimeout(() => {
         if (v2) {
             v2.play().catch(err => console.log('Erreur autoplay v2:', err));
-            console.log('🎬 Vidéo 2 (MOH) démarrée');
-            // Afficher le texte "LA LOI" en fondu après 2 secondes du début de v2
-            setTimeout(() => {
-                if (text2) {
-                    text2.style.opacity = '0';
-                    text2.style.transition = 'opacity 1s ease-in';
-                    setTimeout(() => {
-                        text2.style.opacity = '1';
-                    }, 100);
-                }
-            }, 2000);
+            console.log('🎬 Vidéo 2 (MOH) démarrée à t=5s');
+            setupTitleAppearance(v2, text2);
         }
-    }, 8000);
+    }, 5000); // 5 secondes = 5000ms
     
-    // Vidéo 3 : démarrer avec chevauchement (16 secondes après le début de v1)
+    // Vidéo 3 (POZ) : démarrer 10 secondes après JDC (t=10s, soit 5s après MOH)
     setTimeout(() => {
         if (v3) {
             v3.play().catch(err => console.log('Erreur autoplay v3:', err));
-            console.log('🎬 Vidéo 3 (POZ) démarrée');
-            // Afficher le texte "LES MITSVOT" en fondu après 2 secondes du début de v3
-            setTimeout(() => {
-                if (text3) {
-                    text3.style.opacity = '0';
-                    text3.style.transition = 'opacity 1s ease-in';
-                    setTimeout(() => {
-                        text3.style.opacity = '1';
-                    }, 100);
-                }
-            }, 2000);
+            console.log('🎬 Vidéo 3 (POZ) démarrée à t=10s');
+            setupTitleAppearance(v3, text3);
         }
-    }, 16000);
+    }, 10000); // 10 secondes = 10000ms
     
-    // Gérer la fin des vidéos pour loop si nécessaire
-    v1.addEventListener('ended', () => {
-        console.log('✅ Vidéo 1 terminée');
-    });
+    // ============================================
+    // NAVIGATION AU CLIC - Redirection vers hero-bis
+    // ============================================
+    const wrapper1 = v1.closest('.revelation-video-wrapper');
+    const wrapper2 = v2.closest('.revelation-video-wrapper');
+    const wrapper3 = v3.closest('.revelation-video-wrapper');
     
-    v2.addEventListener('ended', () => {
-        console.log('✅ Vidéo 2 terminée');
-    });
+    // Fonction pour scroller vers la section hero-bis correspondante
+    function scrollToHeroBis(wrapper, targetId) {
+        wrapper.style.cursor = 'pointer';
+        wrapper.addEventListener('click', () => {
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                const headerHeight = document.getElementById('main-header')?.offsetHeight || 0;
+                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                console.log(`🎯 Navigation vers ${targetId}`);
+            }
+        });
+    }
     
-    v3.addEventListener('ended', () => {
-        console.log('✅ Vidéo 3 terminée');
-    });
+    // Configuration des redirections
+    if (wrapper1) scrollToHeroBis(wrapper1, 'hero-bis-jdc');
+    if (wrapper2) scrollToHeroBis(wrapper2, 'hero-bis-moh');
+    if (wrapper3) scrollToHeroBis(wrapper3, 'hero-bis-poz');
+    
+    // ============================================
+    // DÉSATURATION APRÈS FIN DES ANIMATIONS
+    // ============================================
+    
+    // 🎨 FONCTION DE DÉSATURATION
+    function desaturateBox(videoElement, wrapperElement) {
+        setTimeout(() => {
+            if (videoElement) {
+                videoElement.classList.add('inactive');
+                console.log('✅ Vidéo désaturée:', videoElement.id || videoElement.src);
+            }
+            
+            if (wrapperElement) {
+                wrapperElement.classList.add('inactive');
+                console.log('✅ Wrapper désaturé');
+            }
+        }, DELAY_BEFORE_DESATURATE);
+    }
+    
+    // 🎬 ÉCOUTER LA FIN DE CHAQUE VIDÉO
+    if (v1) {
+        v1.addEventListener('ended', function() {
+            console.log('🎬 Vidéo JDC terminée');
+            const wrapper = v1.closest('.revelation-video-wrapper');
+            desaturateBox(v1, wrapper);
+            showReplayButton(v1);
+        });
+    }
+    
+    if (v2) {
+        v2.addEventListener('ended', function() {
+            console.log('🎬 Vidéo MOH terminée');
+            const wrapper = v2.closest('.revelation-video-wrapper');
+            desaturateBox(v2, wrapper);
+            showReplayButton(v2);
+        });
+    }
+    
+    if (v3) {
+        v3.addEventListener('ended', function() {
+            console.log('🎬 Vidéo POZ terminée');
+            const wrapper = v3.closest('.revelation-video-wrapper');
+            desaturateBox(v3, wrapper);
+            showReplayButton(v3);
+        });
+    }
 }
 
 } catch(e) {
