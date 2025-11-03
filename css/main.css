@@ -4740,3 +4740,84 @@ html body #hero-bis-poz .hero-bis-background img {
         font-size: 0.85rem !important;
     }
 }
+
+/* ========================================
+   STYLES SPÉCIFIQUES MOH - EXEMPLES HALAKHA/MINHAG
+   ======================================== */
+
+.example-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid rgba(212, 175, 55, 0.3);
+}
+
+.example-item p:first-child {
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.example-item p:last-child {
+    color: #cccccc;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.badge-halakha,
+.badge-minhag,
+.badge-both {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 0.5rem;
+}
+
+.badge-halakha {
+    background: linear-gradient(135deg, #c41e3a, #8b0000);
+    color: #ffffff;
+}
+
+.badge-minhag {
+    background: linear-gradient(135deg, #4a90e2, #2e5c8a);
+    color: #ffffff;
+}
+
+.badge-both {
+    background: linear-gradient(135deg, #d4af37, #a68a2b);
+    color: #1a1a2e;
+}
+
+/* RESPONSIVE MOBILE - Adaptations MOH */
+@media (max-width: 768px) {
+    .example-item {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .example-item p {
+        font-size: 0.85rem !important;
+    }
+    
+    .badge-halakha,
+    .badge-minhag,
+    .badge-both {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .example-item {
+        padding: 0.5rem;
+    }
+    
+    .example-item p:first-child {
+        font-size: 0.9rem !important;
+    }
+}
