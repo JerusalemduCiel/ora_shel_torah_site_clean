@@ -4821,3 +4821,138 @@ html body #hero-bis-poz .hero-bis-background img {
         font-size: 0.9rem !important;
     }
 }
+
+/* ========================================
+   STYLES SPÉCIFIQUES POZ - BLOCS DE CATÉGORIES
+   ======================================== */
+
+.category-block {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #4a90e2;
+    transition: all 0.3s ease;
+}
+
+.category-block:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.category-block h4 {
+    color: #4a90e2;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.category-block p {
+    color: #dddddd;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.category-block ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.category-block li {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.category-block li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #4a90e2;
+    font-size: 1.2rem;
+}
+
+.category-block em {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Catégorie Mitsvot - Bleu */
+.category-mitzvot {
+    border-left-color: #4a90e2;
+}
+
+.category-mitzvot h4 {
+    color: #4a90e2;
+}
+
+.category-mitzvot li:before {
+    color: #4a90e2;
+}
+
+/* Catégorie Averot - Bleu foncé */
+.category-averot {
+    border-left-color: #3498db;
+}
+
+.category-averot h4 {
+    color: #3498db;
+}
+
+.category-averot li:before {
+    color: #3498db;
+}
+
+/* Catégorie Lieux Saints - OR (se distingue) */
+.category-lieux.category-gold {
+    border-left-color: #d4af37;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.category-lieux.category-gold h4 {
+    color: #d4af37;
+}
+
+.category-lieux.category-gold li:before {
+    color: #d4af37;
+}
+
+/* RESPONSIVE MOBILE - Adaptations POZ */
+@media (max-width: 768px) {
+    .category-block {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .category-block h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .category-block p,
+    .category-block li {
+        font-size: 0.85rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-block {
+        padding: 0.75rem;
+        border-left-width: 3px;
+    }
+    
+    .category-block h4 {
+        font-size: 1rem !important;
+    }
+    
+    .category-block p,
+    .category-block li {
+        font-size: 0.8rem !important;
+    }
+}
