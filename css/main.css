@@ -5511,23 +5511,58 @@ html body #hero-bis-poz .hero-bis-background img {
 /* Responsive mobile */
 @media (max-width: 768px) {
     .cta-below-summary {
-        margin-top: 1.5rem;
+        display: block !important; /* IMPORTANT - Forcer l'affichage */
+        text-align: center;
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0 1rem;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative;
+        z-index: 10;
     }
     
     .btn-read-more {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+        display: inline-flex !important; /* IMPORTANT - Forcer l'affichage */
+        padding: 0.7rem 1.3rem !important;
+        font-size: 0.9rem !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .btn-read-more .icon {
         font-size: 1.1rem;
     }
+    
+    /* S'assurer que le slide texte affiche le bouton */
+    .philosophy-slide.text-slide .cta-below-summary {
+        display: block !important;
+    }
+    
+    /* S'assurer que le conteneur ne cache pas le bouton */
+    .philosophy-slide,
+    .text-slide {
+        overflow: visible !important;
+    }
+    
+    .video-philosophy-container {
+        overflow: visible !important;
+    }
 }
 
 /* Responsive petit mobile */
 @media (max-width: 480px) {
+    .cta-below-summary {
+        margin-top: 1.25rem !important;
+        margin-bottom: 1.25rem !important;
+    }
+    
     .btn-read-more {
-        padding: 0.55rem 1rem;
-        font-size: 0.85rem;
+        padding: 0.6rem 1.1rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .btn-read-more .icon {
+        font-size: 1rem;
     }
 }

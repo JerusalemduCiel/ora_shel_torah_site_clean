@@ -89,6 +89,31 @@
     line-height: 1.6;
   }
   
+  /* S'assurer que le bouton "Lire l'histoire complète" est visible */
+  .philosophy-slide.text-slide .cta-below-summary {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .philosophy-slide.text-slide .btn-read-more {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* S'assurer que les slides ne cachent pas le bouton */
+  .philosophy-slide.text-slide {
+    overflow: visible !important;
+    min-height: auto !important;
+  }
+  
+  .video-philosophy-container {
+    overflow: visible !important;
+  }
+  
   .founder-intro-text h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
@@ -103,10 +128,12 @@
   .philosophy-slide.text-slide {
     position: relative !important;
     display: block !important;
-    height: calc(100vh - 80px) !important;
-    max-height: calc(100vh - 80px) !important;
-    overflow: hidden !important;
+    height: auto !important; /* Auto pour permettre au bouton d'être visible */
+    min-height: calc(100vh - 80px) !important;
+    max-height: none !important;
+    overflow: visible !important; /* Visible pour permettre au bouton d'être affiché */
     padding: 0 !important;
+    padding-bottom: 2rem !important; /* Espace pour le bouton */
     margin: 0 !important;
   }
   
@@ -114,14 +141,15 @@
   .philosophy-slide.text-slide .founder-intro {
     flex: none !important;
     width: 100% !important;
-    height: 100% !important;
-    max-height: 100% !important;
+    height: calc(100vh - 200px) !important; /* Réduit pour laisser place au bouton */
+    max-height: calc(100vh - 200px) !important;
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
     padding: 1rem !important;
-    padding-bottom: 100px !important;
+    padding-bottom: 1rem !important;
     margin: 0 !important;
+    margin-bottom: 1rem !important; /* Espace avant le bouton */
     display: block !important;
     scrollbar-width: thin !important;
     scrollbar-color: rgba(237, 162, 52, 0.9) rgba(0, 0, 0, 0.2) !important;
