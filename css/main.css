@@ -4613,3 +4613,130 @@ html body #hero-bis-poz .hero-bis-background img {
     margin: auto !important;
   }
 }
+
+/* ========================================
+   STYLES POUR LES NOUVELLES SECTIONS JDC
+   ======================================== */
+
+/* Styles pour les nouvelles sections JDC */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    border-left: 4px solid #d4af37;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h4 {
+    color: #d4af37;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.faq-item p {
+    color: #dddddd;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.testimonials-mini {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.testimonial-compact {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid #d4af37;
+}
+
+.testimonial-compact:last-child {
+    margin-bottom: 0;
+}
+
+.testimonial-compact p:first-of-type {
+    color: #d4af37;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* RESPONSIVE MOBILE - CRITIQUE */
+@media (max-width: 768px) {
+    .content-discovery-modal {
+        width: 95vw !important;
+        max-width: 95vw !important;
+        height: 90vh !important;
+        max-height: 90vh !important;
+        margin: 2.5vh auto !important;
+    }
+    
+    .content-discovery-wrapper {
+        flex-direction: column !important;
+    }
+    
+    .content-discovery-left {
+        width: 100% !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        padding: 1.5rem 1rem !important;
+    }
+    
+    .content-discovery-right {
+        width: 100% !important;
+        max-height: 30vh !important;
+        overflow-y: auto !important;
+    }
+    
+    .content-discovery-section h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .content-discovery-section p,
+    .content-discovery-section li {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .faq-item h4 {
+        font-size: 1rem !important;
+    }
+    
+    .testimonial-compact {
+        padding: 1rem !important;
+    }
+    
+    .highlight-box {
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-discovery-left {
+        padding: 1rem 0.75rem !important;
+    }
+    
+    .content-discovery-section h3 {
+        font-size: 1.2rem !important;
+    }
+    
+    .content-discovery-section p,
+    .content-discovery-section li {
+        font-size: 0.85rem !important;
+    }
+}
