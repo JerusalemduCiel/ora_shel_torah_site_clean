@@ -2383,7 +2383,7 @@ html body #hero-bis-poz .hero-bis-background img {
   flex-direction: column;
   gap: 1.5rem;
   height: 100%; /* Même hauteur que le container */
-  overflow-y: hidden; /* Pas de scroll nécessaire */
+  overflow-y: auto; /* Scroll si nécessaire pour voir le bouton */
 }
 
 .founder-intro-photo {
@@ -2402,6 +2402,10 @@ html body #hero-bis-poz .hero-bis-background img {
 
 .founder-intro-text {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important;
+  min-height: 0; /* Permet au flex de fonctionner */
 }
 
 .founder-intro-text h3 {
@@ -2425,19 +2429,21 @@ html body #hero-bis-poz .hero-bis-background img {
 /* Bouton CTA Acte 2 */
 .founder-intro-text .btn-cta-acte2,
 .btn-cta-acte2 {
-  display: inline-block;
+  display: inline-block !important;
   background: transparent !important;
   color: #d4af37 !important;
-  padding: 0.8rem 2rem !important;
+  padding: 0.9rem 2rem !important;
   border: 2px solid #d4af37 !important;
-  border-radius: 25px !important;
+  border-radius: 30px !important;
   font-size: 1rem !important;
   font-weight: 600 !important;
   text-decoration: none !important;
   text-align: center;
   transition: all 0.3s ease !important;
-  margin-top: 1.5rem;
+  margin-top: auto !important; /* Pousse le bouton en bas du flex */
   width: 100%;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .founder-intro-text .btn-cta-acte2:hover,
@@ -2445,7 +2451,7 @@ html body #hero-bis-poz .hero-bis-background img {
   background: #d4af37 !important;
   color: #000000 !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
 }
 
 .founder-intro-cta {
@@ -5449,4 +5455,43 @@ html body #hero-bis-poz .hero-bis-background img {
         font-size: 0.9rem;
         padding: 0.7rem 1.5rem;
     }
+}
+
+/* ============================================
+   BOUTON ACTE 2 - LIEN VERS À PROPOS
+   ============================================ */
+
+.btn-cta-acte2 {
+    display: inline-block;
+    background: transparent;
+    color: #d4af37;
+    padding: 0.9rem 2rem;
+    border: 2px solid #d4af37;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.btn-cta-acte2:hover {
+    background: #d4af37;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .btn-cta-acte2 {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* S'assurer que le bouton est visible dans .founder-intro-text */
+.founder-intro-text {
+    overflow: visible !important;
 }
