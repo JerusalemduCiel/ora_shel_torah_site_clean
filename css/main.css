@@ -5566,3 +5566,149 @@ html body #hero-bis-poz .hero-bis-background img {
         font-size: 1rem;
     }
 }
+
+/* ============================================
+   RÉVÉLATION TRILOGIE - VIDÉOS DE RÉVÉLATION
+   ============================================ */
+
+/* === Révélation des 3 jeux : Ajustement des proportions === */
+#revelation-trilogie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #faf9f6; /* Blanc cassé chaud */
+    padding: 5rem 0; /* Augmenté pour plus d'espace vertical */
+    gap: 2rem; /* Augmenté pour plus d'espace entre les boîtes */
+    min-height: 66vh; /* hauteur de 2/3 de hero */
+    position: relative;
+    overflow: hidden;
+}
+
+#revelation-trilogie .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem; /* Augmenté pour plus d'espace entre les boîtes */
+}
+
+.revelation-video-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 28%; /* Réduit de 32% à 28% (réduction ~12%) */
+}
+
+/* Réduction globale de 20-25% pour toutes les vidéos */
+#revelation-trilogie video {
+    width: 100%;
+    height: 52vh; /* Réduit de 66vh à 52vh (réduction ~21%) */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Ombre plus subtile sur fond clair */
+    transition: transform 0.8s ease;
+    background: #000;
+    display: block;
+}
+
+/* Réduction spécifique pour MOH et POZ pour éviter le débordement */
+.revelation-video-wrapper:nth-child(2) video,
+.revelation-video-wrapper:nth-child(3) video,
+#video2,
+#video3 {
+    transform: scale(0.92); /* Réduction supplémentaire de 8% pour harmoniser */
+    transform-origin: center center;
+}
+
+#revelation-trilogie video:hover {
+    transform: scale(1.02);
+}
+
+/* Ajustement hover pour MOH et POZ - combine scale de base (0.92) avec hover (1.02) */
+.revelation-video-wrapper:nth-child(2) video:hover,
+.revelation-video-wrapper:nth-child(3) video:hover,
+#video2:hover,
+#video3:hover {
+    transform: scale(0.94); /* 0.92 * 1.02 ≈ 0.94 */
+}
+
+/* Texte centré sous chaque vidéo */
+.revelation-text {
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-heading, 'Crimson Text', serif);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #2c3e50; /* Texte sombre pour contraste sur fond clair */
+    margin-top: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    pointer-events: none;
+}
+
+/* Responsive : tablette (2 colonnes) */
+@media (max-width: 1023px) {
+    #revelation-trilogie {
+        padding: 4rem 1rem; /* Augmenté pour plus d'espace */
+        gap: 1.5rem; /* Augmenté */
+    }
+    
+    .revelation-video-wrapper {
+        width: 48%;
+    }
+    
+    #revelation-trilogie video {
+        height: 40vh; /* Réduit proportionnellement (de 50vh à 40vh) */
+    }
+    
+    /* Réduction spécifique pour MOH et POZ sur tablette */
+    .revelation-video-wrapper:nth-child(2) video,
+    .revelation-video-wrapper:nth-child(3) video,
+    #video2,
+    #video3 {
+        transform: scale(0.92);
+    }
+    
+    .revelation-text {
+        font-size: 1.2rem;
+        color: #2c3e50; /* Texte sombre pour contraste */
+    }
+}
+
+/* Responsive : mobile (1 colonne) */
+@media (max-width: 767px) {
+    #revelation-trilogie {
+        padding: 3rem 1rem; /* Augmenté pour plus d'espace */
+        gap: 2rem; /* Augmenté */
+    }
+    
+    .revelation-video-wrapper {
+        width: 100%;
+    }
+    
+    #revelation-trilogie video {
+        height: 36vh; /* Réduit proportionnellement (de 45vh à 36vh) */
+    }
+    
+    /* Réduction spécifique pour MOH et POZ sur mobile */
+    .revelation-video-wrapper:nth-child(2) video,
+    .revelation-video-wrapper:nth-child(3) video,
+    #video2,
+    #video3 {
+        transform: scale(0.92);
+    }
+    
+    .revelation-text {
+        font-size: 1rem;
+        margin-top: 0.75rem;
+        letter-spacing: 0.1em;
+        color: #2c3e50; /* Texte sombre pour contraste */
+    }
+}

@@ -21,6 +21,7 @@ function initializeApp() {
     initPhilosophyMobileNav();
     initContentCarousels();
     initContactPartenariatAnimation();
+    initRevelationVideos();
     
     console.log('Ora Shel Torah - Site initialisé');
 }
@@ -726,6 +727,85 @@ window.OraShelTorah = {
     debounce,
     throttle
 };
+
+// ========================================
+// RÉVÉLATION TRILOGIE - ENCHAÎNEMENT VIDÉOS
+// ========================================
+
+function initRevelationVideos() {
+    const v1 = document.getElementById('video1');
+    const v2 = document.getElementById('video2');
+    const v3 = document.getElementById('video3');
+    const text1 = document.getElementById('text1');
+    const text2 = document.getElementById('text2');
+    const text3 = document.getElementById('text3');
+    
+    if (!v1 || !v2 || !v3) return;
+    
+    // Vidéo 1 : autoplay (déjà dans HTML)
+    v1.addEventListener('loadeddata', () => {
+        console.log('🎬 Vidéo 1 (JDC) chargée');
+        // Afficher le texte "L'HISTOIRE" en fondu après 2 secondes
+        setTimeout(() => {
+            if (text1) {
+                text1.style.opacity = '0';
+                text1.style.transition = 'opacity 1s ease-in';
+                setTimeout(() => {
+                    text1.style.opacity = '1';
+                }, 100);
+            }
+        }, 2000);
+    });
+    
+    // Vidéo 2 : démarrer avec chevauchement (8 secondes après le début de v1)
+    setTimeout(() => {
+        if (v2) {
+            v2.play().catch(err => console.log('Erreur autoplay v2:', err));
+            console.log('🎬 Vidéo 2 (MOH) démarrée');
+            // Afficher le texte "LA LOI" en fondu après 2 secondes du début de v2
+            setTimeout(() => {
+                if (text2) {
+                    text2.style.opacity = '0';
+                    text2.style.transition = 'opacity 1s ease-in';
+                    setTimeout(() => {
+                        text2.style.opacity = '1';
+                    }, 100);
+                }
+            }, 2000);
+        }
+    }, 8000);
+    
+    // Vidéo 3 : démarrer avec chevauchement (16 secondes après le début de v1)
+    setTimeout(() => {
+        if (v3) {
+            v3.play().catch(err => console.log('Erreur autoplay v3:', err));
+            console.log('🎬 Vidéo 3 (POZ) démarrée');
+            // Afficher le texte "LES MITSVOT" en fondu après 2 secondes du début de v3
+            setTimeout(() => {
+                if (text3) {
+                    text3.style.opacity = '0';
+                    text3.style.transition = 'opacity 1s ease-in';
+                    setTimeout(() => {
+                        text3.style.opacity = '1';
+                    }, 100);
+                }
+            }, 2000);
+        }
+    }, 16000);
+    
+    // Gérer la fin des vidéos pour loop si nécessaire
+    v1.addEventListener('ended', () => {
+        console.log('✅ Vidéo 1 terminée');
+    });
+    
+    v2.addEventListener('ended', () => {
+        console.log('✅ Vidéo 2 terminée');
+    });
+    
+    v3.addEventListener('ended', () => {
+        console.log('✅ Vidéo 3 terminée');
+    });
+}
 
 } catch(e) {
     alert('ERREUR main.js : ' + e.message);
