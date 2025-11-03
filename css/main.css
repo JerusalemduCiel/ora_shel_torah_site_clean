@@ -4909,7 +4909,7 @@ html body #hero-bis-poz .hero-bis-background img {
     color: #3498db;
 }
 
-/* Catégorie Lieux Saints - OR (se distingue) */
+/* Catégorie Situations de Vie - OR (se distingue) */
 .category-lieux.category-gold {
     border-left-color: #d4af37;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
@@ -4922,6 +4922,31 @@ html body #hero-bis-poz .hero-bis-background img {
 
 .category-lieux.category-gold li:before {
     color: #d4af37;
+}
+
+/* Liste des situations de vie (format spécial) */
+.mitsvot-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.mitsvot-list li {
+    color: #cccccc;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.mitsvot-list li strong {
+    color: #d4af37;
+    margin-right: 0.5rem;
+}
+
+.mitsvot-list li:before {
+    display: none;
 }
 
 /* RESPONSIVE MOBILE - Adaptations POZ */
