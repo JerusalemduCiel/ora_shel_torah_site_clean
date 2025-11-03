@@ -5457,41 +5457,77 @@ html body #hero-bis-poz .hero-bis-background img {
     }
 }
 
-/* ============================================
-   BOUTON ACTE 2 - LIEN VERS À PROPOS
-   ============================================ */
-
-.btn-cta-acte2 {
-    display: inline-block;
-    background: transparent;
-    color: #d4af37;
-    padding: 0.9rem 2rem;
-    border: 2px solid #d4af37;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s ease;
-    margin-top: 1.5rem;
+/* S'assurer que le bouton est visible dans .founder-intro-text */
+.founder-intro-text {
+    overflow: visible !important;
 }
 
-.btn-cta-acte2:hover {
+/* ============================================
+   BOUTON "LIRE L'HISTOIRE COMPLÈTE" - SOUS EN RÉSUMÉ
+   ============================================ */
+
+/* Container du bouton */
+.cta-below-summary {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+/* Bouton petit et élégant */
+.btn-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #d4af37;
+    padding: 0.7rem 1.5rem;
+    border: 2px solid #d4af37;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
+}
+
+.btn-read-more:hover {
     background: #d4af37;
     color: #000000;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Icône */
+.btn-read-more .icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Texte */
+.btn-read-more .text {
+    line-height: 1;
 }
 
 /* Responsive mobile */
 @media (max-width: 768px) {
-    .btn-cta-acte2 {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
+    .cta-below-summary {
+        margin-top: 1.5rem;
+    }
+    
+    .btn-read-more {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-read-more .icon {
+        font-size: 1.1rem;
     }
 }
 
-/* S'assurer que le bouton est visible dans .founder-intro-text */
-.founder-intro-text {
-    overflow: visible !important;
+/* Responsive petit mobile */
+@media (max-width: 480px) {
+    .btn-read-more {
+        padding: 0.55rem 1rem;
+        font-size: 0.85rem;
+    }
 }
