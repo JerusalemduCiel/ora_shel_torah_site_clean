@@ -538,6 +538,28 @@ img {
   margin-bottom: var(--space-3xl);
 }
 
+/* ========================================
+   ANIMATION PHILOSOPHIE POINTS - TIMINGS CORRIGÉS
+   ======================================== */
+
+.philosophie-point {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.philosophie-point:nth-child(1) {
+  animation-delay: 0.2s;    /* Démarre à 0.2s, finit à 0.8s */
+}
+
+.philosophie-point:nth-child(2) {
+  animation-delay: 0.4s;    /* Démarre à 0.4s - chevauche le 1er à mi-parcours */
+}
+
+.philosophie-point:nth-child(3) {
+  animation-delay: 0.6s;    /* Démarre à 0.6s - chevauche le 2ème à mi-parcours */
+}
+
 .philosophy-card {
   background: rgba(255, 255, 255, 0.05);
   padding: var(--space-2xl);
