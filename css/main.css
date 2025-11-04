@@ -492,12 +492,23 @@ img {
   max-width: 800px;
   margin: 0 auto var(--space-3xl);
   position: relative;
+  pointer-events: auto;
+  z-index: 10;
 }
 
 .video-container video {
   width: 100%;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 10;
+  pointer-events: auto !important;
+}
+
+/* S'assurer qu'aucun pseudo-élément ne bloque les contrôles */
+.video-container::before,
+.video-container::after {
+  pointer-events: none !important;
 }
 
 
@@ -719,6 +730,14 @@ img {
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+/* Quand la section vidéo est active, le background ne doit pas bloquer */
+.hero-bis .video-section[style*="display: block"] ~ .hero-bis-background,
+.hero-bis .video-section[style*="display: block"] ~ .hero-bis-content {
+  display: none !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
 }
 
 .hero-bis-background img {
@@ -2489,6 +2508,18 @@ footer {
   padding: 2rem !important;
   display: none;              /* Cachées par défaut */
   text-align: center;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* S'assurer qu'aucun overlay ne bloque les contrôles vidéo */
+.video-section::before,
+.video-section::after,
+.demo-section::before,
+.demo-section::after {
+  pointer-events: none !important;
+  display: none !important;
 }
 
 .btn-back {
@@ -2742,16 +2773,55 @@ footer {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   background: black !important;
   object-fit: contain !important;
-  border: 5px solid red !important;
   position: relative !important;
-  z-index: 10001 !important;
+  z-index: 10 !important;
   transform: none !important;
   filter: none !important;
+  pointer-events: auto !important;
 }
 
 /* Forcer l'affichage */
 .video-section[style*="display: block"] {
   display: block !important;
+}
+
+/* ========================================
+   CORRECTION CONTRÔLES VIDÉO - S'assurer que les contrôles sont cliquables
+   ======================================== */
+
+/* S'assurer que la vidéo et ses contrôles sont accessibles */
+.video-section video,
+.video-container video {
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+/* S'assurer que le background hero ne bloque pas quand la section vidéo est active */
+.hero-bis[style*=""] .hero-bis-background[style*="display: none"] {
+  display: none !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/* S'assurer qu'aucun élément parent ne bloque les clics */
+.video-section * {
+  pointer-events: auto;
+}
+
+.video-section .btn-back,
+.video-section .btn-close {
+  pointer-events: auto !important;
+  z-index: 20 !important;
+}
+
+/* Les contrôles vidéo doivent être au-dessus de tout */
+.video-section video::-webkit-media-controls-panel,
+.video-section video::-webkit-media-controls-play-button,
+.video-section video::-webkit-media-controls-timeline,
+.video-section video::-webkit-media-controls-volume-slider {
+  pointer-events: auto !important;
+  z-index: 11 !important;
 }
 
 /* Container vidéo philosophie + présentation fondateur */
