@@ -1123,9 +1123,13 @@ html body #hero-bis-poz .hero-bis-background img {
    SECTION CONTACT / PARTENARIAT
    ======================================== */
 
+/* ========================================
+   FORMULAIRE DE CONTACT - CORRECTION
+   ======================================== */
+
 .contact-partenariat {
-  background: #1a1a1a;
-  padding: var(--space-4xl) 0;
+  background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+  padding: 5rem 2rem;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -1141,13 +1145,17 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .contact-partenariat .section-header h2 {
-  color: #fff;
+  color: #1a3a42;
 }
 
 .contact-partenariat .section-header .intro {
-  color: #aaa;
+  color: #4a5568;
   font-size: 1.1rem;
   margin-top: 1rem;
+}
+
+.contact-partenariat .section-header .eyebrow {
+  color: #eda234;
 }
 
 .forms-grid {
@@ -1170,21 +1178,60 @@ html body #hero-bis-poz .hero-bis-background img {
   border-color: rgba(212, 175, 55, 0.3);
 }
 
+/* Nouveau style pour contact-form-wrapper - fond clair */
+.contact-form-wrapper {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(26, 58, 66, 0.1);
+  border: 1px solid rgba(237, 162, 52, 0.2);
+}
+
 .form-wrapper h3 {
-  color: #d4af37;
+  color: #1a3a42;
   font-size: 1.8rem;
   margin-bottom: 10px;
   font-family: 'Crimson Text', serif;
 }
 
+.contact-form-wrapper h3 {
+  color: #1a3a42;
+}
+
 .form-description {
-  color: #aaa;
+  color: #4a5568;
   font-size: 0.95rem;
   margin-bottom: 30px;
 }
 
+.contact-form-wrapper .form-description {
+  color: #4a5568;
+}
+
 .form-group {
   margin-bottom: 20px;
+}
+
+.contact-form-wrapper .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Styles pour les formulaires */
+.contact-form,
+.partnership-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Labels pour les formulaires */
+.contact-form-wrapper .form-group label {
+  font-weight: 600;
+  color: #1a3a42;
+  font-size: 0.95rem;
 }
 
 .form-group input,
@@ -1201,9 +1248,24 @@ html body #hero-bis-poz .hero-bis-background img {
   transition: all 0.3s ease;
 }
 
+/* Nouveaux styles pour contact-form-wrapper - champs clairs */
+.contact-form-wrapper .form-group input,
+.contact-form-wrapper .form-group textarea,
+.contact-form-wrapper .form-group select {
+  background: #f7fafc;
+  border: 2px solid #cbd5e0;
+  color: #1a3a42;
+  padding: 1rem;
+}
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form-wrapper .form-group input::placeholder,
+.contact-form-wrapper .form-group textarea::placeholder {
+  color: #718096;
 }
 
 .form-group input:focus,
@@ -1215,9 +1277,21 @@ html body #hero-bis-poz .hero-bis-background img {
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
+.contact-form-wrapper .form-group input:focus,
+.contact-form-wrapper .form-group textarea:focus,
+.contact-form-wrapper .form-group select:focus {
+  border-color: #eda234;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(237, 162, 52, 0.1);
+}
+
 .form-group textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+.contact-form-wrapper .form-group textarea {
+  min-height: 150px;
 }
 
 .form-group select {
@@ -1229,9 +1303,18 @@ html body #hero-bis-poz .hero-bis-background img {
   padding-right: 40px;
 }
 
+.contact-form-wrapper .form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a3a42' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}
+
 .form-group select option {
   background: #1a1a1a;
   color: #fff;
+}
+
+.contact-form-wrapper .form-group select option {
+  background: #ffffff;
+  color: #1a3a42;
 }
 
 .btn-submit {
@@ -1243,10 +1326,68 @@ html body #hero-bis-poz .hero-bis-background img {
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
-  cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
-  margin-top: 10px;
+  margin-top: 1rem;
+}
+
+/* Nouveau style pour contact-form-wrapper - bouton doré */
+.contact-form-wrapper .btn-submit {
+  background: linear-gradient(135deg, #eda234 0%, #d68910 100%);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.contact-form-wrapper .btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(237, 162, 52, 0.4);
+}
+
+.contact-form-wrapper .btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Message de validation */
+.form-message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .contact-partenariat {
+    padding: 3rem 1rem;
+  }
+  
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+  
+  .forms-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-form-wrapper .form-group input,
+  .contact-form-wrapper .form-group textarea,
+  .contact-form-wrapper .form-group select {
+    font-size: 16px; /* Évite le zoom automatique sur iOS */
+  }
 }
 
 .btn-submit:hover {

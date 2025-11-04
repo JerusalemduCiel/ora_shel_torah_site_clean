@@ -1006,11 +1006,12 @@
             
             <div class="forms-grid">
                 <!-- Formulaire Contact -->
-                <div class="form-wrapper">
+                <div class="form-wrapper contact-form-wrapper">
                     <h3>Contact</h3>
                     <p class="form-description">Une question générale ? N'hésitez pas à nous écrire.</p>
                     <form class="contact-form" action="https://formspree.io/f/xwprpgvk" method="POST">
                         <div class="form-group">
+                            <label for="contact-name">Nom *</label>
                             <input type="text" 
                                    name="name" 
                                    id="contact-name"
@@ -1018,6 +1019,7 @@
                                    required>
                         </div>
                         <div class="form-group">
+                            <label for="contact-email">Email *</label>
                             <input type="email" 
                                    name="email" 
                                    id="contact-email"
@@ -1025,6 +1027,7 @@
                                    required>
                         </div>
                         <div class="form-group">
+                            <label for="contact-message">Message *</label>
                             <textarea name="message" 
                                       id="contact-message"
                                       rows="6" 
@@ -1038,11 +1041,12 @@
                 </div>
                 
                 <!-- Formulaire Partenariat -->
-                <div class="form-wrapper">
+                <div class="form-wrapper contact-form-wrapper">
                     <h3>Partenariat</h3>
                     <p class="form-description">Vous souhaitez collaborer avec nous ? Parlons-en !</p>
                     <form class="partnership-form" action="https://formspree.io/f/xvgwgezy" method="POST">
                         <div class="form-group">
+                            <label for="partnership-name">Nom *</label>
                             <input type="text" 
                                    name="name" 
                                    id="partnership-name"
@@ -1050,6 +1054,7 @@
                                    required>
                         </div>
                         <div class="form-group">
+                            <label for="partnership-org">Organisation *</label>
                             <input type="text" 
                                    name="organization" 
                                    id="partnership-org"
@@ -1057,10 +1062,11 @@
                                    required>
                         </div>
                         <div class="form-group">
+                            <label for="partnership-type">Type de partenariat *</label>
                             <select name="partnership_type" 
                                     id="partnership-type"
                                     required>
-                                <option value="">Type de partenariat</option>
+                                <option value="">Sélectionnez un type</option>
                                 <option value="commercial">Partenariat commercial</option>
                                 <option value="educatif">Partenariat éducatif</option>
                                 <option value="distribution">Distribution</option>
@@ -1068,6 +1074,7 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="partnership-message">Message *</label>
                             <textarea name="message" 
                                       id="partnership-message"
                                       rows="6" 
