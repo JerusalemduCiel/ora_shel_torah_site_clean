@@ -742,6 +742,15 @@ function initRevelationVideos() {
     
     if (!v1 || !v2 || !v3) return;
     
+    // S'assurer que les vidéos affichent correctement leur première frame
+    [v1, v2, v3].forEach(video => {
+        if (video) {
+            // Forcer les styles pour que la première frame remplisse le conteneur
+            video.style.objectFit = 'cover';
+            video.style.objectPosition = 'center';
+        }
+    });
+    
     // ============================================
     // DÉLAI AVANT DÉSATURATION
     // ============================================
@@ -751,21 +760,36 @@ function initRevelationVideos() {
     // APPARITION DES TITRES (UNE SEULE FOIS)
     // ============================================
     
-    // Fonction pour afficher le titre à 50% de l'animation
+    // Fonction pour afficher le titre à 50% de l'animation (ou immédiatement si la vidéo a déjà commencé)
     function setupTitleAppearance(video, titleElement) {
         if (!video || !titleElement) return;
         
         let labelShown = false; // Flag pour ne montrer qu'une fois
         
-        video.addEventListener('timeupdate', function() {
+        // Si la vidéo est déjà en cours de lecture, vérifier immédiatement
+        const checkAndShow = () => {
+            if (labelShown) return;
+            
             if (!video.duration) return;
             
-            // Afficher le titre à 50% de l'animation
-            if (!labelShown && video.currentTime / video.duration >= 0.5) {
+            // Afficher le titre à 50% de l'animation ou si la vidéo a déjà dépassé ce seuil
+            if (video.currentTime / video.duration >= 0.5) {
                 titleElement.classList.add('visible');
-                labelShown = true; // Ne plus jamais cacher
+                labelShown = true;
                 console.log('✅ Titre affiché:', titleElement.textContent);
+                return true;
             }
+            return false;
+        };
+        
+        // Vérifier immédiatement si la vidéo est déjà en cours
+        if (video.readyState >= 2 && !video.paused) {
+            if (checkAndShow()) return;
+        }
+        
+        // Sinon, attendre l'événement timeupdate
+        video.addEventListener('timeupdate', function() {
+            checkAndShow();
         });
     }
     
@@ -810,8 +834,14 @@ function initRevelationVideos() {
         // 4. Réinitialiser la vidéo
         videoElement.currentTime = 0;
         videoElement.removeAttribute('data-playing'); // Retirer pour revenir à cover
-        videoElement.style.objectFit = 'cover'; // Forcer cover pour le poster
-        videoElement.style.objectPosition = 'center';
+        // Pour MOH, toujours forcer cover pour éviter le cadre blanc
+        if (videoElement.id === 'video2' || videoElement.src.includes('reveal-moh')) {
+            videoElement.style.objectFit = 'cover';
+            videoElement.style.objectPosition = 'center center';
+        } else {
+            videoElement.style.objectFit = 'cover';
+            videoElement.style.objectPosition = 'center';
+        }
         
         // 5. Redémarrer la vidéo
         videoElement.play().catch(err => {
@@ -842,41 +872,35 @@ function initRevelationVideos() {
     // ============================================
     // GESTION DE L'ATTRIBUT data-playing POUR L'OBJECT-FIT
     // ============================================
-    // Forcer l'affichage correct du poster dès le chargement
+    // S'assurer que la première frame de la vidéo s'affiche correctement
     [v1, v2, v3].forEach(video => {
         if (video) {
-            // Forcer object-fit: cover au chargement pour que le poster remplisse le conteneur
-            const ensureCover = () => {
+            // Forcer object-fit: cover pour que la première frame remplisse le conteneur
+            const ensureFirstFrame = () => {
                 if (!video.hasAttribute('data-playing')) {
                     video.style.objectFit = 'cover';
                     video.style.objectPosition = 'center';
                 }
             };
             
-            // Appliquer immédiatement si la vidéo est déjà chargée
-            if (video.readyState >= 2) { // HAVE_CURRENT_DATA
-                ensureCover();
-            }
-            
-            // Appliquer quand la vidéo est chargée
-            video.addEventListener('loadeddata', ensureCover);
-            
-            // Appliquer quand le poster est affiché
-            video.addEventListener('loadstart', ensureCover);
+            // Appliquer quand la première frame est chargée
+            video.addEventListener('loadeddata', ensureFirstFrame);
             
             // Ajouter data-playing quand la vidéo commence à jouer
             video.addEventListener('play', () => {
                 video.setAttribute('data-playing', 'true');
-                video.style.objectFit = 'contain';
-                video.style.objectPosition = 'center';
-            });
-            
-            video.addEventListener('pause', () => {
-                // Garder data-playing en pause pour maintenir contain pendant l'animation
+                // Pour MOH, on garde cover pour éviter le cadre blanc
+                if (video.id === 'video2' || video.src.includes('reveal-moh')) {
+                    video.style.objectFit = 'cover';
+                    video.style.objectPosition = 'center center';
+                } else {
+                    video.style.objectFit = 'contain';
+                    video.style.objectPosition = 'center';
+                }
             });
             
             video.addEventListener('ended', () => {
-                // Retirer data-playing à la fin pour revenir au poster en cover
+                // Retirer data-playing à la fin pour revenir à la première frame en cover
                 video.removeAttribute('data-playing');
                 video.style.objectFit = 'cover';
                 video.style.objectPosition = 'center';
@@ -884,29 +908,52 @@ function initRevelationVideos() {
         }
     });
     
-    // Vidéo 1 : autoplay (déjà dans HTML)
-    v1.addEventListener('loadeddata', () => {
-        console.log('🎬 Vidéo 1 (JDC) chargée');
-        setupTitleAppearance(v1, text1);
+    // ============================================
+    // SYNCHRONISATION DES VIDÉOS - BASÉE SUR LE DÉBUT RÉEL DE JDC
+    // ============================================
+    
+    let jdcStartTime = null; // Timestamp du début réel de JDC
+    
+    // Configurer les titres dès le chargement (pas seulement au play)
+    setupTitleAppearance(v1, text1);
+    setupTitleAppearance(v2, text2);
+    setupTitleAppearance(v3, text3);
+    
+    // Attendre que JDC commence vraiment à jouer
+    v1.addEventListener('play', () => {
+        if (!jdcStartTime) {
+            jdcStartTime = Date.now();
+            console.log('🎬 Vidéo 1 (JDC) a commencé à jouer - Synchronisation des autres vidéos');
+            
+            // Vidéo 2 (MOH) : démarrer 7 secondes après le début réel de JDC
+            setTimeout(() => {
+                if (v2 && v2.paused) {
+                    v2.play().catch(err => console.log('Erreur autoplay v2:', err));
+                    console.log('🎬 Vidéo 2 (MOH) démarrée 7s après JDC');
+                }
+            }, 7000); // 7 secondes après le début réel de JDC
+            
+            // Vidéo 3 (POZ) : démarrer 10 secondes après le début réel de JDC (indépendant de MOH)
+            setTimeout(() => {
+                if (v3 && v3.paused) {
+                    v3.play().catch(err => console.log('Erreur autoplay v3:', err));
+                    console.log('🎬 Vidéo 3 (POZ) démarrée 10s après JDC');
+                }
+            }, 10000); // 10 secondes après le début réel de JDC
+        }
     });
     
-    // Vidéo 2 (MOH) : démarrer 5 secondes après JDC (t=5s)
-    setTimeout(() => {
-        if (v2) {
-            v2.play().catch(err => console.log('Erreur autoplay v2:', err));
-            console.log('🎬 Vidéo 2 (MOH) démarrée à t=5s');
-            setupTitleAppearance(v2, text2);
+    // Fallback si l'événement play n'est pas déclenché (chargement tardif)
+    v1.addEventListener('loadeddata', () => {
+        console.log('🎬 Vidéo 1 (JDC) chargée');
+        // Si JDC n'a pas encore commencé, on attend encore un peu
+        if (!jdcStartTime && v1.paused) {
+            // Essayer de forcer le play si autoplay n'a pas fonctionné
+            v1.play().catch(() => {
+                console.log('⚠️ Autoplay bloqué pour JDC - attente interaction utilisateur');
+            });
         }
-    }, 5000); // 5 secondes = 5000ms
-    
-    // Vidéo 3 (POZ) : démarrer 10 secondes après JDC (t=10s, soit 5s après MOH)
-    setTimeout(() => {
-        if (v3) {
-            v3.play().catch(err => console.log('Erreur autoplay v3:', err));
-            console.log('🎬 Vidéo 3 (POZ) démarrée à t=10s');
-            setupTitleAppearance(v3, text3);
-        }
-    }, 10000); // 10 secondes = 10000ms
+    });
     
     // ============================================
     // NAVIGATION AU CLIC - Redirection vers hero-bis
