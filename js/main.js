@@ -809,6 +809,9 @@ function initRevelationVideos() {
         
         // 4. Réinitialiser la vidéo
         videoElement.currentTime = 0;
+        videoElement.removeAttribute('data-playing'); // Retirer pour revenir à cover
+        videoElement.style.objectFit = 'cover'; // Forcer cover pour le poster
+        videoElement.style.objectPosition = 'center';
         
         // 5. Redémarrer la vidéo
         videoElement.play().catch(err => {
@@ -834,6 +837,51 @@ function initRevelationVideos() {
                 replayAnimation(video, text);
             }
         });
+    });
+    
+    // ============================================
+    // GESTION DE L'ATTRIBUT data-playing POUR L'OBJECT-FIT
+    // ============================================
+    // Forcer l'affichage correct du poster dès le chargement
+    [v1, v2, v3].forEach(video => {
+        if (video) {
+            // Forcer object-fit: cover au chargement pour que le poster remplisse le conteneur
+            const ensureCover = () => {
+                if (!video.hasAttribute('data-playing')) {
+                    video.style.objectFit = 'cover';
+                    video.style.objectPosition = 'center';
+                }
+            };
+            
+            // Appliquer immédiatement si la vidéo est déjà chargée
+            if (video.readyState >= 2) { // HAVE_CURRENT_DATA
+                ensureCover();
+            }
+            
+            // Appliquer quand la vidéo est chargée
+            video.addEventListener('loadeddata', ensureCover);
+            
+            // Appliquer quand le poster est affiché
+            video.addEventListener('loadstart', ensureCover);
+            
+            // Ajouter data-playing quand la vidéo commence à jouer
+            video.addEventListener('play', () => {
+                video.setAttribute('data-playing', 'true');
+                video.style.objectFit = 'contain';
+                video.style.objectPosition = 'center';
+            });
+            
+            video.addEventListener('pause', () => {
+                // Garder data-playing en pause pour maintenir contain pendant l'animation
+            });
+            
+            video.addEventListener('ended', () => {
+                // Retirer data-playing à la fin pour revenir au poster en cover
+                video.removeAttribute('data-playing');
+                video.style.objectFit = 'cover';
+                video.style.objectPosition = 'center';
+            });
+        }
     });
     
     // Vidéo 1 : autoplay (déjà dans HTML)
