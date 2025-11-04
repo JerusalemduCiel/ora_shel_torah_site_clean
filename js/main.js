@@ -486,13 +486,28 @@ function initContentCarousels() {
         let currentSlide = 0;
         
         function goToSlide(index) {
-            // Masquer tous les slides
-            slides.forEach(slide => slide.classList.remove('active'));
+            // Masquer tous les slides et gérer les vidéos
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                // Mettre en pause et réinitialiser les vidéos inactives
+                const video = slide.querySelector('video');
+                if (video && i !== index) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
             indicators.forEach(ind => ind.classList.remove('active'));
             
             // Afficher le slide demandé
-            slides[index].classList.add('active');
+            const activeSlide = slides[index];
+            activeSlide.classList.add('active');
             indicators[index].classList.add('active');
+            
+            // Charger la vidéo si elle existe dans le slide actif
+            const activeVideo = activeSlide.querySelector('video.carousel-video');
+            if (activeVideo) {
+                activeVideo.load();
+            }
             
             // Mettre à jour le caption
             if (caption) {
@@ -535,6 +550,15 @@ function initContentCarousels() {
             currentSlide: () => currentSlide,
             totalSlides: slides.length
         };
+        
+        // Initialiser : charger la vidéo si le slide actif en contient une
+        const activeSlide = slides[currentSlide];
+        if (activeSlide) {
+            const activeVideo = activeSlide.querySelector('video.carousel-video');
+            if (activeVideo) {
+                activeVideo.load();
+            }
+        }
         
         console.log('✅ Carousel initialisé:', slides.length, 'slides');
     });

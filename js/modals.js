@@ -343,16 +343,30 @@ function initVerticalCarousels() {
         let currentIndex = 0;
         
         function updateCarousel(index) {
-            // Désactiver tous les items
+            // Désactiver tous les items et gérer les vidéos
             items.forEach((item, i) => {
                 item.classList.remove('active');
                 if (indicators[i]) indicators[i].classList.remove('active');
+                
+                // Mettre en pause et réinitialiser les vidéos inactives
+                const video = item.querySelector('video');
+                if (video && i !== index) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
             });
             
             // Activer l'item courant
-            if (items[index]) {
-                items[index].classList.add('active');
+            const activeItem = items[index];
+            if (activeItem) {
+                activeItem.classList.add('active');
                 if (indicators[index]) indicators[index].classList.add('active');
+                
+                // Charger la vidéo si elle existe dans l'item actif
+                const activeVideo = activeItem.querySelector('video.carousel-video');
+                if (activeVideo) {
+                    activeVideo.load();
+                }
             }
             
             currentIndex = index;
@@ -392,6 +406,32 @@ function initVerticalCarousels() {
         
         // Initialiser
         updateCarousel(0);
+        
+        // Observer les changements d'item actif pour les vidéos (sécurité supplémentaire)
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') {
+                    items.forEach((item, i) => {
+                        const video = item.querySelector('video.carousel-video');
+                        if (video) {
+                            if (item.classList.contains('active')) {
+                                // Item devient actif : charger la vidéo
+                                video.load();
+                            } else {
+                                // Item devient inactif : arrêter et réinitialiser
+                                video.pause();
+                                video.currentTime = 0;
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Observer tous les items
+        items.forEach(item => {
+            observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+        });
     });
 }
 

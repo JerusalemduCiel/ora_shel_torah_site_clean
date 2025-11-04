@@ -320,7 +320,20 @@ function buildCarousel(overlay, gameId) {
         if (item.type === 'image') {
             galleryItem.innerHTML = `<img src="${item.src}" alt="${item.alt}">`;
         } else if (item.type === 'video') {
-            galleryItem.innerHTML = `<video muted><source src="${item.src}" type="video/mp4"></video>`;
+            // Déterminer le poster selon le jeu
+            let posterSrc = '';
+            if (gameId === 'jdc') {
+                posterSrc = 'images/produits/jdc_hero_bg.png';
+            } else if (gameId === 'moh') {
+                posterSrc = 'images/produits/moh_hero_bg.png';
+            }
+            
+            galleryItem.innerHTML = `<video controls muted playsinline preload="metadata" 
+                                       class="carousel-video" 
+                                       ${posterSrc ? `poster="${posterSrc}"` : ''}>
+                                       <source src="${item.src}" type="video/mp4">
+                                       Votre navigateur ne supporte pas la lecture vidéo.
+                                   </video>`;
         }
         
         // Clic pour ouvrir en lightbox
