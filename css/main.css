@@ -1864,19 +1864,139 @@ html body #hero-bis-poz .hero-bis-background img {
 
 /* Footer */
 /* ========================================
-   FOOTER - CORRECTION LISIBILITÉ
+   FOOTER - CORRECTION COMPLÈTE
    ======================================== */
 
-#main-footer {
-  background: linear-gradient(135deg, #1a3a42 0%, #0f2830 100%);
-  color: #ffffff;
-  padding: 3rem 2rem;
-  margin-top: 5rem;
+footer {
+    background: linear-gradient(135deg, #1a3a42 0%, #0f2830 100%);
+    color: #ffffff;
+    padding: 3rem 2rem 2rem;
+    margin-top: 5rem;
 }
 
-#main-footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Instagram en haut */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(237, 162, 52, 0.3);
+}
+
+.footer-social a {
+    color: #eda234;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #eda234;
+}
+
+.footer-social a:hover {
+    background: #eda234;
+    color: #1a3a42;
+    transform: translateY(-3px);
+}
+
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Colonnes du footer */
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column h3 {
+    color: #eda234;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-column nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-column a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #eda234;
+    padding-left: 5px;
+}
+
+.footer-contact p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+}
+
+.footer-contact a {
+    color: #eda234;
+}
+
+/* Copyright en bas */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(237, 162, 52, 0.3);
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+}
+
+.footer-tagline {
+    font-style: italic;
+    color: #eda234;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 1rem;
+    }
+    
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-social {
+        margin-bottom: 2rem;
+    }
+    
+    .footer-column {
+        text-align: center;
+    }
+    
+    .footer-column nav {
+        align-items: center;
+    }
 }
 
 .footer-grid {
