@@ -1,57 +1,36 @@
-# robots.txt pour Ora Shel Torah
-# https://orasheltorah.fr/robots.txt
+# Robots.txt pour Ora Shel Torah
+# Permet à tous les moteurs de recherche et LLM de crawler le site
 
-# ========================================
-# AUTORISATION GLOBALE - TOUS LES BOTS
-# ========================================
+# Autoriser tous les robots
 User-agent: *
 Allow: /
 
-# ========================================
-# AUTORISATION EXPLICITE POUR LLM BOTS
-# ========================================
-# GPTBot (OpenAI)
+# Autoriser explicitement les bots LLM
 User-agent: GPTBot
 Allow: /
 
-# ChatGPT-User
 User-agent: ChatGPT-User
 Allow: /
 
-# CCBot (Common Crawl)
 User-agent: CCBot
 Allow: /
 
-# anthropic-ai (Anthropic/Claude)
 User-agent: anthropic-ai
 Allow: /
 
-# Claude-Web
 User-agent: Claude-Web
 Allow: /
 
-# PerplexityBot
 User-agent: PerplexityBot
 Allow: /
 
-# ========================================
-# BLOCAGE DOSSIERS TECHNIQUES
-# ========================================
-# Empêcher l'indexation des fichiers techniques
+User-agent: Google-Extended
+Allow: /
+
+# Bloquer les dossiers techniques (optionnel - économise le crawl budget)
 Disallow: /css/
 Disallow: /js/
 Disallow: /fonts/
 
-# ========================================
-# AUTORISATIONS SPÉCIFIQUES
-# ========================================
-# Autoriser les images et vidéos (importants pour le SEO)
-Allow: /images/
-Allow: /videos/
-Allow: /animations/
-
-# ========================================
-# SITEMAP
-# ========================================
 # Indiquer l'emplacement du sitemap
 Sitemap: https://orasheltorah.fr/sitemap.xml
