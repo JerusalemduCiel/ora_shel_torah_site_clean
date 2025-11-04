@@ -5447,35 +5447,6 @@ html body #hero-bis-poz .hero-bis-background img {
     }
 }
 
-/* ========================================
-   SOUS-TITRES H2 (HERO-BIS)
-   ======================================== */
-
-.hero-bis h2 {
-    font-size: 3rem;
-    line-height: 1.2;
-}
-
-.hero-bis h2 .h2-subtitle {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.85);
-    margin-top: 0.5rem;
-    font-family: 'Inter', sans-serif;
-}
-
-@media (max-width: 768px) {
-    .hero-bis h2 {
-        font-size: 2rem;
-    }
-    
-    .hero-bis h2 .h2-subtitle {
-        font-size: 1rem;
-        margin-top: 0.25rem;
-    }
-}
-
 .footer-bottom {
     text-align: center;
     padding-top: var(--space-2xl);
