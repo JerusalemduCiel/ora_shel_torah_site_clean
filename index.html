@@ -392,7 +392,9 @@
                 <a href="/demo/" class="btn-modal" style="text-decoration: none;">
                     🎮 Essayer la démo
                 </a>
-                <button class="btn-modal btn-store" data-modal="content-discovery-jdc">
+                <button class="btn-modal btn-store" 
+                        data-modal="content-discovery-jdc"
+                        aria-label="Découvrir le contenu complet du jeu Jérusalem du Ciel">
                     📦 Découvrir le contenu
                 </button>
                 <button class="btn-modal btn-store" data-action="store">
@@ -436,7 +438,7 @@
             
             <div class="content-container">
                 <!-- QUADRANT 1 : Description (haut gauche) -->
-                <div class="content-quadrant quadrant-description">
+                <div class="content-quadrant quadrant-description" itemprop="description">
                     <h3>Description du jeu</h3>
                     <p>
                         <strong>Jérusalem du Ciel</strong> est un jeu d'exploration historique qui vous fait traverser 
@@ -568,7 +570,9 @@
                 <button class="btn-modal" data-action="demo">
                     🎮 Essayer la démo
                 </button>
-                <button class="btn-modal btn-store" data-modal="content-discovery-moh">
+                <button class="btn-modal btn-store" 
+                        data-modal="content-discovery-moh"
+                        aria-label="Découvrir le contenu complet du jeu Minhag ou Halakha">
                     📦 Découvrir le contenu
                 </button>
                 <button class="btn-modal btn-store" data-action="store">
@@ -612,7 +616,7 @@
             
             <div class="content-container">
                 <!-- QUADRANT 1 : Description (haut gauche) -->
-                <div class="content-quadrant quadrant-description">
+                <div class="content-quadrant quadrant-description" itemprop="description">
                     <h3>Description du jeu</h3>
                     <p>
                         <strong>Minhag ou Halakha</strong> est un jeu éducatif qui vous permet de découvrir 
@@ -734,7 +738,9 @@
                 <button class="btn-modal" data-action="demo">
                     🎮 Essayer la démo
                 </button>
-                <button class="btn-modal btn-store" data-modal="content-discovery-poz">
+                <button class="btn-modal btn-store" 
+                        data-modal="content-discovery-poz"
+                        aria-label="Découvrir le contenu complet du jeu Poztamitsvah">
                     📦 Découvrir le contenu
                 </button>
                 <button class="btn-modal btn-store" data-action="store">
@@ -778,7 +784,7 @@
             
             <div class="content-container">
                 <!-- QUADRANT 1 : Description (haut gauche) -->
-                <div class="content-quadrant quadrant-description">
+                <div class="content-quadrant quadrant-description" itemprop="description">
                     <h3>Description du jeu</h3>
                     <p>
                         <strong>Poztamitsvah</strong> est un jeu pédagogique qui met en lumière 140 mitzvot 
@@ -1355,7 +1361,12 @@
      ======================================== -->
 
 <!-- Modale JDC -->
-<div class="content-discovery-overlay" id="content-discovery-jdc">
+<div class="content-discovery-overlay" 
+     id="content-discovery-jdc"
+     role="dialog"
+     aria-labelledby="jdc-modal-title"
+     aria-describedby="jdc-modal-desc"
+     data-product="Jerusalem du Ciel">
     <div class="content-discovery-modal">
         <button class="content-discovery-close" aria-label="Fermer">×</button>
         
@@ -1363,8 +1374,8 @@
             <!-- Colonne gauche : Contenu (2/3) -->
             <div class="content-discovery-left">
                 <div class="content-discovery-header">
-                    <h2>Jérusalem du Ciel</h2>
-                    <p class="content-discovery-subtitle">Un voyage familial à travers 3000 ans d'histoire juive</p>
+                    <h2 id="jdc-modal-title">Jérusalem du Ciel</h2>
+                    <p id="jdc-modal-desc" class="content-discovery-subtitle">Un voyage familial à travers 3000 ans d'histoire juive</p>
                 </div>
                 
                 <div class="content-discovery-body">
@@ -1627,7 +1638,12 @@
 </div>
 
 <!-- Modale MOH -->
-<div class="content-discovery-overlay" id="content-discovery-moh">
+<div class="content-discovery-overlay" 
+     id="content-discovery-moh"
+     role="dialog"
+     aria-labelledby="moh-modal-title"
+     aria-describedby="moh-modal-desc"
+     data-product="Minhag ou Halakha">
     <div class="content-discovery-modal">
         <button class="content-discovery-close" aria-label="Fermer">×</button>
         
@@ -1635,8 +1651,8 @@
             <!-- Colonne gauche : Contenu (2/3) -->
             <div class="content-discovery-left">
                 <div class="content-discovery-header">
-                    <h2>Minhag ou Halakha ?</h2>
-                    <p class="content-discovery-subtitle">Apprenez à distinguer les lois des coutumes... et à en comprendre les sources</p>
+                    <h2 id="moh-modal-title">Minhag ou Halakha ?</h2>
+                    <p id="moh-modal-desc" class="content-discovery-subtitle">Apprenez à distinguer les lois des coutumes... et à en comprendre les sources</p>
                 </div>
                 
                 <div class="content-discovery-body">
@@ -1942,7 +1958,12 @@
 </div>
 
 <!-- Modale POZ -->
-<div class="content-discovery-overlay" id="content-discovery-poz">
+<div class="content-discovery-overlay" 
+     id="content-discovery-poz"
+     role="dialog"
+     aria-labelledby="poz-modal-title"
+     aria-describedby="poz-modal-desc"
+     data-product="Poztamitsvah">
     <div class="content-discovery-modal">
         <button class="content-discovery-close" aria-label="Fermer">×</button>
         
@@ -1950,8 +1971,8 @@
             <!-- Colonne gauche : Contenu (2/3) -->
             <div class="content-discovery-left">
                 <div class="content-discovery-header">
-                    <h2>Poztamitsvah</h2>
-                    <p class="content-discovery-subtitle">Reconnaître les mitsvot dans chaque instant de votre vie quotidienne</p>
+                    <h2 id="poz-modal-title">Poztamitsvah</h2>
+                    <p id="poz-modal-desc" class="content-discovery-subtitle">Reconnaître les mitsvot dans chaque instant de votre vie quotidienne</p>
                 </div>
                 
                 <div class="content-discovery-body">
