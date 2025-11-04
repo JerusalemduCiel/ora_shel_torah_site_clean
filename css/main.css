@@ -1880,12 +1880,6 @@ html body #hero-bis-poz .hero-bis-background img {
   color: var(--color-gold);
 }
 
-.social-links a {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
 .footer-contact p {
   margin-bottom: var(--space-sm);
   opacity: 0.8;
