@@ -1863,10 +1863,20 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 /* Footer */
+/* ========================================
+   FOOTER - CORRECTION LISIBILITÉ
+   ======================================== */
+
 #main-footer {
-  background: var(--color-dark-bg);
-  color: var(--color-text-light);
-  padding: var(--space-4xl) 0 var(--space-2xl);
+  background: linear-gradient(135deg, #1a3a42 0%, #0f2830 100%);
+  color: #ffffff;
+  padding: 3rem 2rem;
+  margin-top: 5rem;
+}
+
+#main-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-grid {
@@ -1877,7 +1887,7 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .footer-column h4 {
-  color: var(--color-gold);
+  color: #eda234;
   margin-bottom: var(--space-lg);
 }
 
@@ -1891,19 +1901,21 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .footer-column a {
-  color: var(--color-text-light);
-  opacity: 0.8;
-  transition: all var(--transition-fast);
+  color: #eda234;
+  opacity: 0.9;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .footer-column a:hover {
-  opacity: 1;
-  color: var(--color-gold);
+  color: #f5b942;
+  text-decoration: underline;
 }
 
 .footer-contact p {
   margin-bottom: var(--space-sm);
-  opacity: 0.8;
+  color: #ffffff;
+  opacity: 0.9;
 }
 
 .footer-bottom {
@@ -1913,13 +1925,31 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .footer-bottom p {
-  margin-bottom: var(--space-sm);
-  opacity: 0.7;
+  color: #ffffff;
+  margin: 1rem 0;
+  opacity: 0.9;
 }
 
 .footer-tagline {
-  color: var(--color-gold) !important;
+  color: #eda234 !important;
   font-style: italic;
+}
+
+/* Responsive mobile pour footer */
+@media (max-width: 768px) {
+  #main-footer,
+  .footer {
+    padding: 2rem 1rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .footer-column {
+    text-align: center;
+  }
 }
 
 /* Modales Hero */
@@ -5285,9 +5315,10 @@ html body #hero-bis-poz .hero-bis-background img {
 
 /* Footer */
 .footer {
-    background: var(--color-dark-bg);
-    color: var(--color-text-light);
-    padding: var(--space-4xl) 0 var(--space-2xl);
+    background: linear-gradient(135deg, #1a3a42 0%, #0f2830 100%);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    margin-top: 5rem;
 }
 
 .container-footer {
@@ -5301,7 +5332,7 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .footer-column h4 {
-    color: var(--color-gold);
+    color: #eda234;
     margin-bottom: var(--space-lg);
     font-size: 1.1rem;
 }
@@ -5316,16 +5347,16 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .footer-column a {
-    color: var(--color-text-light);
-    opacity: 0.8;
-    transition: all var(--transition-fast);
+    color: #eda234;
+    opacity: 0.9;
+    transition: color 0.3s ease;
     text-decoration: none;
     font-size: 0.9rem;
 }
 
 .footer-column a:hover {
-    opacity: 1;
-    color: var(--color-gold);
+    color: #f5b942;
+    text-decoration: underline;
 }
 
 .social-links {
@@ -5455,8 +5486,9 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .footer-bottom p {
-    margin: 0;
-    opacity: 0.7;
+    color: #ffffff;
+    margin: 1rem 0;
+    opacity: 0.9;
     font-size: 0.9rem;
 }
 
