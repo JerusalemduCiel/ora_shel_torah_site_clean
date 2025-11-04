@@ -229,6 +229,27 @@ img {
   gap: var(--space-lg);
 }
 
+/* Styles pour les liens de navigation */
+.main-nav .nav-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  font-size: var(--text-base);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.main-nav .nav-link:hover {
+  background: rgba(237, 162, 52, 0.1);
+  color: var(--color-gold);
+}
+
+.main-nav .nav-link.active {
+  color: var(--color-gold);
+  border-bottom: 2px solid var(--color-gold);
+}
+
 .btn-preorder {
   background: var(--color-gold);
   color: var(--color-dark-bg);

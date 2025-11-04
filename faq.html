@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Ora Shel Torah | Questions Fréquentes</title>
+  <meta name="description" content="Trouvez les réponses à vos questions sur les jeux Ora Shel Torah : Jérusalem du Ciel, Minhag ou Halakha, Poztamitsvah.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo/favicon.png">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS du site principal -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Styles spécifiques à la FAQ (gardent toutes les fonctionnalités) -->
+  <style>
+    /* === VARIABLES === */
+    :root {
+      --primary: #1a3a42;
+      --secondary: #eda234;
+      --accent-jdc: #eda234;
+      --accent-moh: #4d727b;
+      --accent-poz: #e85d75;
+      --text-dark: #2c3e50;
+      --text-light: #ffffff;
+      --bg-light: #faf9f6;
+      --bg-white: #ffffff;
+      --border: #e0e0e0;
+      --success: #2ecc71;
+      --shadow: 0 2px 8px rgba(0,0,0,0.1);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* === RESET === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* === HEADER === */
+    /* NOTE: Le header est maintenant intégré via #main-header du site principal */
+    /* Ces styles sont conservés pour compatibilité mais ne sont plus utilisés */
+    .header {
+      display: none; /* Ancien header masqué */
+    }
+
+    /* === SEARCH BAR === */
+    .search-container {
+      max-width: 800px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 50;
+    }
+
+    .search-box {
+      background: var(--bg-white);
+      border-radius: 50px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      padding: 5px 25px;
+      transition: all 0.3s;
+    }
+
+    .search-box:focus-within {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      outline: none;
+      background: transparent;
+    }
+
+    .search-box .icon {
+      font-size: 20px;
+      color: var(--secondary);
+    }
+
+    /* === FILTERS === */
+    .filters {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: var(--bg-white);
+      border: 2px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .filter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .filter-btn.active {
+      background: var(--secondary);
+      color: var(--text-light);
+      border-color: var(--secondary);
+    }
+
+    .filter-btn.jdc.active { background: var(--accent-jdc); border-color: var(--accent-jdc); }
+    .filter-btn.moh.active { background: var(--accent-moh); border-color: var(--accent-moh); }
+    .filter-btn.poz.active { background: var(--accent-poz); border-color: var(--accent-poz); }
+
+    /* === CONTAINER === */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    /* === FAQ ITEM === */
+    .faq-item {
+      background: var(--bg-white);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item.hidden {
+      display: none;
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .faq-question {
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+      background: rgba(237, 162, 52, 0.05);
+    }
+
+    .faq-question h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+      flex: 1;
+      margin-right: 15px;
+    }
+
+    .faq-question .icon {
+      font-size: 24px;
+      color: var(--secondary);
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-question .icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+      padding: 0 25px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 2000px;
+      padding: 0 25px 25px;
+    }
+
+    .faq-answer p {
+      margin-bottom: 15px;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+
+    .faq-answer ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .faq-answer li {
+      margin-bottom: 8px;
+      line-height: 1.8;
+    }
+
+    .faq-answer strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .faq-answer em {
+      color: var(--secondary);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* === TAGS === */
+    .faq-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-ost { background: #e8f5e9; color: #2e7d32; }
+    .tag-jdc { background: #fff3e0; color: #e65100; }
+    .tag-moh { background: #e0f2f1; color: #00695c; }
+    .tag-poz { background: #fce4ec; color: #c2185b; }
+    .tag-general { background: #e3f2fd; color: #1565c0; }
+
+    /* === NO RESULTS === */
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      display: none;
+    }
+
+    .no-results.show {
+      display: block;
+    }
+
+    .no-results h2 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .no-results p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* === INFO BOX === */
+    .info-box {
+      background: linear-gradient(135deg, #fff9e6, #ffffff);
+      border-left: 4px solid var(--secondary);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    .info-box.important {
+      background: linear-gradient(135deg, #ffebee, #ffffff);
+      border-left-color: #e74c3c;
+    }
+
+    .info-box p {
+      margin: 0;
+    }
+
+    /* === STYLES POUR INTÉGRATION AU SITE === */
+    /* S'assurer que les styles de la FAQ ne conflictent pas avec main.css */
+    #main-header {
+      position: relative; /* Pas sticky pour éviter conflit avec search-container */
+    }
+    
+    .faq-page-header {
+      margin-top: 0; /* Pas de marge en haut */
+    }
+    
+    /* Container FAQ avec espacement correct */
+    #faqContainer {
+      margin-top: 20px; /* Espacement après le titre */
+    }
+    
+    /* Bouton retour avec hover */
+    .btn-back:hover {
+      color: #d89429 !important;
+      transform: translateX(-5px);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .faq-page-header h1 {
+        font-size: 24px;
+      }
+
+      .filters {
+        gap: 8px;
+      }
+
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+
+      .faq-question h3 {
+        font-size: 16px;
+      }
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .faq-item {
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    /* === SCROLL BAR === */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-light);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d89429;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER DU SITE PRINCIPAL -->
+  <header id="main-header">
+    <div class="container">
+      <a href="/index.html" class="logo">
+        <img src="images/logo/logo_large_gold.png" alt="Ora Shel Torah">
+        <span class="tagline">De génération en génération</span>
+      </a>
+      
+      <nav class="main-nav">
+        <a href="/index.html" class="nav-link">Accueil</a>
+        <a href="/faq.html" class="nav-link active">FAQ</a>
+        <button id="btn-preorder" class="btn-preorder">Précommander</button>
+        <a href="/index.html#panier" class="cart-icon" id="cart-icon">
+          🛒 <span class="cart-count">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BOUTON RETOUR -->
+  <div style="max-width: 1200px; margin: 20px auto; padding: 0 20px;">
+    <a href="/index.html" class="btn-back" style="display: inline-flex; align-items: center; gap: 8px; color: var(--secondary); text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s;">
+      <span>←</span> Retour à l'accueil
+    </a>
+  </div>
+
+  <!-- TITRE PAGE FAQ -->
+  <div class="faq-page-header" style="background: linear-gradient(135deg, var(--primary), #2a5a62); color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px;">
+    <h1 style="font-size: 32px; margin-bottom: 8px; font-weight: 700;">FAQ - Questions Fréquentes</h1>
+    <p style="font-size: 16px; opacity: 0.9;">Tout savoir sur nos jeux pédagogiques juifs</p>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-container">
+    <div class="search-box">
+      <span class="icon">🔍</span>
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Recherchez une question, un mot-clé..."
+        autocomplete="off"
+      >
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Tout voir</button>
+    <button class="filter-btn" data-filter="ost">Ora Shel Torah</button>
+    <button class="filter-btn jdc" data-filter="jdc">Jérusalem du Ciel</button>
+    <button class="filter-btn moh" data-filter="moh">Minhag ou Halakha</button>
+    <button class="filter-btn poz" data-filter="poz">Poztamitsvah</button>
+    <button class="filter-btn" data-filter="general">Questions générales</button>
+  </div>
+
+  <!-- CONTAINER -->
+  <div class="container" id="faqContainer">
+    <!-- FAQ items will be injected here by JavaScript -->
+  </div>
+
+  <!-- NO RESULTS -->
+  <div class="no-results" id="noResults">
+    <h2>🤷‍♂️</h2>
+    <p>Aucun résultat trouvé. Essayez un autre terme de recherche.</p>
+  </div>
+
+  <script>
+    // === FAQ DATA ===
+    const faqData = [
+      // === ORA SHEL TORAH ===
+      {
+        category: 'ost',
+        question: 'Qu\'est-ce qu\'Ora Shel Torah ?',
+        answer: `<p><strong>Ora Shel Torah</strong> signifie "La Lumière de la Torah". C'est une maison d'édition née du désir de transmettre l'héritage juif sous une forme nouvelle : <em>par le jeu</em>.</p>
+        
+        <p>Notre mission est d'ouvrir les portes de la sagesse juive à tous, enfants comme adultes, débutants comme initiés, à travers des expériences ludiques à la fois joyeuses, pédagogiques et profondes.</p>
+        
+        <p><strong>Notre vision :</strong> La Torah n'est pas réservée aux érudits. Elle est un trésor universel, capable d'éclairer chaque vie. Un jeu peut devenir une porte d'entrée vers l'étude, la mémoire et la réflexion.</p>`
+      },
+      {
+        category: 'ost',
+        question: 'Qui a créé Ora Shel Torah ?',
+        answer: `<p><strong>Michael Lumbroso</strong>, fondateur d'Ora Shel Torah, est un baal techouva (juif de retour) qui a découvert le judaïsme à <strong>54 ans</strong>.</p>
+        
+        <p>Ni rabbin, ni érudit, simplement animé par le désir d'apprendre et de partager, il a créé ces jeux pour permettre à ses enfants – et à d'autres familles – de jouer, étudier et s'élever ensemble.</p>
+        
+        <p><strong>Son message :</strong> "Ne pas attendre 54 ans pour découvrir son héritage."</p>
+        
+        <div class="info-box">
+        <p>💡 <strong>L'histoire du 770 :</strong> Lorsque Michael a reçu son numéro professionnel se terminant par "770" (l'adresse historique du Rebbe de Loubavitch), il y a vu un signe divin confirmant sa mission.</p>
+        </div>`
+      },
+      {
+        category: 'ost',
+        question: 'Quelles sont les valeurs d\'Ora Shel Torah ?',
+        answer: `<ul>
+          <li><strong>✨ Éducation vivante</strong> : transmettre la tradition avec clarté et enthousiasme</li>
+          <li><strong>❤️ Hessed (générosité)</strong> : placer l'entraide et le respect au cœur du jeu</li>
+          <li><strong>🎨 Créativité</strong> : inventer des formats originaux et immersifs</li>
+          <li><strong>🌍 Universalité</strong> : offrir des supports accessibles à un public large, au sein et au-delà de la communauté</li>
+        </ul>
+        
+        <p><strong>Notre ambition :</strong> Devenir une référence internationale dans les jeux éducatifs juifs, en créant des supports qui fassent rayonner la Torah comme une source de lumière, de joie et de sagesse pour notre époque.</p>`
+      },
+
+      // === JÉRUSALEM DU CIEL ===
+      {
+        category: 'jdc',
+        question: 'Qu\'est-ce que Jérusalem du Ciel ?',
+        answer: `<p><strong>Jérusalem du Ciel</strong> est un grand jeu pédagogique et intergénérationnel, conçu comme un <em>voyage à travers l'histoire juive</em>.</p>
+        
+        <p>Chaque partie entraîne les joueurs dans la construction collective du Temple, tout en favorisant une élévation spirituelle personnelle.</p>
+        
+        <p><strong>Contenu riche :</strong> Histoire juive, Halakha, Fêtes, Midrashim, Hébreu, Valeurs</p>
+        <p><strong>Esprit d'entraide :</strong> Le jeu se vit en havruta (partenariat), avec des cartes Hessed</p>
+        <p><strong>Durée idéale :</strong> environ 90 minutes</p>
+        
+        <p><strong>Prix :</strong> 89,90 € | <strong>Âge :</strong> 10 ans+ | <strong>Joueurs :</strong> 2-6 (ou équipes)</p>`
+      },
+      {
+        category: 'jdc',
+        question: 'Comment joue-t-on à Jérusalem du Ciel ?',
+        answer: `<p><strong>Principe de base :</strong> Deux équipes – <em>Lévites</em> et <em>Kohanim</em> – progressent ensemble à travers un plateau représentant les grandes périodes de l'histoire juive.</p>
+        
+        <p><strong>Déroulement :</strong></p>
+        <ul>
+          <li>À chaque case, les joueurs affrontent des épreuves : questions, dilemmes, énigmes, débats</li>
+          <li>Chaque réussite rapporte des <strong>points de spiritualité</strong> (gemmes colorées)</li>
+          <li>Ces points permettent de construire les <strong>6 éléments du Temple</strong> : Autel des holocaustes, Bassin d'airain, Saint des Saints, Table des Pains, Ménorah, Portes de Nikanor</li>
+          <li>Une fois les 36 gemmes posées, l'équipe en tête désigne son champion pour l'<strong>épreuve finale de Révélation</strong></li>
+          <li>Si le champion réussit, le module de Jérusalem du Ciel s'ouvre, révélant la cité lumineuse !</li>
+        </ul>
+        
+        <div class="info-box">
+        <p>💡 <strong>L'objectif n'est pas de défaire l'adversaire, mais de bâtir ensemble</strong> un avenir meilleur symbolisé par la construction collective du Temple.</p>
+        </div>`
+      },
+      {
+        category: 'jdc',
+        question: 'Quels types d\'épreuves trouve-t-on dans Jérusalem du Ciel ?',
+        answer: `<p>Le jeu propose une grande diversité d'épreuves pour tous les niveaux :</p>
+        
+        <ul>
+          <li><strong>📜 Histoire juive</strong> : personnages, événements marquants</li>
+          <li><strong>📘 Halakha & Textes</strong> : lois pratiques, traditions</li>
+          <li><strong>💠 Torah Mystique</strong> : Kabbale, secrets spirituels</li>
+          <li><strong>🌿 Éthique & Midot</strong> : dilemmes moraux, traits de caractère</li>
+          <li><strong>🧠 Guemara & Pilpoul</strong> : raisonnement talmudique</li>
+          <li><strong>❓ Énigmes "Mi Ani?"</strong> : devinettes de personnages</li>
+        </ul>
+        
+        <p><strong>Système de points :</strong></p>
+        <ul>
+          <li>🎧 <strong>Écoute passive</strong> = 1 point</li>
+          <li>🟡 <strong>Réponse correcte</strong> = 2 points</li>
+          <li>🔴 <strong>Réponse excellente</strong> = 3 points</li>
+        </ul>
+        
+        <p>Cette inclusivité permet à des joueurs de différents niveaux et générations de participer ensemble !</p>`
+      },
+      {
+        category: 'jdc',
+        question: 'Qu\'y a-t-il dans la boîte de Jérusalem du Ciel ?',
+        answer: `<p><strong>Contenu complet :</strong></p>
+        
+        <ul>
+          <li>1 plateau circulaire représentant les 6 périodes historiques</li>
+          <li>800 cartes de jeu pour près de 3000 questions ou défis</li>
+          <li>36 gemmes colorées pour marquer les points de spiritualité</li>
+          <li>6 médaillons avec lettres hébraïques pour compléter les éléments du Temple</li>
+          <li>1 barrette de construction pour collecter les 36 gemmes</li>
+          <li>2 pions d'équipe (Lévites et Kohanim)</li>
+          <li>1 carte Éphod pour désigner le champion final</li>
+          <li>1 module de Jérusalem Céleste à révéler en cas de victoire</li>
+          <li>1 livret de règles incluant des conseils pédagogiques</li>
+        </ul>
+        
+        <p><strong>Dimensions :</strong> 32 × 32 × 5,5 cm | <strong>Poids :</strong> 1,8 kg</p>`
+      },
+
+      // === MINHAG OU HALAKHA ===
+      {
+        category: 'moh',
+        question: 'Qu\'est-ce que Minhag ou Halakha ?',
+        answer: `<p><strong>Minhag ou Halakha</strong> est un jeu de culture juive révolutionnaire qui permet de distinguer avec finesse les <strong>obligations religieuses</strong> des <strong>coutumes communautaires</strong>.</p>
+        
+        <p><strong>Principe unique :</strong> Contrairement aux jeux classiques "vrai ou faux", <em>toutes les affirmations présentées sont véridiques</em>. L'enjeu n'est pas de deviner si c'est vrai, mais de comprendre <strong>d'où ça vient</strong> :</p>
+        <ul>
+          <li><strong>Halakha</strong> : obligation religieuse stricte</li>
+          <li><strong>Minhag</strong> : coutume communautaire</li>
+          <li><strong>Autre</strong> : usage populaire ou superstition</li>
+        </ul>
+        
+        <p><strong>Prix :</strong> 24,90 € | <strong>Âge :</strong> 12 ans+ | <strong>Joueurs :</strong> 2-8 | <strong>Durée :</strong> 20-40 min</p>`
+      },
+      {
+        category: 'moh',
+        question: 'Comment jouer à Minhag ou Halakha en mode Duel (compatible Shabbat) ?',
+        answer: `<p><strong>MODE DUEL - Compatible Shabbat</strong> (2 joueurs)</p>
+        
+        <p><strong>Mise en place :</strong></p>
+        <ul>
+          <li>Mélangez les cartes en pile face cachée</li>
+          <li>Désignez un premier lecteur (qui alterne ensuite)</li>
+        </ul>
+        
+        <p><strong>Déroulement :</strong></p>
+        <ol>
+          <li>Le lecteur pioche une carte et lit la question</li>
+          <li>Temps libre de réflexion</li>
+          <li>Chaque joueur annonce sa réponse : <strong>HALAKHA</strong>, <strong>MINHAG</strong> ou <strong>AUTRE</strong></li>
+          <li>Le lecteur retourne la carte et lit la réponse + explication</li>
+        </ol>
+        
+        <p><strong>Score "Ma'avir ve'lo mone" (Compatible Shabbat) :</strong></p>
+        <ul>
+          <li>Premier à marquer : dit "+1"</li>
+          <li>L'adversaire qui égalise : dit "Égal"</li>
+          <li>Si l'écart se creuse : "+2", "+3", etc.</li>
+          <li><strong>Principe :</strong> On exprime l'<em>écart</em> entre joueurs, pas le total absolu</li>
+        </ul>
+        
+        <div class="info-box">
+        <p>✡️ <strong>Pourquoi ce mode ?</strong> Il utilise le principe halakhique "ma'avir ve'lo mone" (on fait passer sans compter) - compatible Shabbat car on exprime des relations, pas des totaux absolus.</p>
+        </div>
+        
+        <p><strong>Fin de partie :</strong> Après 20 cartes ou quand un joueur atteint "+10"</p>`
+      },
+      {
+        category: 'moh',
+        question: 'Comment jouer à Minhag ou Halakha en mode Groupe ?',
+        answer: `<p><strong>MODE GROUPE</strong> (3-12 joueurs - Semaine uniquement)</p>
+        
+        <p><strong>Mise en place :</strong></p>
+        <ul>
+          <li>Mélangez les cartes</li>
+          <li>Distribuez feuilles de score et crayons</li>
+          <li>Désignez un maître du jeu qui tourne</li>
+        </ul>
+        
+        <p><strong>Déroulement :</strong></p>
+        <ol>
+          <li>Le maître du jeu lit la question</li>
+          <li>Réflexion : 30 secondes (optionnel)</li>
+          <li>Chaque joueur annonce ou écrit sa réponse</li>
+          <li>Score : 1 point par bonne réponse</li>
+        </ol>
+        
+        <p><strong>Fin de partie :</strong> Premier joueur à <strong>15 points</strong> ou après 20 cartes</p>
+        
+        <div class="info-box">
+        <p>⚠️ <strong>Attention :</strong> Ce mode nécessite comptage précis et écriture - réservé à la semaine (pas compatible Shabbat).</p>
+        </div>`
+      },
+      {
+        category: 'moh',
+        question: 'Qu\'y a-t-il dans la boîte de Minhag ou Halakha ?',
+        answer: `<p><strong>Contenu complet :</strong></p>
+        
+        <ul>
+          <li><strong>500 cartes</strong> recto-verso</li>
+          <li><strong>Recto :</strong> Question + 3 choix de réponses</li>
+          <li><strong>Verso :</strong> Réponse correcte + source + explication détaillée</li>
+        </ul>
+        
+        <p>Chaque carte présente au verso non seulement la réponse correcte, mais aussi <strong>sa source rabbinique</strong> (Torah, Talmud, Shoul'han Aroukh) et une <strong>explication pédagogique</strong>.</p>
+        
+        <p>Cette approche permet à des familles de toutes origines de découvrir la richesse de la tradition juive, tout en aidant les pratiquants à mieux comprendre les fondements de leurs propres habitudes.</p>`
+      },
+
+      // === POZTAMITSVAH ===
+      {
+        category: 'poz',
+        question: 'Qu\'est-ce que Poztamitsvah ?',
+        answer: `<p><strong>Poztamitsvah</strong> (contraction de "Pose ta Mitsvah") est un jeu de cartes dynamique et pédagogique qui entraîne à reconnaître rapidement les <strong>mitzvot du quotidien</strong>.</p>
+        
+        <p><strong>Principe :</strong> Être le premier joueur à se débarrasser de toutes ses cartes en les posant dans des <em>situations de vie réelles</em> (synagogue, repas, fête, rue, deuil, etc.).</p>
+        
+        <p><strong>Objectifs pédagogiques :</strong></p>
+        <ul>
+          <li>Identifier spontanément la Mitsvah ou l'Avera qui s'applique</li>
+          <li>Connaître les comportements éthiques et les valeurs juives</li>
+          <li>Associer correctement Lieux et Actions</li>
+        </ul>
+        
+        <p><strong>Prix :</strong> 24,90 € | <strong>Âge :</strong> 11 ans+ | <strong>Joueurs :</strong> 2-6 | <strong>Durée :</strong> 30-45 min</p>`
+      },
+      {
+        category: 'poz',
+        question: 'Comment jouer à Poztamitsvah ?',
+        answer: `<p><strong>MISE EN PLACE :</strong></p>
+        <ol>
+          <li>Mélangez les cartes <strong>LIEUX</strong> et placez-les en pile face cachée au centre</li>
+          <li>Mélangez toutes les cartes <strong>ACTIONS</strong> (Mitsvot + Midot + Minhagim + Averot)</li>
+          <li>Distribuez <strong>7 cartes à chaque joueur</strong></li>
+          <li>Placez le reste en pioche à côté</li>
+        </ol>
+        
+        <p><strong>DÉROULEMENT - MODE SPEED :</strong></p>
+        <ol>
+          <li><strong>Retourner un LIEU</strong> : Le joueur actif retourne la première carte Lieu/Situation</li>
+          <li><strong>SPEED ! Posez vos cartes rapidement !</strong>
+            <ul>
+              <li>🏃 Tous les joueurs jouent <strong>EN MÊME TEMPS</strong></li>
+              <li>🎯 Objectif : être le plus rapide à poser les cartes valides</li>
+              <li>🛑 STOP à 5 cartes posées sur le lieu</li>
+            </ul>
+          </li>
+          <li><strong>Vérification :</strong>
+            <ul>
+              <li>✅ Cartes valides = défaussées</li>
+              <li>❌ Cartes invalides = reprises + piocher 1 carte</li>
+            </ul>
+          </li>
+          <li><strong>Nouveau lieu</strong> : Une fois les 5 cartes vérifiées → retourner le lieu suivant</li>
+        </ol>
+        
+        <p><strong>FIN DE PARTIE :</strong> Le premier à vider sa main gagne. Si les lieux sont épuisés : celui avec le moins de cartes restantes l'emporte.</p>`
+      },
+      {
+        category: 'poz',
+        question: 'Quels sont les différents types de cartes dans Poztamitsvah ?',
+        answer: `<p><strong>1. 📜 MITSVOT (Torah ou Rabbanan)</strong></p>
+        <ul>
+          <li>Valides <strong>uniquement</strong> si elles correspondent au lieu</li>
+          <li><em>Exemple :</em> Lieu = "Synagogue" → ✅ Tefillin, Lecture Torah, Répondre Amen</li>
+        </ul>
+        
+        <p><strong>2. 💛 MIDOT (Valeurs éthiques)</strong></p>
+        <ul>
+          <li>🃏 <strong>Cartes joker</strong> : utilisables presque partout</li>
+          <li>Peuvent être associées à une carte rare 🌟 pour s'en débarrasser</li>
+          <li>⚠️ Quand on joue un couple <strong>Mida + Rare</strong>, on doit <strong>piocher 1 carte</strong> (petit coût pédagogique)</li>
+        </ul>
+        
+        <p><strong>3. 🔗 MINHAGIM (Coutumes)</strong></p>
+        <ul>
+          <li>Plus souples que les Mitsvot : souvent jouables sur plusieurs lieux</li>
+          <li>Ne donnent ni bonus ni malus particuliers</li>
+        </ul>
+        
+        <p><strong>4. ⚠️ AVEROT (Fautes)</strong></p>
+        <ul>
+          <li>Jouables comme les Mitsvot si elles correspondent au lieu</li>
+          <li><em>Exemple :</em> Lieu = "Conflit" → carte "Lachon Hara" (Avera)</li>
+          <li>⚠️ Plus difficiles à placer → ce sont des cartes "lentes" qui bloquent la main</li>
+        </ul>
+        
+        <p><strong>5. 🌟 CARTES RARES</strong></p>
+        <ul>
+          <li>Difficiles à utiliser car elles ne s'appliquent qu'à 1 ou 2 lieux précis</li>
+          <li>Trois façons de s'en débarrasser :
+            <ul>
+              <li>Jouées au bon lieu → validées normalement</li>
+              <li>Associée à une MIDA → mais piocher +1 carte</li>
+              <li>Échangeables contre 2 cartes (si accord entre joueurs)</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <p><strong>6. 🔗 CARTES COMBOS</strong></p>
+        <ul>
+          <li>2 cartes thématiques posées d'un coup (ex. Tallit + Tefillin)</li>
+          <li>Bonus : défausser 2 cartes en un seul tour !</li>
+        </ul>`
+      },
+      {
+        category: 'poz',
+        question: 'Qu\'y a-t-il dans la boîte de Poztamitsvah ?',
+        answer: `<p><strong>Contenu complet (290 cartes) :</strong></p>
+        
+        <ul>
+          <li>40 cartes <strong>Situations/Lieux</strong> (synagogue, repas, fête, rue, deuil, etc.)</li>
+          <li>200 cartes <strong>Mitsvot midot</strong> (Torah & Rabbanan, essentielles et pratiques)</li>
+          <li>30 cartes <strong>Midot</strong> (valeurs universelles : honnêteté, respect, bonté...)</li>
+          <li>40 cartes <strong>Averôt</strong> (erreurs, fautes et comportements négatifs)</li>
+          <li>Cartes spéciales : 🌟 <strong>Rares</strong> + 🔗 <strong>Combos</strong></li>
+          <li>1 règle du jeu</li>
+        </ul>
+        
+        <p><strong>Focus sur les 48 mitzvot essentielles</strong> du jeu, idéales pour la préparation à la bar/bat mitzvah !</p>`
+      },
+
+      // === QUESTIONS GÉNÉRALES ===
+      {
+        category: 'general',
+        question: 'Les jeux sont-ils compatibles Shabbat ?',
+        answer: `<p><strong>OUI ! Les 3 jeux sont 100% Shabbat compatibles :</strong></p>
+        
+        <ul>
+          <li>✅ Aucune mécanique transgressant les melakhot</li>
+          <li>✅ Pas de comptabilisation écrite</li>
+          <li>✅ Pas d'électronique</li>
+        </ul>
+        
+        <p><strong>Spécificités par jeu :</strong></p>
+        <ul>
+          <li><strong>Jérusalem du Ciel :</strong> Jouable si les éléments sont séparés avant Shabbat</li>
+          <li><strong>Minhag ou Halakha :</strong> Mode Duel utilise le principe "Ma'avir velo mone" (compatible Shabbat). Le mode Groupe avec écriture est réservé à la semaine</li>
+          <li><strong>Poztamitsvah :</strong> Mode Speed sans comptage écrit, totalement compatible</li>
+        </ul>
+        
+        <div class="info-box important">
+        <p>⚠️ <strong>Notre seul conseil :</strong> Ouvrez les boîtes avant Shabbat ! 😊</p>
+        </div>
+        
+        <p>Pour toute question spécifique à votre pratique, consultez votre rav.</p>`
+      },
+      {
+        category: 'general',
+        question: 'Les jeux nécessitent-ils des connaissances religieuses préalables ?',
+        answer: `<p><strong>Non, c'est justement leur force !</strong></p>
+        
+        <p>Ces jeux ont été conçus <em>par un débutant pour les débutants</em>, avec 3 niveaux de questions.</p>
+        
+        <p><strong>Paradoxe intéressant :</strong> Si vous connaissez déjà toutes les réponses, vous n'avancerez pas dans le jeu. <em>C'est en apprenant qu'on progresse</em>, comme au Trivial Pursuit !</p>
+        
+        <p><strong>Pour tous les niveaux :</strong></p>
+        <ul>
+          <li><strong>Débutants :</strong> Apprendront les bases de manière ludique</li>
+          <li><strong>Pratiquants :</strong> Découvriront des aspects méconnus et approfondiront leur compréhension</li>
+          <li><strong>Érudits :</strong> Pourront partager leurs connaissances et débattre des sources</li>
+        </ul>
+        
+        <p>Tout le monde apprend quelque chose !</p>`
+      },
+      {
+        category: 'general',
+        question: 'Les contenus sont-ils validés rabbiniquement ?',
+        answer: `<p><strong>Procédure de validation rigoureuse :</strong></p>
+        
+        <p>Les 1475 fiches de <strong>Jérusalem du Ciel</strong> ont été générées avec l'aide d'intelligence artificielle, puis systématiquement vérifiées selon une procédure rigoureuse :</p>
+        <ul>
+          <li>Confrontation avec les sources halakhiques de référence (Torah, Rambam, Choul'han Aroukh et commentateurs)</li>
+          <li>Suppression de 3 fiches jugées controversées</li>
+          <li>Le corpus final ne contient <strong>aucun élément contraire aux textes normatifs orthodoxes séfarades</strong></li>
+        </ul>
+        
+        <div class="info-box important">
+        <p><strong>⚠️ Important :</strong> Ces jeux ont une vocation <em>pédagogique et ludique</em>. Ils ne remplacent pas une décision halakhique. Pour toute question pratique, consultez votre Rav.</p>
+        </div>`
+      },
+      {
+        category: 'general',
+        question: 'Quand les jeux seront-ils disponibles ?',
+        answer: `<p><strong>Livraison prévue :</strong> entre <strong>avril et mai 2026</strong></p>
+        
+        <p><strong>Précommandes :</strong> Les précommandes garantissent votre exemplaire et la priorité d'expédition.</p>
+        
+        <p><strong>Où acheter :</strong> Uniquement en vente directe sur notre site pour l'instant. Cela nous permet de maintenir des prix accessibles sans intermédiaires.</p>
+        
+        <p><strong>Livraison :</strong></p>
+        <ul>
+          <li>France et Union européenne : Frais de port gratuits si 2+ jeux ou pack complet</li>
+          <li>Pour Israël, USA ou autres destinations : contactez-nous à <strong>contact@orasheltorah.com</strong></li>
+        </ul>`
+      },
+      {
+        category: 'general',
+        question: 'Y a-t-il une offre pour l\'achat des 3 jeux ?',
+        answer: `<p><strong>Oui ! Pack 3 jeux avec tarif avantageux :</strong></p>
+        
+        <p><strong>Prix pack :</strong> 125,00 € au lieu de 139,70 €</p>
+        <p><strong>Économie :</strong> 14,70 €</p>
+        
+        <p><strong>Le pack comprend :</strong></p>
+        <ul>
+          <li>Jérusalem du Ciel (89,90 €)</li>
+          <li>Minhag ou Halakha (24,90 €)</li>
+          <li>Poztamitsvah (24,90 €)</li>
+        </ul>
+        
+        <p>C'est l'option idéale pour découvrir toute la gamme Ora Shel Torah et avoir une variété d'expériences pédagogiques !</p>`
+      },
+      {
+        category: 'general',
+        question: 'Proposez-vous des tarifs pour les communautés et écoles ?',
+        answer: `<p><strong>Oui ! Nous proposons des tarifs spéciaux pour les commandes groupées.</strong></p>
+        
+        <p><strong>Contact :</strong> <a href="mailto:contact@orasheltorah.com">contact@orasheltorah.com</a></p>
+        
+        <p>Que vous soyez :</p>
+        <ul>
+          <li>🕍 <strong>Communauté</strong> : pour des soirées jeux, événements, bibliothèque communautaire</li>
+          <li>🏫 <strong>École juive</strong> : support pédagogique pour les cours d'études juives</li>
+          <li>📚 <strong>Yeshivot</strong> : outil d'étude en havruta</li>
+          <li>👨‍👩‍👧‍👦 <strong>Associations familiales</strong> : activités intergénérationnelles</li>
+        </ul>
+        
+        <p>Contactez-nous pour discuter de vos besoins spécifiques et obtenir un devis personnalisé.</p>`
+      },
+      {
+        category: 'general',
+        question: 'Comment annuler ma précommande ?',
+        answer: `<p><strong>Politique d'annulation généreuse :</strong></p>
+        
+        <ul>
+          <li>✅ <strong>Annulation gratuite</strong> jusqu'à 48h avant expédition</li>
+          <li>✅ <strong>Remboursement intégral</strong> sous 7 jours ouvrés</li>
+          <li>✅ <strong>Simple et sans justification</strong></li>
+        </ul>
+        
+        <p><strong>Pour annuler :</strong> Envoyez un email à <a href="mailto:support@orasheltorah.com">support@orasheltorah.com</a> avec votre numéro de commande.</p>
+        
+        <p><strong>Droit de rétractation :</strong> 14 jours après réception pour retourner un produit non ouvert.</p>`
+      },
+      {
+        category: 'general',
+        question: 'Que faire si je perds des pièces ?',
+        answer: `<p><strong>Pas de panique ! Nous avons des solutions :</strong></p>
+        
+        <p><strong>Jérusalem du Ciel :</strong></p>
+        <ul>
+          <li>✅ Jetons supplémentaires inclus dans la boîte</li>
+          <li>Les petits jetons en carton peuvent être facilement recréés à domicile si besoin</li>
+        </ul>
+        
+        <p><strong>Cartes perdues (tous les jeux) :</strong></p>
+        <ul>
+          <li>Contactez-nous à <a href="mailto:support@orasheltorah.com">support@orasheltorah.com</a></li>
+          <li>Nous trouverons une solution (remplacement, fichier PDF à imprimer, etc.)</li>
+        </ul>
+        
+        <p><strong>Garantie :</strong> Nous nous engageons à ce que vous puissiez profiter pleinement de vos jeux !</p>`
+      },
+      {
+        category: 'general',
+        question: 'Y a-t-il des vidéos tutorielles pour apprendre les règles ?',
+        answer: `<p><strong>En projet !</strong></p>
+        
+        <p>Nous prévoyons des <strong>simulations de parties</strong> avec :</p>
+        <ul>
+          <li>Séquences de jeu animées</li>
+          <li>Voix off explicative</li>
+          <li>Exemples concrets de situations de jeu</li>
+        </ul>
+        
+        <p><strong>En attendant :</strong></p>
+        <ul>
+          <li>📖 Livrets de règles complets et illustrés dans chaque boîte</li>
+          <li>💬 Support email : <a href="mailto:support@orasheltorah.com">support@orasheltorah.com</a> (réponse sous 48h)</li>
+          <li>📱 Suivez-nous sur les réseaux sociaux pour les annonces de tutoriels</li>
+        </ul>`
+      },
+      {
+        category: 'general',
+        question: 'Quelle est la différence avec d\'autres jeux judaïques ?',
+        answer: `<p><strong>Ora Shel Torah comble le vide entre :</strong></p>
+        <ul>
+          <li>❌ Les jeux pour enfants (type memory, dominos) - trop simples</li>
+          <li>❌ Les quiz érudits - trop complexes et intimidants</li>
+        </ul>
+        
+        <p><strong>Notre différence :</strong></p>
+        <ul>
+          <li>✅ Conçus <em>PAR un débutant</em> (Michael, baal techouva de 54 ans)</li>
+          <li>✅ <em>POUR ceux qui veulent apprendre sans complexe</em></li>
+          <li>✅ Approche progressive avec 3 niveaux de difficulté</li>
+          <li>✅ Esprit d'entraide et d'élévation collective (pas juste de la compétition)</li>
+          <li>✅ Validation halakhique rigoureuse tout en restant accessible</li>
+          <li>✅ Design et qualité premium</li>
+        </ul>
+        
+        <p><strong>Notre promesse :</strong> "Si nous avons pu apprendre, vous pouvez aussi. On ne perd jamais, soit on gagne soit on apprend."</p>`
+      },
+      {
+        category: 'general',
+        question: 'Comment obtenir de l\'aide sur les règles ?',
+        answer: `<p><strong>Notre équipe répond à toutes vos questions :</strong></p>
+        
+        <p><strong>📧 Email support :</strong> <a href="mailto:support@orasheltorah.com">support@orasheltorah.com</a></p>
+        <p><strong>⏱️ Temps de réponse :</strong> Sous 48h ouvrées (généralement beaucoup plus rapide !)</p>
+        
+        <p><strong>Pour les questions générales :</strong> <a href="mailto:contact@orasheltorah.com">contact@orasheltorah.com</a></p>
+        
+        <p><strong>Nous sommes là pour vous accompagner</strong> dans votre découverte et votre apprentissage. N'hésitez jamais à nous contacter !</p>`
+      },
+      {
+        category: 'general',
+        question: 'Le projet est-il soutenu par des institutions ?',
+        answer: `<p><strong>Oui ! Ora Shel Torah bénéficie du soutien de plusieurs institutions majeures :</strong></p>
+        
+        <ul>
+          <li>🏛️ <strong>Consistoire de Paris</strong></li>
+          <li>📚 <strong>Fondation pour la Mémoire de la Shoah</strong></li>
+          <li>🏫 <strong>Réseau des écoles juives Ozar Hatorah</strong></li>
+          <li>👨‍🏫 <strong>Alliance des Rabbins Francophones</strong></li>
+          <li>🤝 <strong>Fédération des Associations Juives de France</strong></li>
+        </ul>
+        
+        <p><strong>Candidature en cours :</strong> Programme <strong>NOÉ</strong> du FSJU (Fonds Social Juif Unifié)</p>
+        
+        <p>Ces soutiens témoignent de la qualité pédagogique et de la valeur éducative de nos jeux.</p>`
+      },
+      {
+        category: 'general',
+        question: 'En quelles langues sont disponibles les jeux ?',
+        answer: `<p><strong>Actuellement :</strong> Français uniquement</p>
+        
+        <p><strong>À venir :</strong></p>
+        <ul>
+          <li>🇬🇧 <strong>Anglais</strong> - en développement</li>
+          <li>🇮🇱 <strong>Hébreu</strong> - prévu pour l'avenir</li>
+        </ul>
+        
+        <p>Si vous êtes intéressé par d'autres langues, contactez-nous ! Nous adaptons nos plans en fonction de la demande.</p>`
+      }
+    ];
+
+    // === DOM ELEMENTS ===
+    const searchInput = document.getElementById('searchInput');
+    const faqContainer = document.getElementById('faqContainer');
+    const noResults = document.getElementById('noResults');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    // === STATE ===
+    let currentFilter = 'all';
+    let searchTerm = '';
+
+    // === INIT ===
+    function init() {
+      renderFAQ();
+      attachEventListeners();
+    }
+
+    // === RENDER FAQ ===
+    function renderFAQ() {
+      faqContainer.innerHTML = '';
+      let visibleCount = 0;
+
+      faqData.forEach((item, index) => {
+        // Filter logic
+        if (currentFilter !== 'all' && item.category !== currentFilter) {
+          return;
+        }
+
+        // Search logic
+        if (searchTerm) {
+          const questionLower = item.question.toLowerCase();
+          const answerLower = item.answer.toLowerCase();
+          const searchLower = searchTerm.toLowerCase();
+          
+          if (!questionLower.includes(searchLower) && !answerLower.includes(searchLower)) {
+            return;
+          }
+        }
+
+        visibleCount++;
+
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+        faqItem.innerHTML = `
+          <div class="faq-question" data-index="${index}">
+            <h3>
+              <span class="faq-tag tag-${item.category}">${getCategoryName(item.category)}</span>
+              ${item.question}
+            </h3>
+            <span class="icon">▼</span>
+          </div>
+          <div class="faq-answer">
+            ${item.answer}
+          </div>
+        `;
+
+        faqContainer.appendChild(faqItem);
+      });
+
+      // Show/hide no results
+      if (visibleCount === 0) {
+        noResults.classList.add('show');
+      } else {
+        noResults.classList.remove('show');
+      }
+
+      // Attach click listeners
+      attachQuestionListeners();
+    }
+
+    // === ATTACH EVENT LISTENERS ===
+    function attachEventListeners() {
+      // Search
+      searchInput.addEventListener('input', (e) => {
+        searchTerm = e.target.value;
+        renderFAQ();
+      });
+
+      // Filters
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active state
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Update filter
+          currentFilter = btn.dataset.filter;
+          renderFAQ();
+        });
+      });
+    }
+
+    // === ATTACH QUESTION LISTENERS ===
+    function attachQuestionListeners() {
+      const questions = document.querySelectorAll('.faq-question');
+      questions.forEach(question => {
+        question.addEventListener('click', () => {
+          const parent = question.parentElement;
+          
+          // Close all others
+          document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== parent) {
+              item.classList.remove('open');
+            }
+          });
+
+          // Toggle current
+          parent.classList.toggle('open');
+        });
+      });
+    }
+
+    // === GET CATEGORY NAME ===
+    function getCategoryName(category) {
+      const names = {
+        'ost': 'Ora Shel Torah',
+        'jdc': 'Jérusalem du Ciel',
+        'moh': 'Minhag ou Halakha',
+        'poz': 'Poztamitsvah',
+        'general': 'Général'
+      };
+      return names[category] || category;
+    }
+
+    // === INIT ON LOAD ===
+    init();
+  </script>
+
+  <!-- FOOTER DU SITE PRINCIPAL -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Colonne 1: À propos -->
+        <div class="footer-column">
+          <h4>À Propos</h4>
+          <ul>
+            <li><a href="/index.html#acte-2">Notre histoire</a></li>
+            <li><a href="/index.html#acte-3">Notre philosophie</a></li>
+            <li><a href="/index.html#contact">Contact</a></li>
+            <li><a href="/partenariats">Partenariats</a></li>
+          </ul>
+        </div>
+        
+        <!-- Colonne 2: Légal -->
+        <div class="footer-column">
+          <h4>Informations Légales</h4>
+          <ul>
+            <li><a href="/legal/mentions-legales.html">Mentions légales</a></li>
+            <li><a href="/legal/cgv.html">Conditions générales de vente</a></li>
+            <li><a href="/legal/politique-confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="/legal/retours-remboursements.html">Retours & Remboursements</a></li>
+          </ul>
+        </div>
+        
+        <!-- Colonne 3: Suivez-nous -->
+        <div class="footer-column">
+          <h4>Suivez-nous</h4>
+          <ul class="social-links">
+            <li><a href="https://instagram.com/orasheltorah" target="_blank" rel="noopener">📷 Instagram</a></li>
+            <li><a href="https://facebook.com/orasheltorah" target="_blank" rel="noopener">👥 Facebook</a></li>
+            <li><a href="https://linkedin.com/company/orasheltorah" target="_blank" rel="noopener">💼 LinkedIn</a></li>
+          </ul>
+          
+          <div class="footer-contact" style="margin-top: 1.5rem;">
+            <p><strong>Ora Shel Torah</strong></p>
+            <p>27 Boulevard des Belges<br>69006 Lyon, France</p>
+            <p>📧 contact@orasheltorah.com</p>
+            <p>📞 06 18 06 10 00</p>
+          </div>
+        </div>
+        
+        <!-- Colonne 4: FAQ -->
+        <div class="footer-column">
+          <h4>Aide & Support</h4>
+          <ul>
+            <li><a href="/faq.html">Questions fréquentes</a></li>
+            <li><a href="/index.html#contact">Nous contacter</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2025 Ora Shel Torah - Tous droits réservés</p>
+        <p class="footer-tagline">
+          ✨ "De génération en génération" ✨
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript du site principal (si nécessaire pour le header/footer) -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
