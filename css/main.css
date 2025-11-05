@@ -6376,8 +6376,8 @@ video[src*="reveal-moh"]::before {
 /* Classe ajoutée par JavaScript après la fin de l'animation */
 .revelation-video-wrapper.inactive video,
 #revelation-trilogie video.inactive {
-    filter: grayscale(100%) brightness(0.9);
-    opacity: 0.7;
+    filter: grayscale(50%) brightness(0.95); /* Désaturation moins radicale (50% au lieu de 100%) */
+    opacity: 0.85; /* Opacité plus élevée (85% au lieu de 70%) */
     transition: filter 1s ease, opacity 1s ease; /* Désaturation progressive */
 }
 
@@ -6423,8 +6423,9 @@ video[src*="reveal-moh"]::before {
    ============================================ */
 .revelation-replay-btn {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    bottom: 10px; /* Positionné sous le container, assez proche */
+    left: 50%; /* Centré horizontalement */
+    transform: translateX(-50%) scale(0.8); /* Centrage + échelle initiale */
     z-index: 20;
     
     /* Style : petit cercle */
@@ -6463,7 +6464,7 @@ video[src*="reveal-moh"]::before {
 .revelation-replay-btn.visible {
     opacity: 1;
     pointer-events: auto;
-    transform: scale(1);
+    transform: translateX(-50%) scale(1); /* Centrage maintenu + échelle normale */
 }
 
 /* Hover */

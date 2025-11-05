@@ -772,6 +772,9 @@ function initRevelationVideos() {
             // Forcer les styles pour que la première frame remplisse le conteneur
             video.style.objectFit = 'cover';
             video.style.objectPosition = 'center';
+            
+            // Accélérer la vitesse de lecture (1.5x = 50% plus rapide)
+            video.playbackRate = 1.5;
         }
     });
     
@@ -905,12 +908,21 @@ function initRevelationVideos() {
             videoElement.style.objectPosition = 'center';
         }
         
-        // 5. Redémarrer la vidéo
+        // 5. S'assurer que la vitesse de lecture est maintenue
+        videoElement.playbackRate = 1.5;
+        
+        // 6. Réinitialiser les flags de cascade si on replay JDC
+        if (videoElement.id === 'video1') {
+            mohStarted = false;
+            pozStarted = false;
+        }
+        
+        // 7. Redémarrer la vidéo
         videoElement.play().catch(err => {
             console.log('Erreur replay:', err);
         });
         
-        // 6. La progression du titre sera gérée automatiquement par setupTitleAppearance
+        // 8. La progression du titre sera gérée automatiquement par setupTitleAppearance
         // qui est déjà configuré via les event listeners
     }
     
@@ -971,37 +983,48 @@ function initRevelationVideos() {
     });
     
     // ============================================
-    // SYNCHRONISATION DES VIDÉOS - BASÉE SUR LE DÉBUT RÉEL DE JDC
+    // SYNCHRONISATION DES VIDÉOS - CASCADE (chaque animation démarre à 50% de la précédente)
     // ============================================
-    
-    let jdcStartTime = null; // Timestamp du début réel de JDC
     
     // Configurer les titres dès le chargement (pas seulement au play)
     setupTitleAppearance(v1, text1);
     setupTitleAppearance(v2, text2);
     setupTitleAppearance(v3, text3);
     
-    // Attendre que JDC commence vraiment à jouer
+    // Variables pour éviter les déclenchements multiples
+    let mohStarted = false;
+    let pozStarted = false;
+    
+    // JDC démarre en premier (déclenché par l'IntersectionObserver)
+    // MOH démarre quand JDC atteint 50% de sa durée
+    v1.addEventListener('timeupdate', () => {
+        if (!mohStarted && v1.duration && v1.currentTime / v1.duration >= 0.5) {
+            mohStarted = true;
+            console.log('🎬 JDC à 50% - Démarrage de MOH en cascade');
+            if (v2 && v2.paused) {
+                v2.play().catch(err => console.log('Erreur autoplay v2:', err));
+                console.log('🎬 Vidéo 2 (MOH) démarrée en cascade');
+            }
+        }
+    });
+    
+    // POZ démarre quand MOH atteint 50% de sa durée
+    v2.addEventListener('timeupdate', () => {
+        if (!pozStarted && v2.duration && v2.currentTime / v2.duration >= 0.5) {
+            pozStarted = true;
+            console.log('🎬 MOH à 50% - Démarrage de POZ en cascade');
+            if (v3 && v3.paused) {
+                v3.play().catch(err => console.log('Erreur autoplay v3:', err));
+                console.log('🎬 Vidéo 3 (POZ) démarrée en cascade');
+            }
+        }
+    });
+    
+    // Réinitialiser les flags lors du replay
     v1.addEventListener('play', () => {
-        if (!jdcStartTime) {
-            jdcStartTime = Date.now();
-            console.log('🎬 Vidéo 1 (JDC) a commencé à jouer - Synchronisation des autres vidéos');
-            
-            // Vidéo 2 (MOH) : démarrer 7 secondes après le début réel de JDC
-            setTimeout(() => {
-                if (v2 && v2.paused) {
-                    v2.play().catch(err => console.log('Erreur autoplay v2:', err));
-                    console.log('🎬 Vidéo 2 (MOH) démarrée 7s après JDC');
-                }
-            }, 7000); // 7 secondes après le début réel de JDC
-            
-            // Vidéo 3 (POZ) : démarrer 10 secondes après le début réel de JDC (indépendant de MOH)
-            setTimeout(() => {
-                if (v3 && v3.paused) {
-                    v3.play().catch(err => console.log('Erreur autoplay v3:', err));
-                    console.log('🎬 Vidéo 3 (POZ) démarrée 10s après JDC');
-                }
-            }, 10000); // 10 secondes après le début réel de JDC
+        if (v1.currentTime === 0) {
+            mohStarted = false;
+            pozStarted = false;
         }
     });
     
