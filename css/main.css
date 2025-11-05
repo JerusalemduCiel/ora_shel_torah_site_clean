@@ -6423,8 +6423,8 @@ video[src*="reveal-moh"]::before {
    ============================================ */
 .revelation-replay-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 8px;
+    right: 8px;
     z-index: 20;
     
     /* Style : petit cercle */
@@ -6519,6 +6519,11 @@ video[src*="reveal-moh"]::before {
 .revelation-video-wrapper.inactive:hover::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0); /* Remonte légèrement */
+}
+
+/* Ajustement spécifique pour JDC (container plus grand) */
+.revelation-video-wrapper:nth-child(1)::after {
+    bottom: 120px; /* Augmenté de 100px à 120px pour éviter le chevauchement avec le container plus grand */
 }
 
 /* ============================================
@@ -6679,8 +6684,8 @@ img[src*="poz-box"],
     .revelation-replay-btn {
         width: 32px;
         height: 32px;
-        top: 12px;
-        right: 12px;
+        top: 8px;
+        right: 8px;
     }
     
     .revelation-replay-btn svg {
@@ -6784,6 +6789,11 @@ img[src*="poz-box"],
         bottom: 20px;
         font-size: 12px;
         padding: 8px 20px;
+    }
+    
+    /* Ajustement spécifique pour JDC sur mobile (container plus grand) */
+    .revelation-video-wrapper:nth-child(1)::after {
+        bottom: 30px; /* Augmenté pour éviter le chevauchement avec le container plus grand */
     }
     
 }
