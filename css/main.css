@@ -6054,7 +6054,7 @@ footer {
 /* Container du bouton */
 .cta-below-summary {
     text-align: center;
-    margin-top: 2rem !important;
+    margin-top: 0.5rem !important; /* Réduit de 2rem à 0.5rem pour rapprocher du container */
     margin-bottom: 1rem;
     padding: 0 1rem;
     display: block !important;
@@ -6104,7 +6104,7 @@ footer {
     .cta-below-summary {
         display: block !important; /* IMPORTANT - Forcer l'affichage */
         text-align: center;
-        margin-top: 1.5rem !important;
+        margin-top: 0.5rem !important; /* Réduit pour rapprocher du container */
         margin-bottom: 1.5rem !important;
         padding: 0 1rem;
         visibility: visible !important;
@@ -6144,7 +6144,7 @@ footer {
 /* Responsive petit mobile */
 @media (max-width: 480px) {
     .cta-below-summary {
-        margin-top: 1.25rem !important;
+        margin-top: 0.5rem !important; /* Réduit pour rapprocher du container */
         margin-bottom: 1.25rem !important;
     }
     
