@@ -6423,7 +6423,7 @@ video[src*="reveal-moh"]::before {
    ============================================ */
 .revelation-replay-btn {
     position: absolute;
-    bottom: 10px; /* Positionné sous le container, assez proche */
+    bottom: 50px; /* Positionné plus haut sous le container */
     left: 50%; /* Centré horizontalement */
     transform: translateX(-50%) scale(0.8); /* Centrage + échelle initiale */
     z-index: 20;
@@ -6472,7 +6472,7 @@ video[src*="reveal-moh"]::before {
     background: rgba(237, 162, 52, 0.9);
     border-color: #eda234;
     box-shadow: 0 3px 10px rgba(237, 162, 52, 0.4);
-    transform: scale(1.1);
+    transform: translateX(-50%) scale(1.1); /* Centrage maintenu + zoom */
 }
 
 .revelation-replay-btn:hover svg {
@@ -6482,7 +6482,7 @@ video[src*="reveal-moh"]::before {
 
 /* Active (clic) */
 .revelation-replay-btn:active {
-    transform: scale(0.95);
+    transform: translateX(-50%) scale(0.95); /* Centrage maintenu + compression */
 }
 
 /* ============================================
@@ -6681,12 +6681,25 @@ img[src*="poz-box"],
         margin-top: 15px;
     }
     
-    /* Bouton replay sur mobile */
+    /* Bouton replay sur tablette */
     .revelation-replay-btn {
         width: 32px;
         height: 32px;
-        top: 8px;
-        right: 8px;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+    }
+    
+    .revelation-replay-btn.visible {
+        transform: translateX(-50%) scale(1);
+    }
+    
+    .revelation-replay-btn:hover {
+        transform: translateX(-50%) scale(1.1);
+    }
+    
+    .revelation-replay-btn:active {
+        transform: translateX(-50%) scale(0.95);
     }
     
     .revelation-replay-btn svg {
