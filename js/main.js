@@ -781,6 +781,44 @@ function initRevelationVideos() {
     const DELAY_BEFORE_DESATURATE = 2000; // 2 secondes
     
     // ============================================
+    // DÉCLENCHEMENT BASÉ SUR LE SCROLL - IntersectionObserver
+    // ============================================
+    // L'animation ne se déclenche que lorsque 1/3 de la section est visible
+    const revelationSection = document.getElementById('revelation-trilogie');
+    let animationStarted = false; // Flag pour ne démarrer qu'une seule fois
+    
+    if (revelationSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Déclencher l'animation quand 1/3 (33%) de la section est visible
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.33 && !animationStarted) {
+                    animationStarted = true;
+                    console.log('🎬 Section revelation-trilogie visible à 1/3 - Démarrage des animations');
+                    startRevelationAnimations();
+                    observer.unobserve(entry.target); // Ne plus observer après le démarrage
+                }
+            });
+        }, {
+            threshold: 0.33, // 1/3 de la section doit être visible
+            rootMargin: '0px' // Pas de marge supplémentaire
+        });
+        
+        observer.observe(revelationSection);
+    }
+    
+    // ============================================
+    // FONCTION DE DÉMARRAGE DES ANIMATIONS
+    // ============================================
+    function startRevelationAnimations() {
+        // Démarrer la vidéo JDC
+        if (v1 && v1.paused) {
+            v1.play().catch(err => {
+                console.log('⚠️ Erreur au démarrage de JDC:', err);
+            });
+        }
+    }
+    
+    // ============================================
     // APPARITION DES TITRES (UNE SEULE FOIS)
     // ============================================
     
@@ -964,18 +1002,6 @@ function initRevelationVideos() {
                     console.log('🎬 Vidéo 3 (POZ) démarrée 10s après JDC');
                 }
             }, 10000); // 10 secondes après le début réel de JDC
-        }
-    });
-    
-    // Fallback si l'événement play n'est pas déclenché (chargement tardif)
-    v1.addEventListener('loadeddata', () => {
-        console.log('🎬 Vidéo 1 (JDC) chargée');
-        // Si JDC n'a pas encore commencé, on attend encore un peu
-        if (!jdcStartTime && v1.paused) {
-            // Essayer de forcer le play si autoplay n'a pas fonctionné
-            v1.play().catch(() => {
-                console.log('⚠️ Autoplay bloqué pour JDC - attente interaction utilisateur');
-            });
         }
     });
     
