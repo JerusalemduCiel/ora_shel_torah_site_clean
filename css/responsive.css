@@ -2,6 +2,17 @@
    ORA SHEL TORAH - RESPONSIVE DESIGN
    ======================================== */
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+
 /* ========================================
    SECTION PHILOSOPHIE - RESPONSIVE MOBILE
    ======================================== */
@@ -836,6 +847,77 @@
   .newsletter-form button {
     padding: var(--space-sm);
     font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 400px) {
+  * {
+    max-width: 100vw;
+  }
+
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .container,
+  .hero-content,
+  .section-header,
+  .philosophy-grid,
+  .revelation-boxes-wrapper,
+  .products-grid,
+  .footer-content {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto;
+  }
+
+  .philosophy-slide.text-slide {
+    min-height: auto !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  .founder-intro {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .founder-intro-photo,
+  .founder-intro-text {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .founder-intro-text {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .cta-below-summary {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .btn-story-cta {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 }
 
