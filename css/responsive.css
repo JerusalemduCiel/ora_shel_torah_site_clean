@@ -496,6 +496,128 @@ body {
   }
 }
 
+@media (min-width: 769px) and (max-width: 991px) {
+  /* ========================================
+     FOLD 7 OUVERT - Acte 2 Mon Parcours
+     ======================================== */
+
+  /* Annuler les règles mobile qui cachent les slides */
+  .video-philosophy-container {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* FORCER l'affichage des deux slides en colonne */
+  .philosophy-slide {
+    display: block !important;
+    width: 100% !important;
+    min-height: auto !important;
+    max-height: none !important;
+    height: auto !important;
+    padding: 2rem !important;
+  }
+
+  /* Slide vidéo */
+  .philosophy-slide.video-slide {
+    display: block !important;
+  }
+
+  /* Slide texte - CRITIQUE */
+  .philosophy-slide.text-slide {
+    display: block !important;
+    min-height: auto !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Flèches mobile : CACHER sur Fold ouvert */
+  .mobile-nav-arrow {
+    display: none !important;
+  }
+
+  /* FOUNDER INTRO */
+  .founder-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 2rem !important;
+  }
+
+  /* Photo */
+  .founder-intro-photo {
+    display: block !important;
+    width: 100% !important;
+    max-width: 250px !important;
+    margin: 0 auto 2rem !important;
+  }
+
+  .founder-intro-photo img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Texte */
+  .founder-intro-text {
+    display: block !important;
+    width: 100% !important;
+    max-width: 700px !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 auto !important;
+  }
+
+  .founder-intro-text h3 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .founder-intro-text p {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.8 !important;
+  }
+
+  .founder-intro-text .message-final {
+    display: block !important;
+    margin-top: 1.5rem !important;
+    padding: 1rem !important;
+    background: rgba(237, 162, 52, 0.1) !important;
+    border-left: 4px solid var(--color-gold) !important;
+  }
+
+  /* BOUTON - CRITIQUE */
+  .cta-below-summary {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    justify-content: center !important;
+  }
+
+  .btn-story-cta {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
 /* Tablet (≥ 768px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .container {
