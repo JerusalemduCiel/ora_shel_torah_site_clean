@@ -496,12 +496,13 @@ body {
   }
 }
 
-@media (min-width: 769px) and (max-width: 991px) {
-  /* ========================================
-     FOLD 7 OUVERT - Acte 2 Mon Parcours
-     ======================================== */
-
-  /* Annuler les règles mobile qui cachent les slides */
+/* ========================================
+   TABLETTES ET FOLD 7 OUVERT
+   DOUBLE DÉTECTION : largeur OU aspect-ratio
+   ======================================== */
+@media (min-width: 769px) and (max-width: 1100px),
+       (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/4) and (min-width: 700px) {
+  /* Annuler TOUTES les règles mobile */
   .video-philosophy-container {
     display: flex !important;
     flex-direction: column !important;
@@ -510,111 +511,138 @@ body {
     max-height: none !important;
   }
 
-  /* FORCER l'affichage des deux slides en colonne */
+  /* Les slides ne sont PAS masqués sur tablette/Fold */
   .philosophy-slide {
     display: block !important;
     width: 100% !important;
     min-height: auto !important;
     max-height: none !important;
     height: auto !important;
-    padding: 2rem !important;
+    padding: 2rem 1rem !important;
   }
 
-  /* Slide vidéo */
-  .philosophy-slide.video-slide {
-    display: block !important;
-  }
-
-  /* Slide texte - CRITIQUE */
+  .philosophy-slide.video-slide,
   .philosophy-slide.text-slide {
     display: block !important;
-    min-height: auto !important;
-    max-height: none !important;
-    height: auto !important;
-    overflow: visible !important;
   }
 
-  /* Flèches mobile : CACHER sur Fold ouvert */
+  /* CACHER les flèches mobile */
   .mobile-nav-arrow {
     display: none !important;
   }
 
-  /* FOUNDER INTRO */
+  /* FOUNDER INTRO - Structure complète visible */
   .founder-intro {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    max-width: 800px !important;
+    max-width: 900px !important;
     margin: 0 auto !important;
     height: auto !important;
+    min-height: auto !important;
     max-height: none !important;
     overflow: visible !important;
     padding: 2rem !important;
+    background: transparent !important;
   }
 
-  /* Photo */
+  /* Photo centrée */
   .founder-intro-photo {
     display: block !important;
     width: 100% !important;
-    max-width: 250px !important;
+    max-width: 280px !important;
     margin: 0 auto 2rem !important;
+    flex: none !important;
   }
 
   .founder-intro-photo img {
     width: 100% !important;
     height: auto !important;
+    border-radius: 12px !important;
   }
 
-  /* Texte */
+  /* Texte complet et scrollable */
   .founder-intro-text {
     display: block !important;
     width: 100% !important;
-    max-width: 700px !important;
+    max-width: 800px !important;
     height: auto !important;
+    min-height: auto !important;
     max-height: none !important;
     overflow: visible !important;
     margin: 0 auto !important;
+    flex: none !important;
   }
 
   .founder-intro-text h3 {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    font-size: 1.8rem !important;
+    font-size: 2rem !important;
     margin-bottom: 1.5rem !important;
+    color: var(--color-text-dark) !important;
   }
 
   .founder-intro-text p {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 1.2rem !important;
     line-height: 1.8 !important;
+    font-size: 1.1rem !important;
   }
 
   .founder-intro-text .message-final {
     display: block !important;
-    margin-top: 1.5rem !important;
-    padding: 1rem !important;
+    margin-top: 2rem !important;
+    padding: 1.5rem !important;
     background: rgba(237, 162, 52, 0.1) !important;
     border-left: 4px solid var(--color-gold) !important;
+    border-radius: 8px !important;
   }
 
-  /* BOUTON - CRITIQUE */
+  /* BOUTON VISIBLE ET CENTRÉ */
   .cta-below-summary {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    margin-top: 2rem !important;
+    margin-top: 3rem !important;
     margin-bottom: 2rem !important;
     justify-content: center !important;
+    width: 100% !important;
   }
 
   .btn-story-cta {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1.2rem 2rem !important;
+  }
+
+  /* Acte 4 - Révélation */
+  .revelation-boxes-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .revelation-video-wrapper {
+    aspect-ratio: 9/16;
+    max-width: 250px;
+    max-height: 450px;
+    flex: 0 0 auto;
+  }
+
+  .revelation-video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
   }
 }
 
