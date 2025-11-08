@@ -620,14 +620,14 @@
 .revelation-icon-container {
     position: relative;
     width: 200px;
-    height: 240px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .revelation-icon {
-    width: 180px;
+    width: 150px;
     height: auto;
     position: relative;
     z-index: 2;
@@ -653,7 +653,7 @@
     transform: translateX(-50%);
     width: 120px;
     height: 20px;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 70%);
     border-radius: 50%;
     z-index: 1;
     animation: shadowPulse 2s ease-in-out infinite;
@@ -741,11 +741,138 @@
     }
     
     .revelation-icon {
-        width: 150px;
+        width: 130px;
     }
     
     .revelation-icon-container {
         width: 160px;
-        height: 200px;
+        height: 170px;
+    }
+}
+
+/* ========================================
+   ACTE 4 - VERSION SOBRE FOND BLANC
+   ======================================== */
+
+#revelation-trilogie {
+    background: #ffffff;
+    padding: 3rem 0;
+}
+
+.tripanel-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tripanel-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8B7355;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.tripanel-title {
+    font-family: 'Crimson Text', serif;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.title-intro {
+    display: block;
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.title-main {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #8B7355 0%, #d4af37 30%, #f4d03f 50%, #d4af37 70%, #8B7355 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+.title-separator {
+    margin: 1rem 0;
+}
+
+.separator-stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.star {
+    font-size: 1.2rem;
+    color: #d4af37;
+    display: inline-block;
+}
+
+.tripanel-subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.tripanel-subtitle strong {
+    color: #d4af37;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.revelation-boxes-wrapper {
+    padding-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    #revelation-trilogie {
+        padding: 2.5rem 0;
+    }
+    
+    .tripanel-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .title-intro {
+        font-size: 1.2rem;
+    }
+    
+    .title-main {
+        font-size: 2.2rem;
+    }
+    
+    .tripanel-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .separator-stars {
+        gap: 0.8rem;
     }
 }
