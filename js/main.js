@@ -21,7 +21,7 @@ function initializeApp() {
     initPhilosophyMobileNav();
     initContentCarousels();
     initContactPartenariatAnimation();
-    initRevelationVideos();
+    initRevelationCards();
     
     console.log('Ora Shel Torah - Site initialisé');
 }
@@ -753,355 +753,77 @@ window.OraShelTorah = {
 };
 
 // ========================================
-// RÉVÉLATION TRILOGIE - ENCHAÎNEMENT VIDÉOS
+// RÉVÉLATION TRILOGIE - CARTES ICÔNES
 // ========================================
 
-function initRevelationVideos() {
-    const v1 = document.getElementById('video1');
-    const v2 = document.getElementById('video2');
-    const v3 = document.getElementById('video3');
-    const text1 = document.getElementById('text1');
-    const text2 = document.getElementById('text2');
-    const text3 = document.getElementById('text3');
-    
-    if (!v1 || !v2 || !v3) return;
-    
-    // S'assurer que les vidéos affichent correctement leur première frame
-    [v1, v2, v3].forEach(video => {
-        if (video) {
-            // Forcer les styles pour que la première frame remplisse le conteneur
-            video.style.objectFit = 'cover';
-            video.style.objectPosition = 'center';
-            
-            // Accélérer la vitesse de lecture (1.5x = 50% plus rapide)
-            video.playbackRate = 1.5;
-        }
-    });
-    
-    // ============================================
-    // DÉLAI AVANT DÉSATURATION
-    // ============================================
-    const DELAY_BEFORE_DESATURATE = 2000; // 2 secondes
-    
-    // ============================================
-    // DÉCLENCHEMENT BASÉ SUR LE SCROLL - IntersectionObserver
-    // ============================================
-    // L'animation ne se déclenche que lorsque 1/3 de la section est visible
-    const revelationSection = document.getElementById('revelation-trilogie');
-    let animationStarted = false; // Flag pour ne démarrer qu'une seule fois
-    
-    if (revelationSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                // Déclencher l'animation quand 1/3 (33%) de la section est visible
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.33 && !animationStarted) {
-                    animationStarted = true;
-                    console.log('🎬 Section revelation-trilogie visible à 1/3 - Démarrage des animations');
-                    startRevelationAnimations();
-                    observer.unobserve(entry.target); // Ne plus observer après le démarrage
-                }
+function initRevelationCards() {
+    const cards = document.querySelectorAll('.revelation-card');
+    if (!cards.length) {
+        return;
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (e.defaultPrevented) {
+                return;
+            }
+
+            // Conserver les comportements natifs (nouvel onglet, etc.)
+            if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+                return;
+            }
+
+            const href = this.getAttribute('href');
+            if (!href || !href.startsWith('#')) {
+                return;
+            }
+
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (!targetElement) {
+                return;
+            }
+
+            e.preventDefault();
+
+            const header = document.getElementById('main-header');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
-        }, {
-            threshold: 0.33, // 1/3 de la section doit être visible
-            rootMargin: '0px' // Pas de marge supplémentaire
-        });
-        
-        observer.observe(revelationSection);
-    }
-    
-    // ============================================
-    // FONCTION DE DÉMARRAGE DES ANIMATIONS
-    // ============================================
-    function startRevelationAnimations() {
-        // Démarrer la vidéo JDC
-        if (v1 && v1.paused) {
-            v1.play().catch(err => {
-                console.log('⚠️ Erreur au démarrage de JDC:', err);
-            });
-        }
-    }
-    
-    // ============================================
-    // APPARITION DES TITRES (UNE SEULE FOIS)
-    // ============================================
-    
-    // Fonction pour afficher le titre à 50% de l'animation (ou immédiatement si la vidéo a déjà commencé)
-    function setupTitleAppearance(video, titleElement) {
-        if (!video || !titleElement) return;
-        
-        let labelShown = false; // Flag pour ne montrer qu'une fois
-        
-        // Si la vidéo est déjà en cours de lecture, vérifier immédiatement
-        const checkAndShow = () => {
-            if (labelShown) return;
-            
-            if (!video.duration) return;
-            
-            // Afficher le titre à 50% de l'animation ou si la vidéo a déjà dépassé ce seuil
-            if (video.currentTime / video.duration >= 0.5) {
-                titleElement.classList.add('visible');
-                labelShown = true;
-                console.log('✅ Titre affiché:', titleElement.textContent);
-                return true;
-            }
-            return false;
-        };
-        
-        // Vérifier immédiatement si la vidéo est déjà en cours
-        if (video.readyState >= 2 && !video.paused) {
-            if (checkAndShow()) return;
-        }
-        
-        // Sinon, attendre l'événement timeupdate
-        video.addEventListener('timeupdate', function() {
-            checkAndShow();
-        });
-    }
-    
-    // ============================================
-    // BOUTON REPLAY - Apparition et fonctionnalité
-    // ============================================
-    
-    // Fonction pour afficher le bouton replay après la fin de la vidéo
-    function showReplayButton(videoElement) {
-        const wrapper = videoElement.closest('.revelation-video-wrapper');
-        const replayBtn = wrapper?.querySelector('.revelation-replay-btn');
-        
-        if (replayBtn) {
-            // Afficher le bouton après la désaturation (2s + 500ms)
-            setTimeout(() => {
-                replayBtn.classList.add('visible');
-                console.log('🔄 Bouton replay affiché');
-            }, DELAY_BEFORE_DESATURATE + 500);
-        }
-    }
-    
-    // Fonction pour rejouer l'animation
-    function replayAnimation(videoElement, titleElement) {
-        if (!videoElement || !titleElement) return;
-        
-        const wrapper = videoElement.closest('.revelation-video-wrapper');
-        const replayBtn = wrapper?.querySelector('.revelation-replay-btn');
-        
-        console.log('🔄 Replay:', videoElement.id);
-        
-        // 1. Cacher le bouton replay
-        if (replayBtn) {
-            replayBtn.classList.remove('visible');
-        }
-        
-        // 2. Retirer la classe inactive pour réinitialiser les couleurs
-        videoElement.classList.remove('inactive');
-        wrapper?.classList.remove('inactive');
-        
-        // 3. Le titre reste visible (pas touché)
-        
-        // 4. Réinitialiser la vidéo
-        videoElement.currentTime = 0;
-        videoElement.removeAttribute('data-playing'); // Retirer pour revenir à cover
-        // Pour MOH, toujours forcer cover pour éviter le cadre blanc
-        if (videoElement.id === 'video2' || videoElement.src.includes('reveal-moh')) {
-            videoElement.style.objectFit = 'cover';
-            videoElement.style.objectPosition = 'center center';
-        } else {
-            videoElement.style.objectFit = 'cover';
-            videoElement.style.objectPosition = 'center';
-        }
-        
-        // 5. S'assurer que la vitesse de lecture est maintenue
-        videoElement.playbackRate = 1.5;
-        
-        // 6. Réinitialiser les flags de cascade si on replay JDC
-        if (videoElement.id === 'video1') {
-            mohStarted = false;
-            pozStarted = false;
-        }
-        
-        // 7. Redémarrer la vidéo
-        videoElement.play().catch(err => {
-            console.log('Erreur replay:', err);
-        });
-        
-        // 8. La progression du titre sera gérée automatiquement par setupTitleAppearance
-        // qui est déjà configuré via les event listeners
-    }
-    
-    // Attacher les event listeners de replay
-    const replayButtons = document.querySelectorAll('.revelation-replay-btn');
-    replayButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Empêcher le clic sur le wrapper
-            const videoId = this.getAttribute('data-video');
-            const textId = this.getAttribute('data-text');
-            
-            const video = document.getElementById(videoId);
-            const text = document.getElementById(textId);
-            
-            if (video && text) {
-                replayAnimation(video, text);
+
+            if (history.replaceState) {
+                history.replaceState(null, '', href);
+            } else {
+                window.location.hash = targetId;
             }
         });
+
+        card.addEventListener('focus', () => toggleRevelationCardAnimation(card, true));
+        card.addEventListener('blur', () => toggleRevelationCardAnimation(card, false));
+        card.addEventListener('mouseenter', () => toggleRevelationCardAnimation(card, true));
+        card.addEventListener('mouseleave', () => toggleRevelationCardAnimation(card, false));
     });
-    
-    // ============================================
-    // GESTION DE L'ATTRIBUT data-playing POUR L'OBJECT-FIT
-    // ============================================
-    // S'assurer que la première frame de la vidéo s'affiche correctement
-    [v1, v2, v3].forEach(video => {
-        if (video) {
-            // Forcer object-fit: cover pour que la première frame remplisse le conteneur
-            const ensureFirstFrame = () => {
-                if (!video.hasAttribute('data-playing')) {
-                    video.style.objectFit = 'cover';
-                    video.style.objectPosition = 'center';
-                }
-            };
-            
-            // Appliquer quand la première frame est chargée
-            video.addEventListener('loadeddata', ensureFirstFrame);
-            
-            // Ajouter data-playing quand la vidéo commence à jouer
-            video.addEventListener('play', () => {
-                video.setAttribute('data-playing', 'true');
-                // Pour MOH, on garde cover pour éviter le cadre blanc
-                if (video.id === 'video2' || video.src.includes('reveal-moh')) {
-                    video.style.objectFit = 'cover';
-                    video.style.objectPosition = 'center center';
-                } else {
-                    video.style.objectFit = 'contain';
-                    video.style.objectPosition = 'center';
-                }
-            });
-            
-            video.addEventListener('ended', () => {
-                // Retirer data-playing à la fin pour revenir à la première frame en cover
-                video.removeAttribute('data-playing');
-                video.style.objectFit = 'cover';
-                video.style.objectPosition = 'center';
-            });
+}
+
+function toggleRevelationCardAnimation(card, shouldPause) {
+    const icon = card.querySelector('.revelation-icon');
+    const shadow = card.querySelector('.revelation-shadow');
+    const state = shouldPause ? 'paused' : '';
+
+    if (icon) {
+        icon.style.animationPlayState = state;
+        if (!shouldPause) {
+            icon.style.transform = '';
         }
-    });
-    
-    // ============================================
-    // SYNCHRONISATION DES VIDÉOS - CASCADE (chaque animation démarre à 50% de la précédente)
-    // ============================================
-    
-    // Configurer les titres dès le chargement (pas seulement au play)
-    setupTitleAppearance(v1, text1);
-    setupTitleAppearance(v2, text2);
-    setupTitleAppearance(v3, text3);
-    
-    // Variables pour éviter les déclenchements multiples
-    let mohStarted = false;
-    let pozStarted = false;
-    
-    // JDC démarre en premier (déclenché par l'IntersectionObserver)
-    // MOH démarre quand JDC atteint 50% de sa durée
-    v1.addEventListener('timeupdate', () => {
-        if (!mohStarted && v1.duration && v1.currentTime / v1.duration >= 0.5) {
-            mohStarted = true;
-            console.log('🎬 JDC à 50% - Démarrage de MOH en cascade');
-            if (v2 && v2.paused) {
-                v2.play().catch(err => console.log('Erreur autoplay v2:', err));
-                console.log('🎬 Vidéo 2 (MOH) démarrée en cascade');
-            }
-        }
-    });
-    
-    // POZ démarre quand MOH atteint 50% de sa durée
-    v2.addEventListener('timeupdate', () => {
-        if (!pozStarted && v2.duration && v2.currentTime / v2.duration >= 0.5) {
-            pozStarted = true;
-            console.log('🎬 MOH à 50% - Démarrage de POZ en cascade');
-            if (v3 && v3.paused) {
-                v3.play().catch(err => console.log('Erreur autoplay v3:', err));
-                console.log('🎬 Vidéo 3 (POZ) démarrée en cascade');
-            }
-        }
-    });
-    
-    // Réinitialiser les flags lors du replay
-    v1.addEventListener('play', () => {
-        if (v1.currentTime === 0) {
-            mohStarted = false;
-            pozStarted = false;
-        }
-    });
-    
-    // ============================================
-    // NAVIGATION AU CLIC - Redirection vers hero-bis
-    // ============================================
-    const wrapper1 = v1.closest('.revelation-video-wrapper');
-    const wrapper2 = v2.closest('.revelation-video-wrapper');
-    const wrapper3 = v3.closest('.revelation-video-wrapper');
-    
-    // Fonction pour scroller vers la section hero-bis correspondante
-    function scrollToHeroBis(wrapper, targetId) {
-        wrapper.style.cursor = 'pointer';
-        wrapper.addEventListener('click', () => {
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                const headerHeight = document.getElementById('main-header')?.offsetHeight || 0;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                console.log(`🎯 Navigation vers ${targetId}`);
-            }
-        });
     }
-    
-    // Configuration des redirections
-    if (wrapper1) scrollToHeroBis(wrapper1, 'hero-bis-jdc');
-    if (wrapper2) scrollToHeroBis(wrapper2, 'hero-bis-moh');
-    if (wrapper3) scrollToHeroBis(wrapper3, 'hero-bis-poz');
-    
-    // ============================================
-    // DÉSATURATION APRÈS FIN DES ANIMATIONS
-    // ============================================
-    
-    // 🎨 FONCTION DE DÉSATURATION
-    function desaturateBox(videoElement, wrapperElement) {
-        setTimeout(() => {
-            if (videoElement) {
-                videoElement.classList.add('inactive');
-                console.log('✅ Vidéo désaturée:', videoElement.id || videoElement.src);
-            }
-            
-            if (wrapperElement) {
-                wrapperElement.classList.add('inactive');
-                console.log('✅ Wrapper désaturé');
-            }
-        }, DELAY_BEFORE_DESATURATE);
-    }
-    
-    // 🎬 ÉCOUTER LA FIN DE CHAQUE VIDÉO
-    if (v1) {
-        v1.addEventListener('ended', function() {
-            console.log('🎬 Vidéo JDC terminée');
-            const wrapper = v1.closest('.revelation-video-wrapper');
-            desaturateBox(v1, wrapper);
-            showReplayButton(v1);
-        });
-    }
-    
-    if (v2) {
-        v2.addEventListener('ended', function() {
-            console.log('🎬 Vidéo MOH terminée');
-            const wrapper = v2.closest('.revelation-video-wrapper');
-            desaturateBox(v2, wrapper);
-            showReplayButton(v2);
-        });
-    }
-    
-    if (v3) {
-        v3.addEventListener('ended', function() {
-            console.log('🎬 Vidéo POZ terminée');
-            const wrapper = v3.closest('.revelation-video-wrapper');
-            desaturateBox(v3, wrapper);
-            showReplayButton(v3);
-        });
+
+    if (shadow) {
+        shadow.style.animationPlayState = state;
     }
 }
 

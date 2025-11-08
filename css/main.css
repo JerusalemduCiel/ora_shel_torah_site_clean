@@ -2826,15 +2826,27 @@ footer {
 
 /* Container vidéo philosophie + présentation fondateur */
 .video-philosophy-container {
-  display: flex;
-  gap: 0;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
   margin-top: 2rem;
   height: 66.67vh; /* 2/3 de la hauteur de l'affichage */
 }
 
+.video-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cta-below-video {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
 .video-philosophy-wrapper {
-  flex: 1;
   min-width: 0; /* Permet au contenu de se rétrécir */
   height: 100%;
   display: flex;
@@ -2859,15 +2871,15 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: 100%; /* Même hauteur que le container */
-  overflow-y: auto; /* Scroll si nécessaire pour voir le bouton */
+  height: auto;
+  overflow: visible;
 }
 
 .founder-intro-photo {
   flex: 0 0 auto;
   width: 100%;
   max-width: 150px;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
 }
 
 .founder-intro-photo img {
@@ -2881,8 +2893,9 @@ footer {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: visible !important;
   min-height: 0; /* Permet au flex de fonctionner */
+  max-width: 90%;
+  padding-right: 1rem;
 }
 
 .founder-intro-text h3 {
@@ -6044,7 +6057,8 @@ footer {
 
 /* S'assurer que le bouton est visible dans .founder-intro-text */
 .founder-intro-text {
-    overflow: visible !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
 }
 
 /* ============================================
@@ -6062,6 +6076,62 @@ footer {
     opacity: 1 !important;
     position: relative;
     z-index: 10;
+}
+
+/* ========================================
+   FIX SCROLL ACTE 2 - DIAGNOSTIC COMPLET
+   ======================================== */
+
+.text-content-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    padding-right: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 175, 55, 0.6) rgba(0, 0, 0, 0.05);
+}
+
+.text-content-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.text-content-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.text-content-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.6);
+    border-radius: 4px;
+}
+
+.text-content-wrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.9);
+}
+
+.philosophy-slide.text-slide {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    height: auto;
+}
+
+.founder-intro {
+    display: block;
+    height: auto;
+    overflow: visible;
+}
+
+.founder-intro-text {
+    height: auto;
+    max-height: none;
+}
+
+@media (max-width: 768px) {
+    .text-content-wrapper {
+        max-height: 400px;
+    }
 }
 
 /* Bouton petit et élégant */
@@ -6169,8 +6239,8 @@ footer {
     justify-content: center;
     align-items: center;
     background: #faf9f6; /* Blanc cassé chaud */
-    padding: 5rem 0; /* Augmenté pour plus d'espace vertical */
-    gap: 2rem; /* Augmenté pour plus d'espace entre les boîtes */
+    padding: 4rem 0;
+    gap: 2rem;
     min-height: 66vh; /* hauteur de 2/3 de hero */
     position: relative;
     overflow: hidden;
@@ -6225,7 +6295,7 @@ footer {
     font-style: italic;
     color: #4d727b; /* Bleu-vert élégant au lieu de vert terne */
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem;
     line-height: 1.6;
     opacity: 1; /* 100% au lieu de 0.9 */
 }

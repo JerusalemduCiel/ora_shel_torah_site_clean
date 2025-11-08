@@ -114,6 +114,10 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
   }
+
+  .cta-below-video {
+    margin-top: 1.5rem;
+  }
   
   /* S'assurer que les slides ne cachent pas le bouton */
   .philosophy-slide.text-slide {
