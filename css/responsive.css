@@ -1075,6 +1075,100 @@ body {
   }
 }
 
+/* ========================================
+   ACTE 4 MOBILE - CORRECTION URGENTE
+   ======================================== */
+
+/* Petits écrans (smartphones) */
+@media (max-width: 768px) {
+  #revelation-trilogie {
+    padding: 2.5rem 0;
+  }
+
+  /* FORCER l'affichage horizontal sur mobile */
+  .revelation-boxes-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  /* Réduire drastiquement la taille des cartes */
+  .revelation-card {
+    flex: 0 0 auto;
+    min-width: 100px;
+    max-width: 120px;
+  }
+
+  /* Réduire la taille du conteneur d'icône */
+  .revelation-icon-container {
+    width: 100px;
+    height: 120px;
+  }
+
+  /* Réduire drastiquement la taille des icônes */
+  .revelation-icon {
+    width: 90px !important;
+    height: auto;
+  }
+
+  /* FORCER l'affichage du texte */
+  .revelation-text {
+    display: block !important;
+    font-size: 0.8rem !important;
+    text-align: center;
+    margin-top: 0.5rem;
+    line-height: 1.2;
+  }
+
+  /* Réduire l'ombre */
+  .revelation-shadow {
+    width: 80px;
+  }
+
+  /* Titres de la section */
+  .tripanel-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .title-main {
+    font-size: 2rem;
+  }
+
+  .tripanel-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Très petits écrans (< 400px) */
+@media (max-width: 400px) {
+  .revelation-boxes-wrapper {
+    gap: 0.5rem;
+  }
+
+  .revelation-card {
+    min-width: 90px;
+    max-width: 100px;
+  }
+
+  .revelation-icon-container {
+    width: 90px;
+    height: 110px;
+  }
+
+  .revelation-icon {
+    width: 80px !important;
+  }
+
+  .revelation-text {
+    font-size: 0.7rem !important;
+  }
+}
+
 /* Large screens */
 @media (min-width: 1440px) {
   .container {
