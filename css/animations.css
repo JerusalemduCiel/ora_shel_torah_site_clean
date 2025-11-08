@@ -820,19 +820,6 @@
     margin: 1rem 0;
 }
 
-.separator-stars {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.star {
-    font-size: 1.2rem;
-    color: #d4af37;
-    display: inline-block;
-}
-
 .tripanel-subtitle {
     font-family: 'Crimson Text', serif;
     font-size: 1.2rem;
@@ -855,7 +842,7 @@
     #revelation-trilogie {
         padding: 2.5rem 0;
     }
-    
+
     .tripanel-header {
         margin-bottom: 1.5rem;
     }
