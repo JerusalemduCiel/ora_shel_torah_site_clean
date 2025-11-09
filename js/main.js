@@ -800,11 +800,18 @@ function teardownRevelationMobileCarousel() {
     }
 
     if (cards && cards.length) {
-        cards.forEach(card => card.classList.remove('active'));
+        cards.forEach(card => {
+            card.classList.remove('active', 'prev-card', 'next-card', 'hidden');
+            card.style.removeProperty('--revelation-card-state');
+        });
     }
 
     if (dots && dots.length) {
         dots.forEach(dot => dot.classList.remove('is-active'));
+    }
+
+    if (typeof window.updateCardsPosition === 'function') {
+        window.updateCardsPosition = undefined;
     }
 
     revelationCarouselState = {
@@ -836,6 +843,14 @@ function initRevelationMobileCarousel() {
     const nextBtn = document.getElementById('revelation-next');
     const dots = Array.from(document.querySelectorAll('.revelation-dot'));
     const usableDots = dots.slice(0, cards.length);
+    const dynamicTitle = document.getElementById('game-title-dynamic');
+
+    const GAMES_DATA = cards.map((card, index) => ({
+        index,
+        id: card.dataset.game || `revelation-${index}`,
+        title: card.dataset.title || card.textContent.trim(),
+        element: card
+    }));
 
     if (revelationCarouselState.initialized) {
         teardownRevelationMobileCarousel();
@@ -843,32 +858,59 @@ function initRevelationMobileCarousel() {
 
     let currentIndex = 0;
 
-    const showCard = (index) => {
+    const applyCardState = (card, state) => {
+        card.classList.remove('active', 'prev-card', 'next-card', 'hidden');
+        if (state) {
+            card.classList.add(state);
+        }
+    };
+
+    const syncDynamicTitle = (index) => {
+        if (!dynamicTitle) {
+            return;
+        }
+        const game = GAMES_DATA[index];
+        if (game && game.title) {
+            dynamicTitle.textContent = game.title;
+        }
+    };
+
+    const updateCardsPosition = (targetIndex) => {
         if (!cards.length) {
             return;
         }
 
-        const boundedIndex = Math.max(0, Math.min(cards.length - 1, index));
+        const normalizedIndex = ((targetIndex % cards.length) + cards.length) % cards.length;
+        const prevIndex = (normalizedIndex - 1 + cards.length) % cards.length;
+        const nextIndex = (normalizedIndex + 1) % cards.length;
 
         cards.forEach((card, cardIndex) => {
-            card.classList.toggle('active', cardIndex === boundedIndex);
+            if (cardIndex === normalizedIndex) {
+                applyCardState(card, 'active');
+            } else if (cardIndex === prevIndex) {
+                applyCardState(card, 'prev-card');
+            } else if (cardIndex === nextIndex) {
+                applyCardState(card, 'next-card');
+            } else {
+                applyCardState(card, 'hidden');
+            }
         });
 
         usableDots.forEach((dot, dotIndex) => {
-            dot.classList.toggle('is-active', dotIndex === boundedIndex);
+            dot.classList.toggle('is-active', dotIndex === normalizedIndex);
         });
 
-        currentIndex = boundedIndex;
+        syncDynamicTitle(normalizedIndex);
+        currentIndex = normalizedIndex;
+        revelationCarouselState.currentIndex = currentIndex;
     };
 
     const prevHandler = () => {
-        const newIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
-        showCard(newIndex);
+        updateCardsPosition(currentIndex - 1);
     };
 
     const nextHandler = () => {
-        const newIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
-        showCard(newIndex);
+        updateCardsPosition(currentIndex + 1);
     };
 
     if (prevBtn) {
@@ -881,7 +923,7 @@ function initRevelationMobileCarousel() {
 
     const dotHandlers = [];
     usableDots.forEach((dot, index) => {
-        const handler = () => showCard(index);
+        const handler = () => updateCardsPosition(index);
         dot.addEventListener('click', handler);
         dotHandlers.push({ dot, handler });
     });
@@ -915,7 +957,13 @@ function initRevelationMobileCarousel() {
     wrapper.addEventListener('touchstart', touchStartHandler, { passive: true });
     wrapper.addEventListener('touchend', touchEndHandler);
 
-    showCard(0);
+    updateCardsPosition(0);
+
+    window.updateCardsPosition = (index) => {
+        if (typeof index === 'number' && !Number.isNaN(index)) {
+            updateCardsPosition(index);
+        }
+    };
 
     revelationCarouselState = {
         initialized: true,
@@ -928,7 +976,11 @@ function initRevelationMobileCarousel() {
         touchStartHandler,
         touchEndHandler,
         cards,
-        dots: usableDots
+        dots: usableDots,
+        currentIndex: 0,
+        dynamicTitle,
+        games: GAMES_DATA,
+        updateCardsPosition
     };
 }
 

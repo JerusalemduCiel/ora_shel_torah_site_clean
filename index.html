@@ -330,62 +330,65 @@
     <!-- ACTE 4: LA RÉVÉLATION (Les 3 jeux - Vidéos de révélation) -->
     <section id="revelation-trilogie">
         <div class="container">
-            <!-- Titre section tripanel -->
             <div class="tripanel-header">
                 <p class="tripanel-eyebrow">Notre collection</p>
                 <h2 class="tripanel-title">
                     <span class="title-intro">Nos trois jeux éducatifs juifs</span>
                     <span class="title-main">Histoire · Loi · Mitsvot</span>
                 </h2>
-                <div class="title-separator">
-                </div>
+                <div class="title-separator"></div>
                 <p class="tripanel-subtitle">
-                    Chaque jeu est une porte. <strong>Quelle histoire voulez-vous écrire ?</strong>
+                    <strong id="game-title-dynamic">Jérusalem du Ciel · L'Histoire</strong>
                 </p>
             </div>
-            
-            <!-- Wrapper pour les 3 cartes révélation -->
+
             <div class="revelation-boxes-wrapper">
-                <a href="#hero-bis-jdc" class="revelation-card" data-game="jdc">
+                <a href="#hero-bis-jdc"
+                   class="revelation-card active game-label-jdc"
+                   data-game="jdc"
+                   data-title="Jérusalem du Ciel · L'Histoire"
+                   data-index="0">
                     <div class="revelation-icon-container">
                         <img src="images/jdcrelief_acte4.png" alt="Jérusalem du Ciel" class="revelation-icon">
                         <div class="revelation-shadow"></div>
                     </div>
-                    <div class="revelation-text game-label game-label-jdc">L'HISTOIRE</div>
+                    <div class="revelation-text">L'HISTOIRE</div>
                 </a>
-                
-                <a href="#hero-bis-moh" class="revelation-card" data-game="moh">
+
+                <a href="#hero-bis-moh"
+                   class="revelation-card next-card game-label-moh"
+                   data-game="moh"
+                   data-title="Minhag ou Halakha · La Loi"
+                   data-index="1">
                     <div class="revelation-icon-container">
                         <img src="images/mohrelief_acte4.png" alt="Minhag ou Halakha" class="revelation-icon">
                         <div class="revelation-shadow"></div>
                     </div>
-                    <div class="revelation-text game-label game-label-moh">LA LOI</div>
+                    <div class="revelation-text">LA LOI</div>
                 </a>
-                
-                <a href="#hero-bis-poz" class="revelation-card" data-game="poz">
+
+                <a href="#hero-bis-poz"
+                   class="revelation-card hidden game-label-poz"
+                   data-game="poz"
+                   data-title="Pratique au Quotidien · Les Mitsvot"
+                   data-index="2">
                     <div class="revelation-icon-container">
-                        <img src="images/pozrelief_acte4.png" alt="Poztamitsvah" class="revelation-icon">
+                        <img src="images/pozrelief_acte4.png" alt="Pratique au Quotidien" class="revelation-icon">
                         <div class="revelation-shadow"></div>
                     </div>
-                    <div class="revelation-text game-label game-label-poz">LES MITSVOT</div>
+                    <div class="revelation-text">LES MITSVOT</div>
                 </a>
             </div>
 
-            <!-- Navigation mobile carrousel -->
-            <div class="revelation-mobile-nav">
-                <button class="revelation-nav-btn" id="revelation-prev" aria-label="Jeu précédent">
-                    ‹
-                </button>
-                <button class="revelation-nav-btn" id="revelation-next" aria-label="Jeu suivant">
-                    ›
-                </button>
+            <div class="revelation-mobile-nav" aria-hidden="true">
+                <button class="revelation-nav-btn" id="revelation-prev" aria-label="Jeu précédent">‹</button>
+                <button class="revelation-nav-btn" id="revelation-next" aria-label="Jeu suivant">›</button>
             </div>
 
-            <!-- Indicateurs (points) -->
-            <div class="revelation-mobile-dots">
-                <button class="revelation-dot is-active" data-index="0" aria-label="Aller au premier jeu"></button>
-                <button class="revelation-dot" data-index="1" aria-label="Aller au deuxième jeu"></button>
-                <button class="revelation-dot" data-index="2" aria-label="Aller au troisième jeu"></button>
+            <div class="revelation-mobile-dots" role="tablist" aria-label="Sélection du jeu">
+                <button class="revelation-dot is-active" data-index="0" aria-label="Jérusalem du Ciel"></button>
+                <button class="revelation-dot" data-index="1" aria-label="Minhag ou Halakha"></button>
+                <button class="revelation-dot" data-index="2" aria-label="Pratique au Quotidien"></button>
             </div>
         </div>
     </section>

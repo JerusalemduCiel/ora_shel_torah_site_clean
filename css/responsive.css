@@ -211,10 +211,59 @@ body {
   }
 }
 
-/* Desktop : masquer la navigation mobile */
-.revelation-mobile-nav,
-.revelation-mobile-dots {
-  display: none !important;
+@media (min-width: 768px) {
+  .revelation-mobile-nav,
+  .revelation-mobile-dots {
+    display: none !important;
+  }
+
+  .revelation-card,
+  .revelation-card.active,
+  .revelation-card.prev-card,
+  .revelation-card.next-card,
+  .revelation-card.hidden {
+    position: relative !important;
+    display: flex !important;
+    opacity: 1 !important;
+    transform: none !important;
+    z-index: auto !important;
+    pointer-events: auto !important;
+    filter: none !important;
+  }
+
+  .revelation-boxes-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    height: auto !important;
+    perspective: none !important;
+    overflow: visible !important;
+  }
+
+  .revelation-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 350px;
+  }
+
+  .revelation-icon-container {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .revelation-icon {
+    width: 100% !important;
+    height: auto !important;
+    filter: none !important;
+  }
+
+  .revelation-text {
+    display: block !important;
+    opacity: 1 !important;
+  }
 }
 
 /* Mobile First Approach */
@@ -314,7 +363,7 @@ body {
     font-size: var(--text-lg);
   }
 
-  /* Acte 4 - Révélation - CARROUSEL MOBILE */
+  /* Acte 4 - Révélation - CARROUSEL MOBILE 3D */
   #revelation-trilogie {
     padding-top: var(--space-2xl);
     position: relative;
@@ -322,25 +371,71 @@ body {
 
   .revelation-boxes-wrapper {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: auto;
+    min-height: clamp(340px, 50vh, 460px);
+    padding: 3rem 0 5rem;
     overflow: visible;
-    padding: 2rem 0;
+    perspective: 1200px;
   }
 
   .revelation-card {
-    display: none;
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .revelation-card.active {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.55);
+    transform-origin: center;
+    opacity: 0;
+    pointer-events: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: calc(100vw - 80px);
+    padding: 0;
+    text-align: center;
+    filter: brightness(0.65) blur(1px);
+    transition:
+      transform 0.45s ease,
+      opacity 0.45s ease,
+      filter 0.45s ease;
+    z-index: 0;
+  }
+
+  .revelation-card.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    filter: none;
+    z-index: 3;
+  }
+
+  .revelation-card.prev-card {
+    opacity: 0.65;
+    transform: translate(calc(-50% - 60%), -50%) scale(0.78) rotateY(12deg);
+    filter: blur(0.5px);
+    z-index: 2;
+  }
+
+  .revelation-card.next-card {
+    opacity: 0.65;
+    transform: translate(calc(-50% + 60%), -50%) scale(0.78) rotateY(-12deg);
+    filter: blur(0.5px);
+    z-index: 2;
+  }
+
+  .revelation-card.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+    filter: blur(3px);
+    z-index: 1;
+  }
+
+  .revelation-card.hidden .revelation-text {
+    opacity: 0;
   }
 
   .revelation-icon-container {
@@ -357,6 +452,12 @@ body {
     height: auto;
     max-height: 40vh;
     object-fit: contain;
+    transition: transform 0.45s ease;
+  }
+
+  .revelation-card.prev-card .revelation-icon,
+  .revelation-card.next-card .revelation-icon {
+    max-height: 32vh;
   }
 
   .revelation-text {
@@ -366,6 +467,7 @@ body {
     letter-spacing: 2px;
     margin-top: 1rem;
     color: var(--color-gold);
+    transition: opacity 0.3s ease;
   }
 
   .revelation-mobile-nav {
@@ -415,6 +517,11 @@ body {
     justify-content: center;
     gap: 0.75rem;
     margin-top: 1.5rem;
+  }
+
+  .revelation-card.prev-card .revelation-text,
+  .revelation-card.next-card .revelation-text {
+    opacity: 0.6;
   }
 
   .revelation-dot {
