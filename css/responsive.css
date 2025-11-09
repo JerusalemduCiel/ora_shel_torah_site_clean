@@ -317,17 +317,19 @@ body {
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    gap: var(--space-md);
+    gap: 16px;
     overflow-x: auto;
-    margin: 0 calc(var(--space-md) * -1);
-    padding: 0 var(--space-md) var(--space-xl);
+    margin: 0;
+    padding: 0 16px var(--space-xl);
     scroll-snap-type: x mandatory;
-    scroll-padding-left: var(--space-md);
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+    scroll-padding: 0 16px;
     -webkit-overflow-scrolling: touch;
   }
 
   .revelation-boxes-wrapper.revelation-carousel-active {
-    mask-image: linear-gradient(to right, transparent 0, black var(--space-sm), black calc(100% - var(--space-sm)), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, black 16px, black calc(100% - 16px), transparent 100%);
   }
 
   .revelation-boxes-wrapper::-webkit-scrollbar {
@@ -335,18 +337,33 @@ body {
   }
 
   .revelation-card {
-    flex: 0 0 85%;
-    max-width: 85%;
+    flex: 0 0 calc(100vw - 80px);
+    min-width: calc(100vw - 80px);
+    max-width: calc(100vw - 80px);
     scroll-snap-align: center;
   }
 
   .revelation-icon-container {
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .revelation-icon {
-    width: 120px;
+    width: 100%;
+    max-height: 40vh;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .revelation-card img {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    object-fit: contain;
   }
 
   .revelation-text {
