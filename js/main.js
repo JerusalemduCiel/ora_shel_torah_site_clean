@@ -22,6 +22,7 @@ function initializeApp() {
     initContentCarousels();
     initContactPartenariatAnimation();
     initRevelationCards();
+    initRevelationMobileCarousel();
     
     console.log('Ora Shel Torah - Site initialisé');
 }
@@ -755,6 +756,228 @@ window.OraShelTorah = {
 // ========================================
 // RÉVÉLATION TRILOGIE - CARTES ICÔNES
 // ========================================
+
+function initRevelationMobileCarousel() {
+    const BREAKPOINT = 768;
+    const wrapper = document.querySelector('.revelation-boxes-wrapper');
+    if (!wrapper) {
+        return;
+    }
+
+    const cards = Array.from(wrapper.querySelectorAll('.revelation-card'));
+    if (cards.length <= 1) {
+        return;
+    }
+
+    let navContainer = null;
+    let dotsContainer = null;
+    let prevButton = null;
+    let nextButton = null;
+    let prevClickHandler = null;
+    let nextClickHandler = null;
+    let dots = [];
+    let currentIndex = 0;
+    let rafId = null;
+
+    const getSlideLabel = (card, index) => {
+        const text = card.querySelector('.revelation-text');
+        if (text && text.textContent.trim()) {
+            return text.textContent.trim();
+        }
+        const icon = card.querySelector('.revelation-icon');
+        if (icon && icon.getAttribute('alt')) {
+            return icon.getAttribute('alt');
+        }
+        return `Slide ${index + 1}`;
+    };
+
+    const getCardOffset = (card) => card.offsetLeft - cards[0].offsetLeft;
+
+    const updateNavState = () => {
+        if (prevButton) {
+            prevButton.disabled = currentIndex === 0;
+        }
+        if (nextButton) {
+            nextButton.disabled = currentIndex === cards.length - 1;
+        }
+        dots.forEach((dot, index) => {
+            if (dot.element) {
+                dot.element.classList.toggle('is-active', index === currentIndex);
+            }
+        });
+    };
+
+    const goToIndex = (index, behavior = 'smooth') => {
+        if (!wrapper.classList.contains('revelation-carousel-active')) {
+            return;
+        }
+
+        const boundedIndex = Math.max(0, Math.min(cards.length - 1, index));
+        const targetOffset = getCardOffset(cards[boundedIndex]);
+
+        wrapper.scrollTo({
+            left: targetOffset,
+            behavior
+        });
+
+        currentIndex = boundedIndex;
+        updateNavState();
+    };
+
+    const handleScroll = () => {
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+        }
+
+        rafId = requestAnimationFrame(() => {
+            const viewportCenter = wrapper.scrollLeft + wrapper.clientWidth / 2;
+            let closestIndex = 0;
+            let closestDistance = Number.POSITIVE_INFINITY;
+
+            cards.forEach((card, index) => {
+                const cardCenter = getCardOffset(card) + card.clientWidth / 2;
+                const distance = Math.abs(viewportCenter - cardCenter);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            if (closestIndex !== currentIndex) {
+                currentIndex = closestIndex;
+                updateNavState();
+            }
+        });
+    };
+
+    const destroyNav = () => {
+        if (prevButton && prevClickHandler) {
+            prevButton.removeEventListener('click', prevClickHandler);
+        }
+
+        if (nextButton && nextClickHandler) {
+            nextButton.removeEventListener('click', nextClickHandler);
+        }
+
+        dots.forEach(dot => {
+            if (dot.element && dot.handler) {
+                dot.element.removeEventListener('click', dot.handler);
+            }
+        });
+
+        dots = [];
+        prevButton = null;
+        nextButton = null;
+        prevClickHandler = null;
+        nextClickHandler = null;
+
+        if (navContainer && navContainer.parentNode) {
+            navContainer.parentNode.removeChild(navContainer);
+        }
+
+        navContainer = null;
+        dotsContainer = null;
+    };
+
+    const buildNav = () => {
+        if (navContainer) {
+            return;
+        }
+
+        navContainer = document.createElement('div');
+        navContainer.className = 'revelation-mobile-nav';
+
+        prevButton = document.createElement('button');
+        prevButton.type = 'button';
+        prevButton.className = 'revelation-nav-btn revelation-nav-btn-prev';
+        prevButton.setAttribute('aria-label', 'Voir le jeu précédent');
+        prevButton.textContent = '<';
+        prevClickHandler = () => goToIndex(currentIndex - 1);
+        prevButton.addEventListener('click', prevClickHandler);
+
+        nextButton = document.createElement('button');
+        nextButton.type = 'button';
+        nextButton.className = 'revelation-nav-btn revelation-nav-btn-next';
+        nextButton.setAttribute('aria-label', 'Voir le jeu suivant');
+        nextButton.textContent = '>';
+        nextClickHandler = () => goToIndex(currentIndex + 1);
+        nextButton.addEventListener('click', nextClickHandler);
+
+        dotsContainer = document.createElement('div');
+        dotsContainer.className = 'revelation-mobile-dots';
+
+        dots = cards.map((card, index) => {
+            const dotButton = document.createElement('button');
+            dotButton.type = 'button';
+            dotButton.className = 'revelation-dot';
+            dotButton.setAttribute('aria-label', `Aller à ${getSlideLabel(card, index)}`);
+
+            const handler = () => goToIndex(index);
+            dotButton.addEventListener('click', handler);
+
+            dotsContainer.appendChild(dotButton);
+
+            return {
+                element: dotButton,
+                handler
+            };
+        });
+
+        navContainer.appendChild(prevButton);
+        navContainer.appendChild(dotsContainer);
+        navContainer.appendChild(nextButton);
+
+        wrapper.insertAdjacentElement('afterend', navContainer);
+        updateNavState();
+    };
+
+    const setupMobile = () => {
+        if (wrapper.classList.contains('revelation-carousel-active')) {
+            goToIndex(currentIndex, 'auto');
+            return;
+        }
+
+        wrapper.classList.add('revelation-carousel-active');
+        wrapper.addEventListener('scroll', handleScroll, { passive: true });
+
+        buildNav();
+        currentIndex = 0;
+        updateNavState();
+        goToIndex(0, 'auto');
+    };
+
+    const teardownMobile = () => {
+        if (!wrapper.classList.contains('revelation-carousel-active')) {
+            return;
+        }
+
+        wrapper.classList.remove('revelation-carousel-active');
+        wrapper.removeEventListener('scroll', handleScroll);
+
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+
+        destroyNav();
+        wrapper.scrollLeft = 0;
+        currentIndex = 0;
+    };
+
+    const handleResize = debounce(() => {
+        if (window.innerWidth < BREAKPOINT) {
+            setupMobile();
+        } else {
+            teardownMobile();
+        }
+    }, 200);
+
+    window.addEventListener('resize', handleResize);
+
+    if (window.innerWidth < BREAKPOINT) {
+        setupMobile();
+    }
+}
 
 function initRevelationCards() {
     const cards = document.querySelectorAll('.revelation-card');

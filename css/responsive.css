@@ -308,6 +308,115 @@ body {
     font-size: var(--text-lg);
   }
 
+  /* Acte 4 - Révélation */
+  #revelation-trilogie {
+    padding-top: var(--space-2xl);
+  }
+
+  .revelation-boxes-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--space-md);
+    overflow-x: auto;
+    margin: 0 calc(var(--space-md) * -1);
+    padding: 0 var(--space-md) var(--space-xl);
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--space-md);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .revelation-boxes-wrapper.revelation-carousel-active {
+    mask-image: linear-gradient(to right, transparent 0, black var(--space-sm), black calc(100% - var(--space-sm)), transparent 100%);
+  }
+
+  .revelation-boxes-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .revelation-card {
+    flex: 0 0 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+  }
+
+  .revelation-icon-container {
+    width: 160px;
+    height: 160px;
+  }
+
+  .revelation-icon {
+    width: 120px;
+  }
+
+  .revelation-text {
+    font-size: var(--text-xl);
+    letter-spacing: 1.5px;
+  }
+
+  .revelation-mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin: calc(var(--space-lg) * -0.5) 0 var(--space-lg);
+  }
+
+  .revelation-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    background: rgba(17, 17, 17, 0.75);
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .revelation-nav-btn:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  .revelation-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .revelation-nav-btn:not(:disabled):active {
+    transform: scale(0.95);
+  }
+
+  .revelation-mobile-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .revelation-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.3);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .revelation-dot:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  .revelation-dot.is-active {
+    background: var(--color-gold);
+    transform: scale(1.2);
+  }
+
   .hero-bis-actions {
     flex-direction: column;
     gap: var(--space-md);
