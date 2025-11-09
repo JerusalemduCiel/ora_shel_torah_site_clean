@@ -753,230 +753,183 @@ window.OraShelTorah = {
     throttle
 };
 
-// ========================================
-// RÉVÉLATION TRILOGIE - CARTES ICÔNES
-// ========================================
+let revelationCarouselState = {
+    initialized: false
+};
+
+function teardownRevelationMobileCarousel() {
+    if (!revelationCarouselState.initialized) {
+        return;
+    }
+
+    const {
+        prevBtn,
+        nextBtn,
+        prevHandler,
+        nextHandler,
+        dotHandlers,
+        wrapper,
+        touchStartHandler,
+        touchEndHandler,
+        cards,
+        dots
+    } = revelationCarouselState;
+
+    if (prevBtn && prevHandler) {
+        prevBtn.removeEventListener('click', prevHandler);
+    }
+
+    if (nextBtn && nextHandler) {
+        nextBtn.removeEventListener('click', nextHandler);
+    }
+
+    if (dotHandlers && dotHandlers.length) {
+        dotHandlers.forEach(({ dot, handler }) => {
+            if (dot && handler) {
+                dot.removeEventListener('click', handler);
+            }
+        });
+    }
+
+    if (wrapper && touchStartHandler) {
+        wrapper.removeEventListener('touchstart', touchStartHandler);
+    }
+
+    if (wrapper && touchEndHandler) {
+        wrapper.removeEventListener('touchend', touchEndHandler);
+    }
+
+    if (cards && cards.length) {
+        cards.forEach(card => card.classList.remove('active'));
+    }
+
+    if (dots && dots.length) {
+        dots.forEach(dot => dot.classList.remove('is-active'));
+    }
+
+    revelationCarouselState = {
+        initialized: false
+    };
+}
 
 function initRevelationMobileCarousel() {
-    const BREAKPOINT = 768;
+    const MOBILE_BREAKPOINT = 768;
     const wrapper = document.querySelector('.revelation-boxes-wrapper');
+
     if (!wrapper) {
+        teardownRevelationMobileCarousel();
+        return;
+    }
+
+    if (window.innerWidth >= MOBILE_BREAKPOINT) {
+        teardownRevelationMobileCarousel();
         return;
     }
 
     const cards = Array.from(wrapper.querySelectorAll('.revelation-card'));
-    if (cards.length <= 1) {
+    if (!cards.length) {
+        teardownRevelationMobileCarousel();
         return;
     }
 
-    let navContainer = null;
-    let dotsContainer = null;
-    let prevButton = null;
-    let nextButton = null;
-    let prevClickHandler = null;
-    let nextClickHandler = null;
-    let dots = [];
+    const prevBtn = document.getElementById('revelation-prev');
+    const nextBtn = document.getElementById('revelation-next');
+    const dots = Array.from(document.querySelectorAll('.revelation-dot'));
+    const usableDots = dots.slice(0, cards.length);
+
+    if (revelationCarouselState.initialized) {
+        teardownRevelationMobileCarousel();
+    }
+
     let currentIndex = 0;
-    let rafId = null;
 
-    const getSlideLabel = (card, index) => {
-        const text = card.querySelector('.revelation-text');
-        if (text && text.textContent.trim()) {
-            return text.textContent.trim();
-        }
-        const icon = card.querySelector('.revelation-icon');
-        if (icon && icon.getAttribute('alt')) {
-            return icon.getAttribute('alt');
-        }
-        return `Slide ${index + 1}`;
-    };
-
-    const getCardOffset = (card) => card.offsetLeft - cards[0].offsetLeft;
-
-    const updateNavState = () => {
-        if (prevButton) {
-            prevButton.disabled = currentIndex === 0;
-        }
-        if (nextButton) {
-            nextButton.disabled = currentIndex === cards.length - 1;
-        }
-        dots.forEach((dot, index) => {
-            if (dot.element) {
-                dot.element.classList.toggle('is-active', index === currentIndex);
-            }
-        });
-    };
-
-    const goToIndex = (index, behavior = 'smooth') => {
-        if (!wrapper.classList.contains('revelation-carousel-active')) {
+    const showCard = (index) => {
+        if (!cards.length) {
             return;
         }
 
         const boundedIndex = Math.max(0, Math.min(cards.length - 1, index));
-        const targetOffset = getCardOffset(cards[boundedIndex]);
 
-        wrapper.scrollTo({
-            left: targetOffset,
-            behavior
+        cards.forEach((card, cardIndex) => {
+            card.classList.toggle('active', cardIndex === boundedIndex);
+        });
+
+        usableDots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === boundedIndex);
         });
 
         currentIndex = boundedIndex;
-        updateNavState();
     };
 
-    const handleScroll = () => {
-        if (rafId) {
-            cancelAnimationFrame(rafId);
-        }
-
-        rafId = requestAnimationFrame(() => {
-            const viewportCenter = wrapper.scrollLeft + wrapper.clientWidth / 2;
-            let closestIndex = 0;
-            let closestDistance = Number.POSITIVE_INFINITY;
-
-            cards.forEach((card, index) => {
-                const cardCenter = getCardOffset(card) + card.clientWidth / 2;
-                const distance = Math.abs(viewportCenter - cardCenter);
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestIndex = index;
-                }
-            });
-
-            if (closestIndex !== currentIndex) {
-                currentIndex = closestIndex;
-                updateNavState();
-            }
-        });
+    const prevHandler = () => {
+        const newIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
+        showCard(newIndex);
     };
 
-    const destroyNav = () => {
-        if (prevButton && prevClickHandler) {
-            prevButton.removeEventListener('click', prevClickHandler);
-        }
-
-        if (nextButton && nextClickHandler) {
-            nextButton.removeEventListener('click', nextClickHandler);
-        }
-
-        dots.forEach(dot => {
-            if (dot.element && dot.handler) {
-                dot.element.removeEventListener('click', dot.handler);
-            }
-        });
-
-        dots = [];
-        prevButton = null;
-        nextButton = null;
-        prevClickHandler = null;
-        nextClickHandler = null;
-
-        if (navContainer && navContainer.parentNode) {
-            navContainer.parentNode.removeChild(navContainer);
-        }
-
-        navContainer = null;
-        dotsContainer = null;
+    const nextHandler = () => {
+        const newIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
+        showCard(newIndex);
     };
 
-    const buildNav = () => {
-        if (navContainer) {
-            return;
-        }
-
-        navContainer = document.createElement('div');
-        navContainer.className = 'revelation-mobile-nav';
-
-        prevButton = document.createElement('button');
-        prevButton.type = 'button';
-        prevButton.className = 'revelation-nav-btn revelation-nav-btn-prev';
-        prevButton.setAttribute('aria-label', 'Voir le jeu précédent');
-        prevButton.textContent = '<';
-        prevClickHandler = () => goToIndex(currentIndex - 1);
-        prevButton.addEventListener('click', prevClickHandler);
-
-        nextButton = document.createElement('button');
-        nextButton.type = 'button';
-        nextButton.className = 'revelation-nav-btn revelation-nav-btn-next';
-        nextButton.setAttribute('aria-label', 'Voir le jeu suivant');
-        nextButton.textContent = '>';
-        nextClickHandler = () => goToIndex(currentIndex + 1);
-        nextButton.addEventListener('click', nextClickHandler);
-
-        dotsContainer = document.createElement('div');
-        dotsContainer.className = 'revelation-mobile-dots';
-
-        dots = cards.map((card, index) => {
-            const dotButton = document.createElement('button');
-            dotButton.type = 'button';
-            dotButton.className = 'revelation-dot';
-            dotButton.setAttribute('aria-label', `Aller à ${getSlideLabel(card, index)}`);
-
-            const handler = () => goToIndex(index);
-            dotButton.addEventListener('click', handler);
-
-            dotsContainer.appendChild(dotButton);
-
-            return {
-                element: dotButton,
-                handler
-            };
-        });
-
-        navContainer.appendChild(prevButton);
-        navContainer.appendChild(dotsContainer);
-        navContainer.appendChild(nextButton);
-
-        wrapper.insertAdjacentElement('afterend', navContainer);
-        updateNavState();
-    };
-
-    const setupMobile = () => {
-        if (wrapper.classList.contains('revelation-carousel-active')) {
-            goToIndex(currentIndex, 'auto');
-            return;
-        }
-
-        wrapper.classList.add('revelation-carousel-active');
-        wrapper.addEventListener('scroll', handleScroll, { passive: true });
-
-        buildNav();
-        currentIndex = 0;
-        updateNavState();
-        goToIndex(0, 'auto');
-    };
-
-    const teardownMobile = () => {
-        if (!wrapper.classList.contains('revelation-carousel-active')) {
-            return;
-        }
-
-        wrapper.classList.remove('revelation-carousel-active');
-        wrapper.removeEventListener('scroll', handleScroll);
-
-        if (rafId) {
-            cancelAnimationFrame(rafId);
-            rafId = null;
-        }
-
-        destroyNav();
-        wrapper.scrollLeft = 0;
-        currentIndex = 0;
-    };
-
-    const handleResize = debounce(() => {
-        if (window.innerWidth < BREAKPOINT) {
-            setupMobile();
-        } else {
-            teardownMobile();
-        }
-    }, 200);
-
-    window.addEventListener('resize', handleResize);
-
-    if (window.innerWidth < BREAKPOINT) {
-        setupMobile();
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevHandler);
     }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextHandler);
+    }
+
+    const dotHandlers = [];
+    usableDots.forEach((dot, index) => {
+        const handler = () => showCard(index);
+        dot.addEventListener('click', handler);
+        dotHandlers.push({ dot, handler });
+    });
+
+    let touchStartX = 0;
+
+    const touchStartHandler = (event) => {
+        if (!event.touches.length) {
+            return;
+        }
+        touchStartX = event.touches[0].clientX;
+    };
+
+    const touchEndHandler = (event) => {
+        const touch = event.changedTouches && event.changedTouches[0];
+        if (!touch) {
+            return;
+        }
+
+        const diff = touchStartX - touch.clientX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                nextHandler();
+            } else {
+                prevHandler();
+            }
+        }
+    };
+
+    wrapper.addEventListener('touchstart', touchStartHandler, { passive: true });
+    wrapper.addEventListener('touchend', touchEndHandler);
+
+    showCard(0);
+
+    revelationCarouselState = {
+        initialized: true,
+        prevBtn,
+        nextBtn,
+        prevHandler,
+        nextHandler,
+        dotHandlers,
+        wrapper,
+        touchStartHandler,
+        touchEndHandler,
+        cards,
+        dots: usableDots
+    };
 }
 
 function initRevelationCards() {
@@ -1049,6 +1002,12 @@ function toggleRevelationCardAnimation(card, shouldPause) {
         shadow.style.animationPlayState = state;
     }
 }
+
+const handleRevelationResize = debounce(() => {
+    initRevelationMobileCarousel();
+}, 150);
+
+window.addEventListener('resize', handleRevelationResize);
 
 } catch(e) {
     alert('ERREUR main.js : ' + e.message);
