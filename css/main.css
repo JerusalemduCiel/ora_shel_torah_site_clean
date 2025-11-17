@@ -121,10 +121,10 @@
   box-sizing: border-box;
 }
 
-/* Scroll Snap global */
+/* Scroll Snap global - Effet doux de proximité */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory; /* Snap obligatoire et marqué */
+  scroll-snap-type: y proximity; /* Snap doux basé sur la proximité */
   scroll-padding-top: 105px; /* Compenser le header fixe (65px + 40px top-bar) */
 }
 
@@ -134,13 +134,13 @@ body {
   line-height: 1.6;
   color: var(--color-text-dark);
   overflow-x: hidden;
-  scroll-snap-type: y mandatory; /* Snap obligatoire et marqué */
+  scroll-snap-type: y proximity; /* Snap doux basé sur la proximité */
 }
 
-/* Chaque section principale devient un point d'accrochage */
+/* Chaque section principale devient un point d'accrochage doux */
 section {
-  scroll-snap-align: center; /* Centre la section à l'écran pour un snap plus marqué */
-  scroll-snap-stop: always; /* Force l'arrêt sur chaque section */
+  scroll-snap-align: center; /* Centre la section à l'écran */
+  /* Pas de scroll-snap-stop pour permettre le scroll libre */
 }
 
 /* Hero principal doit occuper 100vh pour le snap */
