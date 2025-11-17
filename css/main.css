@@ -1322,8 +1322,8 @@ img {
 
 /* Blocs de texte */
 .story-block {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -1341,10 +1341,10 @@ img {
 }
 
 .story-block p {
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.4; /* Interligne compact style journalistique */
   color: #4a5568;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.4rem; /* Espacement réduit entre paragraphes */
   text-align: justify;
 }
 
@@ -1512,7 +1512,9 @@ img {
   }
 
   .story-block p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    line-height: 1.4; /* Maintenir l'interligne compact sur mobile */
+    margin-bottom: 0.4rem;
   }
 
   .about-section .video-close {
@@ -1723,16 +1725,21 @@ html body #hero-bis-poz .hero-bis-background img {
 .hero-bis-content {
   position: relative;
   z-index: 2;
-  text-align: center;
   color: var(--color-white);
-  max-width: 800px;
+  max-width: 100%;
   padding: 0 var(--space-lg);
-  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100vh;
+  padding-right: 8%;
 }
 
-/* Ajuster la position du contenu JDC pour centrer la boîte comme les autres */
+/* Positionnement uniforme dans le tiers droit pour tous les hero-bis */
 .jdc-hero .hero-bis-content {
-  margin-left: 35%;
+  align-items: flex-end;
+  padding-right: 8%;
 }
 
 .hero-bis-content h2 {
@@ -1741,6 +1748,8 @@ html body #hero-bis-poz .hero-bis-background img {
   margin-bottom: var(--space-lg);
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
   line-height: 1.2;
+  text-align: right;
+  max-width: 33.33%;
 }
 
 /* ========================================
@@ -1776,14 +1785,17 @@ html body #hero-bis-poz .hero-bis-background img {
   font-size: var(--text-xl);
   margin-bottom: var(--space-2xl);
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  text-align: right;
+  max-width: 33.33%;
 }
 
 .hero-bis-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-md) var(--space-lg);
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 33.33%;
+  margin: 0;
+  justify-items: end;
 }
 
 .hero-bis-actions .btn-modal {
@@ -1812,7 +1824,7 @@ html body #hero-bis-poz .hero-bis-background img {
   border-color: var(--color-gold);
   color: var(--color-dark-bg);
   grid-column: 1 / -1;
-  justify-self: center;
+  justify-self: end;
   max-width: 300px;
 }
 
@@ -2124,7 +2136,7 @@ html body #hero-bis-poz .hero-bis-background img {
    ======================================== */
 
 .contact-partenariat {
-  background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #faf7f0 0%, #f5e6d3 100%); /* Dégradé sable clair */
   padding: 5rem 2rem;
   opacity: 0;
   transform: translateY(30px);
@@ -2244,12 +2256,12 @@ html body #hero-bis-poz .hero-bis-background img {
   transition: all 0.3s ease;
 }
 
-/* Nouveaux styles pour contact-form-wrapper - champs clairs */
+/* Nouveaux styles pour contact-form-wrapper - champs avec fond sable */
 .contact-form-wrapper .form-group input,
 .contact-form-wrapper .form-group textarea,
 .contact-form-wrapper .form-group select {
-  background: #f7fafc;
-  border: 2px solid #cbd5e0;
+  background: linear-gradient(135deg, #faf7f0 0%, #f5e6d3 100%); /* Même dégradé sable que le fond */
+  border: 2px solid #d4c4b0;
   color: #1a3a42;
   padding: 1rem;
 }
@@ -2277,7 +2289,7 @@ html body #hero-bis-poz .hero-bis-background img {
 .contact-form-wrapper .form-group textarea:focus,
 .contact-form-wrapper .form-group select:focus {
   border-color: #eda234;
-  background: #ffffff;
+  background: #faf7f0; /* Fond sable clair au focus */
   box-shadow: 0 0 0 3px rgba(237, 162, 52, 0.1);
 }
 
@@ -2304,13 +2316,13 @@ html body #hero-bis-poz .hero-bis-background img {
    ======================================== */
 
 .contact-form-wrapper .form-group select {
-  background: #f7fafc !important;
+  background: linear-gradient(135deg, #faf7f0 0%, #f5e6d3 100%) !important; /* Même dégradé sable */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important;
   background-position: right 1rem center !important;
   background-size: 12px !important;
   background-clip: padding-box !important;
-  border: 2px solid #cbd5e0 !important;
+  border: 2px solid #d4c4b0 !important;
   border-style: solid !important;
   padding-right: 2.5rem !important;
   appearance: none !important;
@@ -2326,9 +2338,9 @@ html body #hero-bis-poz .hero-bis-background img {
 .contact-form-wrapper input[type="text"],
 .contact-form-wrapper input[type="email"],
 .contact-form-wrapper textarea {
-    background: #f7fafc !important;
+    background: linear-gradient(135deg, #faf7f0 0%, #f5e6d3 100%) !important; /* Même dégradé sable */
     background-image: none !important;
-    border: 2px solid #cbd5e0 !important;
+    border: 2px solid #d4c4b0 !important;
     border-style: solid !important;
 }
 
@@ -2343,7 +2355,7 @@ html body #hero-bis-poz .hero-bis-background img {
 
 /* S'assurer que le select est propre au focus */
 .contact-form-wrapper .form-group select:focus {
-    background: #ffffff !important;
+    background: #faf7f0 !important; /* Fond sable clair au focus */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
     background-position: right 1rem center !important;
@@ -5130,15 +5142,17 @@ footer {
     padding: 0 !important;
 }
 
-/* Container des hero-bis - même taille */
+/* Container des hero-bis - même taille - Positionnement dans le tiers droit */
 .hero-bis-content,
 #hero-bis-jdc .hero-bis-content,
 #hero-bis-moh .hero-bis-content,
 #hero-bis-poz .hero-bis-content {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
+    padding-right: 8% !important;
+    margin: 0 !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
 }
 
 /* Background des hero-bis - pleine largeur */
@@ -5188,10 +5202,11 @@ footer {
 .jdc-hero .hero-bis-content,
 .moh-hero .hero-bis-content,
 .poz-hero .hero-bis-content {
-    max-width: none !important;
+    max-width: 100% !important;
     width: 100% !important;
     margin-left: 0 !important;
-    padding: 2rem !important;
+    padding-right: 8% !important;
+    align-items: flex-end !important;
 }
 
 /* Mobile - même comportement pour tous */
@@ -6496,7 +6511,8 @@ footer {
 .about-section h2 {
     color: #d4af37 !important;
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem; /* Réduction de l'espacement après les titres */
+    margin-top: 0.5rem; /* Réduction de l'espacement avant les titres */
     font-family: var(--font-heading);
     font-weight: 600;
     line-height: 1.3;
@@ -6504,9 +6520,9 @@ footer {
 
 .about-section p {
     color: #333333 !important;
-    line-height: 1.8;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    line-height: 1.4; /* Interligne compact style journalistique */
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem; /* Espacement réduit entre paragraphes */
     text-align: justify;
 }
 
@@ -6917,6 +6933,8 @@ footer {
     
     .about-section p {
         font-size: 1rem;
+        line-height: 1.4; /* Maintenir l'interligne compact sur mobile */
+        margin-bottom: 0.5rem;
         text-align: left;
     }
     

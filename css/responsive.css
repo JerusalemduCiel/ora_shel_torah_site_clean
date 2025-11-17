@@ -568,6 +568,9 @@ body {
   .hero-bis-actions {
     flex-direction: column;
     gap: var(--space-md);
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    justify-items: center !important;
   }
 
   .hero-bis-actions .btn-modal {
