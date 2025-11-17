@@ -49,12 +49,17 @@ function initHeroSlider() {
     let currentSlide = 0;
     let autoplayTimeout;
     let lastSlideChangeTime = Date.now(); // Timestamp du dernier changement de slide
-    const AUTOPLAY_DURATION = 7000; // 7 secondes à partir du moment où le slide est affiché
+    const AUTOPLAY_DURATION = 7000; // 7 secondes d'affichage pour chaque slide
 
-    function showSlide(index, isManual = false) {
+    function showSlide(index) {
         // Gérer le wrap-around
         if (index >= slides.length) index = 0;
         if (index < 0) index = slides.length - 1;
+        
+        // Annuler tout timeout en cours
+        if (autoplayTimeout) {
+            clearTimeout(autoplayTimeout);
+        }
         
         // Retirer active de tous
         slides.forEach(s => s.classList.remove('active'));
@@ -66,94 +71,86 @@ function initHeroSlider() {
         
         currentSlide = index;
         
-        // Réinitialiser le timestamp à chaque changement de slide
+        // Mettre à jour le timestamp au moment exact où le slide s'affiche
         lastSlideChangeTime = Date.now();
         
-        // Réinitialiser l'autoplay avec le nouveau timestamp
-        resetAutoplay();
+        // Programmer le slide suivant dans exactement 7 secondes
+        autoplayTimeout = setTimeout(() => {
+            nextSlide();
+        }, AUTOPLAY_DURATION);
     }
 
     function nextSlide() {
-        showSlide(currentSlide + 1, false);
+        showSlide(currentSlide + 1);
     }
 
     function prevSlide() {
-        showSlide(currentSlide - 1, false);
-    }
-
-    // Autoplay avec timer basé sur le timestamp
-    function scheduleNextSlide() {
-        // Annuler le timeout précédent s'il existe
-        if (autoplayTimeout) {
-            clearTimeout(autoplayTimeout);
-        }
-        
-        // Calculer le temps écoulé depuis le dernier changement
-        const elapsedTime = Date.now() - lastSlideChangeTime;
-        
-        // Si 7 secondes se sont écoulées, passer au slide suivant immédiatement
-        if (elapsedTime >= AUTOPLAY_DURATION) {
-            nextSlide();
-        } else {
-            // Sinon, programmer le slide suivant dans le temps restant
-            const remainingTime = AUTOPLAY_DURATION - elapsedTime;
-            autoplayTimeout = setTimeout(() => {
-                nextSlide();
-            }, remainingTime);
-        }
-    }
-
-    function resetAutoplay() {
-        // Réinitialiser le timestamp et programmer le prochain slide
-        lastSlideChangeTime = Date.now();
-        scheduleNextSlide();
+        showSlide(currentSlide - 1);
     }
 
     // Navigation manuelle
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            showSlide(currentSlide + 1, true);
+            showSlide(currentSlide + 1);
         });
     }
 
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
-            showSlide(currentSlide - 1, true);
+            showSlide(currentSlide - 1);
         });
     }
 
     // Dots
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            showSlide(index, true);
+            showSlide(index);
         });
     });
 
-    // Démarrer l'autoplay initial
-    resetAutoplay();
+    // Démarrer l'autoplay initial - afficher le premier slide et démarrer le timer
+    showSlide(0);
 
     // Pause au hover
     const sliderContainer = document.querySelector('.slider-container');
     if (sliderContainer) {
-        let wasPaused = false;
+        let pausedTimeout;
+        let pauseStartTime;
         
         sliderContainer.addEventListener('mouseenter', () => {
+            // Sauvegarder quand on a mis en pause
+            pauseStartTime = Date.now();
+            
+            // Annuler le timeout en cours
             if (autoplayTimeout) {
                 clearTimeout(autoplayTimeout);
-                wasPaused = true;
             }
         });
 
         sliderContainer.addEventListener('mouseleave', () => {
-            if (wasPaused) {
-                // Reprendre avec le temps restant depuis le dernier changement
-                resetAutoplay();
-                wasPaused = false;
+            if (pauseStartTime) {
+                // Calculer combien de temps s'est écoulé depuis le dernier changement
+                const elapsedSinceChange = pauseStartTime - lastSlideChangeTime;
+                
+                // Calculer le temps restant avant le prochain slide
+                const remainingTime = AUTOPLAY_DURATION - elapsedSinceChange;
+                
+                // Si le temps est écoulé, passer au slide suivant immédiatement
+                if (remainingTime <= 0) {
+                    nextSlide();
+                } else {
+                    // Sinon, programmer le slide suivant dans le temps restant
+                    autoplayTimeout = setTimeout(() => {
+                        nextSlide();
+                    }, remainingTime);
+                }
+                
+                pauseStartTime = null;
             }
         });
     }
     
-    console.log('✅ Hero slider initialisé');
+    console.log('✅ Hero slider initialisé avec timer de 7 secondes');
 }
 
 // ========================================
