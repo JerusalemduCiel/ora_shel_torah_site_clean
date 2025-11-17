@@ -282,17 +282,42 @@ body {
     padding: 0 var(--space-md);
   }
 
-  /* Header */
-  #main-header {
-    padding: var(--space-sm) 0;
+  /* Header Responsive Mobile */
+  .header-container {
+    height: 60px;
+    padding: 0 1rem;
   }
 
-  .logo .tagline {
-    display: none;
+  .site-header.scrolled-down .header-container {
+    height: 80px;
   }
 
-  .main-nav {
-    gap: var(--space-md);
+  .site-header.at-top .header-container {
+    height: 55px;
+  }
+
+  .header-logo {
+    height: 35px;
+  }
+
+  .site-header.scrolled-down .header-logo {
+    height: 50px;
+  }
+
+  .site-header.at-top .header-logo {
+    height: 30px;
+  }
+
+  .header-subtitle {
+    font-size: 0.65rem;
+  }
+
+  .header-nav {
+    display: none; /* Utiliser burger menu si nécessaire */
+  }
+
+  .header-actions {
+    gap: var(--space-sm);
   }
 
   .btn-preorder {
@@ -328,12 +353,6 @@ body {
   /* Sections */
   .section-header h2 {
     font-size: var(--text-3xl);
-  }
-
-  /* Philosophie */
-  .philosophy-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
   }
 
   /* Triple Split */
@@ -911,10 +930,6 @@ body {
     max-width: 250px;
   }
 
-  .philosophy-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .stats-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -984,10 +999,6 @@ body {
   }
 
   .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .philosophy-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -1085,7 +1096,7 @@ body {
     padding: 0 !important;
   }
 
-  .section-header, .philosophy-card, .product-card {
+  .section-header, .product-card {
     break-inside: avoid;
   }
 }
@@ -1132,7 +1143,6 @@ body {
     background: #1a1a1a;
   }
 
-  .philosophy-card,
   .testimonial-card,
   .product-card,
   .demo-card {
@@ -1172,10 +1182,6 @@ body {
   }
 
   .product-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .philosophy-card:hover {
     transform: translateY(-5px);
   }
 
@@ -1255,7 +1261,6 @@ body {
   .container,
   .hero-content,
   .section-header,
-  .philosophy-grid,
   .revelation-boxes-wrapper,
   .products-grid,
   .footer-content {

@@ -125,271 +125,377 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header id="main-header">
-        <div class="container">
-            <a href="#acte-1" class="logo">
-                <img src="images/logo/logo_large_gold.png" alt="Logo Ora Shel Torah - De génération en génération">
-                <span class="tagline">De génération en génération</span>
-            </a>
+    <!-- Bandeau supérieur (apparaît au scroll) -->
+    <div class="top-bar" id="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <span class="top-bar-tagline">✨ De génération en génération</span>
+            </div>
+            <div class="top-bar-right">
+                <span class="top-bar-item">📍 Lyon, France</span>
+                <span class="top-bar-separator">|</span>
+                <a href="#contact" class="top-bar-link" data-scroll-to="acte-7">Contact</a>
+                <span class="top-bar-separator">|</span>
+                <a href="tel:+33618061000" class="top-bar-link">06 18 06 10 00</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header principal -->
+    <header id="main-header" class="site-header">
+        <div class="header-container">
             
-            <nav class="main-nav">
-                <a href="/faq.html" class="nav-link">FAQ</a>
-                <button id="btn-preorder" class="btn-preorder">Précommander</button>
-                <a href="#panier" class="cart-icon" id="cart-icon">
-                    🛒 <span class="cart-count">0</span>
+            <!-- Logo (s'agrandit au scroll) -->
+            <div class="header-logo-wrapper">
+                <a href="#acte-1" data-scroll-to="acte-1" class="logo-link">
+                    <img src="images/logo/logo_large_gold.png" 
+                         alt="Ora Shel Torah" 
+                         class="header-logo">
                 </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="header-nav">
+                <a href="#acte-2" data-scroll-to="acte-2">Notre histoire</a>
+                <a href="#acte-3" data-scroll-to="acte-3">Philosophie</a>
+                <a href="#acte-4" data-scroll-to="acte-4">Nos jeux</a>
+                <a href="#acte-6" data-scroll-to="acte-6">Boutique</a>
+                <a href="#acte-7" data-scroll-to="acte-7">Contact</a>
             </nav>
+
+            <!-- Bouton Précommander -->
+            <button class="btn-precommander">
+                Précommander
+            </button>
+
+            <!-- Menu burger mobile -->
+            <button class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
         </div>
     </header>
 
-    <!-- ACTE 1: L'ÉNIGME (Hero mystérieux) -->
-    <section id="acte-1" class="hero-dark">
-        <div class="hero-background">
-            <!-- Image de fond temporaire -->
-            <img src="images/backgrounds/jerusalem_twilight.png" 
-                 alt="Jérusalem au crépuscule avec vue sur la vieille ville et le mur des Lamentations" 
-                 style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;">
+    <!-- ACTE 1: Hero Slider Moderne (Style Asmodee) -->
+    <section id="acte-1" class="hero-slider">
+        <!-- Container du slider -->
+        <div class="slider-container">
             
-            <!-- Overlay sombre pour la lisibilité -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 2;"></div>
-            
-            <!-- Particules dorées flottantes -->
-            <div class="particles-container" style="z-index: 3;"></div>
-            
-            <!-- Lettres hébraïques en filigrane -->
-            <div class="hebrew-letters" aria-hidden="true" style="z-index: 3;">
-                <svg class="letter-aleph" viewBox="0 0 100 100">
-                    <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="#eda234" opacity="0.03">א</text>
-                </svg>
-                <svg class="letter-shin" viewBox="0 0 100 100">
-                    <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="#eda234" opacity="0.03">ש</text>
-                </svg>
-                <svg class="letter-lamed" viewBox="0 0 100 100">
-                    <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="80" fill="#eda234" opacity="0.03">ל</text>
-                </svg>
+            <!-- Slide 1 : Accessibilité -->
+            <div class="slide active" data-slide="1">
+                <img src="images/hero1_4.png" alt="Accessibilité - Judaïsme pour tous">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">Le judaïsme que vous voulez,<br>le support dont vous avez besoin</h1>
+                    <h2 class="slide-value">Accessible à tous</h2>
+                    <p class="slide-description">Redécouvrez la richesse de la tradition juive à travers des jeux qui s'adressent à toute la famille, quel que soit votre niveau de connaissance.</p>
+                    <button class="btn-primary" data-scroll-to="acte-4">Découvrir nos univers</button>
+                </div>
+            </div>
+
+            <!-- Slide 2 : Joie -->
+            <div class="slide" data-slide="2">
+                <img src="images/hero2_4.png" alt="Joie - Apprendre en s'amusant">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">Le judaïsme que vous voulez,<br>le support dont vous avez besoin</h1>
+                    <h2 class="slide-value">La joie d'apprendre</h2>
+                    <p class="slide-description">Parce que l'étude peut être joyeuse, nos jeux transforment l'apprentissage en moments de plaisir partagé.</p>
+                    <button class="btn-primary" data-scroll-to="acte-4">Découvrir nos univers</button>
+                </div>
+            </div>
+
+            <!-- Slide 3 : Familial -->
+            <div class="slide" data-slide="3">
+                <img src="images/hero3_4.png" alt="Familial - Transmettre ensemble">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">Le judaïsme que vous voulez,<br>le support dont vous avez besoin</h1>
+                    <h2 class="slide-value">Une expérience familiale</h2>
+                    <p class="slide-description">Créez des souvenirs précieux en transmettant les valeurs juives à travers le jeu, de génération en génération.</p>
+                    <button class="btn-primary" data-scroll-to="acte-4">Découvrir nos univers</button>
             </div>
         </div>
         
-        <div class="hero-content" style="position: relative; z-index: 4;">
-            <div class="hero-logo">
-                <img src="images/logo/logo_large_gold.png" alt="Logo Ora Shel Torah - De génération en génération">
+            <!-- Slide 4 : Respect halakhique -->
+            <div class="slide" data-slide="4">
+                <img src="images/hero4_4.png" alt="Respect halakhique - Conformité religieuse">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">Le judaïsme que vous voulez,<br>le support dont vous avez besoin</h1>
+                    <h2 class="slide-value">Respect des valeurs</h2>
+                    <p class="slide-description">Tous nos jeux sont certifiés conformes à la Halakha et compatibles Shabbat, pour une pratique sereine.</p>
+                    <button class="btn-primary" data-scroll-to="certificats">Voir nos certificats</button>
             </div>
-            <h1 class="hero-title">
-                ORA SHEL TORAH
-            </h1>
-            <p class="hero-subtitle">
-                Quand la sagesse millénaire<br>
-                rencontre le jeu moderne...
-            </p>
-            
-            <div class="hero-actions">
-                <button class="btn-primary" data-scroll-to="acte-2">
-                    🎬 Découvrir notre univers
+            </div>
+
+        </div>
+
+        <!-- Navigation manuelle -->
+        <button class="slider-nav prev" aria-label="Slide précédent">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
                 </button>
-                <button class="btn-secondary" data-scroll-to="acte-6">
-                    🛒 Accéder à la boutique
+        <button class="slider-nav next" aria-label="Slide suivant">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 5L12.5 10L7.5 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
                 </button>
+
+        <!-- Indicateurs de pagination (dots) -->
+        <div class="slider-dots">
+            <button class="dot active" data-slide="1" aria-label="Slide 1"></button>
+            <button class="dot" data-slide="2" aria-label="Slide 2"></button>
+            <button class="dot" data-slide="3" aria-label="Slide 3"></button>
+            <button class="dot" data-slide="4" aria-label="Slide 4"></button>
             </div>
             
-            <div class="scroll-indicator">
-                <span>↓ Scroll pour entrer ↓</span>
+        <!-- Photo créateur (médaillon fixe) -->
+        <div class="creator-badge">
+            <a href="#acte-2" data-scroll-to="acte-2" class="creator-link">
+                <div class="creator-photo-circle">
+                    <img src="images/michael_lumbroso.png" alt="Michael Lumbroso, fondateur d'Ora Shel Torah">
             </div>
+                <div class="creator-label">
+                    <span class="creator-name">Michael Lumbroso</span>
+                    <span class="creator-role">Fondateur</span>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- ACTE 2: L'HUMANITÉ (Histoire du fondateur) -->
-    <section id="acte-2" class="histoire-fondateur">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Pourquoi j'ai créé Ora Shel Torah</span>
-                <h2>Du retour aux sources à la transmission familiale</h2>
-            </div>
+    <!-- ACTE 2: Notre Histoire (Layout épuré) -->
+    <section id="acte-2" class="about-section">
+        <div class="about-layout">
             
-            <!-- Container avec carrousel mobile -->
-            <div class="video-philosophy-container" data-mobile-slide="0">
+            <!-- Titre de section -->
+            <h2 class="section-title-centered">Notre histoire</h2>
+            
+            <!-- Layout 2 colonnes -->
+            <div class="about-columns">
                 
-                <!-- SLIDE 1 : Vidéo -->
-                <div class="philosophy-slide video-slide" data-slide="0">
-                    <div class="video-philosophy-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
-                        <iframe 
-                            src="https://www.youtube.com/embed/44nld3A8-Z8" 
-                            title="Ma Philosophie - Pourquoi j'ai créé Ora Shel Torah" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                        </iframe>
+                <!-- COLONNE GAUCHE : Photo + Bouton -->
+                <aside class="about-left">
+                    <div class="creator-photo-box">
+                        <img src="images/michael_lumbroso.png" alt="Michael Lumbroso">
                     </div>
-
-                    <div class="cta-below-video">
-                        <a href="a-propos.html" class="btn-story-cta">
-                            <span class="cta-icon">✨</span>
-                            <div class="cta-content">
-                                <span class="cta-main">Mon histoire complète</span>
-                                <span class="cta-sub">Du 770 aux jeux de Torah</span>
-                            </div>
-                            <span class="cta-arrow">→</span>
-                        </a>
-                    </div>
-                    
-                    <!-- Flèche SUIVANT (visible uniquement sur mobile) -->
-                    <button class="mobile-nav-arrow arrow-next" aria-label="Voir le texte">
-                        <span>→</span>
+                    <button class="btn-philosophy" data-action="play-video">
+                        🎬 Voir ma philosophie
                     </button>
-                </div>
-                
-                <!-- SLIDE 2 : Texte fondateur -->
-                <div class="philosophy-slide text-slide" data-slide="1">
-                    <div class="text-content-wrapper">
-                        <div class="founder-intro">
-                            <div class="founder-intro-photo">
-                                <img src="images/auteur/michael_lumbroso.jpg" 
-                                     alt="Michael Lumbroso, fondateur d'Ora Shel Torah et créateur de jeux éducatifs juifs">
-                            </div>
+                </aside>
+
+                <!-- COLONNE DROITE : Texte scrollable -->
+                <div class="about-right">
+                    <div class="story-modal">
+                        
+                        <!-- Section 1 -->
+                        <section class="story-block">
+                            <h3>🌅 Mon parcours : De l'éloignement à la lumière</h3>
                             
-                            <div class="founder-intro-text">
-                                <h3>Mon parcours</h3>
-                                <p>
-                                    J'ai été un "juif du Kippour" jusqu'à mes 54 ans. Longtemps attaché aux traditions 
-                                    sans en saisir le sens, il m'a fallu un choc de la vie pour retrouver le chemin de D.ieu. 
-                                    Peu à peu, la prière, l'étude, puis la techouva — ce retour aux sources — se sont 
-                                    imposés comme une évidence.
-                                </p>
-                                <p>
-                                    J'ai alors voulu transmettre cette lumière à mes enfants autrement : non par la contrainte, 
-                                    mais par la joie. C'est ainsi qu'est née Ora Shel Torah, une collection de jeux de société 
-                                    pensés pour apprendre et s'émerveiller en famille.
-                                </p>
-                                <p>
-                                    Et puis, plus tard, un signe m'a frappé : le numéro d'enregistrement de ma société 
-                                    portait le chiffre <strong>770</strong> — l'adresse du Rabbi de Loubavitch. Un clin d'œil 
-                                    céleste, comme une confirmation discrète que j'étais sur la bonne voie.
-                                </p>
-                                <p class="message-final">
-                                    💫 Si j'ai un message à laisser : n'attendez pas d'avoir 54 ans pour commencer le voyage.
-                                </p>
+                            <p>J'ai été un juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
+                            
+                            <p>Un accident de la vie, un père malade… et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
+                            
+                            <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
+                            
+                            <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi. Et il répète inlassablement : « Tout est Don divin. » Je ne peux qu'être d'accord. Il est temps de remercier.</p>
+                            
+                            <p>Des mois d'étude ont suivi. Privilégié que j'étais d'entendre une parole claire, vivante, moderne.</p>
+                        </section>
+
+                        <!-- Section 2 -->
+                        <section class="story-block">
+                            <h3>🎯 La naissance d'un projet</h3>
+                            
+                            <p>J'ai voulu transmettre cette lumière à mes enfants.</p>
+                            
+                            <p>Mais même dans une ville vivante, foisonnant de maîtres et de lieux d'étude, les supports restent compliqués.</p>
+                            
+                            <p>De lectures en dvar torah inspirés, l'immensité de mon inculture se confirme.</p>
+                            
+                            <p>Mais comment rattraper ces années perdues sans m'enfermer dans une Yeshiva ?</p>
+                            
+                            <p>Alors une idée naît…</p>
+                            
+                            <p>D'abord celle d'un jeu de cartes à l'effigie des grands penseurs qui ont écrit notre histoire et nos textes saints. De grands sages en lieu et place de joueurs de foot sur des cartes PANINI 😊</p>
+                            
+                            <p>Mais c'est insuffisant. J'ai envie de renouer avec l'Histoire, connaitre le sens des fêtes, comprendre la joie et la foi au dela des textes que je ne connais pas. Je lis, je visionne mais c'est un parcours individuel exigeant que je ne peux pas partager.</p>
+                            
+                            <p>Il doit y avoir un autre moyen …</p>
+                            
+                            <p>Pourquoi pas un jeu de société ?</p>
+                            
+                            <p><strong>C'est ainsi qu'est née Ora Shel Torah.</strong></p>
+                            
+                            <p>Avec l'idée que la lumière de la Torah, la beauté et la grandeur du judaïsme, peuvent se transmettre autrement que par l'étude seule : par le jeu, le partage, et la joie d'apprendre ensemble.</p>
+                        </section>
+
+                        <!-- Section 3 -->
+                        <section class="story-block">
+                            <h3>✨ Les signes du chemin</h3>
+                            
+                            <p>Il a fallu dépasser mes incompétences judaïques… et techniques.</p>
+                            
+                            <p>Les outils modernes m'ont donné accès à une source quasiment illimitée de données fondamentales, sourçables, vérifiables.</p>
+                            
+                            <p>Mais surtout D.ieu avait un plan pour moi…</p>
+                            
+                            <p>Un changement de vie forcé qui a libéré mon temps et mon énergie.</p>
+                            
+                            <p>Des signes… comme le numéro d'enregistrement de ma société : <strong>« 770 »</strong> (l'adresse du Rabbi de Loubavitch) et un message dans une lettre posthume du Rabbi (Igrot Kodesh) m'encourageant à persévérer, et à ramener mes enfants avec moi…</p>
+                        </section>
+
+                        <!-- Section 4 -->
+                        <section class="story-block">
+                            <h3>🎮 De l'idée à la réalité</h3>
+                            
+                            <p>Ces signes m'ont bouleversé. Ce n'était plus seulement mon projet — c'était une mission.</p>
+                            
+                            <p>Alors j'ai plongé dans une aventure que je ne maîtrisais pas : conceptualiser des jeux, apprendre les règles ludiques, collaborer avec des designers, trouver un fabricant, valider le contenu halakhique.</p>
+                            
+                            <p>Un an de travail acharné ont donné naissance à trois univers complémentaires :</p>
+                            
+                            <ul class="games-list-compact">
+                                <li><strong>Jérusalem du Ciel</strong> pour découvrir 3000 ans d'histoire</li>
+                                <li><strong>Minhag ou Halakha</strong> pour comprendre la différence entre loi et coutume</li>
+                                <li><strong>Poztamitsvah</strong> pour vivre 140 mitzvot au quotidien</li>
+                            </ul>
+                            
+                            <p>Aujourd'hui, quand je vois des familles — éloignées ou pratiquantes — jouer ensemble, rire, débattre, et surtout transmettre sans contrainte, je sais que ce « 770 » n'était pas un hasard.</p>
+                        </section>
+
+                        <!-- Section 5 -->
+                        <section class="story-block final-block">
+                            <h3>💫 Le message que je veux transmettre</h3>
+                            
+                            <p>La Torah peut être un émerveillement partagé.</p>
+                            
+                            <p>Et si j'avais un message à laisser, ce serait celui-là :</p>
+                            
+                            <div class="quote-highlight">
+                                <p>👋 <em><strong>N'attendez pas d'avoir 54 ans pour vous en rendre compte.</strong></em></p>
+                                <p>La route est bien plus belle quand on la commence tôt. 🌿</p>
                             </div>
-                        </div>
+                        </section>
+
                     </div>
-                    
-                    <!-- Bouton lien vers À propos -->
-                    <!-- Flèche PRÉCÉDENT (visible uniquement sur mobile) -->
-                    <button class="mobile-nav-arrow arrow-prev" aria-label="Retour à la vidéo">
-                        <span>←</span>
-                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section vidéo cachée (à révéler au clic) -->
+        <div class="video-container" id="video-philosophy" style="display: none;">
+            <div class="video-wrapper">
+                <button class="video-close" aria-label="Fermer la vidéo">×</button>
+                <div class="video-iframe-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/44nld3A8-Z8" 
+                        title="Ma Philosophie - Pourquoi j'ai créé Ora Shel Torah" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ACTE 3: LA MISSION (Philosophie) -->
-    <section id="acte-3" class="philosophie">
-        <div class="container">
-            <div class="section-header center">
-                <span class="eyebrow">Notre raison d'être</span>
-                <h2>Rendre les trésors du judaïsme accessibles à tous</h2>
-            </div>
+    <!-- ACTE 4: Nos Univers Ludiques (Showcase épuré style Asmodee) -->
+    <section id="acte-4" class="jeux-showcase">
+        <div class="showcase-container">
             
-            <div class="philosophy-grid">
-                <div class="philosophy-card">
-                    <span class="icon">🎯</span>
-                    <h3>Sans être érudit</h3>
-                    <p>Pas besoin d'être rabbin pour transmettre. Nos jeux permettent d'apprendre ensemble, parents et enfants.</p>
+            <!-- En-tête de section -->
+            <div class="showcase-header">
+                <h2 class="section-title">Trois jeux pour redécouvrir le judaïsme en famille</h2>
                 </div>
                 
-                <div class="philosophy-card">
-                    <span class="icon">❤️</span>
-                    <h3>Avec joie</h3>
-                    <p>Le jeu crée des moments de partage et transforme l'étude en plaisir familial.</p>
-                </div>
+            <!-- Fenêtre de présentation unique -->
+            <div class="showcase-window">
                 
-                <div class="philosophy-card">
-                    <span class="icon">📚</span>
-                    <h3>En famille</h3>
-                    <p>Plusieurs générations autour de la table, de 7 à 77 ans.</p>
+                <!-- Slide 1 : JDC -->
+                <div class="jeu-slide active" data-jeu="jdc">
+                    <div class="jeu-visual">
+                        <div class="jeu-frame">
+                            <img src="images/jeu1_3.png" alt="Jérusalem du Ciel">
                 </div>
-                
-                <div class="philosophy-card">
-                    <span class="icon">✡️</span>
-                    <h3>Fidèle aux sources</h3>
-                    <p>Contenu halakhique vérifié, respectueux de la tradition.</p>
+                    </div>
+                    <div class="jeu-info">
+                        <h3 class="jeu-title">Jérusalem du Ciel</h3>
+                        <p class="jeu-tagline">
+                            3000 ans d'histoire juive<br>
+                            sur un plateau circulaire fascinant
+                        </p>
+                        <button class="btn-discover" data-scroll-to="hero-bis-jdc">
+                            Découvrir ce jeu →
+                        </button>
                 </div>
             </div>
             
-            <div class="quote-block">
-                <blockquote>
-                    "Ce n'est pas à toi d'achever l'œuvre,<br>
-                    mais tu n'es pas libre de t'en désintéresser."
-                    <cite>— Pirké Avot 2:16</cite>
-                </blockquote>
+                <!-- Slide 2 : MOH -->
+                <div class="jeu-slide" data-jeu="moh">
+                    <div class="jeu-visual">
+                        <div class="jeu-frame">
+                            <img src="images/jeu2_3.png" alt="Minhag ou Halakha">
             </div>
         </div>
-    </section>
-
-    <!-- ACTE 4: LA RÉVÉLATION (Les 3 jeux - Vidéos de révélation) -->
-    <section id="revelation-trilogie">
-        <div class="container">
-            <div class="tripanel-header">
-                <p class="tripanel-eyebrow">Notre collection</p>
-                <h2 class="tripanel-title">
-                    <span class="title-intro">Nos trois jeux éducatifs juifs</span>
-                    <span class="title-main">Histoire · Loi · Mitsvot</span>
-                </h2>
-                <div class="title-separator"></div>
-                <p class="tripanel-subtitle">
-                    <strong id="game-title-dynamic">Jérusalem du Ciel · L'Histoire</strong>
-                </p>
+                    <div class="jeu-info">
+                        <h3 class="jeu-title">Minhag ou Halakha</h3>
+                        <p class="jeu-tagline">
+                            Distinguer la loi religieuse<br>
+                            de la coutume avec pédagogie
+                        </p>
+                        <button class="btn-discover" data-scroll-to="hero-bis-moh">
+                            Découvrir ce jeu →
+                        </button>
             </div>
-
-            <div class="revelation-boxes-wrapper">
-                <a href="#hero-bis-jdc"
-                   class="revelation-card active game-label-jdc"
-                   data-game="jdc"
-                   data-title="Jérusalem du Ciel · L'Histoire"
-                   data-index="0">
-                    <div class="revelation-icon-container">
-                        <img src="images/jdcrelief_acte4.png" alt="Jérusalem du Ciel" class="revelation-icon">
-                        <div class="revelation-shadow"></div>
                     </div>
-                    <div class="revelation-text">L'HISTOIRE</div>
-                </a>
 
-                <a href="#hero-bis-moh"
-                   class="revelation-card next-card game-label-moh"
-                   data-game="moh"
-                   data-title="Minhag ou Halakha · La Loi"
-                   data-index="1">
-                    <div class="revelation-icon-container">
-                        <img src="images/mohrelief_acte4.png" alt="Minhag ou Halakha" class="revelation-icon">
-                        <div class="revelation-shadow"></div>
+                <!-- Slide 3 : POZ -->
+                <div class="jeu-slide" data-jeu="poz">
+                    <div class="jeu-visual">
+                        <div class="jeu-frame">
+                            <img src="images/jeu3_3.png" alt="Poztamitsvah">
                     </div>
-                    <div class="revelation-text">LA LOI</div>
-                </a>
-
-                <a href="#hero-bis-poz"
-                   class="revelation-card hidden game-label-poz"
-                   data-game="poz"
-                   data-title="Pratique au Quotidien · Les Mitsvot"
-                   data-index="2">
-                    <div class="revelation-icon-container">
-                        <img src="images/pozrelief_acte4.png" alt="Pratique au Quotidien" class="revelation-icon">
-                        <div class="revelation-shadow"></div>
                     </div>
-                    <div class="revelation-text">LES MITSVOT</div>
-                </a>
+                    <div class="jeu-info">
+                        <h3 class="jeu-title">Poztamitsvah</h3>
+                        <p class="jeu-tagline">
+                            Reconnaître les mitzvot cachées<br>
+                            dans le quotidien
+                        </p>
+                        <button class="btn-discover" data-scroll-to="hero-bis-poz">
+                            Découvrir ce jeu →
+                        </button>
+                    </div>
             </div>
 
-            <div class="revelation-mobile-nav" aria-hidden="true">
-                <button class="revelation-nav-btn" id="revelation-prev" aria-label="Jeu précédent">‹</button>
-                <button class="revelation-nav-btn" id="revelation-next" aria-label="Jeu suivant">›</button>
             </div>
 
-            <div class="revelation-mobile-dots" role="tablist" aria-label="Sélection du jeu">
-                <button class="revelation-dot is-active" data-index="0" aria-label="Jérusalem du Ciel"></button>
-                <button class="revelation-dot" data-index="1" aria-label="Minhag ou Halakha"></button>
-                <button class="revelation-dot" data-index="2" aria-label="Pratique au Quotidien"></button>
+            <!-- Navigation simplifiée -->
+            <div class="showcase-nav">
+                <button class="showcase-arrow prev" aria-label="Jeu précédent">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                
+                <div class="showcase-dots">
+                    <button class="dot active" data-jeu="jdc"></button>
+                    <button class="dot" data-jeu="moh"></button>
+                    <button class="dot" data-jeu="poz"></button>
             </div>
+
+                <button class="showcase-arrow next" aria-label="Jeu suivant">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+
         </div>
     </section>
 

@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeApp() {
     // Initialiser les composants
+    initHeroSlider();
+    initDynamicHeader();
+    initJeuxShowcase();
     initSmoothScrolling();
     initHeaderScroll();
     initParticles();
@@ -19,12 +22,260 @@ function initializeApp() {
     initTripleSplitPanels();
     initVideoPhilosophy();
     initPhilosophyMobileNav();
+    initAboutVideo();
     initContentCarousels();
     initContactPartenariatAnimation();
     initRevelationCards();
     initRevelationMobileCarousel();
     
     console.log('Ora Shel Torah - Site initialisé');
+}
+
+// ========================================
+// HERO SLIDER
+// ========================================
+
+function initHeroSlider() {
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    const prevBtn = document.querySelector('.slider-nav.prev');
+    const nextBtn = document.querySelector('.slider-nav.next');
+    
+    if (!slides.length || !dots.length) {
+        console.log('Hero slider non trouvé, initialisation ignorée');
+        return;
+    }
+    
+    let currentSlide = 0;
+    let autoplayInterval;
+
+    function showSlide(index) {
+        // Gérer le wrap-around
+        if (index >= slides.length) index = 0;
+        if (index < 0) index = slides.length - 1;
+        
+        // Retirer active de tous
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        
+        // Ajouter active au courant
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    // Navigation manuelle
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoplay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoplay();
+        });
+    }
+
+    // Dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            resetAutoplay();
+        });
+    });
+
+    // Autoplay
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000); // Change toutes les 5 secondes
+    }
+
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+    }
+
+    // Démarrer l'autoplay
+    startAutoplay();
+
+    // Pause au hover
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            startAutoplay();
+        });
+    }
+    
+    console.log('✅ Hero slider initialisé');
+}
+
+// ========================================
+// HEADER DYNAMIQUE AU SCROLL
+// ========================================
+
+// Header dynamique avec top-bar
+function initDynamicHeader() {
+    const header = document.getElementById('main-header');
+    const topBar = document.getElementById('top-bar');
+    
+    if (!header) {
+        console.log('Header non trouvé, initialisation ignorée');
+        return;
+    }
+    
+    if (!topBar) {
+        console.log('Top-bar non trouvée, initialisation ignorée');
+        return;
+    }
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+
+        // Si on scrolle vers le bas (au-delà de 100px)
+        if (currentScrollY > 100) {
+            // Montrer la top-bar
+            topBar.classList.add('visible');
+            header.classList.add('with-topbar');
+            
+            // Agrandir le header et le logo
+            header.classList.add('expanded');
+        } else {
+            // Cacher la top-bar
+            topBar.classList.remove('visible');
+            header.classList.remove('with-topbar');
+            
+            // Réduire le header
+            header.classList.remove('expanded');
+        }
+    }
+
+    // Throttle pour optimiser les performances
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateHeader();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Initialiser
+    updateHeader();
+    
+    console.log('✅ Header dynamique avec top-bar initialisé');
+}
+
+// ========================================
+// SHOWCASE JEUX AVEC ANIMATION PLONGEANTE
+// ========================================
+
+function initJeuxShowcase() {
+    const slides = document.querySelectorAll('.jeu-slide');
+    const indicators = document.querySelectorAll('.showcase-dots .dot');
+    const prevBtn = document.querySelector('.showcase-nav .prev');
+    const nextBtn = document.querySelector('.showcase-nav .next');
+    
+    if (!slides.length || !indicators.length) {
+        console.log('Showcase jeux non trouvé, initialisation ignorée');
+        return;
+    }
+    
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    function showSlide(newIndex, direction = 'next') {
+        if (isAnimating) return;
+        if (newIndex === currentIndex) return;
+
+        // Gérer le wrap-around
+        if (newIndex >= slides.length) newIndex = 0;
+        if (newIndex < 0) newIndex = slides.length - 1;
+
+        isAnimating = true;
+
+        const currentSlide = slides[currentIndex];
+        const nextSlide = slides[newIndex];
+
+        // Animation "plongeante" de l'ancien slide
+        currentSlide.classList.add('diving');
+        
+        // Préparer le nouveau slide
+        setTimeout(() => {
+            currentSlide.classList.remove('active', 'diving');
+            nextSlide.classList.add('rising');
+            
+            setTimeout(() => {
+                nextSlide.classList.add('active');
+                nextSlide.classList.remove('rising');
+                
+                // Mettre à jour les indicateurs
+                indicators.forEach(ind => ind.classList.remove('active'));
+                indicators[newIndex].classList.add('active');
+                
+                currentIndex = newIndex;
+                isAnimating = false;
+            }, 50);
+        }, 800); // Durée de l'animation diveOut
+    }
+
+    // Navigation boutons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentIndex + 1, 'next');
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentIndex - 1, 'prev');
+        });
+    }
+
+    // Navigation indicateurs
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+        });
+    });
+
+    // Autoplay optionnel (désactivé par défaut)
+    /*
+    let autoplayInterval = setInterval(() => {
+        showSlide(currentIndex + 1);
+    }, 6000);
+
+    // Pause au hover
+    const showcaseWindow = document.querySelector('.showcase-window');
+    if (showcaseWindow) {
+        showcaseWindow.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+        showcaseWindow.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(() => {
+                showSlide(currentIndex + 1);
+            }, 6000);
+        });
+    }
+    */
+    
+    console.log('✅ Showcase jeux initialisé');
 }
 
 // ========================================
@@ -457,6 +708,80 @@ function initPhilosophyMobileNav() {
     }
     
     console.log('✅ Navigation mobile philosophie initialisée');
+}
+
+// ========================================
+// SECTION À PROPOS - VIDÉO MODALE
+// ========================================
+
+function initAboutVideo() {
+    const btnVideo = document.querySelector('.btn-philosophy[data-action="play-video"]') || document.querySelector('.btn-video-philosophy[data-action="play-video"]') || document.querySelector('.btn-video[data-action="play-video"]');
+    const videoContainer = document.getElementById('video-philosophy');
+    const videoClose = document.querySelector('.video-close');
+    
+    if (!btnVideo || !videoContainer) return;
+    
+    // Ouvrir la vidéo
+    btnVideo.addEventListener('click', function() {
+        videoContainer.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Empêcher le scroll
+    });
+    
+    // Fermer la vidéo
+    if (videoClose) {
+        videoClose.addEventListener('click', function() {
+            videoContainer.style.display = 'none';
+            document.body.style.overflow = ''; // Réactiver le scroll
+            
+            // Arrêter la vidéo en changeant la source
+            const iframe = videoContainer.querySelector('iframe');
+            if (iframe) {
+                const src = iframe.src;
+                iframe.src = '';
+                setTimeout(() => {
+                    iframe.src = src;
+                }, 100);
+            }
+        });
+    }
+    
+    // Fermer en cliquant sur le fond
+    videoContainer.addEventListener('click', function(e) {
+        if (e.target === videoContainer) {
+            videoContainer.style.display = 'none';
+            document.body.style.overflow = '';
+            
+            // Arrêter la vidéo
+            const iframe = videoContainer.querySelector('iframe');
+            if (iframe) {
+                const src = iframe.src;
+                iframe.src = '';
+                setTimeout(() => {
+                    iframe.src = src;
+                }, 100);
+            }
+        }
+    });
+    
+    // Fermer avec la touche Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && videoContainer.style.display === 'flex') {
+            videoContainer.style.display = 'none';
+            document.body.style.overflow = '';
+            
+            // Arrêter la vidéo
+            const iframe = videoContainer.querySelector('iframe');
+            if (iframe) {
+                const src = iframe.src;
+                iframe.src = '';
+                setTimeout(() => {
+                    iframe.src = src;
+                }, 100);
+            }
+        }
+    });
+    
+    console.log('✅ Vidéo modale section À propos initialisée');
 }
 
 // ========================================
