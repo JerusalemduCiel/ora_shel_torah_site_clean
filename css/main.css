@@ -124,7 +124,8 @@
 /* Scroll Snap global */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity; /* Aimantage vertical "proche" (plus doux que mandatory) */
+  scroll-snap-type: y mandatory; /* Snap obligatoire et marqué */
+  scroll-padding-top: 105px; /* Compenser le header fixe (65px + 40px top-bar) */
 }
 
 body {
@@ -133,19 +134,19 @@ body {
   line-height: 1.6;
   color: var(--color-text-dark);
   overflow-x: hidden;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory; /* Snap obligatoire et marqué */
 }
 
 /* Chaque section principale devient un point d'accrochage */
 section {
-  scroll-snap-align: start; /* S'accroche au début de la section */
+  scroll-snap-align: center; /* Centre la section à l'écran pour un snap plus marqué */
   scroll-snap-stop: always; /* Force l'arrêt sur chaque section */
 }
 
 /* Hero principal doit occuper 100vh pour le snap */
 #acte-1 {
   min-height: 100vh;
-  scroll-snap-align: start;
+  scroll-snap-align: center; /* Centre le hero à l'écran */
   border-top: 3px solid var(--color-gold);
   border-bottom: 3px solid var(--color-gold);
   position: relative;
@@ -161,7 +162,7 @@ section {
 #hero-bis-moh,
 #hero-bis-poz {
   min-height: 100vh;
-  scroll-snap-align: start;
+  scroll-snap-align: center; /* Centre les sections à l'écran */
   display: flex;
   align-items: center;
   border-top: 3px solid var(--color-gold);
@@ -215,7 +216,7 @@ img {
   left: 0;
   right: 0;
   z-index: 1001;
-  background: #ffffff;
+  background: #1a1f2e; /* Bleu nuit très sombre */
   border-bottom: 2px solid var(--color-gold);
   transition: top 0.4s ease;
   height: 40px;
@@ -234,7 +235,7 @@ img {
   justify-content: space-between;
   align-items: center;
   font-size: 0.875rem;
-  color: #1a1a1a; /* Texte noir au lieu de blanc */
+  color: #ffffff; /* Texte blanc sur fond foncé */
 }
 
 .top-bar-left,
@@ -250,15 +251,15 @@ img {
 }
 
 .top-bar-item {
-  color: #4a5568; /* Gris foncé au lieu de blanc transparent */
+  color: rgba(255, 255, 255, 0.8); /* Blanc semi-transparent */
 }
 
 .top-bar-separator {
-  color: #cbd5e0;
+  color: rgba(255, 255, 255, 0.4); /* Blanc très transparent */
 }
 
 .top-bar-link {
-  color: #1a1a1a;
+  color: #ffffff; /* Blanc */
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -573,6 +574,11 @@ img {
   color: white;
   z-index: 3;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 450px; /* Hauteur fixe pour tous les slides - garantit l'alignement */
+  box-sizing: border-box;
 }
 
 .slide-title {
@@ -581,6 +587,8 @@ img {
   margin-bottom: 2rem;
   line-height: 1.3;
   color: white;
+  margin-top: 0;
+  flex-shrink: 0; /* Empêcher la compression */
 }
 
 .slide-value {
@@ -1198,7 +1206,7 @@ img {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  scroll-snap-align: start;
+  scroll-snap-align: center; /* Centre la section à l'écran */
 }
 
 .about-layout {
