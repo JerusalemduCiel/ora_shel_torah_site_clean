@@ -1,5 +1,4 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const https = require('https');
 
 exports.handler = async (event) => {
   const sig = event.headers['stripe-signature'];
@@ -22,38 +21,17 @@ exports.handler = async (event) => {
     const customerName = session.metadata?.customer_name || 'Client';
     const amount = (session.amount_total / 100).toFixed(2);
 
-    // Format Formspree simplifié : email, name, message
-    const data = JSON.stringify({
-      email: customerEmail,
-      name: customerName,
-      message: `Nouvelle commande Ora Shel Torah\n\nMontant: ${amount}€\nSession ID: ${session.id}\nDate: ${new Date().toLocaleString('fr-FR')}`
-    });
-
-    const options = {
-      hostname: 'formspree.io',
-      port: 443,
-      path: '/f/mblwlplg',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': data.length
-      }
-    };
-
-    return new Promise((resolve, reject) => {
-      const req = https.request(options, (res) => {
-        console.log('Email vendeur envoyé, status:', res.statusCode);
-        resolve({ statusCode: 200, body: 'Webhook reçu' });
-      });
-
-      req.on('error', (error) => {
-        console.error('Erreur envoi email:', error);
-        resolve({ statusCode: 200, body: 'Webhook reçu (email failed)' });
-      });
-
-      req.write(data);
-      req.end();
-    });
+    console.log('========================================');
+    console.log('🎉 NOUVELLE COMMANDE ORA SHEL TORAH !');
+    console.log('========================================');
+    console.log('Client:', customerName);
+    console.log('Email:', customerEmail);
+    console.log('Montant:', amount + '€');
+    console.log('Session ID:', session.id);
+    console.log('Date:', new Date().toLocaleString('fr-FR'));
+    console.log('========================================');
+    
+    return { statusCode: 200, body: 'Commande enregistrée' };
   }
 
   return { statusCode: 200, body: 'Webhook reçu' };
