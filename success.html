@@ -1,158 +1,163 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commande confirmée - Ora Shel Torah</title>
-    <meta name="description" content="Votre commande a été confirmée avec succès. Merci pour votre achat sur Ora Shel Torah.">
-    <link rel="canonical" href="https://orasheltorah.fr/success.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commande confirmée - Ora Shel Torah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     
-    <link rel="icon" type="image/png" href="images/logo/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
-            color: white;
-            padding: 2rem;
-        }
-        
-        .success-container {
-            max-width: 600px;
-            background: #ffffff;
-            color: #1a1a1a;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            animation: slideUp 0.5s ease;
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            animation: bounce 1s ease infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        h1 {
-            font-family: 'Crimson Text', serif;
-            color: #eda234;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            color: #555;
-        }
-        
-        strong {
-            color: #1a1a1a;
-        }
-        
-        .info-box {
-            background: #ffffff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border-left: 4px solid #eda234;
-        }
-        
-        .btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2.5rem;
-            background: #eda234;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(237, 162, 52, 0.3);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(237, 162, 52, 0.4);
-        }
-        
-        .secondary-link {
-            display: block;
-            margin-top: 1rem;
-            color: #eda234;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-        
-        .secondary-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fdf8f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .success-container {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: #eda234;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 30px;
+    }
+    
+    .success-icon svg {
+      width: 45px;
+      height: 45px;
+      stroke: white;
+      stroke-width: 3;
+      fill: none;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0f1419;
+      margin-bottom: 15px;
+    }
+    
+    .order-number {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+    
+    .info-box {
+      background: #f9f7f3;
+      border-left: 4px solid #eda234;
+      padding: 20px;
+      text-align: left;
+      margin: 30px 0;
+      border-radius: 6px;
+    }
+    
+    .info-box p {
+      margin: 10px 0;
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .info-box strong {
+      color: #0f1419;
+    }
+    
+    .btn-home {
+      display: inline-block;
+      background: #eda234;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-home:hover {
+      background: #d89020;
+      transform: translateY(-2px);
+    }
+    
+    .contact-link {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .contact-link a {
+      color: #eda234;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .contact-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div class="success-container">
-        <div class="icon">✅</div>
-        <h1>Commande confirmée !</h1>
-        <p>
-            Merci pour votre confiance. Un email de confirmation vient d'être envoyé 
-            à votre adresse avec tous les détails de votre commande.
-        </p>
-        
-        <div class="info-box">
-            <p style="margin: 0;">
-                <strong>📦 Livraison estimée :</strong> Avril-Mai 2026<br>
-                <strong>📧 Email :</strong> Vous recevrez un email de confirmation sous peu
-            </p>
-        </div>
-        
-        <p>
-            Merci pour votre précommande ! Vos jeux seront expédiés dès leur disponibilité.
-        </p>
-        
-        <a href="index.html" class="btn">Retour à l'accueil</a>
-        
-        <a href="mailto:contact@orasheltorah.com" class="secondary-link">
-            Une question ? Contactez-nous
-        </a>
+  <div class="success-container">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
     </div>
     
-    <script>
-        // Vider le panier après commande réussie
-        if (window.localStorage) {
-            localStorage.removeItem('cart');
-        }
-        console.log('✅ Commande validée, panier vidé');
-    </script>
+    <h1>Commande confirmée !</h1>
+    <p class="order-number">Numéro de commande : <strong id="order-id">--</strong></p>
+    
+    <div class="info-box">
+      <p><strong>📧 Email :</strong> Vous recevrez un email de confirmation sous peu.</p>
+      <p><strong>📦 Livraison estimée :</strong> Avril-Mai 2026</p>
+      <p><strong>💳 Paiement :</strong> Votre paiement a été traité avec succès.</p>
+    </div>
+    
+    <p style="color: #666; margin: 20px 0; line-height: 1.6;">
+      Merci pour votre précommande ! Vous faites partie des premiers à soutenir Ora Shel Torah. 
+      Nous vous tiendrons informés de l'avancement de la production.
+    </p>
+    
+    <a href="/" class="btn-home">Retour à l'accueil</a>
+    
+    <p class="contact-link">
+      Une question ? <a href="/#contact">Contactez-nous</a>
+    </p>
+  </div>
+  
+  <script>
+    // Vider le panier après commande
+    localStorage.removeItem('cart');
+    
+    // Récupérer session_id de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+    if (sessionId) {
+      document.getElementById('order-id').textContent = sessionId.substring(0, 20) + '...';
+    }
+  </script>
 </body>
 </html>
-
-
