@@ -1434,18 +1434,22 @@ img {
 /* Section créateur avec image de fond */
 .section-createur {
   position: relative;
-  background: linear-gradient(rgba(44, 36, 22, 0.85), rgba(44, 36, 22, 0.85)), url('../images/hero3tresors.png') center/cover no-repeat;
+  background: linear-gradient(rgba(44, 36, 22, 0.88), rgba(44, 36, 22, 0.88)), url('../images/hero3tresors.png') center/cover no-repeat;
   background-attachment: fixed;
   color: #f5f0e8;
   padding: 80px 20px;
 }
 
 .section-createur h2,
-.section-createur h3,
+.section-createur h3 {
+  color: #f5f0e8;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
 .section-createur p,
 .section-createur li,
 .section-createur span {
-  color: #f5f0e8;
+  color: #e8dcc8;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
@@ -1456,18 +1460,32 @@ img {
 }
 
 .section-createur .story-block h3 {
-  color: #d4af37;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  color: #f5f0e8;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .section-createur .games-list-compact li {
-  color: #f5f0e8;
+  color: #e8dcc8;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .section-createur .games-list-compact li strong {
   color: #d4af37;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Boutons dans la section créateur - restent visibles */
+.section-createur .btn-philosophy {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.section-createur .btn-philosophy:hover {
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
 }
 
 .about-layout {
