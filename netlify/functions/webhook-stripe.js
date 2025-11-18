@@ -22,14 +22,11 @@ exports.handler = async (event) => {
     const customerName = session.metadata?.customer_name || 'Client';
     const amount = (session.amount_total / 100).toFixed(2);
 
-    // Envoyer email via Formspree avec https natif
+    // Format Formspree simplifié : email, name, message
     const data = JSON.stringify({
-      _subject: `🎉 Nouvelle commande Ora Shel Torah - ${amount}€`,
-      client: customerName,
       email: customerEmail,
-      montant: amount + '€',
-      session_id: session.id,
-      date: new Date().toLocaleString('fr-FR')
+      name: customerName,
+      message: `Nouvelle commande Ora Shel Torah\n\nMontant: ${amount}€\nSession ID: ${session.id}\nDate: ${new Date().toLocaleString('fr-FR')}`
     });
 
     const options = {
