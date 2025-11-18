@@ -1431,6 +1431,45 @@ img {
   scroll-snap-align: center; /* Centre la section à l'écran */
 }
 
+/* Section créateur avec image de fond */
+.section-createur {
+  position: relative;
+  background: linear-gradient(rgba(44, 36, 22, 0.85), rgba(44, 36, 22, 0.85)), url('../images/hero3tresors.png') center/cover no-repeat;
+  background-attachment: fixed;
+  color: #f5f0e8;
+  padding: 80px 20px;
+}
+
+.section-createur h2,
+.section-createur h3,
+.section-createur p,
+.section-createur li,
+.section-createur span {
+  color: #f5f0e8;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.section-createur .highlight,
+.section-createur strong {
+  color: #d4af37;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.section-createur .story-block h3 {
+  color: #d4af37;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.section-createur .games-list-compact li {
+  color: #f5f0e8;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.section-createur .games-list-compact li strong {
+  color: #d4af37;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
 .about-layout {
   max-width: 1200px;
   margin: 0 auto;
