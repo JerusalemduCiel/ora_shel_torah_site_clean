@@ -893,9 +893,30 @@ img {
 /* Section Jeux Showcase - Style Asmodee épuré */
 .jeux-showcase {
   padding: 6rem 2rem;
-  background: transparent;
+  background-image: url('../images/hero3tresors.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Effet parallaxe optionnel */
   position: relative;
   overflow: hidden;
+}
+
+/* Overlay subtil pour améliorer la lisibilité du texte */
+.jeux-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(253, 248, 240, 0.85); /* Beige transparent */
+  z-index: 1;
+}
+
+/* S'assurer que le contenu est au-dessus de l'overlay */
+.jeux-showcase > * {
+  position: relative;
+  z-index: 2;
 }
 
 .showcase-container {
@@ -1895,6 +1916,8 @@ html body #hero-bis-poz .hero-bis-background img {
   justify-content: center;
 }
 
+/* Pas de fond semi-transparent - uniquement ombres portées sur le texte */
+
 .hero-bis-content h2 {
   font-size: var(--text-5xl);
   color: var(--color-gold);
@@ -1902,6 +1925,16 @@ html body #hero-bis-poz .hero-bis-background img {
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
   line-height: 1.2;
   text-align: center;
+}
+
+/* Contraste amélioré pour MOH et POZ - Ombres portées fortes */
+#hero-bis-moh .hero-bis-content h2,
+#hero-bis-poz .hero-bis-content h2 {
+  color: #ffffff;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 /* ========================================
@@ -1922,6 +1955,16 @@ html body #hero-bis-poz .hero-bis-background img {
   font-family: 'Inter', sans-serif;
 }
 
+/* Contraste amélioré pour MOH et POZ - Sous-titres dans h2 avec ombres fortes */
+#hero-bis-moh .hero-bis h2 .h2-subtitle,
+#hero-bis-poz .hero-bis h2 .h2-subtitle {
+  color: #ffffff;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 768px) {
   .hero-bis h2 {
     font-size: 2rem;
@@ -1938,6 +1981,16 @@ html body #hero-bis-poz .hero-bis-background img {
   margin-bottom: var(--space-2xl);
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
   text-align: center;
+}
+
+/* Contraste amélioré pour MOH et POZ - Sous-titres avec ombres fortes */
+#hero-bis-moh .hero-bis-subtitle,
+#hero-bis-poz .hero-bis-subtitle {
+  color: #ffffff;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero-bis-actions {
