@@ -212,99 +212,77 @@ function initDynamicHeader() {
 }
 
 // ========================================
-// SHOWCASE JEUX AVEC ANIMATION PLONGEANTE
+// SLIDER JEUX SIMPLE - NAVIGATION MANUELLE
 // ========================================
 
 function initJeuxShowcase() {
+    const sliderTrack = document.querySelector('.slider-track');
     const slides = document.querySelectorAll('.jeu-slide');
     const indicators = document.querySelectorAll('.showcase-dots .dot');
-    const prevBtn = document.querySelector('.showcase-nav .prev');
-    const nextBtn = document.querySelector('.showcase-nav .next');
+    const prevBtn = document.querySelector('.slider-arrow.prev');
+    const nextBtn = document.querySelector('.slider-arrow.next');
     
-    if (!slides.length || !indicators.length) {
-        console.log('Showcase jeux non trouvé, initialisation ignorée');
+    if (!sliderTrack || !slides.length) {
+        console.log('Slider jeux non trouvé, initialisation ignorée');
         return;
     }
     
     let currentIndex = 0;
-    let isAnimating = false;
+    const slideCount = slides.length;
 
-    function showSlide(newIndex, direction = 'next') {
-        if (isAnimating) return;
-        if (newIndex === currentIndex) return;
-
-        // Gérer le wrap-around
-        if (newIndex >= slides.length) newIndex = 0;
-        if (newIndex < 0) newIndex = slides.length - 1;
-
-        isAnimating = true;
-
-        const currentSlide = slides[currentIndex];
-        const nextSlide = slides[newIndex];
-
-        // Animation "plongeante" de l'ancien slide
-        currentSlide.classList.add('diving');
+    function updateSlider() {
+        // Chaque slide fait 33.333% de la largeur totale (100% / 3)
+        const translateX = -currentIndex * (100 / slideCount);
+        sliderTrack.style.transform = `translateX(${translateX}%)`;
         
-        // Préparer le nouveau slide
-        setTimeout(() => {
-            currentSlide.classList.remove('active', 'diving');
-            nextSlide.classList.add('rising');
-            
-            setTimeout(() => {
-                nextSlide.classList.add('active');
-                nextSlide.classList.remove('rising');
-                
-                // Mettre à jour les indicateurs
-                indicators.forEach(ind => ind.classList.remove('active'));
-                indicators[newIndex].classList.add('active');
-                
-                currentIndex = newIndex;
-                isAnimating = false;
-            }, 50);
-        }, 800); // Durée de l'animation diveOut
+        // Mettre à jour les indicateurs
+        indicators.forEach((ind, index) => {
+            ind.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Mettre à jour les classes active des slides
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentIndex);
+        });
     }
 
-    // Navigation boutons
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlider();
+    }
+
+    function goToSlide(index) {
+        if (index >= 0 && index < slideCount) {
+            currentIndex = index;
+            updateSlider();
+        }
+    }
+
+    // Navigation avec flèches
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            showSlide(currentIndex + 1, 'next');
-        });
+        nextBtn.addEventListener('click', nextSlide);
     }
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            showSlide(currentIndex - 1, 'prev');
-        });
+        prevBtn.addEventListener('click', prevSlide);
     }
 
-    // Navigation indicateurs
+    // Navigation avec dots
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
-            showSlide(index);
+            goToSlide(index);
         });
     });
 
-    // Autoplay optionnel (désactivé par défaut)
-    /*
-    let autoplayInterval = setInterval(() => {
-        showSlide(currentIndex + 1);
-    }, 6000);
-
-    // Pause au hover
-    const showcaseWindow = document.querySelector('.showcase-window');
-    if (showcaseWindow) {
-        showcaseWindow.addEventListener('mouseenter', () => {
-            clearInterval(autoplayInterval);
-        });
-        showcaseWindow.addEventListener('mouseleave', () => {
-            autoplayInterval = setInterval(() => {
-                showSlide(currentIndex + 1);
-            }, 6000);
-        });
-    }
-    */
+    // Initialisation
+    updateSlider();
     
-    console.log('✅ Showcase jeux initialisé');
+    console.log('✅ Slider jeux initialisé (navigation manuelle uniquement)');
 }
 
 // ========================================
