@@ -1423,10 +1423,32 @@ img {
 
 /* ACTE 2: Section Notre Histoire - Layout épuré */
 .about-section {
+  padding: 6rem 2rem;
+  background-image: url('../images/hero3tresors.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Effet parallaxe optionnel */
   position: relative;
-  background: url('/images/hero3tresors.png') center/cover no-repeat fixed;
-  padding: 80px 20px;
+  overflow: hidden;
   min-height: 100vh;
+}
+
+/* Overlay subtil pour améliorer la lisibilité du texte */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(253, 248, 240, 0.85); /* Beige transparent */
+  z-index: 1;
+}
+
+/* S'assurer que le contenu est au-dessus de l'overlay */
+.about-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .about-layout {
@@ -7212,10 +7234,32 @@ footer {
 
 /* Sections de contenu */
 .about-section {
+  padding: 6rem 2rem;
+  background-image: url('../images/hero3tresors.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Effet parallaxe optionnel */
   position: relative;
-  background: url('/images/hero3tresors.png') center/cover no-repeat fixed;
-  padding: 80px 20px;
+  overflow: hidden;
   min-height: 100vh;
+}
+
+/* Overlay subtil pour améliorer la lisibilité du texte */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(253, 248, 240, 0.85); /* Beige transparent */
+  z-index: 1;
+}
+
+/* S'assurer que le contenu est au-dessus de l'overlay */
+.about-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .about-section h2 {
