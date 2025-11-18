@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" href="images/logo/favicon.png">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
@@ -134,7 +134,7 @@
             <div class="top-bar-right">
                 <span class="top-bar-item">📍 Lyon, France</span>
                 <span class="top-bar-separator">|</span>
-                <a href="#contact" class="top-bar-link" data-scroll-to="acte-7">Contact</a>
+                <a href="#contact" class="top-bar-link" data-scroll-to="contact">Contact</a>
                 <span class="top-bar-separator">|</span>
                 <a href="tel:+33618061000" class="top-bar-link">06 18 06 10 00</a>
             </div>
@@ -159,14 +159,14 @@
                 <a href="#acte-2" data-scroll-to="acte-2">Notre histoire</a>
                 <a href="#acte-3" data-scroll-to="acte-3">Philosophie</a>
                 <a href="#acte-4" data-scroll-to="acte-4">Nos jeux</a>
-                <a href="#acte-6" data-scroll-to="acte-6">Boutique</a>
-                <a href="#acte-7" data-scroll-to="acte-7">Contact</a>
+                <a href="#boutique" data-scroll-to="boutique">Boutique</a>
+                <a href="#contact" data-scroll-to="contact">Contact</a>
             </nav>
 
             <!-- Bouton Précommander -->
-            <button class="btn-precommander">
+            <a href="#boutique" class="btn-precommander" data-scroll-to="boutique">
                 Précommander
-            </button>
+            </a>
 
             <!-- Menu burger mobile -->
             <button class="burger-menu" id="burger-menu">
@@ -375,6 +375,32 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- SECTION DE TRANSITION : De la lumière aux jeux -->
+    <section style="
+      background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+      padding: 80px 20px;
+      text-align: center;
+    ">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="
+          font-family: 'Noto Sans Hebrew', sans-serif;
+          font-size: 60px;
+          color: #eda234;
+          opacity: 0.3;
+          margin-bottom: 30px;
+        ">אורה</div>
+        
+        <h2 style="
+          font-family: 'Crimson Text', serif;
+          font-size: 2rem;
+          color: white;
+          font-weight: 400;
+          font-style: italic;
+          line-height: 1.6;
+        ">De cette lumière retrouvée<br>sont nés trois jeux</h2>
+      </div>
     </section>
 
     <!-- ACTE 4: Nos Univers Ludiques (Showcase épuré style Asmodee) -->
@@ -1101,7 +1127,7 @@
     </section>
 
     <!-- SECTION CONTACT / PARTENARIAT -->
-    <section id="contact-partenariat" class="contact-partenariat">
+    <section id="contact" class="contact-partenariat">
         <div class="container">
             <div class="section-header center">
                 <span class="eyebrow">Contactez-nous</span>
@@ -1196,7 +1222,7 @@
     </section>
 
     <!-- ACTE 7: L'INVITATION (CTA Final + Boutique AVEC PRIX) -->
-    <section id="acte-6" class="cta-final">
+    <section id="boutique" class="cta-final">
         <div class="container">
             <div class="section-header center">
                 <span class="eyebrow">Prêt à commencer l'aventure ?</span>

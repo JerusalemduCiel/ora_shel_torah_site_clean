@@ -290,7 +290,7 @@ function initJeuxShowcase() {
 // ========================================
 
 function initSmoothScrolling() {
-    // Boutons de navigation
+    // Boutons de navigation avec data-scroll-to
     document.querySelectorAll('[data-scroll-to]').forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -298,13 +298,52 @@ function initSmoothScrolling() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                const headerHeight = document.getElementById('main-header').offsetHeight;
+                const header = document.getElementById('main-header');
+                const headerHeight = header ? header.offsetHeight : 0;
                 const targetPosition = targetElement.offsetTop - headerHeight - 20;
                 
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Mettre à jour l'URL sans recharger la page
+                if (history.replaceState) {
+                    history.replaceState(null, '', '#' + targetId);
+                }
+            }
+        });
+    });
+    
+    // Gestionnaire universel pour tous les liens d'ancrage (href="#...")
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#' || href === '#!') {
+                return;
+            }
+            
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                
+                const header = document.getElementById('main-header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Mettre à jour l'URL sans recharger la page
+                if (history.replaceState) {
+                    history.replaceState(null, '', href);
+                } else {
+                    window.location.hash = targetId;
+                }
             }
         });
     });
@@ -465,14 +504,19 @@ function initContactPartenariatAnimation() {
 // ========================================
 
 function initPreorderButton() {
+    // Le bouton précommander est maintenant un lien avec href="#boutique"
+    // Le scroll smooth est géré par initSmoothScrolling()
+    // Cette fonction est conservée pour compatibilité avec d'éventuels autres boutons
     const preorderBtn = document.getElementById('btn-preorder');
     if (preorderBtn) {
-        preorderBtn.addEventListener('click', function() {
+        preorderBtn.addEventListener('click', function(e) {
+            e.preventDefault();
             // Scroll vers la section boutique
-            const targetSection = document.getElementById('acte-6') || document.getElementById('acte-7');
+            const targetSection = document.getElementById('boutique');
             if (targetSection) {
-                const headerHeight = document.getElementById('main-header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                const header = document.getElementById('main-header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
 
                 window.scrollTo({
                     top: targetPosition,

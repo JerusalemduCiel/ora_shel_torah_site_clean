@@ -170,7 +170,7 @@ body {
     scrollbar-color: rgba(237, 162, 52, 0.9) rgba(0, 0, 0, 0.2) !important;
     box-sizing: border-box !important;
     /* Annuler tous les styles desktop */
-    background: #fef5e7 !important;
+    background: white !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     gap: 1rem !important;
@@ -1077,7 +1077,7 @@ body {
   }
 
   .hero-dark {
-    background: #fef5e7 !important;
+    background: white !important;
     color: black !important;
   }
 
@@ -1087,7 +1087,7 @@ body {
 
   .btn-primary, .btn-secondary, .btn-add-to-cart {
     border: 1px solid black !important;
-    background: #fef5e7 !important;
+    background: white !important;
   }
 
   .modal-hero, .cart-sidebar {

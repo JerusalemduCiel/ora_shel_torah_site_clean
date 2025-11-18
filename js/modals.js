@@ -141,9 +141,16 @@ function initModalButtons() {
             
             // Scroll vers la boutique
             setTimeout(() => {
-                const shopSection = document.querySelector('#acte-6, #acte-7');
+                const shopSection = document.getElementById('boutique');
                 if (shopSection) {
-                    shopSection.scrollIntoView({ behavior: 'smooth' });
+                    const header = document.getElementById('main-header');
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const targetPosition = shopSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             }, 300);
         });

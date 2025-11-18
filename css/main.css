@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   padding: 0;
   overflow: hidden;
@@ -45,8 +45,8 @@
   --color-gold-light: #f4c86f;     /* Or clair (hover) */
   
   /* Couleurs secondaires */
-  --color-white: #fef5e7;
-  --color-off-white: #fef5e7;      /* Beige crème chaud */
+  --color-white: #ffffff;
+  --color-off-white: #faf9f6;      /* Blanc cassé (fonds clairs) */
   --color-text-dark: #2c3e50;      /* Texte sur fond clair */
   --color-text-light: #ecf0f1;     /* Texte sur fond sombre */
   
@@ -136,8 +136,7 @@ body {
   color: var(--color-text-dark);
   overflow-x: hidden;
   scroll-snap-type: y proximity; /* Snap doux basé sur la proximité */
-  background: #fef5e7;
-  background-attachment: fixed;
+  background: #ffffff;
 }
 
 /* Chaque section principale devient un point d'accrochage doux */
@@ -150,9 +149,8 @@ section {
 #acte-1 {
   min-height: 100vh;
   scroll-snap-align: center; /* Centre le hero à l'écran */
-  border-top: 3px solid var(--color-gold);
-  border-bottom: 3px solid var(--color-gold);
   position: relative;
+  background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
 }
 
 /* Les autres sections aussi */
@@ -168,8 +166,6 @@ section {
   scroll-snap-align: center; /* Centre les sections à l'écran */
   display: flex;
   align-items: center;
-  border-top: 3px solid var(--color-gold);
-  border-bottom: 3px solid var(--color-gold);
   position: relative;
 }
 
@@ -278,7 +274,7 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(254, 245, 231, 0.95); /* Blanc pur */
+  background: rgba(255, 255, 255, 0.95); /* Blanc pur */
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid rgba(237, 162, 52, 0.2);
@@ -400,6 +396,8 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(237, 162, 52, 0.3);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-precommander:hover {
@@ -522,6 +520,7 @@ img {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
 }
 
 .slider-container {
@@ -617,7 +616,7 @@ img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(254, 245, 231, 0.2);
+  background: rgba(255, 255, 255, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.5);
   width: 50px;
   height: 50px;
@@ -632,7 +631,7 @@ img {
 }
 
 .slider-nav:hover {
-  background: rgba(254, 245, 231, 0.3);
+  background: rgba(255, 255, 255, 0.3);
   border-color: white;
 }
 
@@ -665,7 +664,7 @@ img {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(254, 245, 231, 0.4);
+  background: rgba(255, 255, 255, 0.4);
   border: 2px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -673,7 +672,7 @@ img {
 }
 
 .dot.active {
-  background: #fef5e7;
+  background: #ffffff;
   width: 40px;
   border-radius: 6px;
 }
@@ -703,7 +702,7 @@ img {
   align-items: center;
   gap: 1rem;
   text-decoration: none;
-  background: rgba(254, 245, 231, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   padding: 0.75rem 1.5rem 0.75rem 0.75rem;
   border-radius: 50px;
   backdrop-filter: blur(10px);
@@ -725,7 +724,7 @@ img {
   overflow: hidden;
   border: 3px solid var(--color-gold);
   flex-shrink: 0;
-  background: #fef5e7;
+  background: #ffffff;
 }
 
 .creator-photo-circle img {
@@ -905,7 +904,7 @@ img {
   width: 100%;
   max-width: 450px; /* Réduit de 25% (600px -> 450px) */
   aspect-ratio: 1 / 1;
-  background: #fef5e7;
+  background: #ffffff;
   border-radius: 12px;
   padding: 1.5rem; /* Réduit aussi le padding */
   box-shadow: 
@@ -1292,7 +1291,7 @@ img {
 }
 
 .story-modal {
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(237, 162, 52, 0.2);
   border-radius: 16px;
@@ -1386,7 +1385,7 @@ img {
 
 /* Citation finale */
 .quote-highlight {
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(237, 162, 52, 0.2);
   padding: 1.5rem;
@@ -1734,16 +1733,15 @@ html body #hero-bis-poz .hero-bis-background img {
   padding: 0 var(--space-lg);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   height: 100vh;
-  padding-right: 8%;
 }
 
-/* Positionnement uniforme dans le tiers droit pour tous les hero-bis */
+/* Positionnement centré pour tous les hero-bis */
 .jdc-hero .hero-bis-content {
-  align-items: flex-end;
-  padding-right: 8%;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-bis-content h2 {
@@ -1752,8 +1750,7 @@ html body #hero-bis-poz .hero-bis-background img {
   margin-bottom: var(--space-lg);
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
   line-height: 1.2;
-  text-align: right;
-  max-width: 33.33%;
+  text-align: center;
 }
 
 /* ========================================
@@ -1789,17 +1786,15 @@ html body #hero-bis-poz .hero-bis-background img {
   font-size: var(--text-xl);
   margin-bottom: var(--space-2xl);
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-  text-align: right;
-  max-width: 33.33%;
+  text-align: center;
 }
 
 .hero-bis-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md) var(--space-lg);
-  max-width: 33.33%;
-  margin: 0;
-  justify-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-bis-actions .btn-modal {
@@ -1814,6 +1809,9 @@ html body #hero-bis-poz .hero-bis-background img {
   transition: all var(--transition-base);
   text-decoration: none;
   display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
 }
 
 .hero-bis-actions .btn-modal:hover {
@@ -1827,9 +1825,8 @@ html body #hero-bis-poz .hero-bis-background img {
   background: var(--color-gold);
   border-color: var(--color-gold);
   color: var(--color-dark-bg);
-  grid-column: 1 / -1;
-  justify-self: end;
   max-width: 300px;
+  width: 100%;
 }
 
 .hero-bis-actions .btn-store:hover {
@@ -1927,7 +1924,7 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .demo-card {
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   padding: var(--space-2xl);
   border-radius: var(--radius-lg);
@@ -2006,7 +2003,7 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .testimonial-card {
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   padding: var(--space-2xl);
   border-radius: var(--radius-lg);
@@ -2145,7 +2142,7 @@ html body #hero-bis-poz .hero-bis-background img {
    ======================================== */
 
 .contact-partenariat {
-  background: #fef5e7; /* Dégradé sable clair */
+  background: #ffffff; /* Dégradé sable clair */
   padding: 5rem 2rem;
   opacity: 0;
   transform: translateY(30px);
@@ -2197,7 +2194,7 @@ html body #hero-bis-poz .hero-bis-background img {
 
 /* Nouveau style pour contact-form-wrapper - fond clair */
 .contact-form-wrapper {
-  background: #fef5e7;
+  background: #ffffff;
   border-radius: 16px;
   padding: 2.5rem;
   box-shadow: 0 10px 40px rgba(26, 58, 66, 0.1);
@@ -2269,7 +2266,7 @@ html body #hero-bis-poz .hero-bis-background img {
 .contact-form-wrapper .form-group input,
 .contact-form-wrapper .form-group textarea,
 .contact-form-wrapper .form-group select {
-  background: #fef5e7; /* Même dégradé sable que le fond */
+  background: #ffffff; /* Même dégradé sable que le fond */
   border: 2px solid #d4c4b0;
   color: #1a3a42;
   padding: 1rem;
@@ -2298,7 +2295,7 @@ html body #hero-bis-poz .hero-bis-background img {
 .contact-form-wrapper .form-group textarea:focus,
 .contact-form-wrapper .form-group select:focus {
   border-color: #eda234;
-  background: #fef5e7; /* Fond sable clair au focus */
+  background: #ffffff; /* Fond sable clair au focus */
   box-shadow: 0 0 0 3px rgba(237, 162, 52, 0.1);
 }
 
@@ -2325,7 +2322,7 @@ html body #hero-bis-poz .hero-bis-background img {
    ======================================== */
 
 .contact-form-wrapper .form-group select {
-  background: #fef5e7 !important; /* Beige crème chaud */
+  background: #ffffff !important; /* Beige crème chaud */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important;
   background-position: right 1rem center !important;
@@ -2347,7 +2344,7 @@ html body #hero-bis-poz .hero-bis-background img {
 .contact-form-wrapper input[type="text"],
 .contact-form-wrapper input[type="email"],
 .contact-form-wrapper textarea {
-    background: #fef5e7 !important; /* Beige crème chaud */
+    background: #ffffff !important; /* Beige crème chaud */
     background-image: none !important;
     border: 2px solid #d4c4b0 !important;
     border-style: solid !important;
@@ -2364,7 +2361,7 @@ html body #hero-bis-poz .hero-bis-background img {
 
 /* S'assurer que le select est propre au focus */
 .contact-form-wrapper .form-group select:focus {
-    background: #faf7f0 !important; /* Fond sable clair au focus */
+    background: #ffffff !important; /* Fond blanc au focus */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
     background-position: right 1rem center !important;
@@ -2377,7 +2374,7 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .contact-form-wrapper .form-group select option {
-  background: #fef5e7 !important;
+  background: #ffffff !important;
   color: #1a3a42 !important;
   background-image: none !important;
   padding: 0.5rem !important;
@@ -2529,7 +2526,7 @@ html body #hero-bis-poz .hero-bis-background img {
 .product-card {
     display: flex;
     flex-direction: column;
-    background: rgba(254, 245, 231, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -2552,7 +2549,7 @@ html body #hero-bis-poz .hero-bis-background img {
     position: relative;
     padding: 2rem !important;
     text-align: center;
-    background: #fef5e7;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2567,7 +2564,7 @@ html body #hero-bis-poz .hero-bis-background img {
     height: 100%;
     object-fit: contain;
     object-position: center;
-    background: #fef5e7;
+    background: #ffffff;
     margin: 0 auto;
 }
 
@@ -2660,7 +2657,7 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .pack-includes::-webkit-scrollbar-track {
-    background: #fef5e7;
+    background: #ffffff;
     border-radius: 3px;
 }
 
@@ -2726,7 +2723,7 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .product-card {
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -2765,7 +2762,7 @@ html body #hero-bis-poz .hero-bis-background img {
   position: relative;
   padding: var(--space-2xl);
   text-align: center;
-  background: #fef5e7;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2778,7 +2775,7 @@ html body #hero-bis-poz .hero-bis-background img {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  background: #fef5e7;
+  background: #ffffff;
 }
 
 .badge {
@@ -3069,7 +3066,7 @@ html body #hero-bis-poz .hero-bis-background img {
 
 /* Rendre le bouton "Continuer mes achats" visible dans le panier (fond clair) */
 .cart-actions .btn-secondary {
-  background: #fef5e7 !important;   /* fond clair visible sur blanc */
+  background: #ffffff !important;   /* fond clair visible sur blanc */
   color: var(--color-dark-bg) !important;
   border: 2px solid var(--color-gold) !important;
 }
@@ -3302,7 +3299,7 @@ footer {
   height: 85vh;
   max-height: 800px;
   overflow: hidden;
-  background: #fef5e7;
+  background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   z-index: 10000;
@@ -3338,7 +3335,7 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: #fef5e7;
+  background: #ffffff;
 }
 
 .modal-hero-image img {
@@ -3707,7 +3704,7 @@ footer {
   width: 100%;
   height: 100%;
   padding: 3rem;
-  background: #fef5e7;
+  background: #ffffff;
   overflow-y: auto;
 }
 
@@ -3823,7 +3820,7 @@ footer {
 .founder-intro {
   flex: 0 0 700px; /* Largeur élargie pour la présentation */
   padding: 2rem;
-  background: #fef5e7;
+  background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -3921,7 +3918,7 @@ footer {
   padding: 2rem !important;
   display: none;
   overflow-y: auto;
-  background: #fef5e7;
+  background: #ffffff;
 }
 
 .content-container {
@@ -4009,7 +4006,7 @@ footer {
 
 /* Placeholders empilables */
 .gallery-item.placeholder {
-  background: #fef5e7;
+  background: #ffffff;
   border: 2px dashed var(--color-gold);
   display: flex;
   align-items: center;
@@ -4210,7 +4207,7 @@ footer {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: #fef5e7;
+    background: #ffffff;
     padding: 0;
 }
 
@@ -4256,12 +4253,12 @@ footer {
     height: 100%;
     width: 100%;
     padding-top: 5rem;
-    background: #fef5e7;
+    background: #ffffff;
 }
 
 /* Styles communs pour les 4 quadrants */
 .content-quadrant {
-    background: rgba(254, 245, 231, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     padding: 2rem;
     overflow-y: auto;
@@ -4434,7 +4431,7 @@ footer {
 .box-contents,
 .game-specs,
 .pedagogical-objectives {
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 16px;
@@ -4461,7 +4458,7 @@ footer {
 .spec-item {
   text-align: center;
   padding: 1.5rem;
-  background: rgba(254, 245, 231, 0.6);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   border: 1px solid rgba(237, 162, 52, 0.2);
@@ -4589,7 +4586,7 @@ footer {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(254, 245, 231, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
@@ -4606,7 +4603,7 @@ footer {
 .carousel-caption {
   padding: 1.5rem;
   text-align: center;
-  background: #fef5e7;
+  background: #ffffff;
 }
 
 .carousel-caption p {
@@ -4686,7 +4683,7 @@ footer {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(254, 245, 231, 0.5);
+    background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
@@ -4845,7 +4842,7 @@ footer {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(254, 245, 231, 0.5);
+    background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
@@ -4888,7 +4885,7 @@ footer {
 .spec-item-mini {
     text-align: center;
     padding: 0.8rem;
-    background: #fef5e7;
+    background: #ffffff;
     border-radius: 6px;
 }
 
@@ -5111,7 +5108,7 @@ footer {
 /* Quadrants pour MOH et POZ */
 #hero-bis-moh .content-quadrant,
 #hero-bis-poz .content-quadrant {
-    background: #fef5e7;
+    background: #ffffff;
 }
 
 /* Scrollbars pour MOH et POZ */
@@ -5122,7 +5119,7 @@ footer {
 
 #hero-bis-moh .content-quadrant::-webkit-scrollbar-track,
 #hero-bis-poz .content-quadrant::-webkit-scrollbar-track {
-    background: #fef5e7;
+    background: #ffffff;
 }
 
 #hero-bis-moh .content-quadrant::-webkit-scrollbar-thumb,
@@ -5171,9 +5168,8 @@ footer {
 #hero-bis-poz .hero-bis-content {
     width: 100% !important;
     max-width: 100% !important;
-    padding-right: 8% !important;
     margin: 0 !important;
-    align-items: flex-end !important;
+    align-items: center !important;
     justify-content: center !important;
 }
 
@@ -5227,8 +5223,8 @@ footer {
     max-width: 100% !important;
     width: 100% !important;
     margin-left: 0 !important;
-    padding-right: 8% !important;
-    align-items: flex-end !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* Mobile - même comportement pour tous */
@@ -5251,7 +5247,7 @@ footer {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  background: #fef5e7;
+  background: #ffffff;
   padding: 20px;
 }
 
@@ -5287,7 +5283,7 @@ footer {
   width: 90vw;
   max-width: 1600px;
   height: 85vh;
-  background: #fef5e7;
+  background: #ffffff;
   border-radius: 24px;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -5462,7 +5458,7 @@ footer {
 /* Colonne droite : Carrousel vertical (1/3) */
 .content-discovery-right {
   flex: 0 0 33.333%;
-  background: #fef5e7;
+  background: #ffffff;
   border-left: 2px solid #e9ecef;
   position: relative;
   overflow: hidden;
@@ -5578,7 +5574,7 @@ footer {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(254, 245, 231, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.8);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -5594,7 +5590,7 @@ footer {
 }
 
 .vertical-carousel-indicator:hover {
-  background: rgba(254, 245, 231, 0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive */
@@ -5782,7 +5778,7 @@ footer {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(254, 245, 231, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     color: white;
     font-size: 32px;
@@ -5798,7 +5794,7 @@ footer {
 }
 
 .content-discovery-close:hover {
-    background: rgba(254, 245, 231, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     transform: rotate(90deg);
 }
 
@@ -5973,7 +5969,7 @@ footer {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(254, 245, 231, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     color: white;
     font-size: 40px;
@@ -5986,7 +5982,7 @@ footer {
 }
 
 .lightbox-close:hover {
-    background: rgba(254, 245, 231, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     transform: rotate(90deg);
 }
 
@@ -6148,7 +6144,7 @@ footer {
 }
 
 .testimonial-compact {
-    background: rgba(254, 245, 231, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
@@ -6236,7 +6232,7 @@ footer {
    ======================================== */
 
 .example-item {
-    background: rgba(254, 245, 231, 0.03);
+    background: rgba(255, 255, 255, 0.03);
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 8px;
@@ -6317,7 +6313,7 @@ footer {
    ======================================== */
 
 .category-block {
-    background: rgba(254, 245, 231, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 12px;
@@ -6326,7 +6322,7 @@ footer {
 }
 
 .category-block:hover {
-    background: rgba(254, 245, 231, 0.08);
+    background: rgba(255, 255, 255, 0.08);
     transform: translateX(5px);
 }
 
@@ -6522,7 +6518,7 @@ footer {
 
 /* Sections de contenu */
 .about-section {
-    background: #fef5e7 !important;
+    background: #ffffff !important;
     padding: 3rem 2.5rem;
     margin-bottom: 2rem;
     border-radius: 12px;
@@ -6583,7 +6579,7 @@ footer {
 
 /* Section message final - Style spécial */
 .about-section.message-final {
-    background: #fef5e7 !important;
+    background: #ffffff !important;
     border: 2px solid #d4af37 !important;
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
 }
@@ -6600,7 +6596,7 @@ footer {
 
 /* Message en surbrillance */
 .highlight-message {
-    background: rgba(254, 245, 231, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(237, 162, 52, 0.2);
     border-left: 4px solid rgba(237, 162, 52, 0.4);
@@ -6790,7 +6786,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(254, 245, 231, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     font-size: 1.2rem;
     transition: all var(--transition-fast);
@@ -7215,7 +7211,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background: #fef5e7; /* Beige crème chaud */
+    background: #ffffff; /* Beige crème chaud */
     padding: 4rem 0;
     gap: 2rem;
     min-height: 66vh; /* hauteur de 2/3 de hero */
