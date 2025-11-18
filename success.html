@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
       min-height: 100vh;
       padding: 40px 20px;
     }
@@ -30,14 +30,30 @@
     }
 
     .title h1 {
-      color: #2c3e50;
+      color: #2c2416;
       font-size: 42px;
       margin-bottom: 10px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .title h1::before {
+      content: '✓';
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+      border-radius: 50%;
+      margin-right: 15px;
+      line-height: 50px;
+      font-size: 28px;
+      color: white;
     }
 
     .title p {
-      color: #7f8c8d;
+      color: #6b5d4f;
       font-size: 18px;
+      font-weight: 300;
     }
 
     .cards-wrapper {
@@ -51,7 +67,8 @@
       background: white;
       border-radius: 20px;
       padding: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.2);
       min-height: 500px;
       display: flex;
       flex-direction: column;
@@ -61,91 +78,120 @@
     .success-icon {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
       border-radius: 50%;
       margin: 0 auto 30px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 40px;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .success-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      stroke-width: 3;
+      fill: none;
     }
 
     .card h2 {
       text-align: center;
-      color: #2c3e50;
+      color: #2c2416;
       font-size: 28px;
       margin-bottom: 25px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
 
     .info-block {
-      background: #f8f9fa;
-      border-radius: 12px;
+      background: #faf8f5;
+      border-left: 3px solid #d4af37;
+      border-radius: 8px;
       padding: 20px;
       margin-bottom: 15px;
+      transition: transform 0.2s;
+    }
+
+    .info-block:hover {
+      transform: translateX(5px);
     }
 
     .info-block h3 {
-      color: #667eea;
+      color: #d4af37;
       font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       margin-bottom: 8px;
+      font-weight: 600;
     }
 
     .info-block p {
-      color: #2c3e50;
+      color: #2c2416;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .delivery-icon {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
       border-radius: 50%;
       margin: 0 auto 30px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 40px;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .delivery-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
     }
 
     #map {
       height: 320px;
       border-radius: 12px;
       margin-top: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
     .delivery-text {
       text-align: center;
-      color: #2c3e50;
+      color: #2c2416;
       font-size: 18px;
       margin-top: 15px;
+      font-weight: 300;
     }
 
     .delivery-text strong {
-      color: #f5576c;
+      color: #d4af37;
       font-size: 20px;
+      font-weight: 600;
     }
 
     .back-button {
       display: block;
       max-width: 300px;
       margin: 0 auto;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
       color: white;
       text-align: center;
       padding: 18px 40px;
       border-radius: 50px;
       text-decoration: none;
       font-size: 18px;
-      font-weight: 600;
-      transition: transform 0.3s;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
     }
 
     .back-button:hover {
       transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
     }
 
     @media (max-width: 768px) {
@@ -169,7 +215,9 @@
     <div class="cards-wrapper">
       <!-- Bloc Confirmation -->
       <div class="card">
-        <div class="success-icon">✓</div>
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
         <h2>Commande confirmée</h2>
         
         <div class="info-block">
@@ -194,7 +242,9 @@
 
       <!-- Bloc Livraison -->
       <div class="card">
-        <div class="delivery-icon">📍</div>
+        <div class="delivery-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
         <h2>Votre livraison</h2>
         
         <div id="delivery-info" class="delivery-text">
