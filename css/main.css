@@ -428,13 +428,12 @@ img {
 /* Responsive Mobile */
 @media (max-width: 768px) {
   /* Désactiver le scroll snap sur mobile */
-  html,
-  body {
-    scroll-snap-type: none;
+  html, body, section {
+    scroll-snap-type: none !important;
+    scroll-snap-align: none !important;
   }
   
   section {
-    scroll-snap-align: none;
     min-height: auto;
   }
 
