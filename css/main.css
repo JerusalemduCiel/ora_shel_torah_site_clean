@@ -1423,75 +1423,10 @@ img {
 
 /* ACTE 2: Section Notre Histoire - Layout épuré */
 .about-section {
-  padding: 6rem 2rem;
-  /* background: transparent; */ /* Commenté pour permettre le background inline de .section-createur */
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  scroll-snap-align: center; /* Centre la section à l'écran */
-}
-
-/* Exception pour .section-createur : garde son background inline */
-.section-createur.about-section {
-  background: linear-gradient(rgba(44, 36, 22, 0.88), rgba(44, 36, 22, 0.88)), url('../images/hero3tresors.png') center/cover no-repeat !important;
-  background-attachment: fixed !important;
-}
-
-/* Section créateur avec image de fond */
-.section-createur {
   position: relative;
-  background: linear-gradient(rgba(44, 36, 22, 0.88), rgba(44, 36, 22, 0.88)), url('../images/hero3tresors.png') center/cover no-repeat;
-  background-attachment: fixed;
-  color: #f5f0e8;
+  background: url('/images/hero3tresors.png') center/cover no-repeat fixed;
   padding: 80px 20px;
-}
-
-.section-createur h2,
-.section-createur h3 {
-  color: #f5f0e8;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.section-createur p,
-.section-createur li,
-.section-createur span {
-  color: #e8dcc8;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.section-createur .highlight,
-.section-createur strong {
-  color: #d4af37;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-}
-
-.section-createur .story-block h3 {
-  color: #f5f0e8;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.section-createur .games-list-compact li {
-  color: #e8dcc8;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.section-createur .games-list-compact li strong {
-  color: #d4af37;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-}
-
-/* Boutons dans la section créateur - restent visibles */
-.section-createur .btn-philosophy {
-  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
-  color: white;
-  border: none;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-}
-
-.section-createur .btn-philosophy:hover {
-  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+  min-height: 100vh;
 }
 
 .about-layout {
@@ -1502,11 +1437,10 @@ img {
 
 /* Titre centré */
 .section-title-centered {
-  font-size: 3rem;
-  color: var(--color-gold);
-  text-align: center;
+  color: #eda234;
+  font-size: 2.5rem;
   margin-bottom: 3rem;
-  font-weight: 700;
+  text-align: center;
 }
 
 /* Layout 2 colonnes */
@@ -1576,14 +1510,28 @@ img {
 }
 
 .story-modal {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(237, 162, 52, 0.2);
-  border-radius: 16px;
-  padding: 2rem;
-  max-height: 500px;
-  overflow-y: auto;
-  box-shadow: 0 8px 32px rgba(15, 20, 25, 0.08);
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  max-width: 800px;
+  margin: 0 auto;
+  color: #2c3e50;
+}
+
+.story-modal h3 {
+  color: #eda234;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.story-modal p,
+.story-modal ul,
+.story-modal li {
+  color: #2c3e50;
+  line-height: 1.8;
 }
 
 /* Scrollbar personnalisée */
@@ -7264,18 +7212,10 @@ footer {
 
 /* Sections de contenu */
 .about-section {
-    /* background: #ffffff !important; */ /* Commenté pour permettre le background inline de .section-createur */
-    padding: 3rem 2.5rem;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid #d4af37;
-}
-
-/* Exception pour .section-createur : garde son background inline */
-.section-createur {
-    background: linear-gradient(rgba(44, 36, 22, 0.88), rgba(44, 36, 22, 0.88)), url('../images/hero3tresors.png') center/cover no-repeat !important;
-    background-attachment: fixed !important;
+  position: relative;
+  background: url('/images/hero3tresors.png') center/cover no-repeat fixed;
+  padding: 80px 20px;
+  min-height: 100vh;
 }
 
 .about-section h2 {
