@@ -1,4 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const https = require('https');
 
 exports.handler = async (event) => {
   const sig = event.headers['stripe-signature'];
@@ -21,23 +22,41 @@ exports.handler = async (event) => {
     const customerName = session.metadata?.customer_name || 'Client';
     const amount = (session.amount_total / 100).toFixed(2);
 
-    try {
-      await fetch('https://formspree.io/f/mblwlplg', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          _subject: `🎉 Nouvelle commande Ora Shel Torah - ${amount}€`,
-          client: customerName,
-          email: customerEmail,
-          montant: amount + '€',
-          session_id: session.id,
-          date: new Date().toLocaleString('fr-FR')
-        })
+    // Envoyer email via Formspree avec https natif
+    const data = JSON.stringify({
+      _subject: `🎉 Nouvelle commande Ora Shel Torah - ${amount}€`,
+      client: customerName,
+      email: customerEmail,
+      montant: amount + '€',
+      session_id: session.id,
+      date: new Date().toLocaleString('fr-FR')
+    });
+
+    const options = {
+      hostname: 'formspree.io',
+      port: 443,
+      path: '/f/mblwlplg',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': data.length
+      }
+    };
+
+    return new Promise((resolve, reject) => {
+      const req = https.request(options, (res) => {
+        console.log('Email vendeur envoyé, status:', res.statusCode);
+        resolve({ statusCode: 200, body: 'Webhook reçu' });
       });
-      console.log('Email vendeur envoyé');
-    } catch (error) {
-      console.error('Erreur envoi email:', error);
-    }
+
+      req.on('error', (error) => {
+        console.error('Erreur envoi email:', error);
+        resolve({ statusCode: 200, body: 'Webhook reçu (email failed)' });
+      });
+
+      req.write(data);
+      req.end();
+    });
   }
 
   return { statusCode: 200, body: 'Webhook reçu' };
