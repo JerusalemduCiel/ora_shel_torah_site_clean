@@ -1424,11 +1424,78 @@
             <!-- Items ajoutés dynamiquement via JS -->
         </div>
         <div class="cart-footer">
-            <p>Total: <span id="cart-total">0€</span></p>
-            <button class="btn-checkout">Commander</button>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">0,00 €</span>
+            </div>
+            
+            <div class="cart-footer-buttons">
+                <button class="btn-continue-shopping" onclick="continueShoppingFromCart()">
+                    ← Continuer mes achats
+                </button>
+                <button class="btn-checkout" onclick="proceedToCheckout()">
+                    Commander →
+                </button>
+            </div>
         </div>
     </div>
 
+    <!-- Modal de Checkout -->
+    <div id="checkout-modal" class="checkout-modal">
+        <div class="checkout-content">
+            <button class="close-modal" onclick="closeCheckout()">&times;</button>
+            
+            <h2>Récapitulatif de votre commande</h2>
+            
+            <div class="checkout-items" id="checkout-items">
+                <!-- Items du panier -->
+            </div>
+            
+            <div class="checkout-summary">
+                <div class="summary-line">
+                    <span>Sous-total:</span>
+                    <span id="subtotal">0,00 €</span>
+                </div>
+                <div class="summary-line">
+                    <span>Frais de port:</span>
+                    <span id="shipping">0,00 €</span>
+                </div>
+                <div class="summary-line total">
+                    <span>Total TTC:</span>
+                    <span id="total">0,00 €</span>
+                </div>
+            </div>
+            
+            <form id="checkout-form">
+                <h3>Informations de livraison</h3>
+                
+                <input type="text" name="name" placeholder="Nom complet *" required>
+                <input type="email" name="email" placeholder="Email *" required>
+                <input type="tel" name="phone" placeholder="Téléphone *" required>
+                <input type="text" name="address" placeholder="Adresse *" required>
+                <input type="text" name="city" placeholder="Ville *" required>
+                <input type="text" name="postal" placeholder="Code postal *" required>
+                <select name="country" required>
+                    <option value="">Pays *</option>
+                    <option value="FR">France</option>
+                    <option value="BE">Belgique</option>
+                    <option value="CH">Suisse</option>
+                    <option value="LU">Luxembourg</option>
+                </select>
+                
+                <textarea name="notes" placeholder="Notes de commande (optionnel)" rows="3"></textarea>
+                
+                <div class="checkout-actions">
+                    <button type="button" onclick="closeCheckout()" class="btn-back">
+                        ← Retour au panier
+                    </button>
+                    <button type="submit" class="btn-pay">
+                        Payer par carte →
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer id="main-footer">
@@ -2560,17 +2627,17 @@
         itemsDiv.innerHTML = cart.map(item => `
             <div class="cart-item" data-product="${item.id || ''}">
                 ${item.image ? `<img src="${item.image}" alt="${item.name || ''}" loading="lazy">` : ''}
-                <div class="cart-item-info">
+                <div class="cart-item-details">
                     <h4>${item.name || 'Produit'}</h4>
-                    <p class="cart-item-price">${formatPrice(item.price || 0)}</p>
+                    <p>${formatPrice(item.price || 0)}</p>
+                    <div class="cart-item-quantity">
+                        <button onclick="updateQuantity('${item.id}', ${Math.max(1, (item.quantity || 1) - 1)})">-</button>
+                        <span>${item.quantity || 1}</span>
+                        <button onclick="updateQuantity('${item.id}', ${(item.quantity || 1) + 1})">+</button>
+                    </div>
                 </div>
-                <div class="cart-item-quantity">
-                    <button class="qty-minus" onclick="updateQuantity('${item.id}', ${(item.quantity || 1) - 1})">-</button>
-                    <input type="number" value="${item.quantity || 1}" min="1" max="10" 
-                           onchange="updateQuantity('${item.id}', this.value)">
-                    <button class="qty-plus" onclick="updateQuantity('${item.id}', ${(item.quantity || 1) + 1})">+</button>
-                </div>
-                <button class="cart-item-remove" onclick="removeFromCart('${item.id}')" title="Supprimer">🗑️</button>
+                <div class="item-price">${formatPrice((item.price || 0) * (item.quantity || 1))}</div>
+                <button onclick="removeFromCart('${item.id}')" title="Supprimer">×</button>
             </div>
         `).join('');
         
@@ -2661,16 +2728,70 @@
         }
     }
     
+    // Fonction pour continuer les achats depuis le panier
+    function continueShoppingFromCart() {
+        toggleCart(); // Fermer le panier
+        const boutiqueSection = document.getElementById('boutique');
+        if (boutiqueSection) {
+            boutiqueSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
     // Fonction pour passer commande
     function proceedToCheckout() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
         if (cart.length === 0) {
             alert('Votre panier est vide');
             return;
         }
-        alert('Fonctionnalité de commande en cours de développement');
+        
+        // Afficher la modal
+        const modal = document.getElementById('checkout-modal');
+        if (modal) {
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Remplir les items
+        const itemsDiv = document.getElementById('checkout-items');
+        if (itemsDiv) {
+            itemsDiv.innerHTML = cart.map(item => `
+                <div class="checkout-item">
+                    <img src="${item.image || ''}" alt="${item.name || 'Produit'}">
+                    <div class="item-details">
+                        <h4>${item.name || 'Produit'}</h4>
+                        <p>Quantité: ${item.quantity || 1}</p>
+                    </div>
+                    <div class="item-price">${formatPrice((item.price || 0) * (item.quantity || 1))}</div>
+                </div>
+            `).join('');
+        }
+        
+        // Calculer totaux
+        const subtotal = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 1)), 0);
+        const shipping = subtotal > 100 ? 0 : 9.90;
+        const total = subtotal + shipping;
+        
+        const subtotalEl = document.getElementById('subtotal');
+        const shippingEl = document.getElementById('shipping');
+        const totalEl = document.getElementById('total');
+        
+        if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+        if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Offerte' : formatPrice(shipping);
+        if (totalEl) totalEl.textContent = formatPrice(total);
     }
     
-    // Initialiser au chargement
+    // Fonction pour fermer la modal de checkout
+    function closeCheckout() {
+        const modal = document.getElementById('checkout-modal');
+        if (modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Gérer la soumission du formulaire de checkout
     document.addEventListener('DOMContentLoaded', function() {
         console.log('DOM chargé');
         const panel = document.getElementById('cart-panel');
@@ -2696,6 +2817,31 @@
             });
         } else {
             console.error('Icône panier introuvable');
+        }
+        
+        // Gérer la soumission du formulaire de checkout
+        const checkoutForm = document.getElementById('checkout-form');
+        if (checkoutForm) {
+            checkoutForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Pour l'instant: message
+                alert('Intégration Stripe en cours...\nVous allez être redirigé vers le paiement sécurisé.');
+                
+                // Plus tard: appel à Stripe
+                // const formData = new FormData(e.target);
+                // initiateStripeCheckout(formData);
+            });
+        }
+        
+        // Fermer la modal en cliquant en dehors
+        const checkoutModal = document.getElementById('checkout-modal');
+        if (checkoutModal) {
+            checkoutModal.addEventListener('click', function(e) {
+                if (e.target === checkoutModal) {
+                    closeCheckout();
+                }
+            });
         }
     });
     </script>
