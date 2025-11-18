@@ -169,7 +169,7 @@
                     Précommander
                 </a>
                 
-                <button class="cart-icon" onclick="toggleCart()">
+                <button class="cart-icon">
                     🛒
                     <span class="cart-count">0</span>
                 </button>
@@ -1278,8 +1278,8 @@
                             <span class="price-save">Économisez 10 €</span>
                         </div>
                         
-                        <button class="btn-add-to-cart" data-product="jdc" data-price="39.90">
-                            Ajouter au panier
+                        <button class="btn-add-to-cart" onclick="addToCart('jdc', 'Jérusalem du Ciel', 39.90, 'images/produits/jdc-box-3d.jpg')">
+                            🛒 Ajouter au panier
                         </button>
                     </div>
                 </div>
@@ -1310,8 +1310,8 @@
                             <span class="price-save">Économisez 8 €</span>
                         </div>
                         
-                        <button class="btn-add-to-cart" data-product="moh" data-price="19.90">
-                            Ajouter au panier
+                        <button class="btn-add-to-cart" onclick="addToCart('moh', 'Minhag ou Halakha', 19.90, 'images/produits/moh_box_3d.png')">
+                            🛒 Ajouter au panier
                         </button>
                     </div>
                 </div>
@@ -1343,8 +1343,8 @@
                             <span class="price-save">Économisez 8 €</span>
                         </div>
                         
-                        <button class="btn-add-to-cart" data-product="poz" data-price="19.90">
-                            Ajouter au panier
+                        <button class="btn-add-to-cart" onclick="addToCart('poz', 'Poztamitsvah', 19.90, 'images/produits/poz_box_3d.png')">
+                            🛒 Ajouter au panier
                         </button>
                     </div>
                 </div>
@@ -1381,7 +1381,7 @@
                             </span>
                         </div>
                         
-                        <button class="btn-add-to-cart featured-btn" data-product="pack" data-price="79.90">
+                        <button class="btn-add-to-cart featured-btn" onclick="addToCart('pack', 'Pack Complet Ora Shel Torah', 79.90, 'images/pack-3d.png')">
                             🎁 J'offre le Pack Famille
                         </button>
                     </div>
@@ -1414,41 +1414,20 @@
         </div>
     </section>
 
-    <!-- Panier Sidebar -->
-    <aside id="panier-sidebar" class="cart-sidebar">
+    <!-- Panier Panel -->
+    <div id="cart-panel" class="cart-panel">
         <div class="cart-header">
-            <h3>Votre panier</h3>
-            <button class="close-cart">×</button>
+            <h3>Mon panier</h3>
+            <button onclick="toggleCart()">&times;</button>
         </div>
-        
-        <div class="cart-items">
+        <div id="cart-items" class="cart-items">
             <!-- Items ajoutés dynamiquement via JS -->
         </div>
-        
-        <div class="cart-summary">
-            <div class="cart-subtotal">
-                <span>Sous-total:</span>
-                <span class="subtotal-amount">0,00 €</span>
-            </div>
-            <div class="cart-shipping">
-                <span>Livraison:</span>
-                <span class="shipping-amount">Offerte</span>
-            </div>
-            <div class="cart-total">
-                <span>Total TTC:</span>
-                <span class="total-amount">0,00 €</span>
-            </div>
+        <div class="cart-footer">
+            <p>Total: <span id="cart-total">0€</span></p>
+            <button class="btn-checkout">Commander</button>
         </div>
-        
-        <div class="cart-actions">
-            <button class="btn-secondary" onclick="closeCart()">
-                Continuer mes achats
-            </button>
-            <button class="btn-primary" onclick="proceedToCheckout()">
-                Passer commande
-            </button>
-        </div>
-    </aside>
+    </div>
 
 
     <!-- Footer -->
@@ -2497,13 +2476,228 @@
 
     <!-- JavaScript -->
     <script src="js/main.js?v=20251103a"></script>
-    <script src="js/cart.js?v=20251103a"></script>
     <script src="js/modals.js?v=20251103a"></script>
     <script src="js/animations.js?v=20251103a"></script>
-    <!-- Redéploiement pour activer STRIPE_SECRET_KEY - 30 oct 2025 -->
-    
-    <!-- Script modales découvrir -->
     <script src="js/gallery-config.js?v=20251103a"></script>
     <script src="js/content-discovery-modals.js?v=20251103a"></script>
+    
+    <!-- Code Panier Minimal - Inline -->
+    <script>
+    // NETTOYAGE - À retirer après test
+    localStorage.removeItem('cart');
+    console.log('Panier nettoyé');
+    
+    // Panier minimal - Tout en vanilla JavaScript
+    let cart = [];
+    
+    // Charger le panier depuis localStorage
+    try {
+        const saved = localStorage.getItem('cart');
+        if (saved) {
+            cart = JSON.parse(saved);
+        }
+    } catch (e) {
+        cart = [];
+    }
+    
+    // Fonction pour ouvrir/fermer le panier
+    function toggleCart() {
+        const panel = document.getElementById('cart-panel');
+        console.log('Panel trouvé:', panel);
+        
+        if (!panel) {
+            console.error('ERREUR: cart-panel introuvable');
+            return;
+        }
+        
+        const isOpen = panel.classList.toggle('open');
+        console.log('Panier ouvert:', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    
+    // Fonction pour fermer le panier
+    function closeCart() {
+        const panel = document.getElementById('cart-panel');
+        if (panel) {
+            panel.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Formater le prix
+    function formatPrice(price) {
+        return new Intl.NumberFormat('fr-FR', {
+            style: 'currency',
+            currency: 'EUR'
+        }).format(price);
+    }
+    
+    // Mettre à jour l'affichage du panier
+    function updateCartDisplay() {
+        // Compteur
+        const count = document.querySelector('.cart-count');
+        if (count) {
+            const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+            count.textContent = total;
+            if (total > 0) {
+                count.style.display = 'flex';
+            } else {
+                count.style.display = 'none';
+            }
+        }
+        
+        // Articles dans le panier
+        const itemsDiv = document.querySelector('.cart-items');
+        if (!itemsDiv) return;
+        
+        if (cart.length === 0) {
+            itemsDiv.innerHTML = '<p class="cart-empty">Votre panier est vide</p>';
+            const totalEl = document.getElementById('cart-total');
+            if (totalEl) totalEl.textContent = '0€';
+            return;
+        }
+        
+        itemsDiv.innerHTML = cart.map(item => `
+            <div class="cart-item" data-product="${item.id || ''}">
+                ${item.image ? `<img src="${item.image}" alt="${item.name || ''}" loading="lazy">` : ''}
+                <div class="cart-item-info">
+                    <h4>${item.name || 'Produit'}</h4>
+                    <p class="cart-item-price">${formatPrice(item.price || 0)}</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <button class="qty-minus" onclick="updateQuantity('${item.id}', ${(item.quantity || 1) - 1})">-</button>
+                    <input type="number" value="${item.quantity || 1}" min="1" max="10" 
+                           onchange="updateQuantity('${item.id}', this.value)">
+                    <button class="qty-plus" onclick="updateQuantity('${item.id}', ${(item.quantity || 1) + 1})">+</button>
+                </div>
+                <button class="cart-item-remove" onclick="removeFromCart('${item.id}')" title="Supprimer">🗑️</button>
+            </div>
+        `).join('');
+        
+        updateCartTotal();
+    }
+    
+    // Mettre à jour le total
+    function updateCartTotal() {
+        const subtotal = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 1)), 0);
+        const shipping = subtotal >= 50 ? 0 : 5.90;
+        const total = subtotal + shipping;
+        
+        // Mettre à jour le total dans cart-panel
+        const totalEl = document.getElementById('cart-total');
+        if (totalEl) {
+            totalEl.textContent = formatPrice(total);
+        }
+        
+        // Mettre à jour aussi les totaux dans l'ancien panier (si présent)
+        const subtotalEl = document.querySelector('.subtotal-amount');
+        const shippingEl = document.querySelector('.shipping-amount');
+        const oldTotalEl = document.querySelector('.total-amount');
+        
+        if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+        if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Offerte' : formatPrice(shipping);
+        if (oldTotalEl) oldTotalEl.textContent = formatPrice(total);
+    }
+    
+    // Notification d'ajout au panier
+    function showCartNotification(productName) {
+        const existing = document.querySelectorAll('.cart-notification');
+        existing.forEach(n => n.remove());
+        
+        const notification = document.createElement('div');
+        notification.className = 'cart-notification';
+        notification.innerHTML = `
+            <div class="notification-content">
+                ✓ ${productName} ajouté au panier
+                <button onclick="toggleCart()">Voir le panier</button>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        setTimeout(() => notification.classList.add('show'), 10);
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+    
+    // Ajouter au panier
+    function addToCart(productId, productName, price, image) {
+        cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        const existingItem = cart.find(item => item.id === productId);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ 
+                id: productId, 
+                name: productName, 
+                price: parseFloat(price), 
+                image: image || '', 
+                quantity: 1 
+            });
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+        showCartNotification(productName);
+    }
+    
+    // Retirer du panier
+    function removeFromCart(productId) {
+        cart = cart.filter(item => item.id !== productId);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+    }
+    
+    // Mettre à jour la quantité
+    function updateQuantity(productId, quantity) {
+        const item = cart.find(item => item.id === productId);
+        if (item) {
+            const newQuantity = Math.max(1, parseInt(quantity) || 1);
+            item.quantity = newQuantity;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+    }
+    
+    // Fonction pour passer commande
+    function proceedToCheckout() {
+        if (cart.length === 0) {
+            alert('Votre panier est vide');
+            return;
+        }
+        alert('Fonctionnalité de commande en cours de développement');
+    }
+    
+    // Initialiser au chargement
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM chargé');
+        const panel = document.getElementById('cart-panel');
+        console.log('Panel existe:', !!panel);
+        
+        updateCartDisplay();
+        
+        // Event listener pour l'icône panier
+        const cartIcon = document.querySelector('.cart-icon');
+        
+        if (cartIcon) {
+            console.log('Icon panier trouvée, ajout listener');
+            
+            // Retirer onclick si conflit
+            cartIcon.removeAttribute('onclick');
+            
+            // Ajouter listener
+            cartIcon.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Click sur icône panier');
+                toggleCart();
+            });
+        } else {
+            console.error('Icône panier introuvable');
+        }
+    });
+    </script>
 </body>
 </html>

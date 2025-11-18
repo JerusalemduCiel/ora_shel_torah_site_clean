@@ -3166,7 +3166,26 @@ html body #hero-bis-poz .hero-bis-background img {
   opacity: 0.7;
 }
 
-/* Panier Sidebar */
+/* Panier Panel */
+.cart-panel {
+  position: fixed;
+  right: -450px;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background: white;
+  z-index: 99999 !important;
+  transition: right 0.3s ease;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-panel.open {
+  right: 0 !important;
+}
+
+/* Panier Sidebar (ancien - gardé pour compatibilité) */
 .cart-sidebar {
   position: fixed;
   top: 0;
@@ -3194,6 +3213,21 @@ html body #hero-bis-poz .hero-bis-background img {
   border-bottom: 1px solid #eee;
 }
 
+.cart-panel .cart-header {
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-panel .cart-header button {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--color-text-dark);
+  padding: 0;
+  line-height: 1;
+}
+
 .cart-header h3 {
   margin: 0;
   color: var(--color-text-dark);
@@ -3210,6 +3244,11 @@ html body #hero-bis-poz .hero-bis-background img {
 .cart-items {
   flex: 1;
   padding: var(--space-lg);
+  overflow-y: auto;
+}
+
+.cart-panel .cart-items {
+  padding: 20px;
   overflow-y: auto;
 }
 
@@ -3305,10 +3344,85 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 
+.cart-footer {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.cart-footer p {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cart-footer #cart-total {
+  color: #eda234;
+  font-weight: 700;
+}
+
+.cart-footer .btn-checkout {
+  width: 100%;
+  background: #eda234;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-footer .btn-checkout:hover {
+  background: #d89020;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(237, 162, 52, 0.4);
+}
+
 .cart-actions {
   padding: var(--space-lg);
   display: flex;
   gap: var(--space-md);
+}
+
+/* Notification d'ajout au panier */
+.cart-notification {
+  position: fixed;
+  top: 100px;
+  right: -400px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 10000;
+  transition: right 0.3s ease;
+}
+
+.cart-notification.show {
+  right: 20px;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notification-content button {
+  margin-left: 15px;
+  background: #eda234;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.notification-content button:hover {
+  background: #d89020;
+  transform: translateY(-2px);
 }
 
 .cart-actions button {
