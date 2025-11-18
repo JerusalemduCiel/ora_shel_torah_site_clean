@@ -1424,11 +1424,17 @@ img {
 /* ACTE 2: Section Notre Histoire - Layout épuré */
 .about-section {
   padding: 6rem 2rem;
-  background: transparent;
+  /* background: transparent; */ /* Commenté pour permettre le background inline de .section-createur */
   min-height: 100vh;
   display: flex;
   align-items: center;
   scroll-snap-align: center; /* Centre la section à l'écran */
+}
+
+/* Exception pour .section-createur : garde son background inline */
+.section-createur.about-section {
+  background: linear-gradient(rgba(44, 36, 22, 0.88), rgba(44, 36, 22, 0.88)), url('../images/hero3tresors.png') center/cover no-repeat !important;
+  background-attachment: fixed !important;
 }
 
 /* Section créateur avec image de fond */
@@ -7258,12 +7264,18 @@ footer {
 
 /* Sections de contenu */
 .about-section {
-    background: #ffffff !important;
+    /* background: #ffffff !important; */ /* Commenté pour permettre le background inline de .section-createur */
     padding: 3rem 2.5rem;
     margin-bottom: 2rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border-left: 4px solid #d4af37;
+}
+
+/* Exception pour .section-createur : garde son background inline */
+.section-createur {
+    background: linear-gradient(rgba(44, 36, 22, 0.88), rgba(44, 36, 22, 0.88)), url('../images/hero3tresors.png') center/cover no-repeat !important;
+    background-attachment: fixed !important;
 }
 
 .about-section h2 {
