@@ -1200,6 +1200,92 @@ img {
   }
 }
 
+/* ========================================
+   SAMSUNG GALAXY FOLD 7 - Optimisations spécifiques
+   ======================================== */
+
+/* Galaxy Fold 7 fermé (écran externe étroit) */
+@media (max-width: 420px) and (min-height: 800px) {
+  .showcase-window {
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    margin: 0 auto !important;
+  }
+  
+  .slider-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+  
+  .jeu-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem !important;
+    padding: 1.5rem !important;
+  }
+  
+  .jeu-visual {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 20px;
+    flex: none !important;
+  }
+  
+  .jeu-frame {
+    max-width: 280px !important;
+  }
+  
+  .jeu-info {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .slider-arrow.prev {
+    left: -30px !important;
+  }
+  
+  .slider-arrow.next {
+    right: -30px !important;
+  }
+}
+
+/* Galaxy Fold 7 ouvert (écran large) */
+@media (min-width: 800px) and (max-width: 1000px) {
+  .showcase-window {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    padding: 0 60px !important;
+  }
+  
+  .slider-container {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  .jeu-slide {
+    display: flex;
+    gap: 40px !important;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem !important;
+  }
+  
+  .jeu-visual {
+    flex: 0 0 350px !important;
+  }
+  
+  .jeu-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .btn-primary, .btn-secondary {
   padding: var(--space-lg) var(--space-2xl);
   border-radius: var(--radius-lg);
