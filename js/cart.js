@@ -387,6 +387,10 @@ document.addEventListener('DOMContentLoaded', function() {
 window.Cart = Cart;
 window.proceedToCheckout = proceedToCheckout;
 window.closeCart = closeCart;
-window.toggleCart = function() {
+
+// Fonction globale pour ouvrir/fermer le panier (utilise panier-sidebar)
+function toggleCart() {
     Cart.toggleCart();
-};
+}
+
+window.toggleCart = toggleCart;

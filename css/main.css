@@ -3185,6 +3185,7 @@ html body #hero-bis-poz .hero-bis-background img {
   right: 0;
 }
 
+
 .cart-header {
   display: flex;
   justify-content: space-between;
@@ -3211,6 +3212,7 @@ html body #hero-bis-poz .hero-bis-background img {
   padding: var(--space-lg);
   overflow-y: auto;
 }
+
 
 .cart-empty {
   text-align: center;
@@ -3301,6 +3303,7 @@ html body #hero-bis-poz .hero-bis-background img {
   padding-top: var(--space-sm);
   margin-top: var(--space-md);
 }
+
 
 .cart-actions {
   padding: var(--space-lg);
