@@ -148,6 +148,83 @@
     </p>
   </div>
   
+  <!-- Section Carte de livraison -->
+  <div style="margin: 40px auto; max-width: 800px; padding: 0 20px;">
+    <h2 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">📍 Votre livraison</h2>
+    <div id="delivery-info" style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #34495e;">
+      Chargement des informations de livraison...
+    </div>
+    <div id="map" style="height: 400px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
+  </div>
+
+  <!-- Leaflet CSS et JS pour la carte -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Script pour afficher la carte -->
+  <script>
+  async function loadDeliveryMap() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+    
+    if (!sessionId) {
+      document.getElementById('delivery-info').textContent = 'Livraison en France';
+      return;
+    }
+
+    try {
+      const response = await fetch('/.netlify/functions/get-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: sessionId })
+      });
+      
+      const data = await response.json();
+      const city = data.city || 'France';
+      
+      document.getElementById('delivery-info').innerHTML = `Votre commande sera livrée à <strong>${city}</strong>`;
+      
+      // Géolocalisation de la ville
+      const geoResponse = await fetch(`https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(city)}&country=${data.country}&format=json&limit=1`);
+      const geoData = await geoResponse.json();
+      
+      if (geoData && geoData[0]) {
+        const lat = parseFloat(geoData[0].lat);
+        const lon = parseFloat(geoData[0].lon);
+        
+        // Créer la carte
+        const map = L.map('map').setView([lat, lon], 12);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Ajouter un marqueur
+        L.marker([lat, lon]).addTo(map)
+          .bindPopup(`<b>${city}</b><br>Zone de livraison`)
+          .openPopup();
+      } else {
+        // Carte par défaut sur la France
+        const map = L.map('map').setView([46.603354, 1.888334], 6);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+      }
+    } catch (error) {
+      console.error('Erreur:', error);
+      document.getElementById('delivery-info').textContent = 'Livraison en France';
+      // Carte par défaut
+      const map = L.map('map').setView([46.603354, 1.888334], 6);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+    }
+  }
+
+  // Charger la carte au chargement de la page
+  document.addEventListener('DOMContentLoaded', loadDeliveryMap);
+  </script>
+  
   <script>
     // Vider le panier après commande
     localStorage.removeItem('cart');
