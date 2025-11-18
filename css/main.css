@@ -1539,6 +1539,9 @@ img {
   max-width: 800px;
   margin: 0 auto;
   color: #2c3e50;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .story-modal h3 {
@@ -1558,22 +1561,21 @@ img {
 
 /* Scrollbar personnalisée */
 .story-modal::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 .story-modal::-webkit-scrollbar-track {
-  background: #e2e8f0;
+  background: #f1f1f1;
   border-radius: 10px;
 }
 
 .story-modal::-webkit-scrollbar-thumb {
-  background: var(--color-gold);
+  background: #eda234;
   border-radius: 10px;
-  border: 2px solid #e2e8f0;
 }
 
 .story-modal::-webkit-scrollbar-thumb:hover {
-  background: #d89020;
+  background: #d48512;
 }
 
 /* Blocs de texte */
