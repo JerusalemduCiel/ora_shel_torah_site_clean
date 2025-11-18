@@ -27,6 +27,7 @@ function initializeApp() {
     initContactPartenariatAnimation();
     initRevelationCards();
     initRevelationMobileCarousel();
+    initBurgerMenu();
     
     console.log('Ora Shel Torah - Site initialisé');
 }
@@ -1436,6 +1437,44 @@ const handleRevelationResize = debounce(() => {
 }, 150);
 
 window.addEventListener('resize', handleRevelationResize);
+
+// ========================================
+// MENU BURGER MOBILE
+// ========================================
+
+function initBurgerMenu() {
+    const burgerBtn = document.querySelector('.burger-menu');
+    const mobileMenu = document.querySelector('.mobile-nav');
+
+    if (!burgerBtn || !mobileMenu) {
+        console.log('Menu burger non trouvé, initialisation ignorée');
+        return;
+    }
+
+    burgerBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        burgerBtn.classList.toggle('active');
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            burgerBtn.classList.remove('active');
+        });
+    });
+
+    // Fermer le menu quand on clique en dehors
+    document.addEventListener('click', function(e) {
+        if (!burgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            burgerBtn.classList.remove('active');
+        }
+    });
+
+    console.log('✅ Menu burger initialisé');
+}
 
 } catch(e) {
     alert('ERREUR main.js : ' + e.message);
