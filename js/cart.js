@@ -35,14 +35,17 @@ const Cart = {
             });
         });
         
-        // Icône panier
-        const cartIcon = document.getElementById('cart-icon');
+        // Icône panier (par ID ou classe)
+        const cartIcon = document.getElementById('cart-icon') || document.querySelector('.cart-icon');
         if (cartIcon) {
             cartIcon.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.toggleCart();
             });
         }
+        
+        // Mettre à jour le compteur au chargement
+        this.updateCartCount();
         
         // Bouton fermer panier
         const closeCartBtn = document.querySelector('.close-cart');
@@ -384,3 +387,6 @@ document.addEventListener('DOMContentLoaded', function() {
 window.Cart = Cart;
 window.proceedToCheckout = proceedToCheckout;
 window.closeCart = closeCart;
+window.toggleCart = function() {
+    Cart.toggleCart();
+};

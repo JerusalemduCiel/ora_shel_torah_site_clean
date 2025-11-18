@@ -163,10 +163,17 @@
                 <a href="#contact" data-scroll-to="contact">Contact</a>
             </nav>
 
-            <!-- Bouton Précommander -->
-            <a href="#boutique" class="btn-precommander" data-scroll-to="boutique">
-                Précommander
-            </a>
+            <!-- Actions du header (Précommander + Panier) -->
+            <div class="header-actions">
+                <a href="#boutique" class="btn-precommander" data-scroll-to="boutique">
+                    Précommander
+                </a>
+                
+                <button class="cart-icon" onclick="toggleCart()">
+                    🛒
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
 
             <!-- Menu burger mobile -->
             <button class="burger-menu" id="burger-menu">
