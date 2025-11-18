@@ -2557,6 +2557,31 @@
     // Panier minimal - Tout en vanilla JavaScript
     let cart = [];
     
+    // Produits avec priceId Stripe
+    const products = {
+        jerusalem: {
+            id: 'jdc',
+            name: 'Jérusalem du Ciel',
+            price: 89.90,
+            priceId: 'price_1SBf5wL4ecjfMIxOm0nbZ5sp',
+            image: './images/jdc_picto_arrondi.png'
+        },
+        minhag: {
+            id: 'moh',
+            name: 'Minhag ou Halakha',
+            price: 24.90,
+            priceId: 'price_1SBf6vL4ecjfMIxOYXAbWfh8',
+            image: './images/moh_picto_arrondi.png'
+        },
+        poztamitsvah: {
+            id: 'poz',
+            name: 'Poztamitsvah',
+            price: 24.90,
+            priceId: 'price_1SBf7lL4ecjfMIxOKuRj4czs',
+            image: './images/poz_picto_arrondi.png'
+        }
+    };
+    
     // Charger le panier depuis localStorage
     try {
         const saved = localStorage.getItem('cart');
@@ -2692,6 +2717,10 @@
     function addToCart(productId, productName, price, image) {
         cart = JSON.parse(localStorage.getItem('cart')) || [];
         
+        // Trouver le produit dans la liste pour récupérer le priceId
+        const product = Object.values(products).find(p => p.id === productId);
+        const priceId = product ? product.priceId : null;
+        
         const existingItem = cart.find(item => item.id === productId);
         if (existingItem) {
             existingItem.quantity++;
@@ -2700,6 +2729,7 @@
                 id: productId, 
                 name: productName, 
                 price: parseFloat(price), 
+                priceId: priceId,
                 image: image || '', 
                 quantity: 1 
             });
@@ -2825,12 +2855,63 @@
             checkoutForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Pour l'instant: message
-                alert('Intégration Stripe en cours...\nVous allez être redirigé vers le paiement sécurisé.');
+                const formData = new FormData(e.target);
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 
-                // Plus tard: appel à Stripe
-                // const formData = new FormData(e.target);
-                // initiateStripeCheckout(formData);
+                // Calculer frais de port
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const shipping = subtotal >= 100 ? 0 : 9.90;
+                
+                // Préparer les données pour Stripe
+                const checkoutData = {
+                    cart: cart,
+                    shipping: shipping,
+                    customerInfo: {
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        phone: formData.get('phone'),
+                        address: formData.get('address'),
+                        city: formData.get('city'),
+                        postal: formData.get('postal'),
+                        country: formData.get('country')
+                    }
+                };
+                
+                try {
+                    // Afficher un loader
+                    const submitBtn = e.target.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Traitement...';
+                    
+                    // Appel à la fonction Netlify
+                    const response = await fetch('/.netlify/functions/create-checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(checkoutData)
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Erreur lors de la création de la session de paiement');
+                    }
+                    
+                    const { sessionId } = await response.json();
+                    
+                    // Redirection vers Stripe Checkout
+                    const stripe = Stripe('pk_test_51SBezAL4ecjfMIxOe42ZigNi2LZugBvQSQsm0rBLWAacJ151lKfQShCFDquSUT0aP9vjhe06MH6EcTHp9u5YgZGV00F8agmWxP');
+                    await stripe.redirectToCheckout({ sessionId });
+                    
+                } catch (error) {
+                    console.error('Erreur:', error);
+                    alert('Une erreur est survenue. Veuillez réessayer.');
+                    
+                    // Réactiver le bouton
+                    const submitBtn = e.target.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Payer par carte →';
+                    }
+                }
             });
         }
         
@@ -2845,5 +2926,8 @@
         }
     });
     </script>
+    
+    <!-- SDK Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
 </body>
 </html>
