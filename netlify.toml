@@ -3,18 +3,11 @@
 # ========================================
 
 [build]
-  # Dossier contenant les fonctions serverless
   functions = "netlify/functions"
-  
-  # Dossier de publication (racine du projet)
   publish = "."
-  
-  # Pas de commande de build nécessaire (site statique)
-  command = ""
 
-[build.environment]
-  # Version Node.js pour les fonctions
-  NODE_VERSION = "18"
+[functions]
+  node_bundler = "esbuild"
 
 # ========================================
 # REDIRECTIONS
