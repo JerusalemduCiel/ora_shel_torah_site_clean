@@ -4,237 +4,271 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commande confirmée - Ora Shel Torah</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #fdf8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
-    
-    .success-container {
-      max-width: 600px;
-      width: 100%;
-      background: white;
-      border-radius: 12px;
-      padding: 50px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .title {
       text-align: center;
+      margin-bottom: 50px;
     }
-    
+
+    .title h1 {
+      color: #2c3e50;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .title p {
+      color: #7f8c8d;
+      font-size: 18px;
+    }
+
+    .cards-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .success-icon {
       width: 80px;
       height: 80px;
-      background: #eda234;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       border-radius: 50%;
+      margin: 0 auto 30px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 30px;
+      font-size: 40px;
     }
-    
-    .success-icon svg {
-      width: 45px;
-      height: 45px;
-      stroke: white;
-      stroke-width: 3;
-      fill: none;
+
+    .card h2 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 28px;
+      margin-bottom: 25px;
     }
-    
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #0f1419;
+
+    .info-block {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
       margin-bottom: 15px;
     }
-    
-    .order-number {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 30px;
+
+    .info-block h3 {
+      color: #667eea;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
     }
-    
-    .info-box {
-      background: #f9f7f3;
-      border-left: 4px solid #eda234;
-      padding: 20px;
-      text-align: left;
-      margin: 30px 0;
-      border-radius: 6px;
-    }
-    
-    .info-box p {
-      margin: 10px 0;
-      color: #333;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    
-    .info-box strong {
-      color: #0f1419;
-    }
-    
-    .btn-home {
-      display: inline-block;
-      background: #eda234;
-      color: white;
-      padding: 15px 40px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-top: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-home:hover {
-      background: #d89020;
-      transform: translateY(-2px);
-    }
-    
-    .contact-link {
-      margin-top: 25px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    
-    .contact-link a {
-      color: #eda234;
-      text-decoration: none;
+
+    .info-block p {
+      color: #2c3e50;
+      font-size: 16px;
       font-weight: 500;
     }
-    
-    .contact-link a:hover {
-      text-decoration: underline;
+
+    .delivery-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      border-radius: 50%;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    #map {
+      height: 320px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .delivery-text {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    .delivery-text strong {
+      color: #f5576c;
+      font-size: 20px;
+    }
+
+    .back-button {
+      display: block;
+      max-width: 300px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .cards-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="success-container">
-    <div class="success-icon">
-      <svg viewBox="0 0 24 24">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
+  <div class="container">
+    <div class="title">
+      <h1>🎉 Merci pour votre commande !</h1>
+      <p>Votre commande a été validée avec succès</p>
     </div>
-    
-    <h1>Commande confirmée !</h1>
-    <p class="order-number">Numéro de commande : <strong id="order-id">--</strong></p>
-    
-    <div class="info-box">
-      <p><strong>📧 Email :</strong> Vous recevrez un email de confirmation sous peu.</p>
-      <p><strong>📦 Livraison estimée :</strong> Avril-Mai 2026</p>
-      <p><strong>💳 Paiement :</strong> Votre paiement a été traité avec succès.</p>
+
+    <div class="cards-wrapper">
+      <!-- Bloc Confirmation -->
+      <div class="card">
+        <div class="success-icon">✓</div>
+        <h2>Commande confirmée</h2>
+        
+        <div class="info-block">
+          <h3>📧 Email</h3>
+          <p>Confirmation envoyée sous peu</p>
+        </div>
+
+        <div class="info-block">
+          <h3>📦 Livraison</h3>
+          <p>Avril - Mai 2026</p>
+        </div>
+
+        <div class="info-block">
+          <h3>💳 Paiement</h3>
+          <p>Traité avec succès</p>
+        </div>
+
+        <p style="text-align: center; color: #7f8c8d; margin-top: 30px; font-size: 14px;">
+          Merci de faire partie des premiers soutiens d'Ora Shel Torah
+        </p>
+      </div>
+
+      <!-- Bloc Livraison -->
+      <div class="card">
+        <div class="delivery-icon">📍</div>
+        <h2>Votre livraison</h2>
+        
+        <div id="delivery-info" class="delivery-text">
+          Chargement...
+        </div>
+        
+        <div id="map"></div>
+      </div>
     </div>
-    
-    <p style="color: #666; margin: 20px 0; line-height: 1.6;">
-      Merci pour votre précommande ! Vous faites partie des premiers à soutenir Ora Shel Torah. 
-      Nous vous tiendrons informés de l'avancement de la production.
-    </p>
-    
-    <a href="/" class="btn-home">Retour à l'accueil</a>
-    
-    <p class="contact-link">
-      Une question ? <a href="/#contact">Contactez-nous</a>
-    </p>
-  </div>
-  
-  <!-- Section Carte de livraison -->
-  <div style="margin: 40px auto; max-width: 800px; padding: 0 20px;">
-    <h2 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">📍 Votre livraison</h2>
-    <div id="delivery-info" style="text-align: center; margin-bottom: 15px; font-size: 18px; color: #34495e;">
-      Chargement des informations de livraison...
-    </div>
-    <div id="map" style="height: 400px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></div>
+
+    <a href="/" class="back-button">← Retour à l'accueil</a>
   </div>
 
-  <!-- Leaflet CSS et JS pour la carte -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <!-- Script pour afficher la carte -->
   <script>
-  async function loadDeliveryMap() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionId = urlParams.get('session_id');
-    
-    if (!sessionId) {
-      document.getElementById('delivery-info').textContent = 'Livraison en France';
-      return;
+    async function loadDeliveryMap() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sessionId = urlParams.get('session_id');
+      
+      if (!sessionId) {
+        document.getElementById('delivery-info').innerHTML = 'Livraison en <strong>France</strong>';
+        initMap(46.603354, 1.888334, 6, 'France');
+        return;
+      }
+
+      try {
+        const response = await fetch('/.netlify/functions/get-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ session_id: sessionId })
+        });
+        
+        const data = await response.json();
+        const city = data.city || 'France';
+        
+        document.getElementById('delivery-info').innerHTML = `Livraison à <strong>${city}</strong>`;
+        
+        const geoResponse = await fetch(`https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(city)}&country=${data.country}&format=json&limit=1`);
+        const geoData = await geoResponse.json();
+        
+        if (geoData && geoData[0]) {
+          const lat = parseFloat(geoData[0].lat);
+          const lon = parseFloat(geoData[0].lon);
+          initMap(lat, lon, 12, city);
+        } else {
+          initMap(46.603354, 1.888334, 6, 'France');
+        }
+      } catch (error) {
+        console.error('Erreur:', error);
+        document.getElementById('delivery-info').innerHTML = 'Livraison en <strong>France</strong>';
+        initMap(46.603354, 1.888334, 6, 'France');
+      }
     }
 
-    try {
-      const response = await fetch('/.netlify/functions/get-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId })
+    function initMap(lat, lon, zoom, label) {
+      const map = L.map('map').setView([lat, lon], zoom);
+      
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+      
+      const customIcon = L.divIcon({
+        className: 'custom-marker',
+        html: '<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); width: 40px; height: 40px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"><span style="transform: rotate(45deg); font-size: 20px;">📍</span></div>',
+        iconSize: [40, 40],
+        iconAnchor: [20, 40]
       });
       
-      const data = await response.json();
-      const city = data.city || 'France';
-      
-      document.getElementById('delivery-info').innerHTML = `Votre commande sera livrée à <strong>${city}</strong>`;
-      
-      // Géolocalisation de la ville
-      const geoResponse = await fetch(`https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(city)}&country=${data.country}&format=json&limit=1`);
-      const geoData = await geoResponse.json();
-      
-      if (geoData && geoData[0]) {
-        const lat = parseFloat(geoData[0].lat);
-        const lon = parseFloat(geoData[0].lon);
-        
-        // Créer la carte
-        const map = L.map('map').setView([lat, lon], 12);
-        
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-        
-        // Ajouter un marqueur
-        L.marker([lat, lon]).addTo(map)
-          .bindPopup(`<b>${city}</b><br>Zone de livraison`)
-          .openPopup();
-      } else {
-        // Carte par défaut sur la France
-        const map = L.map('map').setView([46.603354, 1.888334], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-      }
-    } catch (error) {
-      console.error('Erreur:', error);
-      document.getElementById('delivery-info').textContent = 'Livraison en France';
-      // Carte par défaut
-      const map = L.map('map').setView([46.603354, 1.888334], 6);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(map);
+      L.marker([lat, lon], {icon: customIcon}).addTo(map)
+        .bindPopup(`<b>${label}</b><br>Zone de livraison`)
+        .openPopup();
     }
-  }
 
-  // Charger la carte au chargement de la page
-  document.addEventListener('DOMContentLoaded', loadDeliveryMap);
-  </script>
-  
-  <script>
-    // Vider le panier après commande
-    localStorage.removeItem('cart');
-    
-    // Récupérer session_id de l'URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionId = urlParams.get('session_id');
-    if (sessionId) {
-      document.getElementById('order-id').textContent = sessionId.substring(0, 20) + '...';
-    }
+    document.addEventListener('DOMContentLoaded', loadDeliveryMap);
   </script>
 </body>
 </html>
