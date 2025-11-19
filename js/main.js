@@ -13,7 +13,6 @@ function initializeApp() {
     initHeroSlider();
     initDynamicHeader();
     initJeuxShowcase();
-    initJeuxShowcaseSwipe();
     initSmoothScrolling();
     initHeaderScroll();
     initParticles();
@@ -285,50 +284,6 @@ function initJeuxShowcase() {
     updateSlider();
     
     console.log('✅ Slider jeux initialisé (navigation manuelle uniquement)');
-}
-
-// ========================================
-// TOUCH SWIPE POUR SLIDER JEUX (MOBILE)
-// ========================================
-
-function initJeuxShowcaseSwipe() {
-    const sliderWindow = document.querySelector('.showcase-window');
-    if (!sliderWindow) {
-        return;
-    }
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    sliderWindow.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    sliderWindow.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe left → next slide
-                const nextBtn = document.querySelector('.showcase-window .slider-arrow.next');
-                if (nextBtn) {
-                    nextBtn.click();
-                }
-            } else {
-                // Swipe right → prev slide
-                const prevBtn = document.querySelector('.showcase-window .slider-arrow.prev');
-                if (prevBtn) {
-                    prevBtn.click();
-                }
-            }
-        }
-    }
 }
 
 // ========================================

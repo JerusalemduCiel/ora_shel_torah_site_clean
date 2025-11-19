@@ -209,36 +209,6 @@ body {
     min-height: auto !important;
     overflow: visible !important;
   }
-
-  /* Flèches discrètes pour le slider des jeux (mobile) */
-  .showcase-window .slider-arrow {
-    display: block !important;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(237, 162, 52, 0.3);
-    border: 1px solid rgba(237, 162, 52, 0.5);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-  }
-
-  .showcase-window .slider-arrow:active {
-    background: rgba(237, 162, 52, 0.6);
-  }
-
-  .showcase-window .slider-arrow.prev {
-    left: 10px;
-  }
-
-  .showcase-window .slider-arrow.next {
-    right: 10px;
-  }
 }
 
 @media (min-width: 768px) {
