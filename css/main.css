@@ -1481,7 +1481,7 @@ img {
 
 /* ACTE 2: Section Notre Histoire - Layout épuré */
 .about-section {
-  padding: 6rem 2rem;
+  padding: 120px 20px 80px 20px;
   background-image: url('../images/hero3tresors.png');
   background-size: cover;
   background-position: center;
@@ -1513,14 +1513,49 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
-/* Titre centré */
+/* Titre centré - aligné avec la modale */
 .section-title-centered {
   color: #eda234;
   font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 2;
+}
+
+/* Titre spécifique pour about-section */
+.about-section .section-title-centered {
+  color: #eda234;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 2;
+}
+
+/* RÈGLE ULTRA-SPÉCIFIQUE pour forcer le positionnement du titre ACTE 2 */
+#acte-2 h2.section-title-centered {
+  margin-top: 80px !important;
+  padding-top: 40px !important;
+  position: relative !important;
+  top: 0 !important;
+}
+
+#acte-2.about-section {
+  padding-top: 160px !important;
 }
 
 /* Layout 2 colonnes */
@@ -1529,6 +1564,7 @@ img {
   grid-template-columns: 250px 1fr;
   gap: 3rem;
   align-items: start;
+  grid-column: 1 / -1;
 }
 
 /* COLONNE GAUCHE : Photo + Bouton */
@@ -1688,7 +1724,7 @@ img {
 }
 
 .games-list-compact li::before {
-  content: '🎲';
+  content: '';
   position: absolute;
   left: 0;
   font-size: 1rem;
@@ -1787,6 +1823,11 @@ img {
 
 /* Responsive Tablette */
 @media (max-width: 1024px) {
+  .about-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+  }
+
   .about-columns {
     grid-template-columns: 220px 1fr;
     gap: 2rem;
@@ -1794,23 +1835,42 @@ img {
 
   .section-title-centered {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
+    grid-column: 2;
   }
 }
 
 /* Responsive Mobile */
 @media (max-width: 768px) {
   .about-section {
-    padding: 4rem 1.5rem;
+    padding: 100px 20px 60px 20px;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .section-title-centered {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+    grid-column: 1;
+  }
+
+  .about-section .section-title-centered {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    grid-column: 1;
   }
 
   .about-columns {
     grid-template-columns: 1fr;
     gap: 2rem;
+    grid-column: 1;
   }
 
   .about-left {
