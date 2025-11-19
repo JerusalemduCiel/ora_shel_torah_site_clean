@@ -2549,6 +2549,9 @@
         </div>
     </div>
 
+    <!-- SDK Stripe - DOIT être chargé AVANT le script panier -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
     <!-- JavaScript -->
     <script src="js/main.js?v=20251103a"></script>
     <script src="js/modals.js?v=20251103a"></script>
@@ -2587,6 +2590,13 @@
             price: 24.90,
             priceId: 'price_1SBf7lL4ecjfMIxOKuRj4czs',
             image: './images/poz_picto_arrondi.png'
+        },
+        pack: {
+            id: 'pack',
+            name: 'Pack Complet Ora Shel Torah',
+            price: 79.90,
+            priceId: null, // TODO: Ajouter le priceId Stripe pour le pack
+            image: './images/pack-3d.png'
         }
     };
     
@@ -2729,9 +2739,18 @@
         const product = Object.values(products).find(p => p.id === productId);
         const priceId = product ? product.priceId : null;
         
+        // Avertir si le produit n'a pas de priceId (sauf pour le pack qui peut être géré différemment)
+        if (!priceId && productId !== 'pack') {
+            console.warn(`Produit "${productName}" ajouté sans priceId Stripe`);
+        }
+        
         const existingItem = cart.find(item => item.id === productId);
         if (existingItem) {
             existingItem.quantity++;
+            // Mettre à jour le priceId si nécessaire
+            if (!existingItem.priceId && priceId) {
+                existingItem.priceId = priceId;
+            }
         } else {
             cart.push({ 
                 id: productId, 
@@ -2870,10 +2889,20 @@
                 const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
                 const shipping = subtotal >= 100 ? 0 : 9.90;
                 
-                // Préparer les données pour Stripe
+                // Vérifier que tous les produits ont un priceId
+                const itemsWithoutPriceId = cart.filter(item => !item.priceId);
+                if (itemsWithoutPriceId.length > 0) {
+                    console.error('Produits sans priceId:', itemsWithoutPriceId);
+                    alert('Erreur : Certains produits n\'ont pas de priceId Stripe. Veuillez réessayer.');
+                    return;
+                }
+                
+                // Préparer les données pour Stripe (format simplifié)
                 const checkoutData = {
-                    cart: cart,
-                    shipping: shipping,
+                    items: cart.map(item => ({
+                        priceId: item.priceId,
+                        quantity: item.quantity || 1
+                    })),
                     customerInfo: {
                         name: formData.get('name'),
                         email: formData.get('email'),
@@ -2884,6 +2913,8 @@
                         country: formData.get('country')
                     }
                 };
+                
+                console.log('Données envoyées à Stripe:', checkoutData);
                 
                 try {
                     // Afficher un loader
@@ -2900,24 +2931,37 @@
                     });
                     
                     if (!response.ok) {
-                        throw new Error('Erreur lors de la création de la session de paiement');
+                        const errorText = await response.text();
+                        console.error('Response error:', errorText);
+                        let errorData;
+                        try {
+                            errorData = JSON.parse(errorText);
+                        } catch (e) {
+                            errorData = { error: errorText };
+                        }
+                        throw new Error(errorData.error || `Erreur serveur: ${response.status}`);
                     }
                     
-                    const { sessionId } = await response.json();
+                    const data = await response.json();
+                    console.log('Réponse Netlify:', data);
                     
-                    // Redirection vers Stripe Checkout
+                    if (!data.sessionId) {
+                        throw new Error('Session ID manquant dans la réponse');
+                    }
+                    
+                    // Redirection Stripe
                     const stripe = Stripe('pk_test_51SBezAL4ecjfMIxOe42ZigNi2LZugBvQSQsm0rBLWAacJ151lKfQShCFDquSUT0aP9vjhe06MH6EcTHp9u5YgZGV00F8agmWxP');
-                    await stripe.redirectToCheckout({ sessionId });
+                    await stripe.redirectToCheckout({ sessionId: data.sessionId });
                     
                 } catch (error) {
-                    console.error('Erreur:', error);
-                    alert('Une erreur est survenue. Veuillez réessayer.');
+                    console.error('Erreur de paiement:', error);
+                    alert(`Erreur: ${error.message || 'Une erreur est survenue. Veuillez réessayer.'}`);
                     
                     // Réactiver le bouton
                     const submitBtn = e.target.querySelector('button[type="submit"]');
                     if (submitBtn) {
                         submitBtn.disabled = false;
-                        submitBtn.textContent = 'Payer par carte →';
+                        submitBtn.textContent = originalText || 'Payer par carte →';
                     }
                 }
             });
@@ -2934,9 +2978,6 @@
         }
     });
     </script>
-    
-    <!-- SDK Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
     
     <!-- Script pour le formulaire de contact unifié -->
     <script>

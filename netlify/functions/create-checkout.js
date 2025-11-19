@@ -1,47 +1,47 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
+  // Headers CORS
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Content-Type': 'application/json'
+  };
+
+  // Gestion preflight
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 200, headers, body: '' };
+  }
+
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+    return { 
+      statusCode: 405, 
+      headers,
+      body: JSON.stringify({ error: 'Method Not Allowed' })
+    };
   }
 
   try {
-    const { cart, shipping, customerInfo } = JSON.parse(event.body);
+    const { items, customerInfo } = JSON.parse(event.body);
 
-    // Construire line_items pour Stripe
-    const lineItems = cart.map(item => ({
-      price: item.priceId,
-      quantity: item.quantity
-    }));
-
-    // Ajouter frais de port si applicable
-    if (shipping > 0) {
-      lineItems.push({
-        price_data: {
-          currency: 'eur',
-          product_data: {
-            name: 'Frais de port'
-          },
-          unit_amount: Math.round(shipping * 100)
-        },
-        quantity: 1
-      });
+    // Vérifier que la clé secrète Stripe est configurée
+    if (!process.env.STRIPE_SECRET_KEY) {
+      throw new Error('STRIPE_SECRET_KEY manquante dans les variables d\'environnement');
     }
 
-    // Créer session Stripe Checkout
+    // Créer la session Stripe
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: lineItems,
+      line_items: items.map(item => ({
+        price: item.priceId,
+        quantity: item.quantity || 1
+      })),
       mode: 'payment',
       success_url: `${process.env.URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.URL}/#boutique`,
       customer_email: customerInfo.email,
-      shipping_address_collection: {
-        allowed_countries: ['FR', 'BE', 'CH', 'LU', 'MC']
-      },
       metadata: {
-        order_type: 'precommande',
-        estimated_delivery: 'avril-mai-2026',
         customer_name: customerInfo.name,
         customer_phone: customerInfo.phone
       }
@@ -49,13 +49,14 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
+      headers,
       body: JSON.stringify({ sessionId: session.id })
     };
-    
   } catch (error) {
-    console.error('Erreur Stripe:', error);
+    console.error('Stripe error:', error);
     return {
       statusCode: 500,
+      headers,
       body: JSON.stringify({ error: error.message })
     };
   }
