@@ -122,6 +122,115 @@
       ]
     }
     </script>
+    
+    <!-- CSS Responsive Mobile -->
+    <style>
+        /* Reset global pour éviter les débordements */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            max-width: 100vw;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        @media (max-width: 768px) {
+            /* Force tout à tenir dans l'écran */
+            body {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            /* Hero - Textes centrés et réduits */
+            .slide-content {
+                padding: 20px !important;
+                text-align: center !important;
+                width: 100% !important;
+            }
+            .slide-main-value {
+                font-size: 2rem !important;
+            }
+            .slide-description {
+                font-size: 0.95rem !important;
+                padding: 0 15px !important;
+            }
+            
+            /* Acte 2 - Magazine */
+            .magazine-container {
+                padding: 0 15px !important;
+                width: 100% !important;
+            }
+            .parcours-section,
+            .philosophie-section,
+            .inspirations-section {
+                padding: 20px !important;
+                margin: 20px 0 !important;
+                width: 100% !important;
+            }
+            .photo-portrait {
+                float: none !important;
+                margin: 0 auto 20px !important;
+                width: 150px !important;
+            }
+            .inspirations-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Acte 3 - Showcase jeux */
+            .jeux-showcase {
+                padding: 40px 15px !important;
+            }
+            .section-title {
+                font-size: 1.6rem !important;
+                text-align: center !important;
+            }
+            .jeu-slide {
+                flex-direction: column !important;
+                padding: 20px !important;
+                text-align: center !important;
+            }
+            .jeu-visual {
+                width: 200px !important;
+                max-width: 200px !important;
+                margin: 0 auto 20px !important;
+            }
+            .jeu-info {
+                width: 100% !important;
+                padding: 0 15px !important;
+                text-align: center !important;
+            }
+            .jeu-title {
+                font-size: 1.5rem !important;
+            }
+            .btn-discover {
+                width: 90% !important;
+                max-width: 250px !important;
+                margin: 15px auto !important;
+            }
+            
+            /* Navigation et boutons */
+            .slider-nav {
+                width: 35px !important;
+                height: 35px !important;
+            }
+            .slider-arrow {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -307,10 +416,10 @@
     <!-- ACTE 2: Notre Histoire (Layout Magazine Moderne) -->
     <section id="acte-2" class="section-createur about-section-magazine" style="position: relative; background: linear-gradient(rgba(245, 237, 220, 0.75), rgba(245, 237, 220, 0.75)), url('/images/hero3tresors.png') center/cover no-repeat; background-attachment: fixed; padding: 80px 20px; min-height: 100vh;">
         
-        <div class="magazine-container" style="max-width: 1000px; margin: 0 auto;">
+        <div class="magazine-container" style="max-width: 1000px; margin: 0 auto; padding: 0 15px;">
             
             <!-- SECTION 1 : MON PARCOURS -->
-            <article class="parcours-section" style="background: white; padding: 50px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 60px;">
+            <article class="parcours-section" style="background: white; padding: 30px 20px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 60px;">
                 
                 <h2 style="font-family: 'Crimson Text', serif; font-size: 2.5rem; color: #eda234; text-align: center; margin-bottom: 3rem; line-height: 1.2;">
                     Mon parcours : de l'éloignement à la lumière
@@ -344,7 +453,7 @@
             </article>
 
             <!-- SECTION 2 : NOTRE PHILOSOPHIE (VIDÉO) -->
-            <article class="philosophie-section" style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 60px; position: relative;">
+            <article class="philosophie-section" style="background: white; padding: 30px 20px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 60px; position: relative;">
                 
                 <h3 style="font-family: 'Crimson Text', serif; font-size: 2rem; color: #8B7355; text-align: center; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; gap: 12px;">
                     🎥 <span>Notre philosophie</span>
@@ -382,7 +491,7 @@
             </article>
 
             <!-- SECTION 3 : NOS INSPIRATIONS -->
-            <article class="inspirations-section" style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+            <article class="inspirations-section" style="background: white; padding: 30px 20px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
                 
                 <h3 style="font-family: 'Crimson Text', serif; font-size: 2rem; color: #eda234; text-align: center; margin-bottom: 1rem;">
                     Nos inspirations
@@ -392,7 +501,7 @@
                     Au-delà des jeux, quelques portes d'entrée vers la beauté du judaïsme qui nous ont personnellement touchés
                 </p>
                 
-                <div class="inspirations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto;">
+                <div class="inspirations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto;">
                     
                     <!-- CARTE 1 : LIVRE -->
                     <div class="inspiration-card" style="background: #f9f9f9; padding: 25px; border-radius: 12px; border-left: 4px solid #eda234; transition: transform 0.3s ease, box-shadow 0.3s ease;">
