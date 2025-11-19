@@ -297,15 +297,18 @@ body {
   }
 
   .header-logo {
-    height: 35px;
+    height: 50px; /* Logo mobile plus grand */
+    max-height: 50px;
   }
 
   .site-header.scrolled-down .header-logo {
-    height: 50px;
+    height: 50px; /* Logo mobile plus grand */
+    max-height: 50px;
   }
 
   .site-header.at-top .header-logo {
-    height: 30px;
+    height: 50px; /* Logo mobile plus grand */
+    max-height: 50px;
   }
 
   .header-subtitle {

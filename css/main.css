@@ -303,7 +303,8 @@ img {
 }
 
 .site-header.expanded .header-logo {
-  height: 55px; /* Légèrement moins grand */
+  height: 80px; /* Logo plus grand et visible */
+  max-height: 80px;
 }
 
 .site-header.expanded .header-subtitle {
@@ -331,8 +332,9 @@ img {
 }
 
 .header-logo {
-  height: 45px; /* Légèrement plus grand pour compenser */
+  height: 80px; /* Logo plus grand et visible */
   width: auto;
+  max-height: 80px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 2px 8px rgba(237, 162, 52, 0.3));
 }
@@ -567,11 +569,13 @@ img {
   }
 
   .header-logo {
-    height: 35px;
+    height: 50px; /* Logo mobile plus grand */
+    max-height: 50px;
   }
 
   .site-header.expanded .header-logo {
-    height: 45px;
+    height: 50px; /* Logo mobile plus grand */
+    max-height: 50px;
   }
 
   .header-nav {
@@ -7411,8 +7415,9 @@ footer {
 }
 
 .header .logo img {
-    height: 40px;
+    height: 80px;
     width: auto;
+    max-height: 80px;
 }
 
 .menu-toggle {
