@@ -721,7 +721,7 @@ img {
 
 .slide-content {
   position: absolute !important;
-  left: 150px !important;
+  left: 120px !important;
   top: 55% !important;
   transform: translateY(-50%) !important;
   width: auto !important;
@@ -954,24 +954,6 @@ img {
 
 /* Responsive Mobile */
 @media (max-width: 768px) {
-  .slide-content {
-    left: 5%;
-    right: 5%;
-    max-width: 90%;
-  }
-
-  .slide-title {
-    font-size: 1.5rem;
-  }
-
-  .slide-value {
-    font-size: 2rem;
-  }
-
-  .slide-description {
-    font-size: 1rem;
-  }
-
   .slider-nav {
     width: 40px;
     height: 40px;
