@@ -610,6 +610,28 @@ img {
     width: 95% !important;
     padding: 15px !important;
   }
+
+  /* Hero slider mobile - style Asmodee */
+  .slide-supertitle {
+    top: 100px;
+    font-size: 0.9rem;
+  }
+  
+  .slide-mantra {
+    top: 140px;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    padding: 0 15px;
+  }
+  
+  .slide-content {
+    left: 50px !important;
+    right: 50px !important;
+    max-width: calc(100% - 100px) !important;
+  }
+  
+  .slide-main-value {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
 }
 
 .cart-icon {
@@ -645,9 +667,17 @@ img {
 }
 
 /* ACTE 1: Hero Slider Moderne (Style Asmodee) */
+.hero-slider,
+.slider-container,
+.slide {
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .hero-slider {
   position: relative;
-  width: 100%;
   height: 100vh;
   overflow: hidden;
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
@@ -655,7 +685,6 @@ img {
 
 .slider-container {
   position: relative;
-  width: 100%;
   height: 100%;
 }
 
@@ -663,7 +692,6 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -698,65 +726,69 @@ img {
 }
 
 .slide-content {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 1200px;
-  width: 100%;
+  position: absolute !important;
+  left: 120px !important;
+  top: 55% !important;
+  transform: translateY(-50%) !important;
+  width: auto !important;
+  max-width: 700px !important;
+  text-align: left !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  padding-left: 0 !important;
   color: white;
   z-index: 3;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start !important;
-  text-align: left !important;
-  gap: 1rem;
-  padding-left: 80px !important;
-  padding-right: 30px;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-left: 0 !important;
   box-sizing: border-box;
 }
 
+.slide-supertitle,
+.slide-mantra {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  z-index: 20;
+}
+
 .slide-supertitle {
+  top: 110px;
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   color: #eda234;
-  margin-bottom: 2rem;
-  text-align: left;
-  text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
   animation: fadeInDown 0.8s ease-out;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 30px;
-  border-radius: 8px;
-  display: inline-block;
-  flex-shrink: 0;
 }
 
 .slide-mantra {
+  top: 155px;
   font-family: 'Crimson Text', serif;
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 1.4rem);
   font-style: italic;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-  text-align: left;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .slide-main-value {
-  font-family: 'Crimson Text', serif;
-  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(4rem, 12vw, 9rem);
   font-weight: 900;
-  color: #eda234;
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-  text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
-  text-align: left;
+  color: #ffffff;
+  line-height: 0.95;
+  text-shadow: 4px 4px 12px rgba(0,0,0,0.9);
+  max-width: 800px;
+  letter-spacing: -2px;
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes fadeInDown {
@@ -793,12 +825,16 @@ img {
 }
 
 .slide-description {
-  text-align: left !important;
-  max-width: 600px;
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.6;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.9);
+  max-width: 550px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  text-align: left;
+  margin: 0;
+  padding: 0;
 }
 
 .slide-counter {
@@ -1471,6 +1507,8 @@ img {
   background: var(--color-gold);
   color: var(--color-dark-bg);
   box-shadow: var(--shadow-lg);
+  align-self: flex-start !important;
+  margin-left: 0 !important;
 }
 
 .btn-primary:hover {
