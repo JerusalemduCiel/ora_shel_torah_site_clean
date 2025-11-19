@@ -2473,6 +2473,12 @@ html body #hero-bis-poz .hero-bis-background img {
   margin: 0 auto;
 }
 
+/* Formulaire unifié - un seul bloc centré */
+.contact-partenariat .form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .form-wrapper {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;

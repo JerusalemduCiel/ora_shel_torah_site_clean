@@ -1152,88 +1152,76 @@
                 <p class="intro">Nous sommes à votre écoute pour répondre à vos questions ou discuter de collaborations</p>
             </div>
             
-            <div class="forms-grid">
-                <!-- Formulaire Contact -->
-                <div class="form-wrapper contact-form-wrapper">
-                    <h3>Contact</h3>
-                    <p class="form-description">Une question générale ? N'hésitez pas à nous écrire.</p>
-                    <form class="contact-form" action="https://formspree.io/f/xwprpgvk" method="POST">
-                        <div class="form-group">
-                            <label for="contact-name">Nom *</label>
-                            <input type="text" 
-                                   name="name" 
-                                   id="contact-name"
-                                   placeholder="Votre nom" 
-                                   required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">Email *</label>
-                            <input type="email" 
-                                   name="email" 
-                                   id="contact-email"
-                                   placeholder="Votre email" 
-                                   required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-message">Message *</label>
-                            <textarea name="message" 
-                                      id="contact-message"
-                                      rows="6" 
-                                      placeholder="Votre message" 
-                                      required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            Envoyer
-                        </button>
-                    </form>
-                </div>
-                
-                <!-- Formulaire Partenariat -->
-                <div class="form-wrapper contact-form-wrapper">
-                    <h3>Partenariat</h3>
-                    <p class="form-description">Vous souhaitez collaborer avec nous ? Parlons-en !</p>
-                    <form class="partnership-form" action="https://formspree.io/f/xvgwgezy" method="POST">
-                        <div class="form-group">
-                            <label for="partnership-name">Nom *</label>
-                            <input type="text" 
-                                   name="name" 
-                                   id="partnership-name"
-                                   placeholder="Votre nom" 
-                                   required>
-                        </div>
-                        <div class="form-group">
-                            <label for="partnership-org">Organisation *</label>
-                            <input type="text" 
-                                   name="organization" 
-                                   id="partnership-org"
-                                   placeholder="Votre organisation" 
-                                   required>
-                        </div>
-                        <div class="form-group">
-                            <label for="partnership-type">Type de partenariat *</label>
-                            <select name="partnership_type" 
-                                    id="partnership-type"
-                                    required>
-                                <option value="">Sélectionnez un type</option>
-                                <option value="commercial">Partenariat commercial</option>
-                                <option value="educatif">Partenariat éducatif</option>
-                                <option value="distribution">Distribution</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="partnership-message">Message *</label>
-                            <textarea name="message" 
-                                      id="partnership-message"
-                                      rows="6" 
-                                      placeholder="Décrivez votre projet" 
-                                      required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            Envoyer
-                        </button>
-                    </form>
-                </div>
+            <!-- Formulaire unifié -->
+            <div class="form-wrapper contact-form-wrapper">
+                <h3>Contactez-nous</h3>
+                <p class="form-description">Une question ? Un projet de partenariat ?</p>
+                <form id="unified-contact-form" class="unified-contact-form" action="https://formspree.io/f/xwprpgvk" method="POST">
+                    <div class="form-group">
+                        <label for="user-type">Vous êtes : *</label>
+                        <select name="user_type" 
+                                id="user-type"
+                                required>
+                            <option value="">Sélectionnez une option</option>
+                            <option value="particulier">Particulier</option>
+                            <option value="entreprise">Entreprise / Association</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unified-name">Nom *</label>
+                        <input type="text" 
+                               name="name" 
+                               id="unified-name"
+                               placeholder="Votre nom" 
+                               required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unified-email">Email *</label>
+                        <input type="email" 
+                               name="email" 
+                               id="unified-email"
+                               placeholder="Votre email" 
+                               required>
+                    </div>
+                    
+                    <!-- Champs conditionnels pour Entreprise / Association -->
+                    <div class="form-group conditional-field" id="organization-field" style="display: none;">
+                        <label for="unified-organization">Organisation *</label>
+                        <input type="text" 
+                               name="organization" 
+                               id="unified-organization"
+                               placeholder="Votre organisation"
+                               data-conditional-required="true">
+                    </div>
+                    
+                    <div class="form-group conditional-field" id="partnership-type-field" style="display: none;">
+                        <label for="unified-partnership-type">Type de partenariat *</label>
+                        <select name="partnership_type" 
+                                id="unified-partnership-type"
+                                data-conditional-required="true">
+                            <option value="">Sélectionnez un type</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="educatif">Éducatif</option>
+                            <option value="distribution">Distribution</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unified-message">Message *</label>
+                        <textarea name="message" 
+                                  id="unified-message"
+                                  rows="6" 
+                                  placeholder="Votre message" 
+                                  required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        Envoyer
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -2929,5 +2917,55 @@
     
     <!-- SDK Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- Script pour le formulaire de contact unifié -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userTypeSelect = document.getElementById('user-type');
+            const organizationField = document.getElementById('organization-field');
+            const partnershipTypeField = document.getElementById('partnership-type-field');
+            const organizationInput = document.getElementById('unified-organization');
+            const partnershipTypeSelect = document.getElementById('unified-partnership-type');
+            const unifiedForm = document.getElementById('unified-contact-form');
+            
+            // Fonction pour afficher/masquer les champs conditionnels
+            function toggleConditionalFields() {
+                const selectedValue = userTypeSelect.value;
+                
+                if (selectedValue === 'entreprise') {
+                    // Afficher les champs conditionnels
+                    organizationField.style.display = 'block';
+                    partnershipTypeField.style.display = 'block';
+                    
+                    // Rendre les champs obligatoires
+                    organizationInput.setAttribute('required', 'required');
+                    partnershipTypeSelect.setAttribute('required', 'required');
+                    
+                    // Changer l'action du formulaire pour partenariat
+                    unifiedForm.action = 'https://formspree.io/f/xvgwgezy';
+                } else {
+                    // Masquer les champs conditionnels
+                    organizationField.style.display = 'none';
+                    partnershipTypeField.style.display = 'none';
+                    
+                    // Retirer l'obligation des champs
+                    organizationInput.removeAttribute('required');
+                    partnershipTypeSelect.removeAttribute('required');
+                    
+                    // Réinitialiser les valeurs
+                    organizationInput.value = '';
+                    partnershipTypeSelect.value = '';
+                    
+                    // Changer l'action du formulaire pour contact
+                    unifiedForm.action = 'https://formspree.io/f/xwprpgvk';
+                }
+            }
+            
+            // Écouter les changements sur le select "Vous êtes"
+            if (userTypeSelect) {
+                userTypeSelect.addEventListener('change', toggleConditionalFields);
+            }
+        });
+    </script>
 </body>
 </html>
