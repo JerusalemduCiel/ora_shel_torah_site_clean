@@ -350,18 +350,31 @@
                     🎥 <span>Notre philosophie</span>
                 </h3>
                 
-                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); cursor: pointer;">
-                    <!-- Miniature YouTube -->
-                    <img src="https://img.youtube.com/vi/44nld3A8-Z8/maxresdefault.jpg" alt="Notre philosophie" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); cursor: pointer; background: #2c2c2c;">
+                    
+                    <!-- Image de prévisualisation -->
+                    <img class="video-preview-content" 
+                         src="images/video_philosophie_thumb.jpg" 
+                         alt="Notre philosophie" 
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                     
                     <!-- Overlay sombre au survol -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); transition: background 0.3s ease;"></div>
+                    <div class="video-overlay" 
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); transition: background 0.3s ease;">
+                    </div>
                     
-                    <!-- Iframe cachée -->
-                    <iframe id="philosophy-video-frame" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: none;" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- Iframe vidéo (cachée au départ) -->
+                    <iframe id="philosophy-video-frame" 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: none; z-index: 20;" 
+                            src="" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
                     
-                    <!-- Bouton play centré -->
-                    <button class="btn-load-video" data-video-id="44nld3A8-Z8" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(237,162,52,0.95); color: white; border: none; border-radius: 50%; font-size: 2rem; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: all 0.3s ease; z-index: 10; display: flex; align-items: center; justify-content: center; padding-left: 8px;">
+                    <!-- Bouton play -->
+                    <button class="btn-load-video" 
+                            data-video-id="44nld3A8-Z8" 
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(237,162,52,0.95); color: white; border: none; border-radius: 50%; font-size: 2rem; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: all 0.3s ease; z-index: 10; display: flex; align-items: center; justify-content: center; padding-left: 8px;">
                         ▶
                     </button>
                 </div>
@@ -3213,11 +3226,11 @@
             btnLoadVideo.addEventListener('click', function() {
                 const videoId = this.getAttribute('data-video-id');
                 const wrapper = this.closest('.video-wrapper');
-                const thumbnail = wrapper.querySelector('img');
-                const overlay = wrapper.querySelector('div[style*="background: rgba(0,0,0,0.3)"]');
+                const previewContent = wrapper.querySelector('.video-preview-content');
+                const overlay = wrapper.querySelector('.video-overlay');
                 
-                // Cacher miniature, overlay et bouton
-                if (thumbnail) thumbnail.style.display = 'none';
+                // Cacher contenu de prévisualisation, overlay et bouton
+                if (previewContent) previewContent.style.display = 'none';
                 if (overlay) overlay.style.display = 'none';
                 this.style.display = 'none';
                 
