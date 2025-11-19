@@ -2601,6 +2601,43 @@
         }
     };
     
+    // Poids des produits (en kg) - À AJUSTER selon pesée réelle
+    const productWeights = {
+        'jdc': 2.8,    // Jérusalem du Ciel : 850 cartes + plateau circulaire
+        'moh': 0.7,    // Minhag ou Halakha : 330 cartes
+        'poz': 0.6,    // Poztamitsvah : 220 cartes
+        'pack': 4.0    // Pack complet
+    };
+    
+    // Grille tarifaire Colissimo France 2025
+    const colissimoRates = [
+        { maxWeight: 1.0, price: 7.50, label: "Colissimo 0-1kg" },
+        { maxWeight: 2.0, price: 9.50, label: "Colissimo 1-2kg" },
+        { maxWeight: 3.0, price: 12.00, label: "Colissimo 2-3kg" },
+        { maxWeight: 5.0, price: 15.00, label: "Colissimo 3-5kg" },
+        { maxWeight: 10.0, price: 20.00, label: "Colissimo 5-10kg" },
+        { maxWeight: 30.0, price: 28.00, label: "Colissimo 10-30kg" }
+    ];
+    
+    // Fonction pour calculer les frais de port Colissimo
+    function calculateShipping(cart) {
+        // Calculer le poids total
+        const totalWeight = cart.reduce((sum, item) => {
+            const weight = productWeights[item.id] || 0;
+            return sum + (weight * item.quantity);
+        }, 0);
+        
+        // Trouver le tarif Colissimo correspondant
+        for (let rate of colissimoRates) {
+            if (totalWeight <= rate.maxWeight) {
+                return { price: rate.price, weight: totalWeight, label: rate.label };
+            }
+        }
+        
+        // Si > 30kg, contacter pour devis
+        return { price: 35.00, weight: totalWeight, label: "Sur devis" };
+    }
+    
     // Charger le panier depuis localStorage
     try {
         const saved = localStorage.getItem('cart');
@@ -2691,8 +2728,8 @@
     // Mettre à jour le total
     function updateCartTotal() {
         const subtotal = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 1)), 0);
-        const shipping = subtotal >= 50 ? 0 : 5.90;
-        const total = subtotal + shipping;
+        const shippingInfo = calculateShipping(cart);
+        const total = subtotal + shippingInfo.price;
         
         // Mettre à jour le total dans cart-panel
         const totalEl = document.getElementById('cart-total');
@@ -2700,13 +2737,17 @@
             totalEl.textContent = formatPrice(total);
         }
         
+        // Afficher détail poids et frais dans la console (pour debug)
+        console.log(`📦 Poids total: ${shippingInfo.weight.toFixed(2)} kg`);
+        console.log(`🚚 ${shippingInfo.label}: ${formatPrice(shippingInfo.price)}`);
+        
         // Mettre à jour aussi les totaux dans l'ancien panier (si présent)
         const subtotalEl = document.querySelector('.subtotal-amount');
         const shippingEl = document.querySelector('.shipping-amount');
         const oldTotalEl = document.querySelector('.total-amount');
         
         if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
-        if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Offerte' : formatPrice(shipping);
+        if (shippingEl) shippingEl.textContent = formatPrice(shippingInfo.price);
         if (oldTotalEl) oldTotalEl.textContent = formatPrice(total);
     }
     
@@ -2838,15 +2879,17 @@
         
         // Calculer totaux
         const subtotal = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.quantity || 1)), 0);
-        const shipping = subtotal > 100 ? 0 : 9.90;
-        const total = subtotal + shipping;
+        const shippingInfo = calculateShipping(cart);
+        const total = subtotal + shippingInfo.price;
         
         const subtotalEl = document.getElementById('subtotal');
         const shippingEl = document.getElementById('shipping');
         const totalEl = document.getElementById('total');
         
         if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
-        if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Offerte' : formatPrice(shipping);
+        if (shippingEl) {
+            shippingEl.textContent = `${formatPrice(shippingInfo.price)} (Colissimo ${shippingInfo.weight.toFixed(1)}kg)`;
+        }
         if (totalEl) totalEl.textContent = formatPrice(total);
     }
     
@@ -2896,9 +2939,8 @@
                 const formData = new FormData(e.target);
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 
-                // Calculer frais de port
-                const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const shipping = subtotal >= 100 ? 0 : 9.90;
+                // Calculer frais de port (sera recalculé côté serveur, mais on l'utilise pour vérification)
+                const shippingInfo = calculateShipping(cart);
                 
                 // Vérifier que tous les produits ont un priceId
                 const itemsWithoutPriceId = cart.filter(item => !item.priceId);
