@@ -778,7 +778,7 @@ img {
   font-weight: 900 !important;
   color: #ffffff !important;
   line-height: 0.95 !important;
-  text-shadow: 4px 4px 16px rgba(0, 0, 0, 0.95), 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) !important;
   max-width: 800px !important;
   letter-spacing: -2px !important;
   margin: 0 !important;
