@@ -1430,3 +1430,45 @@ body {
     font-size: 0.95rem !important;
   }
 }
+
+/* ========================================
+   RESPONSIVE ACTE 2 - LAYOUT MAGAZINE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .about-section-magazine {
+        padding: 60px 15px !important;
+    }
+    
+    .magazine-container {
+        max-width: 100% !important;
+    }
+    
+    .parcours-section,
+    .philosophie-section,
+    .inspirations-section {
+        padding: 30px 20px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .parcours-section h2,
+    .philosophie-section h3,
+    .inspirations-section h3 {
+        font-size: 1.8rem !important;
+    }
+    
+    .photo-portrait {
+        float: none !important;
+        margin: 0 auto 20px auto !important;
+        width: 140px !important;
+    }
+    
+    .inspirations-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .story-modal {
+        padding: 30px 20px !important;
+    }
+}

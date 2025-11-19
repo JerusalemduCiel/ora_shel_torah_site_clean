@@ -304,112 +304,203 @@
         </div>
     </section>
 
-    <!-- ACTE 2: Notre Histoire (Layout épuré) -->
-    <section id="acte-2" class="section-createur about-section" style="position: relative; background: url('/images/hero3tresors.png') center/cover no-repeat; background-attachment: fixed; padding: 180px 20px 80px 20px !important;">
-        <div class="about-layout">
+    <!-- ACTE 2: Notre Histoire (Layout Magazine Moderne) -->
+    <section id="acte-2" class="section-createur about-section-magazine" style="position: relative; background: linear-gradient(rgba(245, 237, 220, 0.75), rgba(245, 237, 220, 0.75)), url('/images/hero3tresors.png') center/cover no-repeat; background-attachment: fixed; padding: 80px 20px; min-height: 100vh;">
+        
+        <div class="magazine-container" style="max-width: 1000px; margin: 0 auto;">
             
-            <!-- Layout 2 colonnes -->
-            <div class="about-columns">
+            <!-- SECTION 1 : MON PARCOURS -->
+            <article class="parcours-section" style="background: white; padding: 50px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 60px;">
                 
-                <!-- COLONNE GAUCHE : Photo + Bouton -->
-                <aside class="about-left">
-                    <div class="creator-photo-box">
-                        <img src="images/michael_lumbroso.png" alt="Michael Lumbroso">
+                <h2 style="font-family: 'Crimson Text', serif; font-size: 2.5rem; color: #eda234; text-align: center; margin-bottom: 3rem; line-height: 1.2;">
+                    Mon parcours : de l'éloignement à la lumière
+                </h2>
+                
+                <div class="parcours-content" style="position: relative;">
+                    
+                    <!-- Photo Michael (float gauche) -->
+                    <div class="photo-portrait" style="float: left; margin: 0 30px 20px 0; width: 160px;">
+                        <img src="images/michael_lumbroso.png" alt="Michael Lumbroso" style="width: 100%; border-radius: 50%; border: 4px solid #eda234; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+                        <p style="text-align: center; font-size: 0.85rem; color: #666; margin-top: 10px; font-style: italic; line-height: 1.3;">Michael Lumbroso<br><span style="font-size: 0.8rem;">Fondateur</span></p>
                     </div>
-                    <button class="btn-philosophy" data-action="play-video">
-                        🎬 Voir ma philosophie
-                    </button>
-                </aside>
-
-                <!-- COLONNE DROITE : Texte scrollable -->
-                <div class="about-right">
-                    <div class="story-modal" style="background: #ffffff !important; padding: 40px !important; border-radius: 12px !important; box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;">
-                        <p style="font-size: 1.4rem !important; font-weight: 700 !important; color: #eda234 !important; margin-bottom: 2rem !important; text-align: center !important; font-style: italic !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.3) !important;">
-                            Mon parcours : de l'éloignement à la lumière
-                        </p>
+                    
+                    <!-- Texte principal (3 premiers paragraphes) -->
+                    <div class="texte-intro" style="font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.8; color: #333;">
                         
-                        <!-- Section 1 -->
-                        <section class="story-block">
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">J'ai été un juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Un accident de la vie, un père malade… et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi. Et il répète inlassablement : « Tout est Don divin. » Je ne peux qu'être d'accord. Il est temps de remercier.</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Des mois d'étude ont suivi. Privilégié que j'étais d'entendre une parole claire, vivante, moderne.</p>
-                        </section>
+                        <p>J'ai été un juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
 
-                        <!-- Section 2 -->
-                        <section class="story-block">
-                            <h3 style="color: #eda234 !important; font-size: 1.5rem !important; margin-top: 2rem !important; font-weight: 600 !important;">La naissance d'un projet</h3>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">J'ai voulu transmettre cette lumière à mes enfants. Mais même dans une ville vivante, foisonnant de maîtres et de lieux d'étude, les supports restent compliqués. De lectures en dvar torah inspirés, l'immensité de mon inculture se confirme. Mais comment rattraper ces années perdues sans m'enfermer dans une Yeshiva ? Alors une idée naît…</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">D'abord celle d'un jeu de cartes à l'effigie des grands penseurs qui ont écrit notre histoire et nos textes saints. De grands sages en lieu et place de joueurs de foot sur des cartes PANINI 😊 Mais c'est insuffisant. J'ai envie de renouer avec l'Histoire, connaitre le sens des fêtes, comprendre la joie et la foi au dela des textes que je ne connais pas. Je lis, je visionne mais c'est un parcours individuel exigeant que je ne peux pas partager. Il doit y avoir un autre moyen … Pourquoi pas un jeu de société ?</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;"><strong style="color: #2c3e50 !important; font-weight: 700 !important;">C'est ainsi qu'est née Ora Shel Torah.</strong> Avec l'idée que la lumière de la Torah, la beauté et la grandeur du judaïsme, peuvent se transmettre autrement que par l'étude seule : par le jeu, le partage, et la joie d'apprendre ensemble.</p>
-                        </section>
+                        <p>Un accident de la vie, un père malade... et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
 
-                        <!-- Section 3 -->
-                        <section class="story-block">
-                            <h3 style="color: #eda234 !important; font-size: 1.5rem !important; margin-top: 2rem !important; font-weight: 600 !important;">Les signes du chemin</h3>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Il a fallu dépasser mes incompétences judaïques… et techniques. Les outils modernes m'ont donné accès à une source quasiment illimitée de données fondamentales, sourçables, vérifiables. Mais surtout D.ieu avait un plan pour moi… Un changement de vie forcé qui a libéré mon temps et mon énergie.</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Des signes… comme le numéro d'enregistrement de ma société : <strong style="color: #2c3e50 !important; font-weight: 700 !important;">« 770 »</strong> (l'adresse du Rabbi de Loubavitch) et un message dans une lettre posthume du Rabbi (Igrot Kodesh) m'encourageant à persévérer, et à ramener mes enfants avec moi…</p>
-                        </section>
+                        <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
 
-                        <!-- Section 4 -->
-                        <section class="story-block">
-                            <h3 style="color: #eda234 !important; font-size: 1.5rem !important; margin-top: 2rem !important; font-weight: 600 !important;">De l'idée à la réalité</h3>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Ces signes m'ont bouleversé. Ce n'était plus seulement mon projet — c'était une mission.</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Alors j'ai plongé dans une aventure que je ne maîtrisais pas : conceptualiser des jeux, apprendre les règles ludiques, collaborer avec des designers, trouver un fabricant, valider le contenu halakhique.</p>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Un an de travail acharné ont donné naissance à trois univers complémentaires :</p>
-                            
-                            <ul class="games-list-compact" style="color: #2c3e50 !important;">
-                                <li style="color: #2c3e50 !important; line-height: 1.6 !important;">🏛️ <strong style="color: #2c3e50 !important; font-weight: 700 !important;">Jérusalem du Ciel</strong> pour découvrir 3000 ans d'histoire</li>
-                                <li style="color: #2c3e50 !important; line-height: 1.6 !important;">⚖️ <strong style="color: #2c3e50 !important; font-weight: 700 !important;">Minhag ou Halakha</strong> pour comprendre la différence entre loi et coutume</li>
-                                <li style="color: #2c3e50 !important; line-height: 1.6 !important;">✨ <strong style="color: #2c3e50 !important; font-weight: 700 !important;">Poztamitsvah</strong> pour vivre 140 mitzvot au quotidien</li>
-                            </ul>
-                            
-                            <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;">Aujourd'hui, quand je vois des familles — éloignées ou pratiquantes — jouer ensemble, rire, débattre, et surtout transmettre sans contrainte, je sais que ce « 770 » n'était pas un hasard.</p>
-                        </section>
-
-                        <!-- Section 5 -->
-                        <section class="story-block final-block">
-                            <h3 style="color: #eda234 !important; font-size: 1.5rem !important; margin-top: 2rem !important; font-weight: 600 !important;">Le message que je veux transmettre</h3>
-                            
-                            <div class="quote-highlight">
-                                <p style="color: #2c3e50 !important; line-height: 1.8 !important; margin-bottom: 1rem !important;"><em style="color: #2c3e50 !important;">« Quel que soit votre âge, et quel que soit le seuil que vous franchirez — celui de l'étude traditionnelle ou celui du jeu — la lumière de la Torah est là, patiente, prête à illuminer votre voyage comme elle a transformé le mien. »</em></p>
-                            </div>
-                        </section>
-
+                        <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi...</p>
+                    
                     </div>
+                    
+                    <!-- Clear float -->
+                    <div style="clear: both;"></div>
+                    
+                    <!-- Bouton Lire la suite -->
+                    <button class="btn-lire-suite" style="display: block; margin: 2rem auto 0; padding: 14px 35px; background: #eda234; color: white; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(237,162,52,0.3);">
+                        Lire la version complète →
+                    </button>
+                
                 </div>
+            
+            </article>
 
+            <!-- SECTION 2 : NOTRE PHILOSOPHIE (VIDÉO) -->
+            <article class="philosophie-section" style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 60px; position: relative;">
+                
+                <h3 style="font-family: 'Crimson Text', serif; font-size: 2rem; color: #8B7355; text-align: center; margin-bottom: 2rem; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                    🎥 <span>Notre philosophie</span>
+                </h3>
+                
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); background: linear-gradient(135deg, #8B7355 0%, #6B5344 100%);">
+                    <iframe id="philosophy-video-frame" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <button class="btn-load-video" data-video-id="44nld3A8-Z8" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px 40px; background: rgba(237,162,52,0.95); color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: all 0.3s ease; z-index: 10;">
+                        ▶ Voir notre philosophie
+                    </button>
+                </div>
+            
+            </article>
+
+            <!-- SECTION 3 : NOS INSPIRATIONS -->
+            <article class="inspirations-section" style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
+                
+                <h3 style="font-family: 'Crimson Text', serif; font-size: 2rem; color: #eda234; text-align: center; margin-bottom: 1rem;">
+                    Nos inspirations
+                </h3>
+                
+                <p style="text-align: center; color: #666; font-size: 1rem; font-style: italic; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Au-delà des jeux, quelques portes d'entrée vers la beauté du judaïsme qui nous ont personnellement touchés
+                </p>
+                
+                <div class="inspirations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto;">
+                    
+                    <!-- CARTE 1 : LIVRE -->
+                    <div class="inspiration-card" style="background: #f9f9f9; padding: 25px; border-radius: 12px; border-left: 4px solid #eda234; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h4 style="font-family: 'Crimson Text', serif; font-size: 1.3rem; color: #eda234; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
+                            📚 <span>Facettes</span>
+                        </h4>
+                        <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-bottom: 1rem;">Par Rav Aryeh Kaplan</p>
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6; margin-bottom: 1.2rem;">Un livre qui ose poser les vraies questions avec une modernité saisissante et une écriture accessible.</p>
+                        <a href="https://www.amazon.fr/s?k=facettes+aryeh+kaplan" target="_blank" rel="noopener" style="display: inline-block; padding: 10px 20px; background: #eda234; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+                            Découvrir →
+                        </a>
+                    </div>
+                    
+                    <!-- CARTE 2 : MUSIQUE -->
+                    <div class="inspiration-card" style="background: #f9f9f9; padding: 25px; border-radius: 12px; border-left: 4px solid #8B7355; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h4 style="font-family: 'Crimson Text', serif; font-size: 1.3rem; color: #8B7355; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
+                            🎵 <span>Musique</span>
+                        </h4>
+                        
+                        <!-- Morceau 1 -->
+                        <div style="margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid #ddd;">
+                            <p style="font-size: 0.95rem; font-weight: 600; color: #333; margin-bottom: 0.3rem;">Tfilat Haderech</p>
+                            <p style="font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 0.8rem;">Par Yossi Azulay</p>
+                            <a href="https://www.youtube.com/watch?v=19FtbCzzsCw" target="_blank" rel="noopener" style="display: inline-block; padding: 8px 16px; background: #8B7355; color: white; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">
+                                ▶ Écouter
+                            </a>
+                        </div>
+                        
+                        <!-- Morceau 2 -->
+                        <div>
+                            <p style="font-size: 0.95rem; font-weight: 600; color: #333; margin-bottom: 0.3rem;">Le don de la vie</p>
+                            <p style="font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 0.8rem;">Par Neroline</p>
+                            <audio controls preload="metadata" style="width: 100%; height: 32px; margin-bottom: 0.8rem;">
+                                <source src="audio/le-don-de-la-vie.mp3" type="audio/mpeg">
+                            </audio>
+                            <a href="https://tinyurl.com/bdfjjksx" target="_blank" rel="noopener" style="display: inline-block; padding: 8px 16px; background: #8B7355; color: white; text-decoration: none; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">
+                                💾 Pré-sauvegarder
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- CARTE 3 : RAV -->
+                    <div class="inspiration-card" style="background: #f9f9f9; padding: 25px; border-radius: 12px; border-left: 4px solid #2c3e50; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h4 style="font-family: 'Crimson Text', serif; font-size: 1.3rem; color: #2c3e50; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
+                            🎙️ <span>Rav Elie Lemmel</span>
+                        </h4>
+                        <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-bottom: 1rem;">Association Lev</p>
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6; margin-bottom: 1.2rem;">Un enseignant dont la clarté pédagogique illumine les textes de la Torah avec chaleur et profondeur.</p>
+                        <a href="https://www.youtube.com/@associationlev" target="_blank" rel="noopener" style="display: inline-block; padding: 10px 20px; background: #2c3e50; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;">
+                            🎧 Découvrir →
+                        </a>
+                    </div>
+                
+                </div>
+            
+            </article>
+        
+        </div>
+
+        <!-- MODAL TEXTE COMPLET -->
+        <div class="story-modal-overlay" id="story-full" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; overflow-y: auto; padding: 40px 20px;">
+            <div class="story-modal" style="max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 16px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+                
+                <button class="close-story" aria-label="Fermer" style="position: absolute; top: 20px; right: 20px; background: transparent; border: none; font-size: 2.5rem; color: #666; cursor: pointer; line-height: 1; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: color 0.3s ease;">×</button>
+                
+                <p style="font-size: 1.4rem; font-weight: 700; color: #eda234; margin-bottom: 2rem; text-align: center; font-family: 'Crimson Text', serif;">
+                    Mon parcours : de l'éloignement à la lumière
+                </p>
+                
+                <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.8; color: #333;">
+                    
+                    <p>J'ai été un juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
+
+                    <p>Un accident de la vie, un père malade... et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
+
+                    <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
+
+                    <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi. Et il répète inlassablement : « Tout est don divin. » Je ne peux qu'être d'accord. Il est temps de remercier.</p>
+
+                    <p>Des mois d'étude ont suivi. Privilégié que j'étais d'entendre une parole claire, vivante, moderne.</p>
+
+                    <p>Et puis l'idée : et si, pour transmettre cette lumière à mes enfants — pour enseigner, rassembler, rire, débattre, et surtout transmettre sans contrainte, je créais ce que « 770 » n'était pas ou n'était plus — un havre ?</p>
+
+                    <p>Aujourd'hui, quand je vois des familles — éloignées, laïques, ou pratiquantes — jouer ensemble, rire, découvrir la richesse de la Torah, je sais qu'« Ora Shel Torah » est exactement ce qu'il fallait être.</p>
+
+                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">La naissance d'un projet</h3>
+                    
+                    <p>J'ai voulu transmettre cette lumière à mes enfants. Mais même dans une ville vivante, foisonnant de maîtres et de lieux d'étude, les supports restent compliqués. De lectures en dvar torah inspirés, l'immensité de mon inculture se confirme. Mais comment rattraper ces années perdues sans m'enfermer dans une Yeshiva ? Alors une idée naît…</p>
+                    
+                    <p>D'abord celle d'un jeu de cartes à l'effigie des grands penseurs qui ont écrit notre histoire et nos textes saints. De grands sages en lieu et place de joueurs de foot sur des cartes PANINI 😊 Mais c'est insuffisant. J'ai envie de renouer avec l'Histoire, connaitre le sens des fêtes, comprendre la joie et la foi au dela des textes que je ne connais pas. Je lis, je visionne mais c'est un parcours individuel exigeant que je ne peux pas partager. Il doit y avoir un autre moyen … Pourquoi pas un jeu de société ?</p>
+                    
+                    <p><strong>C'est ainsi qu'est née Ora Shel Torah.</strong> Avec l'idée que la lumière de la Torah, la beauté et la grandeur du judaïsme, peuvent se transmettre autrement que par l'étude seule : par le jeu, le partage, et la joie d'apprendre ensemble.</p>
+
+                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">Les signes du chemin</h3>
+                    
+                    <p>Il a fallu dépasser mes incompétences judaïques… et techniques. Les outils modernes m'ont donné accès à une source quasiment illimitée de données fondamentales, sourçables, vérifiables. Mais surtout D.ieu avait un plan pour moi… Un changement de vie forcé qui a libéré mon temps et mon énergie.</p>
+                    
+                    <p>Des signes… comme le numéro d'enregistrement de ma société : <strong>« 770 »</strong> (l'adresse du Rabbi de Loubavitch) et un message dans une lettre posthume du Rabbi (Igrot Kodesh) m'encourageant à persévérer, et à ramener mes enfants avec moi…</p>
+
+                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">De l'idée à la réalité</h3>
+                    
+                    <p>Ces signes m'ont bouleversé. Ce n'était plus seulement mon projet — c'était une mission.</p>
+                    
+                    <p>Alors j'ai plongé dans une aventure que je ne maîtrisais pas : conceptualiser des jeux, apprendre les règles ludiques, collaborer avec des designers, trouver un fabricant, valider le contenu halakhique.</p>
+                    
+                    <p>Un an de travail acharné ont donné naissance à trois univers complémentaires :</p>
+                    
+                    <ul style="color: #333; line-height: 1.8; margin-bottom: 1rem; padding-left: 1.5rem;">
+                        <li>🏛️ <strong>Jérusalem du Ciel</strong> pour découvrir 3000 ans d'histoire</li>
+                        <li>⚖️ <strong>Minhag ou Halakha</strong> pour comprendre la différence entre loi et coutume</li>
+                        <li>✨ <strong>Poztamitsvah</strong> pour vivre 140 mitzvot au quotidien</li>
+                    </ul>
+                    
+                    <p>Aujourd'hui, quand je vois des familles — éloignées ou pratiquantes — jouer ensemble, rire, débattre, et surtout transmettre sans contrainte, je sais que ce « 770 » n'était pas un hasard.</p>
+
+                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">Le message que je veux transmettre</h3>
+                    
+                    <p style="font-style: italic; color: #333; line-height: 1.8; margin-bottom: 1rem;">« Quel que soit votre âge, et quel que soit le seuil que vous franchirez — celui de l'étude traditionnelle ou celui du jeu — la lumière de la Torah est là, patiente, prête à illuminer votre voyage comme elle a transformé le mien. »</p>
+                
+                </div>
+            
             </div>
         </div>
 
-        <!-- Section vidéo cachée (à révéler au clic) -->
-        <div class="video-container" id="video-philosophy" style="display: none;">
-            <div class="video-wrapper">
-                <button class="video-close" aria-label="Fermer la vidéo">×</button>
-                <div class="video-iframe-wrapper">
-                    <iframe 
-                        src="https://www.youtube.com/embed/44nld3A8-Z8" 
-                        title="Ma Philosophie - Pourquoi j'ai créé Ora Shel Torah" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- SECTION DE TRANSITION : De la lumière aux jeux -->
@@ -3077,6 +3168,61 @@
             if (userTypeSelect) {
                 userTypeSelect.addEventListener('change', toggleConditionalFields);
             }
+        });
+    </script>
+
+    <!-- Script pour Acte 2 - Layout Magazine -->
+    <script>
+        // Bouton "Lire la version complète"
+        const btnLireSuite = document.querySelector('.btn-lire-suite');
+        const storyFull = document.getElementById('story-full');
+        const closeStory = document.querySelector('.close-story');
+
+        if (btnLireSuite && storyFull) {
+            btnLireSuite.addEventListener('click', function() {
+                storyFull.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (closeStory && storyFull) {
+            closeStory.addEventListener('click', function() {
+                storyFull.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+            
+            // Fermer en cliquant en dehors
+            storyFull.addEventListener('click', function(e) {
+                if (e.target === storyFull) {
+                    storyFull.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Bouton vidéo philosophie
+        const btnLoadVideo = document.querySelector('.btn-load-video');
+        const videoFrame = document.getElementById('philosophy-video-frame');
+
+        if (btnLoadVideo && videoFrame) {
+            btnLoadVideo.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video-id');
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                this.style.display = 'none';
+            });
+        }
+
+        // Effet hover sur cartes inspirations
+        const inspirationCards = document.querySelectorAll('.inspiration-card');
+        inspirationCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
         });
     </script>
 </body>
