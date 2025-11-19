@@ -147,87 +147,186 @@
         }
         
         @media (max-width: 768px) {
-            /* Force tout à tenir dans l'écran */
+            /* ========== CENTRAGE FORCÉ GLOBAL ========== */
+            
+            /* Force TOUT à être centré par défaut */
             body {
                 padding: 0 !important;
                 margin: 0 !important;
+                text-align: center !important;
             }
             
-            /* Hero - Textes centrés et réduits */
+            /* ========== HERO SLIDER (ACTE 1) ========== */
+            
+            .hero-slider {
+                text-align: center !important;
+            }
+            
+            .slide {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            
             .slide-content {
                 padding: 20px !important;
                 text-align: center !important;
                 width: 100% !important;
+                margin: 0 auto !important;
+                display: block !important;
             }
+            
+            .slide-supertitle,
+            .slide-mantra,
+            .slide-main-value,
+            .slide-description {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
             .slide-main-value {
                 font-size: 2rem !important;
             }
+            
             .slide-description {
                 font-size: 0.95rem !important;
                 padding: 0 15px !important;
             }
             
-            /* Acte 2 - Magazine */
+            .btn-primary {
+                margin: 20px auto !important;
+                display: block !important;
+                width: fit-content !important;
+            }
+            
+            .creator-badge {
+                left: 50% !important;
+                transform: translateX(-50%) scale(0.85) !important;
+            }
+            
+            /* ========== ACTE 2 - MAGAZINE ========== */
+            
             .magazine-container {
                 padding: 0 15px !important;
                 width: 100% !important;
+                text-align: center !important;
             }
+            
             .parcours-section,
             .philosophie-section,
             .inspirations-section {
                 padding: 20px !important;
                 margin: 20px 0 !important;
                 width: 100% !important;
+                text-align: left !important;
             }
+            
             .photo-portrait {
                 float: none !important;
                 margin: 0 auto 20px !important;
                 width: 150px !important;
+                display: block !important;
             }
+            
             .inspirations-grid {
                 grid-template-columns: 1fr !important;
                 gap: 20px !important;
+                text-align: center !important;
             }
             
-            /* Acte 3 - Showcase jeux */
+            /* ========== ACTE 3 - SHOWCASE JEUX ========== */
+            
             .jeux-showcase {
                 padding: 40px 15px !important;
+                text-align: center !important;
             }
+            
             .section-title {
                 font-size: 1.6rem !important;
                 text-align: center !important;
+                margin: 0 auto 30px !important;
             }
+            
+            .showcase-window {
+                width: 100% !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                justify-content: center !important;
+            }
+            
+            .showcase-slider {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: center !important;
+            }
+            
             .jeu-slide {
                 flex-direction: column !important;
                 padding: 20px !important;
                 text-align: center !important;
+                align-items: center !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                justify-content: center !important;
             }
+            
             .jeu-visual {
                 width: 200px !important;
                 max-width: 200px !important;
                 margin: 0 auto 20px !important;
+                display: block !important;
             }
+            
+            .jeu-visual img {
+                width: 100% !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            
             .jeu-info {
                 width: 100% !important;
                 padding: 0 15px !important;
                 text-align: center !important;
-            }
-            .jeu-title {
-                font-size: 1.5rem !important;
-            }
-            .btn-discover {
-                width: 90% !important;
-                max-width: 250px !important;
-                margin: 15px auto !important;
+                margin: 0 auto !important;
             }
             
-            /* Navigation et boutons */
+            .jeu-title {
+                font-size: 1.5rem !important;
+                text-align: center !important;
+                margin: 0 auto 10px !important;
+            }
+            
+            .jeu-tagline {
+                font-size: 0.95rem !important;
+                text-align: center !important;
+                margin: 0 auto 15px !important;
+            }
+            
+            .btn-discover {
+                width: 80% !important;
+                max-width: 250px !important;
+                margin: 15px auto !important;
+                display: block !important;
+            }
+            
+            /* Cacher les flèches navigation */
+            .slider-arrow {
+                display: none !important;
+            }
+            
             .slider-nav {
                 width: 35px !important;
                 height: 35px !important;
             }
-            .slider-arrow {
-                display: none !important;
+            
+            /* Dots centrés */
+            .slider-dots,
+            .showcase-dots {
+                text-align: center !important;
+                display: flex !important;
+                justify-content: center !important;
+                margin: 20px auto !important;
             }
         }
     </style>
