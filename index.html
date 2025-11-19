@@ -333,17 +333,12 @@
 
                         <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
 
-                        <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi...</p>
+                        <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi... <a href="#" class="lien-voir-plus" style="color: #eda234; font-weight: 600; text-decoration: none; cursor: pointer; border-bottom: 1px solid #eda234;">voir plus</a></p>
                     
                     </div>
                     
                     <!-- Clear float -->
                     <div style="clear: both;"></div>
-                    
-                    <!-- Bouton Lire la suite -->
-                    <button class="btn-lire-suite" style="display: block; margin: 2rem auto 0; padding: 14px 35px; background: #eda234; color: white; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(237,162,52,0.3);">
-                        Lire la version complète →
-                    </button>
                 
                 </div>
             
@@ -356,10 +351,19 @@
                     🎥 <span>Notre philosophie</span>
                 </h3>
                 
-                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); background: linear-gradient(135deg, #8B7355 0%, #6B5344 100%);">
-                    <iframe id="philosophy-video-frame" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <button class="btn-load-video" data-video-id="44nld3A8-Z8" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px 40px; background: rgba(237,162,52,0.95); color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: all 0.3s ease; z-index: 10;">
-                        ▶ Voir notre philosophie
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); cursor: pointer;">
+                    <!-- Miniature YouTube -->
+                    <img src="https://img.youtube.com/vi/44nld3A8-Z8/maxresdefault.jpg" alt="Notre philosophie" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    
+                    <!-- Overlay sombre au survol -->
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); transition: background 0.3s ease;"></div>
+                    
+                    <!-- Iframe cachée -->
+                    <iframe id="philosophy-video-frame" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: none;" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                    <!-- Bouton play centré -->
+                    <button class="btn-load-video" data-video-id="44nld3A8-Z8" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(237,162,52,0.95); color: white; border: none; border-radius: 50%; font-size: 2rem; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: all 0.3s ease; z-index: 10; display: flex; align-items: center; justify-content: center; padding-left: 8px;">
+                        ▶
                     </button>
                 </div>
             
@@ -3173,13 +3177,14 @@
 
     <!-- Script pour Acte 2 - Layout Magazine -->
     <script>
-        // Bouton "Lire la version complète"
-        const btnLireSuite = document.querySelector('.btn-lire-suite');
+        // Lien "voir plus"
+        const btnLireSuite = document.querySelector('.lien-voir-plus');
         const storyFull = document.getElementById('story-full');
         const closeStory = document.querySelector('.close-story');
 
         if (btnLireSuite && storyFull) {
-            btnLireSuite.addEventListener('click', function() {
+            btnLireSuite.addEventListener('click', function(e) {
+                e.preventDefault();
                 storyFull.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             });
@@ -3207,8 +3212,18 @@
         if (btnLoadVideo && videoFrame) {
             btnLoadVideo.addEventListener('click', function() {
                 const videoId = this.getAttribute('data-video-id');
-                videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                const wrapper = this.closest('.video-wrapper');
+                const thumbnail = wrapper.querySelector('img');
+                const overlay = wrapper.querySelector('div[style*="background: rgba(0,0,0,0.3)"]');
+                
+                // Cacher miniature, overlay et bouton
+                if (thumbnail) thumbnail.style.display = 'none';
+                if (overlay) overlay.style.display = 'none';
                 this.style.display = 'none';
+                
+                // Afficher et lancer la vidéo
+                videoFrame.style.display = 'block';
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
             });
         }
 
