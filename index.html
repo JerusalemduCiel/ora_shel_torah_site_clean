@@ -136,6 +136,131 @@
     }
     </script>
     
+    <!-- ======================================== 
+         SCHEMA MARKUP JSON-LD POUR SEO
+         ======================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://orasheltorah.fr/#organization",
+          "name": "Ora Shel Torah",
+          "url": "https://orasheltorah.fr",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://orasheltorah.fr/imgs/logo.png",
+            "width": 400,
+            "height": 400
+          },
+          "description": "Créateur de jeux éducatifs juifs pour transmettre la Torah en famille",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+          },
+          "sameAs": [
+            "https://www.instagram.com/orasheltorah",
+            "https://www.facebook.com/orasheltorah"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://orasheltorah.fr/#website",
+          "url": "https://orasheltorah.fr",
+          "name": "Ora Shel Torah - Jeux éducatifs juifs",
+          "publisher": {
+            "@id": "https://orasheltorah.fr/#organization"
+          },
+          "inLanguage": "fr-FR"
+        },
+        {
+          "@type": "Product",
+          "@id": "https://orasheltorah.fr/#product-jdc",
+          "name": "Jérusalem du Ciel",
+          "description": "Un jeu collaboratif qui retrace 3000 ans d'histoire juive à travers les âges",
+          "brand": {
+            "@id": "https://orasheltorah.fr/#organization"
+          },
+          "image": "https://orasheltorah.fr/imgs/jeux/jdc-box.png",
+          "offers": {
+            "@type": "Offer",
+            "price": "89.90",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://orasheltorah.fr/#jeux",
+            "priceValidUntil": "2026-12-31"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "12"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://orasheltorah.fr/#product-moh",
+          "name": "Minhag ou Halakha",
+          "description": "Un jeu pour distinguer les lois religieuses des coutumes juives",
+          "brand": {
+            "@id": "https://orasheltorah.fr/#organization"
+          },
+          "image": "https://orasheltorah.fr/imgs/jeux/moh-box.png",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.90",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://orasheltorah.fr/#jeux",
+            "priceValidUntil": "2026-12-31"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://orasheltorah.fr/#product-poz",
+          "name": "Poztamitzvah",
+          "description": "Découvrez les mitzvot dans des situations du quotidien",
+          "brand": {
+            "@id": "https://orasheltorah.fr/#organization"
+          },
+          "image": "https://orasheltorah.fr/imgs/jeux/poz-box.png",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.90",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://orasheltorah.fr/#jeux",
+            "priceValidUntil": "2026-12-31"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://orasheltorah.fr/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://orasheltorah.fr"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Nos Jeux",
+              "item": "https://orasheltorah.fr/#jeux"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Boutique",
+              "item": "https://orasheltorah.fr/#cta-final"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
 </head>
 <body>
 
