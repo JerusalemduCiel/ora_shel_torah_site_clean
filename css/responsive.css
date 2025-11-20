@@ -1,1484 +1,46 @@
-/* ========================================
-   ORA SHEL TORAH - RESPONSIVE DESIGN
-   ======================================== */
+/* ============================================================
+   RESPONSIVE MOBILE - VERSION PROPRE ET DÉFINITIVE
+   ============================================================
+   Date: 2025-01-20
+   Description: CSS responsive unifié pour mobile (< 768px)
+   Sections couvertes: Hero Slider, Magazine, Showcase Jeux
+   ============================================================ */
 
-html {
-  overflow-x: hidden;
-  max-width: 100vw;
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  overflow-x: hidden;
-  max-width: 100vw;
-  position: relative;
-}
-
-/* ========================================
-   SECTION PHILOSOPHIE - RESPONSIVE MOBILE
-   ======================================== */
-
-/* Desktop : affichage côte à côte (comportement par défaut) */
-.philosophy-slide {
-  flex: 1;
-  position: relative;
-}
-
-.mobile-nav-arrow {
-  display: none; /* Caché sur desktop */
-}
-
-/* MOBILE : Carrousel avec flèches de navigation */
-@media (max-width: 768px) {
-  .video-philosophy-container {
-    position: relative;
-    overflow: visible;
-    display: block;
-    height: auto !important;
-    max-height: none !important;
-  }
-  
-  .philosophy-slide {
-    display: none; /* Cacher tous les slides par défaut */
-    width: 100%;
-    padding: 1rem;
-    min-height: auto;
-  }
-  
-  /* Afficher uniquement le slide actif */
-  .philosophy-slide[data-slide="0"] {
-    display: block;
-  }
-  
-  .video-philosophy-container[data-mobile-slide="1"] .philosophy-slide[data-slide="0"] {
-    display: none;
-  }
-  
-  .video-philosophy-container[data-mobile-slide="1"] .philosophy-slide[data-slide="1"] {
-    display: block;
-  }
-  
-  /* Styles des flèches de navigation */
-  .mobile-nav-arrow {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    background: rgba(237, 162, 52, 0.9);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10001;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  
-  .mobile-nav-arrow:hover {
-    background: rgba(237, 162, 52, 1);
-    transform: scale(1.1);
-  }
-  
-  .mobile-nav-arrow span {
-    font-size: 1.5rem;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .arrow-next {
-    right: 20px;
-  }
-  
-  .arrow-prev {
-    left: 20px;
-  }
-  
-  /* Ajuster le texte fondateur sur mobile */
-  .founder-intro-text {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  
-  /* S'assurer que le bouton "Lire l'histoire complète" est visible */
-  .philosophy-slide.text-slide .cta-below-summary {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  .philosophy-slide.text-slide .btn-read-more {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  .cta-below-video {
-    margin-top: 1.5rem;
-  }
-  
-  /* S'assurer que les slides ne cachent pas le bouton */
-  .philosophy-slide.text-slide {
-    overflow: visible !important;
-    min-height: auto !important;
-  }
-  
-  .video-philosophy-container {
-    overflow: visible !important;
-  }
-  
-  .founder-intro-text h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .founder-intro-photo {
-    max-width: 150px;
-    margin: 0 auto 1rem;
-  }
-  
-  /* Container scrollable pour le texte - SOLUTION ROBUSTE POUR ANDROID */
-  .philosophy-slide.text-slide {
-    position: relative !important;
-    display: block !important;
-    height: auto !important; /* Auto pour permettre au bouton d'être visible */
-    min-height: calc(100vh - 80px) !important;
-    max-height: none !important;
-    overflow: visible !important; /* Visible pour permettre au bouton d'être affiché */
-    padding: 0 !important;
-    padding-bottom: 2rem !important; /* Espace pour le bouton */
-    margin: 0 !important;
-  }
-  
-  /* FONDER-INTRO devient le container scrollable - CRITIQUE */
-  .philosophy-slide.text-slide .founder-intro {
-    flex: none !important;
-    width: 100% !important;
-    height: calc(100vh - 200px) !important; /* Réduit pour laisser place au bouton */
-    max-height: calc(100vh - 200px) !important;
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding: 1rem !important;
-    padding-bottom: 1rem !important;
-    margin: 0 !important;
-    margin-bottom: 1rem !important; /* Espace avant le bouton */
-    display: block !important;
-    scrollbar-width: thin !important;
-    scrollbar-color: rgba(237, 162, 52, 0.9) rgba(0, 0, 0, 0.2) !important;
-    box-sizing: border-box !important;
-    /* Annuler tous les styles desktop */
-    background: white !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    gap: 1rem !important;
-  }
-  
-  /* Forcer la scrollbar VISIBLE en permanence sur Android/Chrome */
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar {
-    width: 12px !important;
-    display: block !important;
-    -webkit-appearance: none !important;
-    background-color: rgba(0, 0, 0, 0.1) !important;
-  }
-  
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.15) !important;
-    border-radius: 10px !important;
-    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.3) !important;
-    margin: 5px 0 !important;
-  }
-  
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-thumb {
-    background: rgba(237, 162, 52, 0.95) !important;
-    border-radius: 10px !important;
-    border: 2px solid rgba(255, 255, 255, 0.4) !important;
-    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.5) !important;
-    min-height: 40px !important;
-  }
-  
-  .philosophy-slide.text-slide .founder-intro::-webkit-scrollbar-thumb:hover {
-    background: rgba(237, 162, 52, 1) !important;
-  }
-  
-  /* Assurer que le contenu peut dépasser */
-  .philosophy-slide.text-slide .founder-intro-text {
-    height: auto !important;
-    min-height: auto !important;
-    overflow: visible !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .revelation-mobile-nav,
-  .revelation-mobile-dots {
-    display: none !important;
-  }
-
-  .revelation-card,
-  .revelation-card.active,
-  .revelation-card.prev-card,
-  .revelation-card.next-card,
-  .revelation-card.hidden {
-    position: relative !important;
-    display: flex !important;
-    opacity: 1 !important;
-    transform: none !important;
-    z-index: auto !important;
-    pointer-events: auto !important;
-    filter: none !important;
-  }
-
-  .revelation-boxes-wrapper {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 2rem !important;
-    height: auto !important;
-    perspective: none !important;
-    overflow: visible !important;
-  }
-
-  .revelation-card {
-    position: relative;
-    flex: 0 0 auto;
-    width: auto;
-    max-width: 350px;
-  }
-
-  .revelation-icon-container {
-    width: 100% !important;
-    max-width: 300px !important;
-    height: auto !important;
-    max-height: 350px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .revelation-icon {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 350px !important;
-    object-fit: contain !important;
-    filter: none !important;
-  }
-
-  .revelation-text {
-    display: block !important;
-    opacity: 1 !important;
-  }
-}
-
-/* Mobile First Approach */
-
-/* Base styles = Mobile (< 768px) */
-@media (max-width: 767px) {
-  /* Container */
-  .container {
-    padding: 0 var(--space-md);
-  }
-
-  /* Header Responsive Mobile */
-  .header-container {
-    height: 60px;
-    padding: 0 1rem;
-  }
-
-  .site-header.scrolled-down .header-container {
-    height: 80px;
-  }
-
-  .site-header.at-top .header-container {
-    height: 55px;
-  }
-
-  .header-logo {
-    height: 50px; /* Logo mobile plus grand */
-    max-height: 50px;
-  }
-
-  .site-header.scrolled-down .header-logo {
-    height: 50px; /* Logo mobile plus grand */
-    max-height: 50px;
-  }
-
-  .site-header.at-top .header-logo {
-    height: 50px; /* Logo mobile plus grand */
-    max-height: 50px;
-  }
-
-  .header-subtitle {
-    font-size: 0.65rem;
-  }
-
-  .header-nav {
-    display: none; /* Utiliser burger menu si nécessaire */
-  }
-
-  .header-actions {
-    gap: var(--space-sm);
-  }
-
-  .btn-preorder {
-    padding: var(--space-xs) var(--space-md);
-    font-size: var(--text-sm);
-  }
-
-  /* Hero */
-  .hero-logo img {
-    height: 120px;
-    max-width: 250px;
-  }
-
-  .hero-title {
-    font-size: var(--text-4xl);
-    letter-spacing: 1px;
-  }
-
-  .hero-subtitle {
-    font-size: var(--text-lg);
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .btn-primary, .btn-secondary {
-    padding: var(--space-md) var(--space-lg);
-    font-size: var(--text-base);
-  }
-
-  /* Sections */
-  .section-header h2 {
-    font-size: var(--text-3xl);
-  }
-
-  /* Triple Split */
-  .triple-split-container {
-    flex-direction: column;
-    height: auto;
-    margin: var(--space-xl) 0;
-  }
-
-  .split-panel {
-    height: 200px;
-    flex: none;
-  }
-
-  .split-panel:hover {
-    flex: none;
-    height: 220px;
-  }
-
-  .panel-content h3 {
-    font-size: var(--text-2xl);
-  }
-
-  .panel-content p {
-    font-size: var(--text-base);
-  }
-
-  /* Hero Bis */
-  .hero-bis-content h2 {
-    font-size: var(--text-3xl);
-  }
-
-  .hero-bis-subtitle {
-    font-size: var(--text-lg);
-  }
-
-  /* Acte 4 - Révélation - CARROUSEL MOBILE 3D */
-  #revelation-trilogie {
-    padding-top: var(--space-2xl);
-    position: relative;
-  }
-
-  .revelation-boxes-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: clamp(340px, 50vh, 460px);
-    padding: 3rem 0 5rem;
-    overflow: visible;
-    perspective: 1200px;
-  }
-
-  .revelation-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.55);
-    transform-origin: center;
-    opacity: 0;
-    pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    width: 100%;
-    max-width: calc(100vw - 80px);
-    padding: 0;
-    text-align: center;
-    filter: brightness(0.65) blur(1px);
-    transition:
-      transform 0.45s ease,
-      opacity 0.45s ease,
-      filter 0.45s ease;
-    z-index: 0;
-  }
-
-  .revelation-card.active {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-    filter: none;
-    z-index: 3;
-  }
-
-  .revelation-card.prev-card {
-    opacity: 0.65;
-    transform: translate(calc(-50% - 60%), -50%) scale(0.78) rotateY(12deg);
-    filter: blur(0.5px);
-    z-index: 2;
-  }
-
-  .revelation-card.next-card {
-    opacity: 0.65;
-    transform: translate(calc(-50% + 60%), -50%) scale(0.78) rotateY(-12deg);
-    filter: blur(0.5px);
-    z-index: 2;
-  }
-
-  .revelation-card.hidden {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.4);
-    filter: blur(3px);
-    z-index: 1;
-  }
-
-  .revelation-card.hidden .revelation-text {
-    opacity: 0;
-  }
-
-  .revelation-icon-container {
-    width: 100%;
-    max-width: calc(100vw - 80px);
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .revelation-icon {
-    width: 100%;
-    height: auto;
-    max-height: 40vh;
-    object-fit: contain;
-    transition: transform 0.45s ease;
-  }
-
-  .revelation-card.prev-card .revelation-icon,
-  .revelation-card.next-card .revelation-icon {
-    max-height: 32vh;
-  }
-
-  .revelation-text {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-top: 1rem;
-    color: var(--color-gold);
-    transition: opacity 0.3s ease;
-  }
-
-  .revelation-mobile-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    padding: 0 1rem;
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  .revelation-nav-btn {
-    pointer-events: auto;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(237, 162, 52, 0.9);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  .revelation-nav-btn:hover {
-    background: rgba(237, 162, 52, 1);
-    transform: scale(1.1);
-  }
-
-  .revelation-nav-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-
-  .revelation-mobile-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-  }
-
-  .revelation-card.prev-card .revelation-text,
-  .revelation-card.next-card .revelation-text {
-    opacity: 0.6;
-  }
-
-  .revelation-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(212, 175, 55, 0.3);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .revelation-dot.is-active {
-    background: var(--color-gold);
-    transform: scale(1.3);
-  }
-
-  .hero-bis-actions {
-    flex-direction: column;
-    gap: var(--space-md);
-    max-width: 90% !important;
-    margin: 0 auto !important;
-    justify-items: center !important;
-  }
-
-  .hero-bis-actions .btn-modal {
-    padding: var(--space-sm) var(--space-lg);
-    font-size: var(--text-base);
-  }
-
-  /* Boîtes de jeux */
-  .boxes-container {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xl);
-  }
-
-  .game-box {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .box-inner img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .box-glow {
-    width: 200px;
-    height: 200px;
-  }
-
-  /* Démos */
-  .demos-grid {
-    gap: var(--space-xl);
-  }
-
-  .demo-card iframe {
-    height: 400px;
-  }
-
-  /* Produits */
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .product-card.featured {
-    transform: none;
-  }
-
-  .product-specs {
-    justify-content: center;
-  }
-
-  /* Panier */
-  .cart-sidebar {
-    width: 100%;
-    right: -100%;
-  }
-
-  .cart-item {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .cart-item-quantity {
-    justify-content: center;
-  }
-
-  .cart-actions {
-    flex-direction: column;
-  }
-
-  /* Modales */
-  .modal-hero {
-    padding: 1rem;
-    width: 95vw;
-    max-width: 500px;
-  }
-
-  .modal-content {
-    flex-direction: column;
-    padding: 1.5rem;
-  }
-
-  .modal-hero-image {
-    flex: none;
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .modal-content-text {
-    flex: none;
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .modal-actions {
-    gap: var(--space-sm);
-  }
-
-  .btn-modal {
-    padding: var(--space-md);
-  }
-
-  .btn-modal .icon {
-    font-size: var(--text-lg);
-  }
-
-  .btn-modal .label {
-    font-size: var(--text-sm);
-  }
-
-  .btn-modal .sublabel {
-    font-size: var(--text-xs);
-  }
-
-  /* Footer */
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  /* Statistiques */
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .stat-number {
-    font-size: var(--text-4xl);
-  }
-
-  /* Témoignages */
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .testimonial-author {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* Partenaires */
-  .partners-logos {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
-  /* Trust signals */
-  .trust-signals {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
-  /* Animations réduites sur mobile */
-  .particles-container {
-    display: none;
-  }
-
-  .hebrew-letters {
-    display: none;
-  }
-
-  .box-glow {
-    animation: none;
-  }
-
-  .game-box.fall-animation {
-    animation: boxFallMobile 0.5s ease-out forwards;
-  }
-
-  @keyframes boxFallMobile {
-    0% {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-}
-
-/* ========================================
-   TABLETTES ET FOLD 7 OUVERT
-   DOUBLE DÉTECTION : largeur OU aspect-ratio
-   ======================================== */
-@media (min-width: 769px) and (max-width: 1100px),
-       (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/4) and (min-width: 700px) {
-  /* Annuler TOUTES les règles mobile */
-  .video-philosophy-container {
-    display: flex !important;
-    flex-direction: column !important;
-    overflow: visible !important;
-    height: auto !important;
-    max-height: none !important;
-  }
-
-  /* Les slides ne sont PAS masqués sur tablette/Fold */
-  .philosophy-slide {
-    display: block !important;
-    width: 100% !important;
-    min-height: auto !important;
-    max-height: none !important;
-    height: auto !important;
-    padding: 2rem 1rem !important;
-  }
-
-  .philosophy-slide.video-slide,
-  .philosophy-slide.text-slide {
-    display: block !important;
-  }
-
-  /* CACHER les flèches mobile */
-  .mobile-nav-arrow {
-    display: none !important;
-  }
-
-  /* FOUNDER INTRO - Structure complète visible */
-  .founder-intro {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    max-width: 900px !important;
-    margin: 0 auto !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 2rem !important;
-    background: transparent !important;
-  }
-
-  /* Photo centrée */
-  .founder-intro-photo {
-    display: block !important;
-    width: 100% !important;
-    max-width: 280px !important;
-    margin: 0 auto 2rem !important;
-    flex: none !important;
-  }
-
-  .founder-intro-photo img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 12px !important;
-  }
-
-  /* Texte complet et scrollable */
-  .founder-intro-text {
-    display: block !important;
-    width: 100% !important;
-    max-width: 800px !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    margin: 0 auto !important;
-    flex: none !important;
-  }
-
-  .founder-intro-text h3 {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    font-size: 2rem !important;
-    margin-bottom: 1.5rem !important;
-    color: var(--color-text-dark) !important;
-  }
-
-  .founder-intro-text p {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    margin-bottom: 1.2rem !important;
-    line-height: 1.8 !important;
-    font-size: 1.1rem !important;
-  }
-
-  .founder-intro-text .message-final {
-    display: block !important;
-    margin-top: 2rem !important;
-    padding: 1.5rem !important;
-    background: rgba(237, 162, 52, 0.1) !important;
-    border-left: 4px solid var(--color-gold) !important;
-    border-radius: 8px !important;
-  }
-
-  /* BOUTON VISIBLE ET CENTRÉ */
-  .cta-below-summary {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    margin-top: 3rem !important;
-    margin-bottom: 2rem !important;
-    justify-content: center !important;
-    width: 100% !important;
-  }
-
-  .btn-story-cta {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    align-items: center !important;
-    gap: 1rem !important;
-    padding: 1.2rem 2rem !important;
-  }
-
-  /* Acte 4 - Révélation */
-  .revelation-boxes-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .revelation-video-wrapper {
-    aspect-ratio: 9/16;
-    max-width: 250px;
-    max-height: 450px;
-    flex: 0 0 auto;
-  }
-
-  .revelation-video-wrapper video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #000;
-  }
-}
-
-/* Tablet (≥ 768px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    max-width: 720px;
-  }
-
-  .hero-title {
-    font-size: var(--text-5xl);
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .boxes-container {
-    gap: var(--space-xl);
-  }
-
-  .game-box {
-    flex: 1;
-    max-width: 250px;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .trust-signals {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .modal-hero-image {
-    max-width: 400px;
-  }
-
-  .modal-content {
-    max-width: 400px;
-  }
-}
-
-/* Desktop (≥ 1024px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .container {
-    max-width: 960px;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .modal-hero {
-    padding: var(--space-2xl);
-  }
-
-  .modal-hero-image {
-    max-width: 500px;
-  }
-
-  .modal-content {
-    max-width: 450px;
-  }
-
-  .boxes-container {
-    gap: var(--space-2xl);
-  }
-
-  .game-box {
-    max-width: 280px;
-  }
-}
-
-/* Wide (≥ 1280px) */
-@media (min-width: 1280px) {
-  .container {
-    max-width: var(--container-max-width);
-  }
-
-  .hero-logo img {
-    height: 200px;
-    max-width: 450px;
-  }
-
-  .hero-title {
-    font-size: 5rem;
-    letter-spacing: 3px;
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .boxes-container {
-    gap: var(--space-3xl);
-  }
-
-  .game-box {
-    max-width: 300px;
-  }
-
-  .modal-hero-image {
-    max-width: 600px;
-  }
-
-  .modal-content {
-    max-width: 500px;
-  }
-}
-
-/* Landscape orientation */
-@media (orientation: landscape) and (max-height: 600px) {
-  .hero-dark {
-    min-height: 100vh;
-    padding: var(--space-lg) 0;
-  }
-
-  .hero-content {
-    padding: 0 var(--space-md);
-  }
-
-  .hero-title {
-    font-size: var(--text-4xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .hero-subtitle {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-lg);
-  }
-
-  .hero-actions {
-    margin-bottom: var(--space-lg);
-  }
-
-  .modal-hero {
-    padding: var(--space-sm);
-  }
-
-  .modal-content {
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-}
-
-/* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .logo img,
-  .product-image img,
-  .game-box img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-  }
-}
-
-/* Print styles */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  .hero-dark {
-    background: white !important;
-    color: black !important;
-  }
-
-  .hero-title {
-    color: black !important;
-  }
-
-  .btn-primary, .btn-secondary, .btn-add-to-cart {
-    border: 1px solid black !important;
-    background: white !important;
-  }
-
-  .modal-hero, .cart-sidebar {
-    display: none !important;
-  }
-
-  .container {
-    max-width: none !important;
-    padding: 0 !important;
-  }
-
-  .section-header, .product-card {
-    break-inside: avoid;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .particles-container {
-    display: none;
-  }
-
-  .box-glow {
-    animation: none;
-  }
-
-  .game-box.fall-animation {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-
-  .pulse, .bounce, .rotate, .float {
-    animation: none;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text-dark: #ecf0f1;
-    --color-off-white: #2c3e50;
-  }
-
-  .histoire-fondateur,
-  .revelation-jeux,
-  .demos-interactives,
-  .communaute,
-  .cta-final {
-    background: #1a1a1a;
-  }
-
-  .testimonial-card,
-  .product-card,
-  .demo-card {
-    background: #2c2c2c;
-    border-color: #444;
-  }
-
-  .cart-sidebar {
-    background: #2c2c2c;
-  }
-
-  .modal-content {
-    background: #2c2c2c;
-    color: #ecf0f1;
-  }
-}
-
-/* Focus styles for accessibility */
-@media (prefers-reduced-motion: no-preference) {
-  *:focus {
-    outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
-  }
-
-  .btn-primary:focus,
-  .btn-secondary:focus,
-  .btn-add-to-cart:focus {
-    outline: 3px solid var(--color-gold);
-    outline-offset: 3px;
-  }
-}
-
-/* Hover effects only on devices that support hover */
-@media (hover: hover) {
-  .game-box:hover .box-inner img {
-    transform: scale(1.05);
-  }
-
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-5px);
-  }
-}
-
-/* Touch devices */
-@media (hover: none) and (pointer: coarse) {
-  .btn-primary, .btn-secondary, .btn-add-to-cart {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .cart-item-quantity button {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .modal-close {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .close-cart {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 320px) {
-  .container {
-    padding: 0 var(--space-sm);
-  }
-
-  .hero-title {
-    font-size: var(--text-3xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--text-base);
-  }
-
-  .btn-primary, .btn-secondary {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--text-sm);
-  }
-
-  .product-specs {
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .newsletter-form {
-    gap: var(--space-sm);
-  }
-
-  .newsletter-form input,
-  .newsletter-form button {
-    padding: var(--space-sm);
-    font-size: var(--text-sm);
-  }
-}
-
-@media (max-width: 400px) {
-  * {
     max-width: 100vw;
-  }
+}
 
-  section {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
-  .container,
-  .hero-content,
-  .section-header,
-  .revelation-boxes-wrapper,
-  .products-grid,
-  .footer-content {
+img {
     max-width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    box-sizing: border-box;
-  }
-
-  img,
-  video,
-  iframe {
-    max-width: 100% !important;
-    width: 100% !important;
     height: auto;
-  }
-
-  .philosophy-slide.text-slide {
-    min-height: auto !important;
-    max-height: none !important;
-    height: auto !important;
-  }
-
-  .founder-intro {
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  .founder-intro-photo,
-  .founder-intro-text {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .founder-intro-text {
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  .cta-below-summary {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
-  }
-
-  .btn-story-cta {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
-/* Large screens */
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1400px;
-  }
+/* ============================================================
+   MEDIA QUERY MOBILE (< 768px)
+   ============================================================ */
 
-  .hero-title {
-    font-size: 6rem;
-  }
-
-  .boxes-container {
-    gap: var(--space-4xl);
-  }
-
-  .game-box {
-    max-width: 350px;
-  }
-
-  .box-inner img {
-    width: 250px;
-    height: 250px;
-  }
-
-  .box-glow {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-/* Ultra-wide screens */
-@media (min-width: 1920px) {
-  .container {
-    max-width: 1600px;
-  }
-
-  .hero-title {
-    font-size: 7rem;
-  }
-
-  .section-header h2 {
-    font-size: var(--text-5xl);
-  }
-}
-
-/* ========================================
-   FIX IMAGES PRODUITS MOBILE - ACTE 6
-   ======================================== */
-
-@media (max-width: 768px) {
-  /* Container de la carte produit */
-  .product-card {
-    max-width: 100% !important;
-    margin: 0 auto 2rem !important;
-  }
-
-  /* Container de l'image */
-  .product-image {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 1 / 1;
-    overflow: hidden !important;
-    border-radius: 12px !important;
-    background: #f5f5f5 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  /* Image elle-même */
-  .product-image picture,
-  .product-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: center;
-    max-width: 100% !important;
-    max-height: 100% !important;
-  }
-
-  /* Info produit */
-  .product-info {
-    padding: 1rem !important;
-  }
-
-  /* Titre produit */
-  .product-info h3 {
-    font-size: 1.1rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-
-  /* Prix */
-  .product-price {
-    margin: 0.8rem 0 !important;
-  }
-
-  .price-current {
-    font-size: 1.5rem !important;
-  }
-
-  /* Bouton */
-  .btn-add-to-cart {
-    width: 100% !important;
-    padding: 0.8rem !important;
-    font-size: 0.95rem !important;
-  }
-}
-
-/* ========================================
-   RESPONSIVE ACTE 2 - LAYOUT MAGAZINE
-   ======================================== */
-
-@media (max-width: 768px) {
-    .about-section-magazine {
-        padding: 60px 15px !important;
-    }
-    
-    .magazine-container {
-        max-width: 100% !important;
-    }
-    
-    .parcours-section,
-    .philosophie-section,
-    .inspirations-section {
-        padding: 30px 20px !important;
-        margin-bottom: 30px !important;
-    }
-    
-    .parcours-section h2,
-    .philosophie-section h3,
-    .inspirations-section h3 {
-        font-size: 1.8rem !important;
-    }
-    
-    .photo-portrait {
-        float: none !important;
-        margin: 0 auto 20px auto !important;
-        width: 140px !important;
-    }
-    
-    .inspirations-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-    }
-    
-    .story-modal {
-        padding: 30px 20px !important;
-    }
-}
-
-/* ========== RESPONSIVE MOBILE FINAL - ACTE 1 & 3 ========== */
 @media screen and (max-width: 768px) {
     
-    /* ========== NEUTRALISATION CIBLÉE (Hero + Showcase uniquement) ========== */
+    /* ============================================================
+       NEUTRALISATION CIBLÉE (pour éviter bugs de rendu)
+       ============================================================ */
     
-    /* Hero slider - Neutraliser transformations */
+    /* Hero Slider - Neutralisation */
     .hero-slider,
     .hero-slider *,
     .slide,
@@ -1489,9 +51,11 @@ body {
         will-change: auto !important;
         animation: none !important;
         transition: none !important;
+        backface-visibility: visible !important;
+        perspective: none !important;
     }
     
-    /* Showcase jeux - Neutraliser transformations */
+    /* Showcase Jeux - Neutralisation */
     .jeux-showcase,
     .jeux-showcase *,
     .showcase-window,
@@ -1506,32 +70,17 @@ body {
         will-change: auto !important;
         animation: none !important;
         transition: none !important;
-    }
-    
-    /* Garder les transitions pour les boutons (sauf dans Hero/Showcase) */
-    .btn-primary,
-    .btn-discover {
-        transition: background-color 0.3s ease !important;
-    }
-    
-    .slide,
-    .jeu-slide,
-    .hero-slider,
-    .jeux-showcase {
         backface-visibility: visible !important;
         perspective: none !important;
     }
     
-    body {
-        min-height: 100vh !important;
-        overflow-x: hidden !important;
+    /* Réactivation des transitions pour les boutons */
+    .btn-primary,
+    .btn-discover {
+        transition: all 0.3s ease !important;
     }
     
-    html {
-        overflow-x: hidden !important;
-    }
-    
-    /* Forcer positions relatives */
+    /* Position relative pour les conteneurs */
     .slide-content,
     .jeu-slide,
     .jeu-info,
@@ -1543,216 +92,504 @@ body {
         bottom: auto !important;
     }
     
-    /* ==================== ACTE 1 - HERO SLIDER ==================== */
+    /* ============================================================
+       ACTE 1 - HERO SLIDER
+       ============================================================ */
     
-    /* Container de la slide - Image centrée */
-    .slide {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
+    .hero-slider {
         min-height: 100vh !important;
+    position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    .slider-container {
+    width: 100% !important;
+        height: 100vh !important;
+    }
+    
+    .slide {
+        width: 100% !important;
+        height: 100vh !important;
+    display: flex !important;
+        flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
         padding: 60px 20px !important;
         position: relative !important;
     }
     
-    /* Image de fond - Bien positionnée */
+    /* CRITIQUE : Toutes les slides doivent pouvoir s'afficher */
+    .slide:not(.active) {
+    display: flex !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+    width: 100% !important;
+        height: 100% !important;
+  }
+
+    .slide.active {
+        display: flex !important;
+    opacity: 1 !important;
+        pointer-events: auto !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+    
     .slide img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
         object-fit: cover !important;
         object-position: center !important;
     }
     
-    /* Supertitle - Position haute avec espacement */
+    .slide-overlay {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: rgba(0, 0, 0, 0.4) !important;
+        z-index: 1 !important;
+    }
+    
+    /* Surtitre et Mantra - Centrés en haut */
     .slide-supertitle {
-        position: absolute !important;
-        top: 100px !important;
-        left: 0 !important;
-        right: 0 !important;
+    position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        font-size: 0.9rem !important;
+        letter-spacing: 3px !important;
+        margin-top: 100px !important;
+        margin-bottom: 10px !important;
         text-align: center !important;
-        margin: 0 auto !important;
-        width: 100% !important;
+        z-index: 20 !important;
+    width: 100% !important;
         padding: 0 20px !important;
-        font-size: 0.75rem !important;
-        line-height: 1.2 !important;
     }
     
-    /* Mantra - EN DESSOUS du supertitle avec bon espacement */
     .slide-mantra {
-        position: absolute !important;
-        top: 130px !important;
-        left: 0 !important;
-        right: 0 !important;
+    position: relative !important;
+        top: auto !important;
+        left: auto !important;
+    transform: none !important;
+        font-size: clamp(0.9rem, 2vw, 1.2rem) !important;
+        margin-top: 0 !important;
+        margin-bottom: 30px !important;
         text-align: center !important;
-        margin: 0 auto !important;
+        z-index: 20 !important;
         width: 100% !important;
-        padding: 0 20px !important;
-        font-size: 0.85rem !important;
-        line-height: 1.3 !important;
+        padding: 0 15px !important;
+        max-width: 100% !important;
     }
     
-    /* Contenu principal - Centré verticalement avec marge du haut */
+    /* Contenu principal - Centré verticalement */
     .slide-content {
-        padding: 20px !important;
-        text-align: center !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-top: 180px !important;
         position: relative !important;
         left: auto !important;
         right: auto !important;
         top: auto !important;
-        bottom: auto !important;
         transform: none !important;
-        z-index: 10 !important;
+    width: 100% !important;
+        max-width: 100% !important;
+        margin: 180px auto 0 !important;
+        padding: 0 20px !important;
+        text-align: center !important;
+    display: flex !important;
+        flex-direction: column !important;
+    align-items: center !important;
+        gap: 1.5rem !important;
+        z-index: 20 !important;
     }
     
     .slide-main-value {
-        font-size: 2rem !important;
+        font-size: clamp(2.5rem, 10vw, 4rem) !important;
         text-align: center !important;
-        margin: 0 auto 15px auto !important;
-        line-height: 1.2 !important;
+        line-height: 1.1 !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
     }
     
     .slide-description {
-        font-size: 0.95rem !important;
+        font-size: clamp(1rem, 2vw, 1.2rem) !important;
         text-align: center !important;
-        padding: 0 15px !important;
-        margin: 0 auto 20px auto !important;
-        line-height: 1.5 !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        line-height: 1.6 !important;
     }
     
     .btn-primary {
+        align-self: center !important;
         margin: 0 auto !important;
-        display: block !important;
-        width: fit-content !important;
-        padding: 12px 24px !important;
+        width: auto !important;
+        min-width: 200px !important;
+        padding: 14px 28px !important;
+        font-size: 1rem !important;
     }
     
-    /* Badge créateur - En bas centré */
+    /* Creator Badge */
     .creator-badge {
-        position: absolute !important;
+        position: fixed !important;
         bottom: 30px !important;
         left: 50% !important;
         transform: translateX(-50%) scale(0.8) !important;
-        z-index: 10 !important;
+        z-index: 100 !important;
     }
     
-    /* ==================== ACTE 3 - SHOWCASE JEUX ==================== */
+    /* Navigation Hero */
+    .slider-nav {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 14px !important;
+    }
     
-    /* Container showcase - Forcer affichage */
+    .slider-dots {
+        bottom: 100px !important;
+        gap: 8px !important;
+    }
+    
+    .slider-dots .dot {
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    /* ============================================================
+       ACTE 2 - MAGAZINE (Mon parcours, Philosophie, Inspirations)
+       ============================================================ */
+    
+    .magazine-container {
+        padding: 0 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Section Parcours */
+    .parcours-section {
+        padding: 30px 20px !important;
+        margin-bottom: 30px !important;
+        text-align: left !important;
+    }
+    
+    .parcours-section h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 2rem !important;
+        text-align: center !important;
+    }
+    
+    .photo-portrait {
+        float: none !important;
+        margin: 0 auto 20px !important;
+        display: block !important;
+        width: 180px !important;
+    }
+    
+    .photo-portrait img {
+        width: 100% !important;
+        height: 240px !important;
+    }
+    
+    .texte-intro {
+        margin-top: 20px !important;
+        text-align: left !important;
+    }
+    
+    /* Section Philosophie */
+    .philosophie-section {
+        padding: 30px 20px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .philosophie-section h3 {
+        font-size: 1.6rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .video-wrapper {
+        padding-bottom: 56.25% !important;
+    }
+    
+    /* Section Inspirations */
+    .inspirations-section {
+        padding: 30px 20px !important;
+    }
+    
+    .inspirations-section h3 {
+        font-size: 1.6rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .inspirations-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .inspiration-card {
+        padding: 20px !important;
+    }
+    
+    /* ============================================================
+       ACTE 3 - SHOWCASE JEUX
+       ============================================================ */
+    
     .jeux-showcase {
         padding: 40px 15px !important;
-        text-align: center !important;
         min-height: auto !important;
-        display: block !important;
     }
     
-    /* Titre section */
+    .showcase-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .showcase-header {
+        margin-bottom: 30px !important;
+    }
+    
     .section-title {
         font-size: 1.6rem !important;
         text-align: center !important;
         margin: 0 auto 30px !important;
-        width: 100% !important;
     }
     
     .showcase-window {
-        margin: 0 auto !important;
         width: 100% !important;
-        display: block !important;
-        overflow: visible !important;
+        max-width: 100% !important;
+    margin: 0 auto !important;
+        padding: 0 !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
     
-    /* Slide du jeu - Forcer affichage complet */
+    .slider-container {
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+    
+    .slider-track {
+        width: 300% !important;
+    display: flex !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    /* Slide jeu - FORCER affichage absolu */
     .jeu-slide {
-        flex-direction: column !important;
-        padding: 20px 10px !important;
-        text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        display: flex !important;
-        width: 100% !important;
-        min-height: 400px !important;
-        margin: 0 auto !important;
+        padding: 30px 15px !important;
+        text-align: center !important;
+        width: 33.333% !important;
+        min-width: 33.333% !important;
+        min-height: 500px !important;
+        
+        /* FORCER visibilité */
         opacity: 1 !important;
         visibility: visible !important;
+        
+        /* Neutraliser transformations */
+        transform: none !important;
+        will-change: auto !important;
+        perspective: none !important;
     }
     
-    /* Visuel - FORCER affichage */
+    /* Visuel du jeu - FORCER affichage */
     .jeu-visual {
         width: 100% !important;
-        max-width: 200px !important;
-        min-width: 150px !important;
-        margin: 0 auto 20px !important;
-        display: block !important;
+        max-width: 220px !important;
+        margin: 0 auto 30px !important;
+    display: block !important;
+        
+        /* FORCER visibilité */
         opacity: 1 !important;
         visibility: visible !important;
     }
     
     .jeu-frame {
-        width: 100% !important;
-        max-width: 200px !important;
-        margin: 0 auto !important;
-        display: block !important;
+    width: 100% !important;
+        max-width: 220px !important;
+    margin: 0 auto !important;
+    display: block !important;
+        
+        /* FORCER visibilité */
         opacity: 1 !important;
         visibility: visible !important;
     }
     
     .jeu-visual img,
     .jeu-frame img {
-        width: 100% !important;
-        max-width: 200px !important;
-        height: auto !important;
+    width: 100% !important;
+        max-width: 220px !important;
+    height: auto !important;
         display: block !important;
-        margin: 0 auto !important;
-        opacity: 1 !important;
+    margin: 0 auto !important;
+        border-radius: 8px !important;
+
+        /* FORCER visibilité */
+    opacity: 1 !important;
         visibility: visible !important;
     }
     
-    /* Infos - FORCER affichage */
+    /* Infos jeu - FORCER affichage */
     .jeu-info {
         width: 100% !important;
         max-width: 100% !important;
+        padding: 0 20px !important;
         text-align: center !important;
-        padding: 0 15px !important;
-        margin: 0 auto !important;
-        display: block !important;
-        opacity: 1 !important;
+    display: block !important;
+        
+        /* FORCER visibilité */
+    opacity: 1 !important;
         visibility: visible !important;
     }
     
     .jeu-title {
-        font-size: 1.5rem !important;
+        font-size: 1.8rem !important;
         text-align: center !important;
-        margin: 0 auto 10px !important;
-        display: block !important;
-        opacity: 1 !important;
+        margin: 0 auto 15px !important;
+        line-height: 1.2 !important;
+    display: block !important;
+        
+        /* FORCER visibilité */
+    opacity: 1 !important;
+    visibility: visible !important;
     }
     
     .jeu-tagline {
-        font-size: 0.95rem !important;
+        font-size: 1rem !important;
         text-align: center !important;
-        margin: 0 auto 15px !important;
+        margin: 0 auto 25px !important;
+        line-height: 1.5 !important;
         display: block !important;
+        
+        /* FORCER visibilité */
         opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .btn-discover {
-        width: 80% !important;
-        max-width: 250px !important;
-        margin: 15px auto !important;
+        width: 85% !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
         display: block !important;
+        padding: 14px 28px !important;
+        font-size: 1rem !important;
+        
+        /* FORCER visibilité */
         opacity: 1 !important;
+        visibility: visible !important;
     }
     
-    /* GARDER les flèches sur mobile (pour navigation) */
+    /* Flèches de navigation - Actives sur mobile */
     .slider-arrow {
-        display: flex !important;
-        opacity: 0.8 !important;
-    }
-    
-    .slider-nav {
+        display: block !important;
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        background: rgba(237, 162, 52, 0.3) !important;
+        border: 1px solid rgba(237, 162, 52, 0.5) !important;
         width: 40px !important;
         height: 40px !important;
-        display: flex !important;
+        border-radius: 50% !important;
+        color: white !important;
+        font-size: 20px !important;
+        cursor: pointer !important;
+        z-index: 10 !important;
+        transition: all 0.3s ease !important;
     }
+    
+    .slider-arrow:active {
+        background: rgba(237, 162, 52, 0.6) !important;
+    }
+    
+    .slider-arrow.prev {
+        left: 10px !important;
+    }
+    
+    .slider-arrow.next {
+        right: 10px !important;
+    }
+    
+    /* Dots de navigation */
+    .showcase-dots {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        margin-top: 30px !important;
+    }
+    
+    .showcase-dots .dot {
+        width: 10px !important;
+        height: 10px !important;
+    }
+    
+    /* ============================================================
+       NAVIGATION & UI
+       ============================================================ */
+    
+    /* Header */
+    .header {
+        padding: 15px 20px !important;
+    }
+    
+    .header-logo img {
+        height: 50px !important;
+    }
+    
+    /* Burger menu */
+    .burger-menu {
+        display: block !important;
+    }
+    
+    .mobile-nav {
+    display: none !important;
+  }
+
+    .mobile-nav.active {
+        display: block !important;
+    }
+    
+    /* Cart icon */
+    .cart-icon {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 16px !important;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 20px !important;
+        text-align: center !important;
+    }
+    
+  .footer-content {
+    flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    /* ============================================================
+       UTILITAIRES
+       ============================================================ */
+    
+    /* Force le centrage horizontal */
+    .text-center {
+        text-align: center !important;
+    }
+    
+    /* Empêche les débordements */
+    .no-overflow {
+    overflow: hidden !important;
+    }
+    
 }
+
+/* ============================================================
+   FIN DU FICHIER
+   ============================================================ */
