@@ -458,7 +458,7 @@
         <div class="story-modal-overlay" id="story-full" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; overflow: hidden; padding: 0;">
             <div class="story-modal" style="max-width: 800px; width: 90%; max-height: calc(100vh - 150px); background: white; padding: 50px; border-radius: 16px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3); overflow-y: auto; margin: 0 auto;">
                 
-                <button class="close-story" aria-label="Fermer" style="position: absolute; top: 20px; right: 20px; background: transparent; border: none; font-size: 2.5rem; color: #666; cursor: pointer; line-height: 1; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: color 0.3s ease;">×</button>
+                <button class="close-story" aria-label="Fermer" onclick="fermerModaleParcours()" style="position: absolute; top: 20px; right: 20px; background: transparent; border: none; font-size: 2.5rem; color: #666; cursor: pointer; line-height: 1; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: color 0.3s ease;">×</button>
                 
                 <p style="font-size: 1.4rem; font-weight: 700; color: #eda234; margin-bottom: 2rem; text-align: center; font-family: 'Crimson Text', serif;">
                     Mon parcours : de l'éloignement à la lumière
@@ -3202,33 +3202,110 @@
 
     <!-- Script pour Acte 2 - Layout Magazine -->
     <script>
-        // Lien "voir plus"
-        const btnLireSuite = document.querySelector('.lien-voir-plus');
+        // ========== DÉBOGAGE MODALE PARCOURS ==========
+        console.log('=== DÉBOGAGE MODALE PARCOURS ===');
+        
+        // Vérifier que les éléments existent
         const storyFull = document.getElementById('story-full');
-        const closeStory = document.querySelector('.close-story');
-
+        console.log('Modale trouvée (story-full) :', storyFull);
+        
+        const btnLireSuite = document.querySelector('.lien-voir-plus');
+        console.log('Bouton "voir plus" trouvé :', btnLireSuite);
+        
+        const btnCloseModal = storyFull?.querySelector('.close-story');
+        console.log('Bouton fermeture trouvé (.close-story) :', btnCloseModal);
+        
+        // Test direct de fermeture
+        if (btnCloseModal) {
+            btnCloseModal.addEventListener('click', function(e) {
+                console.log('CLIC SUR LA CROIX DÉTECTÉ !');
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const modal = document.getElementById('story-full');
+                if (modal) {
+                    console.log('Tentative de fermeture...');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    console.log('Modale fermée !');
+                } else {
+                    console.error('ERREUR : story-full introuvable lors de la fermeture');
+                }
+            });
+            console.log('✅ Event listener ajouté sur la croix');
+        } else {
+            console.error('❌ ERREUR : Bouton de fermeture (.close-story) introuvable !');
+            console.log('Vérification de la structure HTML...');
+            if (storyFull) {
+                console.log('Contenu de story-full :', storyFull.innerHTML.substring(0, 200));
+            }
+        }
+        
+        console.log('=== FIN DÉBOGAGE ===');
+        
+        // ========== MODALE PARCOURS - Gestion ouverture/fermeture ==========
+        
+        // Fonction pour ouvrir la modale
+        function openStoryModal() {
+            if (storyFull) {
+                storyFull.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('Modale ouverte');
+            }
+        }
+        
+        // Fonction pour fermer la modale
+        function closeStoryModal() {
+            if (storyFull) {
+                storyFull.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                console.log('Modale fermée');
+            }
+        }
+        
+        // Ouverture de la modale
         if (btnLireSuite && storyFull) {
             btnLireSuite.addEventListener('click', function(e) {
                 e.preventDefault();
-                storyFull.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+                e.stopPropagation();
+                openStoryModal();
             });
         }
-
-        if (closeStory && storyFull) {
-            closeStory.addEventListener('click', function() {
-                storyFull.style.display = 'none';
-                document.body.style.overflow = '';
-            });
-            
-            // Fermer en cliquant en dehors
+        
+        // Fermeture via le bouton [X] - Utiliser la délégation d'événements
+        if (storyFull) {
             storyFull.addEventListener('click', function(e) {
+                // Si on clique sur le bouton de fermeture
+                if (e.target.classList.contains('close-story') || e.target.closest('.close-story')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeStoryModal();
+                    return;
+                }
+                
+                // Si on clique sur le fond sombre (overlay), pas sur le contenu
                 if (e.target === storyFull) {
-                    storyFull.style.display = 'none';
-                    document.body.style.overflow = '';
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeStoryModal();
                 }
             });
+            
+            // Empêcher la fermeture quand on clique dans le contenu
+            const storyModal = storyFull.querySelector('.story-modal');
+            if (storyModal) {
+                storyModal.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
         }
+        
+        // Fermeture avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && storyFull && storyFull.style.display === 'flex') {
+                closeStoryModal();
+            }
+        });
 
         // Bouton vidéo philosophie
         const btnLoadVideo = document.querySelector('.btn-load-video');
@@ -3263,6 +3340,51 @@
                 this.style.transform = 'translateY(0)';
                 this.style.boxShadow = 'none';
             });
+        });
+    </script>
+    
+    <!-- Fonction de fermeture simple et directe pour la modale "Mon parcours" -->
+    <script>
+        // Fonction de fermeture simple et directe
+        function fermerModaleParcours() {
+            console.log('fermerModaleParcours() appelée');
+            
+            // Chercher la modale par plusieurs méthodes
+            const modal = document.getElementById('story-full') ||
+                          document.querySelector('.story-modal-overlay') ||
+                          document.querySelector('[id="story-full"]');
+            
+            if (modal) {
+                console.log('Modale trouvée, fermeture...');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                console.log('Modale fermée avec succès');
+            } else {
+                console.error('ERREUR : Modale introuvable !');
+                // Essai de forcer la fermeture de toutes les modales
+                document.querySelectorAll('.story-modal-overlay, [id*="story"]').forEach(m => {
+                    m.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Fermeture avec Échap (backup)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('story-full');
+                if (modal && modal.style.display === 'flex') {
+                    fermerModaleParcours();
+                }
+            }
+        });
+        
+        // Fermeture en cliquant sur le fond (backup)
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('story-full');
+            if (modal && e.target === modal && modal.style.display === 'flex') {
+                fermerModaleParcours();
+            }
         });
     </script>
 </body>
