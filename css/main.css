@@ -1673,11 +1673,20 @@ img {
 }
 
 /* Modale "voir plus" - Positionnement plus haut */
-#story-full.story-modal-overlay {
+/* !important SEULEMENT quand la modale est ouverte */
+#story-full.story-modal-overlay.modal-ouverte {
   display: flex !important;
   align-items: flex-start !important;
   justify-content: center !important;
   padding-top: 100px !important;
+}
+
+/* Par défaut, la modale est cachée */
+#story-full.story-modal-overlay {
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
 }
 
 #story-full .story-modal {
@@ -7772,6 +7781,27 @@ footer {
     line-height: 1;
     display: inline-block;
     color: #ffffff;
+}
+
+/* ========================================
+   FERMETURE FORCÉE DE LA MODALE
+   ======================================== */
+/* Fermeture forcée de la modale */
+.modal-fermee,
+#story-full.story-modal-overlay.modal-fermee {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Ouverture de la modale */
+.modal-ouverte,
+#story-full.story-modal-overlay.modal-ouverte {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 .cta-content {

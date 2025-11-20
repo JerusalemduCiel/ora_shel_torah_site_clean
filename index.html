@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css?v=20251120g">
+    <link rel="stylesheet" href="css/main.css?v=20251120h">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css?v=20251120e">
     
@@ -3248,8 +3248,14 @@
         // Fonction pour ouvrir la modale
         function openStoryModal() {
             if (storyFull) {
-                storyFull.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+                // Retirer la classe de fermeture
+                storyFull.classList.remove('modal-fermee');
+                // Ajouter la classe d'ouverture
+                storyFull.classList.add('modal-ouverte');
+                
+                // FORCER le display flex avec !important
+                storyFull.style.setProperty('display', 'flex', 'important');
+                document.body.style.setProperty('overflow', 'hidden', 'important');
                 console.log('Modale ouverte');
             }
         }
@@ -3257,8 +3263,15 @@
         // Fonction pour fermer la modale
         function closeStoryModal() {
             if (storyFull) {
-                storyFull.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                // FORCER le display none avec !important
+                storyFull.style.setProperty('display', 'none', 'important');
+                
+                // AJOUTER une classe de fermeture
+                storyFull.classList.add('modal-fermee');
+                storyFull.classList.remove('modal-ouverte');
+                
+                // Réactiver le scroll avec !important
+                document.body.style.setProperty('overflow', 'auto', 'important');
                 console.log('Modale fermée');
             }
         }
@@ -3355,17 +3368,28 @@
                           document.querySelector('[id="story-full"]');
             
             if (modal) {
-                console.log('Modale trouvée, fermeture...');
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                console.log('Modale fermée avec succès');
+                console.log('Modale trouvée, fermeture FORCÉE...');
+                
+                // FORCER le display none avec !important
+                modal.style.setProperty('display', 'none', 'important');
+                
+                // AJOUTER une classe de fermeture
+                modal.classList.add('modal-fermee');
+                modal.classList.remove('modal-ouverte');
+                
+                // Réactiver le scroll avec !important
+                document.body.style.setProperty('overflow', 'auto', 'important');
+                
+                console.log('Modale fermée avec succès (forcé)');
             } else {
                 console.error('ERREUR : Modale introuvable !');
                 // Essai de forcer la fermeture de toutes les modales
                 document.querySelectorAll('.story-modal-overlay, [id*="story"]').forEach(m => {
-                    m.style.display = 'none';
+                    m.style.setProperty('display', 'none', 'important');
+                    m.classList.add('modal-fermee');
+                    m.classList.remove('modal-ouverte');
                 });
-                document.body.style.overflow = 'auto';
+                document.body.style.setProperty('overflow', 'auto', 'important');
             }
         }
         
@@ -3373,7 +3397,7 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const modal = document.getElementById('story-full');
-                if (modal && modal.style.display === 'flex') {
+                if (modal && (modal.classList.contains('modal-ouverte') || modal.style.display === 'flex')) {
                     fermerModaleParcours();
                 }
             }
@@ -3382,7 +3406,7 @@
         // Fermeture en cliquant sur le fond (backup)
         document.addEventListener('click', function(e) {
             const modal = document.getElementById('story-full');
-            if (modal && e.target === modal && modal.style.display === 'flex') {
+            if (modal && e.target === modal && (modal.classList.contains('modal-ouverte') || modal.style.display === 'flex')) {
                 fermerModaleParcours();
             }
         });
