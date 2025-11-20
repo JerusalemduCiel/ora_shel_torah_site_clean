@@ -1041,7 +1041,7 @@ img {
 }
 
 .jeux-showcase .section-title {
-  font-size: 3rem;
+  font-size: 3.5rem !important; /* Taille spécifique Acte 3 - écrase toutes les autres règles */
   color: #eda234; /* Couleur dorée */
   margin-bottom: 3rem;
   font-weight: 600;
