@@ -1710,6 +1710,8 @@ img {
 .texte-deja-lu p {
   color: #999 !important;
   font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
 /* Séparateur visuel */
@@ -1733,9 +1735,32 @@ img {
   font-weight: 400;
 }
 
+.texte-suite p {
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
 .texte-suite p:first-child {
   font-weight: 600;
   color: #eda234;
+}
+
+.texte-suite h3 {
+  color: #eda234;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.texte-suite ul {
+  margin: 1rem 0 1.5rem 2rem;
+}
+
+.texte-suite ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
 }
 
 /* Bouton de fermeture de la modale */
@@ -1830,28 +1855,17 @@ img {
 
 /* Citation finale */
 .quote-highlight {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(237, 162, 52, 0.2);
+  background: #f9f9f9;
   padding: 1.5rem;
-  border-radius: 16px;
-  margin-top: 1rem;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(15, 20, 25, 0.08);
+  border-left: 4px solid #eda234;
+  border-radius: 8px;
+  margin-top: 2rem;
 }
 
 .quote-highlight p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-}
-
-.quote-highlight p:last-child {
-  margin-bottom: 0;
-}
-
-.quote-highlight em {
-  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
 }
 
 /* Container vidéo modale */

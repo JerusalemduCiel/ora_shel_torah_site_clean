@@ -456,55 +456,49 @@
 
         <!-- MODAL TEXTE COMPLET -->
         <div class="story-modal-overlay" id="story-full" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; overflow: hidden; padding: 0;">
-            <div class="story-modal" style="max-width: 800px; width: 90%; max-height: calc(100vh - 150px); background: white; padding: 50px; border-radius: 16px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3); overflow-y: auto; margin: 0 auto;">
+            <div class="story-modal" style="background: #ffffff !important; padding: 40px !important; border-radius: 12px !important; box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important; max-width: 800px; width: 90%; max-height: calc(100vh - 150px); position: relative; overflow-y: auto; margin: 0 auto;">
                 
                 <button class="close-story" aria-label="Fermer" onclick="fermerModaleParcours()" style="position: absolute; top: 20px; right: 20px; background: transparent; border: none; font-size: 2.5rem; color: #666; cursor: pointer; line-height: 1; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: color 0.3s ease;">×</button>
                 
-                <p style="font-size: 1.4rem; font-weight: 700; color: #eda234; margin-bottom: 2rem; text-align: center; font-family: 'Crimson Text', serif;">
+                <h2 style="font-size: 1.8rem !important; font-weight: 700 !important; color: #eda234 !important; margin-bottom: 2rem !important; text-align: center !important;">
                     Mon parcours : de l'éloignement à la lumière
-                </p>
+                </h2>
                 
-                <div class="modal-content" style="font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.8; color: #333;">
+                <!-- PARTIE DÉJÀ LUE (grisée) -->
+                <div class="texte-deja-lu">
+                    <p>J'ai été un "juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
                     
-                    <!-- Partie déjà lue - Grisée -->
-                    <div class="texte-deja-lu">
-                        <p>J'ai été un juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
-
-                        <p>Un accident de la vie, un père malade... et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
-
-                        <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
-
-                        <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi. Et il répète inlassablement : « Tout est don divin. » Je ne peux qu'être d'accord. Il est temps de remercier.</p>
-                    </div>
+                    <p>Un accident de la vie, un père malade… et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
                     
-                    <!-- Séparateur visuel -->
-                    <div class="separateur-lecture">
-                        <span>📖 Suite du récit...</span>
-                    </div>
+                    <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
                     
-                    <!-- Suite du texte - Normal et mis en avant -->
-                    <div class="texte-suite">
-                        <p>Des mois d'étude ont suivi. Privilégié que j'étais d'entendre une parole claire, vivante, moderne.</p>
-
-                    <p>Et puis l'idée : et si, pour transmettre cette lumière à mes enfants — pour enseigner, rassembler, rire, débattre, et surtout transmettre sans contrainte, je créais ce que « 770 » n'était pas ou n'était plus — un havre ?</p>
-
-                    <p>Aujourd'hui, quand je vois des familles — éloignées, laïques, ou pratiquantes — jouer ensemble, rire, découvrir la richesse de la Torah, je sais qu'« Ora Shel Torah » est exactement ce qu'il fallait être.</p>
-
-                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">La naissance d'un projet</h3>
+                    <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi. Et il répète inlassablement : « Tout est Don divin. » Je ne peux qu'être d'accord. Il est temps de remercier.</p>
+                </div>
+                
+                <!-- SÉPARATEUR -->
+                <div class="separateur-lecture">
+                    <span>📖 Suite du récit...</span>
+                </div>
+                
+                <!-- SUITE DU TEXTE -->
+                <div class="texte-suite">
+                    <p>Des mois d'étude ont suivi. Privilégié que j'étais d'entendre une parole claire, vivante, moderne.</p>
+                    
+                    <h3>La naissance d'un projet</h3>
                     
                     <p>J'ai voulu transmettre cette lumière à mes enfants. Mais même dans une ville vivante, foisonnant de maîtres et de lieux d'étude, les supports restent compliqués. De lectures en dvar torah inspirés, l'immensité de mon inculture se confirme. Mais comment rattraper ces années perdues sans m'enfermer dans une Yeshiva ? Alors une idée naît…</p>
                     
                     <p>D'abord celle d'un jeu de cartes à l'effigie des grands penseurs qui ont écrit notre histoire et nos textes saints. De grands sages en lieu et place de joueurs de foot sur des cartes PANINI 😊 Mais c'est insuffisant. J'ai envie de renouer avec l'Histoire, connaitre le sens des fêtes, comprendre la joie et la foi au dela des textes que je ne connais pas. Je lis, je visionne mais c'est un parcours individuel exigeant que je ne peux pas partager. Il doit y avoir un autre moyen … Pourquoi pas un jeu de société ?</p>
                     
-                    <p><strong>C'est ainsi qu'est née Ora Shel Torah.</strong> Avec l'idée que la lumière de la Torah, la beauté et la grandeur du judaïsme, peuvent se transmettre autrement que par l'étude seule : par le jeu, le partage, et la joie d'apprendre ensemble.</p>
-
-                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">Les signes du chemin</h3>
+                    <p><strong>C'est ainsi qu'est née Ora Shel Torah.</strong> Avec l'idée que la lumière de la Torah, la beauté et la grandeur du judaïsme, peuvent se transmettre autrement que par l'étude seule : par le jeu, le partage, et la joie d'apprendre ensemble. J'ai décidé de donner corps à cette idée en créant des jeux de société.</p>
+                    
+                    <h3>Les signes du chemin</h3>
                     
                     <p>Il a fallu dépasser mes incompétences judaïques… et techniques. Les outils modernes m'ont donné accès à une source quasiment illimitée de données fondamentales, sourçables, vérifiables. Mais surtout D.ieu avait un plan pour moi… Un changement de vie forcé qui a libéré mon temps et mon énergie.</p>
                     
                     <p>Des signes… comme le numéro d'enregistrement de ma société : <strong>« 770 »</strong> (l'adresse du Rabbi de Loubavitch) et un message dans une lettre posthume du Rabbi (Igrot Kodesh) m'encourageant à persévérer, et à ramener mes enfants avec moi…</p>
-
-                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">De l'idée à la réalité</h3>
+                    
+                    <h3>De l'idée à la réalité</h3>
                     
                     <p>Ces signes m'ont bouleversé. Ce n'était plus seulement mon projet — c'était une mission.</p>
                     
@@ -512,21 +506,21 @@
                     
                     <p>Un an de travail acharné ont donné naissance à trois univers complémentaires :</p>
                     
-                    <ul style="color: #333; line-height: 1.8; margin-bottom: 1rem; padding-left: 1.5rem;">
-                        <li>🏛️ <strong>Jérusalem du Ciel</strong> pour découvrir 3000 ans d'histoire</li>
-                        <li>⚖️ <strong>Minhag ou Halakha</strong> pour comprendre la différence entre loi et coutume</li>
-                        <li>✨ <strong>Poztamitsvah</strong> pour vivre 140 mitzvot au quotidien</li>
+                    <ul>
+                        <li><strong>Jérusalem du Ciel</strong> pour découvrir 3000 ans d'histoire</li>
+                        <li><strong>Minhag ou Halakha</strong> pour comprendre la différence entre loi et coutume</li>
+                        <li><strong>Poztamitsvah</strong> pour vivre 140 mitzvot au quotidien</li>
                     </ul>
                     
                     <p>Aujourd'hui, quand je vois des familles — éloignées ou pratiquantes — jouer ensemble, rire, débattre, et surtout transmettre sans contrainte, je sais que ce « 770 » n'était pas un hasard.</p>
-
-                    <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">Le message que je veux transmettre</h3>
                     
-                    <p style="font-style: italic; color: #333; line-height: 1.8; margin-bottom: 1rem;">« Quel que soit votre âge, et quel que soit le seuil que vous franchirez — celui de l'étude traditionnelle ou celui du jeu — la lumière de la Torah est là, patiente, prête à illuminer votre voyage comme elle a transformé le mien. »</p>
+                    <h3>Le message que je veux transmettre</h3>
+                    
+                    <div class="quote-highlight">
+                        <p><em>« Quel que soit votre âge, et quel que soit le seuil que vous franchirez — celui de l'étude traditionnelle ou celui du jeu — la lumière de la Torah est là, patiente, prête à illuminer votre voyage comme elle a transformé le mien. »</em></p>
                     </div>
-                
                 </div>
-            
+                
             </div>
         </div>
 
