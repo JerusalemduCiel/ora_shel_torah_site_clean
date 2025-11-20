@@ -1,100 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- ========================================
-       PAGE D'ACCUEIL
-       ======================================== -->
   <url>
     <loc>https://orasheltorah.fr/</loc>
-    <lastmod>2025-11-04</lastmod>
+    <lastmod>2024-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- ========================================
-       PAGES PRINCIPALES
-       ======================================== -->
   <url>
-    <loc>https://orasheltorah.fr/a-propos.html</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://orasheltorah.fr/faq.html</loc>
-    <lastmod>2025-11-04</lastmod>
+    <loc>https://orasheltorah.fr/#jeux</loc>
+    <lastmod>2024-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- ========================================
-       PAGES PRODUITS
-       NOTE: Actuellement les produits sont des sections avec ancres (#hero-bis-jdc)
-       dans index.html. Ces URLs sont préparées pour de futures pages dédiées.
-       ======================================== -->
-  <!--
   <url>
-    <loc>https://orasheltorah.fr/jeux/jerusalem-du-ciel</loc>
-    <lastmod>2025-11-04</lastmod>
+    <loc>https://orasheltorah.fr/#demos</loc>
+    <lastmod>2024-11-20</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://orasheltorah.fr/#communaute</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://orasheltorah.fr/#cta-final</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <url>
-    <loc>https://orasheltorah.fr/jeux/minhag-ou-halakha</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://orasheltorah.fr/jeux/poztamitsvah</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  -->
-  
-  <!-- ========================================
-       PAGES LÉGALES
-       ======================================== -->
-  <url>
-    <loc>https://orasheltorah.fr/legal/mentions-legales.html</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <url>
-    <loc>https://orasheltorah.fr/legal/cgv.html</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <url>
-    <loc>https://orasheltorah.fr/legal/politique-confidentialite.html</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <url>
-    <loc>https://orasheltorah.fr/legal/retours-remboursements.html</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-  <!-- ========================================
-       AUTRES PAGES
-       ======================================== -->
-  <url>
-    <loc>https://orasheltorah.fr/success.html</loc>
-    <lastmod>2025-11-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
 </urlset>
