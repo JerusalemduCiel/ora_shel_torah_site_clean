@@ -1672,6 +1672,63 @@ img {
   background: #d48512;
 }
 
+/* Modale "voir plus" - Positionnement plus haut */
+#story-full.story-modal-overlay {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding-top: 100px !important;
+}
+
+#story-full .story-modal {
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  max-height: calc(100vh - 150px) !important;
+  margin: 0 auto !important;
+}
+
+/* Partie du texte déjà lue - Grisée et en italique */
+.texte-deja-lu {
+  color: #999;
+  font-style: italic;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #eda234;
+}
+
+.texte-deja-lu p {
+  color: #999 !important;
+  font-style: italic;
+}
+
+/* Séparateur visuel */
+.separateur-lecture {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 0.8rem;
+  background: linear-gradient(90deg, transparent, rgba(237, 162, 52, 0.1), transparent);
+  border-radius: 8px;
+}
+
+.separateur-lecture span {
+  color: #eda234;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Suite du texte - Normal et mis en avant */
+.texte-suite {
+  color: #333;
+  font-weight: 400;
+}
+
+.texte-suite p:first-child {
+  font-weight: 600;
+  color: #eda234;
+}
+
 /* Blocs de texte */
 .story-block {
   margin-bottom: 1.5rem;

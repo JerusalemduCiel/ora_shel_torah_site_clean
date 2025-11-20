@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css?v=20251120f">
+    <link rel="stylesheet" href="css/main.css?v=20251120g">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css?v=20251120e">
     
@@ -455,8 +455,8 @@
         </div>
 
         <!-- MODAL TEXTE COMPLET -->
-        <div class="story-modal-overlay" id="story-full" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; overflow: hidden; padding: 0; align-items: center; justify-content: center;">
-            <div class="story-modal" style="max-width: 800px; width: 90%; max-height: 90vh; background: white; padding: 50px; border-radius: 16px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3); overflow-y: auto;">
+        <div class="story-modal-overlay" id="story-full" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.9); z-index: 9999; overflow: hidden; padding: 0;">
+            <div class="story-modal" style="max-width: 800px; width: 90%; max-height: calc(100vh - 150px); background: white; padding: 50px; border-radius: 16px; position: relative; box-shadow: 0 8px 32px rgba(0,0,0,0.3); overflow-y: auto; margin: 0 auto;">
                 
                 <button class="close-story" aria-label="Fermer" style="position: absolute; top: 20px; right: 20px; background: transparent; border: none; font-size: 2.5rem; color: #666; cursor: pointer; line-height: 1; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: color 0.3s ease;">×</button>
                 
@@ -464,17 +464,27 @@
                     Mon parcours : de l'éloignement à la lumière
                 </p>
                 
-                <div style="font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.8; color: #333;">
+                <div class="modal-content" style="font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.8; color: #333;">
                     
-                    <p>J'ai été un juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
+                    <!-- Partie déjà lue - Grisée -->
+                    <div class="texte-deja-lu">
+                        <p>J'ai été un juif de Kippour jusqu'à mes 54 ans. Bercé par les traditions de mes parents et de ma grand-mère, sans vraiment trouver de sens à une religion qui m'offrait davantage d'injonctions sévères que de réponses à mes questions.</p>
 
-                    <p>Un accident de la vie, un père malade... et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
+                        <p>Un accident de la vie, un père malade... et me voilà priant avec ferveur un samedi matin. Quelques semaines passent. Mon père va mieux. Mais les explications rationnelles des médecins ne me suffisent plus.</p>
 
-                    <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
+                        <p>Alors je regarde en arrière — et je comprends que D.ieu s'est manifesté à moi à chaque tournant de ma vie. Chaque échec, chaque réussite, m'a conduit exactement là où je devais être.</p>
 
-                    <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi. Et il répète inlassablement : « Tout est don divin. » Je ne peux qu'être d'accord. Il est temps de remercier.</p>
-
-                    <p>Des mois d'étude ont suivi. Privilégié que j'étais d'entendre une parole claire, vivante, moderne.</p>
+                        <p>Un matin, autour d'un café après la prière, je rencontre un homme de sagesse, de foi et d'ouverture. Il me montre une autre face du judaïsme — celle où la raison se réconcilie avec la foi. Et il répète inlassablement : « Tout est don divin. » Je ne peux qu'être d'accord. Il est temps de remercier.</p>
+                    </div>
+                    
+                    <!-- Séparateur visuel -->
+                    <div class="separateur-lecture">
+                        <span>📖 Suite du récit...</span>
+                    </div>
+                    
+                    <!-- Suite du texte - Normal et mis en avant -->
+                    <div class="texte-suite">
+                        <p>Des mois d'étude ont suivi. Privilégié que j'étais d'entendre une parole claire, vivante, moderne.</p>
 
                     <p>Et puis l'idée : et si, pour transmettre cette lumière à mes enfants — pour enseigner, rassembler, rire, débattre, et surtout transmettre sans contrainte, je créais ce que « 770 » n'était pas ou n'était plus — un havre ?</p>
 
@@ -513,6 +523,7 @@
                     <h3 style="color: #eda234; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600;">Le message que je veux transmettre</h3>
                     
                     <p style="font-style: italic; color: #333; line-height: 1.8; margin-bottom: 1rem;">« Quel que soit votre âge, et quel que soit le seuil que vous franchirez — celui de l'étude traditionnelle ou celui du jeu — la lumière de la Torah est là, patiente, prête à illuminer votre voyage comme elle a transformé le mien. »</p>
+                    </div>
                 
                 </div>
             
