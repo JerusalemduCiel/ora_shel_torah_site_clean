@@ -1558,6 +1558,29 @@ img {
   padding-top: 160px !important;
 }
 
+/* Overlay blanc fort pour #acte-2 (Mon parcours + Philosophie) */
+#acte-2 {
+  position: relative !important;
+}
+
+#acte-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.92); /* Overlay blanc 92% - très fort */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* S'assurer que le contenu est au-dessus de l'overlay */
+#acte-2 > * {
+  position: relative;
+  z-index: 2;
+}
+
 /* Layout 2 colonnes */
 .about-columns {
   display: grid;
