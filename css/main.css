@@ -840,6 +840,42 @@ img {
   fill: white;
 }
 
+/* === AJUSTEMENTS LAPTOPS 13-15" === */
+@media (min-width: 1280px) and (max-width: 1920px) {
+  
+  /* Hero Slider - Descriptions */
+  .hero-slider .slide-description {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Hero Slider - Super-titres */
+  .hero-slider .slide-supertitle {
+    font-size: 1.2rem !important;
+  }
+  
+  /* Hero Slider - Mantras */
+  .hero-slider .slide-mantra {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Laptops plus petits (13" = 1366x768) */
+@media (min-width: 1280px) and (max-width: 1440px) {
+  
+  .hero-slider .slide-description {
+    font-size: 1rem !important;
+  }
+  
+  .hero-slider .slide-supertitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .hero-slider .slide-mantra {
+    font-size: 1.1rem !important;
+  }
+}
+
 /* Dots */
 .slider-dots {
   position: absolute;
