@@ -9104,43 +9104,74 @@ img[src*="poz-box"],
     background: #ffffff;
     max-width: 800px;
     width: 100%;
-    max-height: 80vh;
+    max-height: 85vh;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     position: relative;
     transform: scale(0.9);
     transition: transform 0.3s ease;
-    overflow-y: auto;
+    /* Le scroll sera géré par .genesis-modal-content */
+    overflow: visible;
 }
 
 .genesis-modal-overlay.active .genesis-modal {
     transform: scale(1);
 }
 
-/* Bouton fermeture */
+/* Bouton fermeture - Fixed par rapport au viewport pour rester TOUJOURS visible */
 .genesis-modal-close {
-    position: absolute;
+    /* FIXED par rapport au viewport (pas à la modale) */
+    position: fixed;
+    
+    /* Position en haut à droite de l'écran */
     top: 20px;
     right: 20px;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: none;
-    font-size: 2rem;
-    color: #666;
-    cursor: pointer;
+    
+    /* Style */
+    width: 45px;
+    height: 45px;
+    background: rgba(218, 165, 32, 0.95);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: bold;
     line-height: 1;
+    cursor: pointer;
+    
+    /* Z-index très élevé pour rester au-dessus de tout */
+    z-index: 10002;
+    
+    /* Centrer le × */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color 0.3s ease, transform 0.3s ease;
-    z-index: 10;
+    
+    /* Ombre pour visibilité */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    
+    /* Animation */
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
 }
 
 .genesis-modal-close:hover {
-    color: #eda234;
-    transform: rotate(90deg);
+    background: rgba(218, 165, 32, 1);
+    transform: scale(1.15) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .genesis-modal-close {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        top: 15px;
+        right: 15px;
+    }
 }
 
 /* Titre modal */
@@ -9153,11 +9184,34 @@ img[src*="poz-box"],
     line-height: 1.2;
 }
 
-/* Contenu modal */
+/* Contenu modal - Conteneur qui scrolle */
 .genesis-modal-content {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    max-height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Style de scrollbar personnalisé (optionnel) */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(218, 165, 32, 0.5) transparent;
+}
+
+.genesis-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.genesis-modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.genesis-modal-content::-webkit-scrollbar-thumb {
+    background: rgba(218, 165, 32, 0.5);
+    border-radius: 4px;
+}
+
+.genesis-modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(218, 165, 32, 0.7);
 }
 
 /* Sections */
@@ -9342,6 +9396,10 @@ body.modal-open {
         max-height: 90vh;
     }
     
+    .genesis-modal-content {
+        max-height: 80vh;
+    }
+    
     .genesis-modal-title {
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
@@ -9407,6 +9465,10 @@ body.modal-open {
     
     .genesis-modal {
         padding: 15px;
+    }
+    
+    .genesis-modal-content {
+        max-height: 75vh;
     }
     
     .genesis-modal-title {
