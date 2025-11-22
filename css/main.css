@@ -612,13 +612,18 @@ img {
   }
 
   /* Hero slider mobile - style Asmodee */
+  .slide-brand-name {
+    top: 80px;
+    font-size: 0.75rem;
+  }
+  
   .slide-supertitle {
-    top: 100px;
+    top: 105px;
     font-size: 0.9rem;
   }
   
   .slide-mantra {
-    top: 140px;
+    top: 135px;
     font-size: clamp(0.9rem, 2vw, 1.2rem);
     padding: 0 15px;
   }
@@ -736,6 +741,7 @@ img {
   box-sizing: border-box;
 }
 
+.slide-brand-name,
 .slide-supertitle,
 .slide-mantra {
   position: absolute !important;
@@ -747,8 +753,19 @@ img {
   z-index: 20 !important;
 }
 
+.slide-brand-name {
+  top: 80px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(0.85rem, 2vw, 1.2rem) !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 1px 1px 4px rgba(0, 0, 0, 0.7) !important;
+  animation: fadeInDown 0.8s ease-out;
+  letter-spacing: 2px !important;
+}
+
 .slide-supertitle {
-  top: 110px !important;
+  top: 115px !important;
   font-family: 'Inter', sans-serif !important;
   font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
   font-weight: 900 !important;
@@ -760,7 +777,7 @@ img {
 }
 
 .slide-mantra {
-  top: 155px !important;
+  top: 148px !important;
   font-family: 'Crimson Text', serif !important;
   font-size: clamp(1rem, 2vw, 1.4rem) !important;
   font-style: italic !important;
@@ -849,6 +866,11 @@ img {
     line-height: 1.6 !important;
   }
   
+  /* Hero Slider - Nom de marque */
+  .hero-slider .slide-brand-name {
+    font-size: 1rem !important;
+  }
+  
   /* Hero Slider - Super-titres */
   .hero-slider .slide-supertitle {
     font-size: 1.2rem !important;
@@ -865,6 +887,10 @@ img {
   
   .hero-slider .slide-description {
     font-size: 1rem !important;
+  }
+  
+  .hero-slider .slide-brand-name {
+    font-size: 0.9rem !important;
   }
   
   .hero-slider .slide-supertitle {

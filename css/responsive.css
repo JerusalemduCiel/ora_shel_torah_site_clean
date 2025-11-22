@@ -159,6 +159,20 @@ img {
     }
     
     /* Surtitre et Mantra - Centrés en haut */
+    .slide-brand-name {
+    position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        font-size: 0.8rem !important;
+        margin-top: 80px !important;
+        margin-bottom: 8px !important;
+        text-align: center !important;
+        z-index: 20 !important;
+        width: 100% !important;
+        padding: 0 20px !important;
+    }
+    
     .slide-supertitle {
     position: relative !important;
         top: auto !important;
@@ -166,8 +180,8 @@ img {
         transform: none !important;
         font-size: 0.9rem !important;
         letter-spacing: 3px !important;
-        margin-top: 100px !important;
-        margin-bottom: 10px !important;
+        margin-top: 0 !important;
+        margin-bottom: 8px !important;
         text-align: center !important;
         z-index: 20 !important;
     width: 100% !important;
