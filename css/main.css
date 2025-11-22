@@ -1665,20 +1665,41 @@ img {
 }
 
 /* Style spécifique pour les boutons dans le hero-slider */
-.hero-slider .btn-primary {
+.hero-slider .btn-primary,
+#acte-1 .btn-primary,
+.slide-content .btn-primary {
   background: var(--color-gold);
   color: #1a1a1a;
-  padding: 1rem 2.5rem;
+  padding: 16px 40px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  /* Limiter la largeur */
+  max-width: 350px;
+  width: auto;
+  display: inline-block;
+  margin: 0;
 }
 
-.hero-slider .btn-primary:hover {
+.hero-slider .btn-primary:hover,
+#acte-1 .btn-primary:hover,
+.slide-content .btn-primary:hover {
   background: #d89020;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(237, 162, 52, 0.4);
+}
+
+/* Mobile - encore plus compact */
+@media (max-width: 768px) {
+  .hero-slider .btn-primary,
+  #acte-1 .btn-primary,
+  .slide-content .btn-primary {
+    max-width: 300px;
+    padding: 14px 30px;
+    font-size: 15px;
+  }
 }
 
 /* Style par défaut pour les autres sections */
@@ -9237,23 +9258,23 @@ img[src*="poz-box"],
 
 /* ÉTOILE - Très visible (contraste fort) */
 .floating-genesis-button::after {
-    content: '✨';
-    font-size: 42px; /* Augmenté pour compenser la bulle invisible */
+    content: '?';
+    font-size: 50px; /* Plus grand pour compenser la finesse du ? */
+    font-weight: 900; /* Très gras pour plus d'impact */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     
-    /* Blanc pur très lumineux */
-    color: #FFFFFF;
+    /* DORÉ - même couleur que les boutons CTA */
+    color: #DAA520;
     
-    /* Ombre portée pour visibilité sur tous les fonds */
+    /* Ombre pour créer du relief */
     text-shadow: 
-        0 0 12px rgba(255, 255, 255, 0.9),  /* Halo blanc */
-        0 0 20px rgba(255, 215, 0, 0.4),    /* Halo doré */
-        0 3px 6px rgba(0, 0, 0, 0.3);       /* Ombre pour contraste */
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(218, 165, 32, 0.4);
     
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     line-height: 1;
     z-index: 1;
@@ -9292,13 +9313,14 @@ img[src*="poz-box"],
     animation: none;
 }
 
-/* L'étoile grossit et tourne au hover */
+/* Hover - le ? s'illumine */
 .floating-genesis-button:hover::after {
-    transform: translate(-50%, -50%) rotate(15deg) scale(1.15);
+    transform: translate(-50%, -50%) scale(1.15);
+    color: #FFD700; /* Doré plus clair au hover */
     text-shadow: 
-        0 0 15px rgba(255, 255, 255, 1),
-        0 0 30px rgba(255, 215, 0, 0.6),
-        0 4px 8px rgba(0, 0, 0, 0.4);
+        0 0 15px rgba(255, 215, 0, 0.6),
+        0 3px 6px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
 }
 
 /* Tooltip */
@@ -9368,7 +9390,8 @@ img[src*="poz-box"],
     }
     
     .floating-genesis-button::after {
-        font-size: 36px;
+        font-size: 42px;
+        font-weight: 800;
     }
 }
 
