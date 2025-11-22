@@ -1,6 +1,6 @@
 /**
  * ========================================
- * BOUTON FLOTTANT "D'OÙ ÇA VIENT ?" + MODAL
+ * BOUTON FLOTTANT "À L'ORIGINE" + MODAL
  * ========================================
  * 
  * Gère :
@@ -24,17 +24,18 @@
     let currentActe = null;
     let isModalOpen = false;
     let rafId = null;
-    let targetPosition = { right: 40, top: 50 };
-    let currentPosition = { right: 40, top: 50 };
+    let targetPosition = { right: 120, top: 50 }; // Décalé de 80px vers l'intérieur
+    let currentPosition = { right: 120, top: 50 };
     let savedScrollPosition = 0; // Sauvegarder la position de scroll
 
     // Positions par acte (right en px, top en %)
+    // Toutes les positions sont décalées de 80px vers l'intérieur pour éviter les flèches du carousel
     const actePositions = {
-        'acte-1': { right: 40, top: 50 },
-        'acte-2': { right: 60, top: 30 },
-        'acte-3': { right: 30, top: 60 },
-        'acte-4': { right: 50, top: 40 },
-        'acte-5': { right: 45, top: 55 }
+        'acte-1': { right: 120, top: 50 },
+        'acte-2': { right: 140, top: 30 },
+        'acte-3': { right: 110, top: 60 },
+        'acte-4': { right: 130, top: 40 },
+        'acte-5': { right: 125, top: 55 }
     };
 
     /**
@@ -171,9 +172,11 @@
                 currentPosition.right += (targetPosition.right - currentPosition.right) * lerp;
                 currentPosition.top += (targetPosition.top - currentPosition.top) * lerp;
 
+                // Appliquer position (le transform de base est géré par le CSS pour l'animation)
                 floatingBtn.style.right = currentPosition.right + 'px';
                 floatingBtn.style.top = currentPosition.top + '%';
-                floatingBtn.style.transform = 'translateY(-50%)';
+                // Ne pas écraser le transform pour permettre l'animation CSS
+                // Le transform translateY(-50%) est géré par le CSS
                 floatingBtn.style.opacity = '1';
                 floatingBtn.style.pointerEvents = 'auto';
                 floatingBtn.classList.add('visible');
@@ -375,10 +378,10 @@
             console.log('📍 En haut de page, affichage forcé du bouton');
             currentActe = 'acte-1';
             targetPosition = actePositions['acte-1'];
-            currentPosition = { right: 40, top: 50 };
-            floatingBtn.style.right = '40px';
+            currentPosition = { right: 120, top: 50 }; // Position mise à jour
+            floatingBtn.style.right = '120px';
             floatingBtn.style.top = '50%';
-            floatingBtn.style.transform = 'translateY(-50%)';
+            // Le transform translateY(-50%) est géré par le CSS pour permettre l'animation
             floatingBtn.classList.add('visible');
             console.log('✅ Bouton affiché');
         } else {

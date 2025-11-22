@@ -9037,38 +9037,55 @@ img[src*="poz-box"],
    ======================================== */
 
 /* Bouton flottant */
+/* =====================================================
+   BOUTON FLOTTANT - BULLE DE SAVON ULTRA-MINIMALISTE
+   ===================================================== */
+
 .floating-genesis-button {
+    /* Position */
     position: fixed;
-    right: 40px;
+    right: 120px;
     top: 50%;
     transform: translateY(-50%);
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    
-    height: 50px;
-    padding: 15px 25px;
-    border-radius: 25px;
-    
-    background: rgba(218, 165, 32, 0.9);
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     z-index: 9999;
     
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.2;
-    white-space: nowrap;
+    /* Taille bulle */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     
-    transition: all 0.3s ease;
+    /* Pas de contenu direct - on utilise ::after */
+    display: block;
+    
+    /* Fond PRESQUE invisible */
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.03) 0%,     /* Quasi-transparent */
+        rgba(255, 245, 200, 0.02) 40%,    /* Quasi-transparent */
+        rgba(218, 165, 32, 0.015) 100%    /* Quasi-transparent */
+    );
+    
+    /* Bordure très très subtile (à peine visible) */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    /* Ombre ultra-légère (juste pour suggérer la présence) */
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.03),
+        inset 0 1px 3px rgba(255, 255, 255, 0.1);
+    
+    /* Animation très subtile */
+    animation: bubble-float 4s ease-in-out infinite;
+    transition: all 0.4s ease;
+    
+    cursor: pointer;
+    
+    /* Visibilité */
     opacity: 0;
     pointer-events: none;
+    
+    /* Supprimer styles par défaut */
+    padding: 0;
+    margin: 0;
 }
 
 .floating-genesis-button.visible {
@@ -9076,40 +9093,125 @@ img[src*="poz-box"],
     pointer-events: auto;
 }
 
-.floating-genesis-button .btn-icon {
-    font-size: 18px;
+/* Reflet arc-en-ciel très subtil (juste une suggestion) */
+.floating-genesis-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    
+    /* Reflet irisé TRÈS léger (à peine visible) */
+    background: radial-gradient(
+        circle at 35% 35%,
+        rgba(255, 255, 255, 0.12) 0%,     /* Reflet blanc très léger */
+        rgba(255, 240, 200, 0.06) 30%,    /* Reflet doré très léger */
+        transparent 50%
+    );
+    
+    pointer-events: none;
+}
+
+/* ÉTOILE - Très visible (contraste fort) */
+.floating-genesis-button::after {
+    content: '✨';
+    font-size: 42px; /* Augmenté pour compenser la bulle invisible */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Blanc pur très lumineux */
+    color: #FFFFFF;
+    
+    /* Ombre portée pour visibilité sur tous les fonds */
+    text-shadow: 
+        0 0 12px rgba(255, 255, 255, 0.9),  /* Halo blanc */
+        0 0 20px rgba(255, 215, 0, 0.4),    /* Halo doré */
+        0 3px 6px rgba(0, 0, 0, 0.3);       /* Ombre pour contraste */
+    
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     line-height: 1;
-    display: inline-block;
+    z-index: 1;
 }
 
-.floating-genesis-button .btn-text {
-    font-size: 14px;
-    white-space: nowrap;
-    display: inline-block;
-}
-
-/* Animation pulse au repos */
-@keyframes pulse-float {
+/* Animation flottement (très subtile) */
+@keyframes bubble-float {
     0%, 100% {
-        transform: translateY(-50%) scale(1);
+        transform: translateY(-50%) translateX(0) scale(1);
     }
     50% {
-        transform: translateY(-50%) scale(1.05);
+        transform: translateY(-50%) translateX(2px) scale(1.01);
     }
 }
 
-.floating-genesis-button.visible {
-    animation: pulse-float 2s ease-in-out infinite;
-}
-
-/* Animation hover */
+/* HOVER : Révéler légèrement la bulle */
 .floating-genesis-button:hover {
-    transform: translateY(-50%) scale(1.1) rotate(5deg);
-    opacity: 1;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    /* La bulle devient un peu plus visible au hover */
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 245, 200, 0.08) 40%,
+        rgba(218, 165, 32, 0.06) 100%
+    );
+    
+    /* Bordure plus visible */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Ombre légèrement plus marquée */
+    box-shadow: 
+        0 4px 15px rgba(218, 165, 32, 0.12),
+        0 0 25px rgba(255, 215, 0, 0.15),
+        inset 0 2px 6px rgba(255, 255, 255, 0.2);
+    
+    transform: translateY(-50%) scale(1.15) rotate(5deg);
+    animation: none;
 }
 
-/* Animation wobble pour mouvement aléatoire */
+/* L'étoile grossit et tourne au hover */
+.floating-genesis-button:hover::after {
+    transform: translate(-50%, -50%) rotate(15deg) scale(1.15);
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 1),
+        0 0 30px rgba(255, 215, 0, 0.6),
+        0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Tooltip */
+.floating-genesis-button .tooltip {
+    position: absolute;
+    right: 95px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: rgba(25, 35, 50, 0.95);
+    color: #FFD700;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    
+    /* Bordure dorée */
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.floating-genesis-button:hover .tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-5px);
+}
+
+/* Animation wobble pour mouvement aléatoire (conservée pour compatibilité JS) */
 @keyframes wobble {
     0%, 100% {
         transform: translateY(-50%) translateX(0) translateY(0);
@@ -9127,6 +9229,26 @@ img[src*="poz-box"],
 
 .floating-genesis-button.moving {
     animation: wobble 0.5s ease-in-out infinite;
+}
+
+/* Tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .floating-genesis-button {
+        right: 100px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .floating-genesis-button {
+        width: 70px;
+        height: 70px;
+        right: 80px;
+    }
+    
+    .floating-genesis-button::after {
+        font-size: 36px;
+    }
 }
 
 /* Modal overlay - NE DOIT PAS SCROLLER */
