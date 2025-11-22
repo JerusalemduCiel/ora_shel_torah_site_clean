@@ -9175,7 +9175,7 @@ img[src*="poz-box"],
     line-height: 1.3;
 }
 
-/* Photo */
+/* Photo (ancien style - conservé pour compatibilité) */
 .genesis-photo-container {
     float: left;
     margin: 0 30px 20px 0;
@@ -9189,6 +9189,44 @@ img[src*="poz-box"],
     border-radius: 8px;
     border: 1px solid #eda234;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* En-tête auteur avec photo, nom et fonction */
+.author-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(218, 165, 32, 0.1);
+    border-radius: 12px;
+}
+
+.author-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #daa520;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.author-info h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.author-info p {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+    color: #daa520;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
 }
 
 /* Texte */
@@ -9326,6 +9364,27 @@ body.modal-open {
     .genesis-photo {
         height: 200px;
     }
+    
+    /* Responsive pour l'en-tête auteur */
+    .author-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px !important;
+        padding: 15px !important;
+    }
+    
+    .author-photo img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .author-info h3 {
+        font-size: 20px !important;
+    }
+    
+    .author-info p {
+        font-size: 14px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -9366,5 +9425,24 @@ body.modal-open {
     .modal-video-section h3 {
         font-size: 20px;
         margin-bottom: 15px;
+    }
+    
+    /* Responsive mobile pour l'en-tête auteur */
+    .author-header {
+        padding: 12px !important;
+        gap: 12px !important;
+    }
+    
+    .author-photo img {
+        width: 55px !important;
+        height: 55px !important;
+    }
+    
+    .author-info h3 {
+        font-size: 18px !important;
+    }
+    
+    .author-info p {
+        font-size: 12px !important;
     }
 }

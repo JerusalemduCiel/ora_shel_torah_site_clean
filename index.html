@@ -300,8 +300,8 @@
 
             <!-- Navigation -->
             <nav class="header-nav">
-                <a href="#acte-2" data-scroll-to="acte-2">Notre histoire</a>
-                <a href="#acte-3" data-scroll-to="acte-3">Philosophie</a>
+                <a href="#" id="nav-histoire" class="nav-link">Notre histoire</a>
+                <a href="#" id="nav-philosophie" class="nav-link">Philosophie</a>
                 <a href="#acte-4" data-scroll-to="acte-4">Nos jeux</a>
                 <a href="#boutique" data-scroll-to="boutique">Boutique</a>
                 <a href="#contact" data-scroll-to="contact">Contact</a>
@@ -331,8 +331,8 @@
 
     <!-- Menu mobile navigation -->
     <nav class="mobile-nav" id="mobile-nav">
-        <a href="#acte-2" data-scroll-to="acte-2">Notre histoire</a>
-        <a href="#acte-3" data-scroll-to="acte-3">Philosophie</a>
+        <a href="#" id="nav-histoire-mobile" class="nav-link">Notre histoire</a>
+        <a href="#" id="nav-philosophie-mobile" class="nav-link">Philosophie</a>
         <a href="#acte-4" data-scroll-to="acte-4">Nos jeux</a>
         <a href="#boutique" data-scroll-to="boutique">Boutique</a>
         <a href="#contact" data-scroll-to="contact">Contact</a>
@@ -3585,11 +3585,24 @@
                 <section class="genesis-section">
                     <h3 class="genesis-section-title">Mon parcours : de l'éloignement à la lumière</h3>
                     
-                    <div class="genesis-photo-container">
-                        <img src="images/michael_lumbroso.png" 
-                             alt="Michael Lumbroso, fondateur d'Ora Shel Torah" 
-                             class="genesis-photo"
-                             loading="lazy">
+                    <!-- En-tête auteur avec photo, nom et fonction -->
+                    <div class="author-header" style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px; padding: 20px; background: rgba(218, 165, 32, 0.1); border-radius: 12px;">
+                        <!-- Photo -->
+                        <div class="author-photo">
+                            <img src="images/michael_lumbroso.png" 
+                                 alt="Michael Lumbroso, fondateur d'Ora Shel Torah" 
+                                 style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #daa520; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                        </div>
+                        
+                        <!-- Nom + Fonction -->
+                        <div class="author-info">
+                            <h3 style="margin: 0; font-size: 24px; color: #333; font-weight: 600; font-family: 'Inter', sans-serif;">
+                                Michael Lumbroso
+                            </h3>
+                            <p style="margin: 5px 0 0 0; font-size: 16px; color: #daa520; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                                Fondateur
+                            </p>
+                        </div>
                     </div>
                     
                     <div class="genesis-text">

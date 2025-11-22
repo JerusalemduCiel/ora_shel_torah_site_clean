@@ -345,12 +345,155 @@
         }
     });
 
+    /**
+     * Scroll vers la vidéo dans la modale
+     */
+    function scrollToVideoInModal() {
+        if (!modalOverlay || !modal) return;
+        
+        setTimeout(() => {
+            const videoSection = document.querySelector('.modal-video-section');
+            
+            if (modal && videoSection) {
+                // Le scroll se fait sur .genesis-modal qui a overflow-y: auto
+                const modalRect = modal.getBoundingClientRect();
+                const videoRect = videoSection.getBoundingClientRect();
+                
+                // Calculer la position relative au modal
+                const offset = videoRect.top - modalRect.top + modal.scrollTop;
+                
+                // Scroller dans la modale
+                modal.scrollTo({ 
+                    top: offset - 20, // -20px pour un peu d'espace
+                    behavior: 'smooth' 
+                });
+            }
+        }, 300); // Attendre que la modale soit ouverte
+    }
+
     // Exposer les fonctions pour debug si nécessaire
     window.genesisButton = {
         openModal,
         closeModal,
-        updatePosition: updateButtonPosition
+        updatePosition: updateButtonPosition,
+        scrollToVideo: scrollToVideoInModal
     };
+
+})();
+
+/**
+ * ========================================
+ * GESTION DES LIENS DE NAVIGATION VERS LA MODALE
+ * ========================================
+ */
+(function() {
+    'use strict';
+
+    // Fonction d'initialisation
+    function initNavigationLinks() {
+        // Récupérer les éléments
+        const navHistoire = document.getElementById('nav-histoire');
+        const navPhilosophie = document.getElementById('nav-philosophie');
+        const navHistoireMobile = document.getElementById('nav-histoire-mobile');
+        const navPhilosophieMobile = document.getElementById('nav-philosophie-mobile');
+        
+        // Fonction pour ouvrir la modale
+        function openModalFromNav() {
+            if (window.genesisButton && window.genesisButton.openModal) {
+                window.genesisButton.openModal();
+            } else {
+                // Fallback si genesisButton n'est pas encore chargé
+                const modalOverlay = document.getElementById('genesis-modal-overlay');
+                if (modalOverlay) {
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        }
+        
+        // Fonction pour ouvrir la modale et scroller vers la vidéo
+        function openModalAndScrollToVideo() {
+            openModalFromNav();
+            // Attendre un peu plus pour que la modale soit complètement ouverte
+            setTimeout(() => {
+                if (window.genesisButton && window.genesisButton.scrollToVideo) {
+                    window.genesisButton.scrollToVideo();
+                } else {
+                    // Fallback
+                    const modal = document.querySelector('.genesis-modal');
+                    const videoSection = document.querySelector('.modal-video-section');
+                    if (modal && videoSection) {
+                        const modalRect = modal.getBoundingClientRect();
+                        const videoRect = videoSection.getBoundingClientRect();
+                        const offset = videoRect.top - modalRect.top + modal.scrollTop;
+                        modal.scrollTo({ 
+                            top: offset - 20, 
+                            behavior: 'smooth' 
+                        });
+                    }
+                }
+            }, 350);
+        }
+        
+        // Lien "Notre histoire" (desktop) → ouvre la modale
+        if (navHistoire) {
+            navHistoire.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModalFromNav();
+            });
+        }
+        
+        // Lien "Philosophie" (desktop) → ouvre la modale + scroll vers vidéo
+        if (navPhilosophie) {
+            navPhilosophie.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModalAndScrollToVideo();
+            });
+        }
+        
+        // Lien "Notre histoire" (mobile) → ouvre la modale
+        if (navHistoireMobile) {
+            navHistoireMobile.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModalFromNav();
+                // Fermer le menu mobile si ouvert
+                const mobileNav = document.getElementById('mobile-nav');
+                const burgerMenu = document.getElementById('burger-menu');
+                if (mobileNav && burgerMenu) {
+                    mobileNav.classList.remove('active');
+                    burgerMenu.classList.remove('active');
+                }
+            });
+        }
+        
+        // Lien "Philosophie" (mobile) → ouvre la modale + scroll vers vidéo
+        if (navPhilosophieMobile) {
+            navPhilosophieMobile.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModalAndScrollToVideo();
+                // Fermer le menu mobile si ouvert
+                const mobileNav = document.getElementById('mobile-nav');
+                const burgerMenu = document.getElementById('burger-menu');
+                if (mobileNav && burgerMenu) {
+                    mobileNav.classList.remove('active');
+                    burgerMenu.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    // Initialisation
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavigationLinks);
+    } else {
+        // DOM déjà chargé
+        setTimeout(initNavigationLinks, 100);
+    }
+    
+    // Backup : réessayer après le chargement complet
+    window.addEventListener('load', () => {
+        setTimeout(initNavigationLinks, 200);
+    });
 
 })();
 
