@@ -26,6 +26,7 @@
     let rafId = null;
     let targetPosition = { right: 40, top: 50 };
     let currentPosition = { right: 40, top: 50 };
+    let savedScrollPosition = 0; // Sauvegarder la position de scroll
 
     // Positions par acte (right en px, top en %)
     const actePositions = {
@@ -177,34 +178,81 @@
      * Ouvre la modal
      */
     function openModal() {
-        if (isModalOpen || !floatingBtn || !modalOverlay || !closeBtn) return;
+        console.log('🔍 openModal appelée');
+        
+        if (isModalOpen || !floatingBtn || !modalOverlay || !closeBtn) {
+            console.log('❌ Conditions non remplies:', { isModalOpen, floatingBtn, modalOverlay, closeBtn });
+            return;
+        }
+
+        // Sauvegarder la position de scroll actuelle
+        savedScrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        console.log('📍 Position scroll sauvegardée:', savedScrollPosition);
 
         isModalOpen = true;
         floatingBtn.classList.remove('visible');
         modalOverlay.classList.add('active');
         modalOverlay.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('modal-open');
+        
+        // Ajouter classe au body ET html pour bloquer le scroll
+        document.body.classList.add('modal-open', 'no-scroll');
+        document.documentElement.classList.add('modal-open', 'no-scroll');
+        
+        // FORCER le blocage du scroll du body
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${savedScrollPosition}px`;
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        
+        // VÉRIFIER que les styles sont appliqués
+        console.log('✅ Body styles après:', {
+            position: document.body.style.position,
+            overflow: document.body.style.overflow,
+            top: document.body.style.top,
+            width: document.body.style.width
+        });
+        console.log('✅ Body computed overflow:', window.getComputedStyle(document.body).overflow);
+        console.log('✅ Body computed position:', window.getComputedStyle(document.body).position);
+        console.log('✅ HTML computed overflow:', window.getComputedStyle(document.documentElement).overflow);
+        console.log('✅ Body classes:', document.body.className);
+        console.log('✅ HTML classes:', document.documentElement.className);
 
         // Focus trap : focus sur le bouton de fermeture
         closeBtn.focus();
-
-        // Empêcher le scroll du body
-        document.body.style.overflow = 'hidden';
     }
 
     /**
      * Ferme la modal
      */
     function closeModal() {
-        if (!isModalOpen || !modalOverlay) return;
+        console.log('🔍 closeModal appelée');
+        
+        if (!isModalOpen || !modalOverlay) {
+            console.log('❌ Conditions non remplies:', { isModalOpen, modalOverlay });
+            return;
+        }
 
         isModalOpen = false;
         modalOverlay.classList.remove('active');
         modalOverlay.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('modal-open');
-
-        // Réactiver le scroll du body
+        
+        // Retirer classes
+        document.body.classList.remove('modal-open', 'no-scroll');
+        document.documentElement.classList.remove('modal-open', 'no-scroll');
+        
+        // RESTAURER le scroll du body
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
         document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+
+        // Restaurer la position de scroll
+        const scrollPosition = scrollY ? parseInt(scrollY.replace('-', '').replace('px', '')) : savedScrollPosition;
+        window.scrollTo(0, scrollPosition);
+        console.log('📍 Position scroll restaurée:', scrollPosition);
 
         // Réafficher le bouton après un court délai
         setTimeout(() => {
@@ -405,8 +453,19 @@
                 // Fallback si genesisButton n'est pas encore chargé
                 const modalOverlay = document.getElementById('genesis-modal-overlay');
                 if (modalOverlay) {
+                    // Sauvegarder la position de scroll
+                    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                    
                     modalOverlay.classList.add('active');
+                    
+                    // FORCER le blocage du scroll du body
+                    document.body.classList.add('modal-open', 'no-scroll');
+                    document.documentElement.classList.add('modal-open', 'no-scroll');
+                    document.body.style.position = 'fixed';
+                    document.body.style.top = `-${scrollY}px`;
+                    document.body.style.width = '100%';
                     document.body.style.overflow = 'hidden';
+                    document.documentElement.style.overflow = 'hidden';
                 }
             }
         }
