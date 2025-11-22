@@ -211,7 +211,6 @@ section {
 #acte-2,
 #acte-3,
 #acte-4,
-#acte-6,
 #acte-7,
 #hero-bis-jdc,
 #hero-bis-moh,
@@ -221,6 +220,94 @@ section {
   display: flex;
   align-items: center;
   position: relative;
+}
+
+/* ACTE 6: NOS INSPIRATIONS - Fond bleu nuit */
+#acte-6 {
+  min-height: 100vh;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #040b16 !important;
+  color: #FFFFFF;
+  padding: 80px 20px;
+}
+
+/* Titres en doré */
+#acte-6 h2,
+#acte-6 h3,
+#acte-6 .inspirations-section h3 {
+  color: #DAA520 !important; /* Doré */
+}
+
+/* Texte principal en blanc */
+#acte-6 p,
+#acte-6 .inspirations-section p {
+  color: #FFFFFF !important;
+}
+
+/* Article conteneur avec effet verre */
+#acte-6 .inspirations-section {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Cartes d'inspiration avec effet verre */
+#acte-6 .inspiration-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect sur les cartes */
+#acte-6 .inspiration-card:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(218, 165, 32, 0.3) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Titres des cartes en doré */
+#acte-6 .inspiration-card h4 {
+  color: #DAA520 !important;
+}
+
+/* Texte des cartes en blanc */
+#acte-6 .inspiration-card p {
+  color: #FFFFFF !important;
+}
+
+/* Override des couleurs inline pour le texte */
+#acte-6 .inspiration-card p[style*="color: #666"],
+#acte-6 .inspiration-card p[style*="color: #444"],
+#acte-6 .inspiration-card p[style*="color: #333"],
+#acte-6 .inspiration-card p[style*="color: #D0D0D0"],
+#acte-6 .inspiration-card p[style*="color: #E8E8E8"] {
+  color: #FFFFFF !important;
+}
+
+/* Bordures dorées sur les cartes */
+#acte-6 .inspiration-card {
+  border-left: 3px solid #DAA520 !important; /* Accent doré */
+}
+
+/* Boutons adaptés - garder le style doré */
+#acte-6 a[style*="background: #eda234"],
+#acte-6 a[style*="background: #8B7355"],
+#acte-6 a[style*="background: #2c3e50"] {
+  background: #DAA520 !important;
+  color: #040b16 !important;
+  border: 1px solid #DAA520 !important;
+}
+
+#acte-6 a:hover {
+  background: #FFD700 !important;
+  border-color: #FFD700 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4);
 }
 
 h1, h2, h3, h4, h5, h6 {
