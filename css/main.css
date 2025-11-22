@@ -9256,7 +9256,7 @@ img[src*="poz-box"],
     pointer-events: none;
 }
 
-/* ÉTOILE - Très visible (contraste fort) */
+/* POINT D'INTERROGATION DORÉ - Même couleur que les boutons "Découvrir nos univers" */
 .floating-genesis-button::after {
     content: '?';
     font-size: 50px; /* Plus grand pour compenser la finesse du ? */
@@ -9266,13 +9266,13 @@ img[src*="poz-box"],
     left: 50%;
     transform: translate(-50%, -50%);
     
-    /* DORÉ - même couleur que les boutons CTA */
-    color: #DAA520;
+    /* DORÉ - MÊME COULEUR EXACTE que les boutons "Découvrir nos univers" */
+    color: #eda234; /* var(--color-gold) */
     
-    /* Ombre pour créer du relief */
+    /* Ombre pour créer du relief avec la couleur dorée */
     text-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.3),
-        0 0 10px rgba(218, 165, 32, 0.4);
+        0 0 10px rgba(237, 162, 52, 0.4);
     
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -9313,14 +9313,14 @@ img[src*="poz-box"],
     animation: none;
 }
 
-/* Hover - le ? s'illumine */
+/* Hover - le ? s'illumine avec la couleur hover des boutons */
 .floating-genesis-button:hover::after {
     transform: translate(-50%, -50%) scale(1.15);
-    color: #FFD700; /* Doré plus clair au hover */
+    color: #d89020; /* Même couleur hover que les boutons "Découvrir nos univers" */
     text-shadow: 
-        0 0 15px rgba(255, 215, 0, 0.6),
+        0 0 15px rgba(216, 144, 32, 0.6),
         0 3px 6px rgba(0, 0, 0, 0.4);
-    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
+    filter: drop-shadow(0 0 12px rgba(216, 144, 32, 0.5));
 }
 
 /* Tooltip */
