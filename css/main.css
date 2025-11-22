@@ -8977,3 +8977,348 @@ img[src*="poz-box"],
     content: 'Explorer les mitzvot';
 }
 */
+
+/* ========================================
+   BOUTON FLOTTANT "D'OÙ ÇA VIENT ?" + MODAL
+   ======================================== */
+
+/* Bouton flottant */
+.floating-genesis-button {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    height: 50px;
+    padding: 15px 25px;
+    border-radius: 25px;
+    
+    background: rgba(218, 165, 32, 0.9);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.floating-genesis-button.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.floating-genesis-button .btn-icon {
+    font-size: 18px;
+    line-height: 1;
+    display: inline-block;
+}
+
+.floating-genesis-button .btn-text {
+    font-size: 14px;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* Animation pulse au repos */
+@keyframes pulse-float {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+.floating-genesis-button.visible {
+    animation: pulse-float 2s ease-in-out infinite;
+}
+
+/* Animation hover */
+.floating-genesis-button:hover {
+    transform: translateY(-50%) scale(1.1) rotate(5deg);
+    opacity: 1;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Animation wobble pour mouvement aléatoire */
+@keyframes wobble {
+    0%, 100% {
+        transform: translateY(-50%) translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateY(-50%) translateX(2px) translateY(-2px);
+    }
+    50% {
+        transform: translateY(-50%) translateX(-2px) translateY(2px);
+    }
+    75% {
+        transform: translateY(-50%) translateX(1px) translateY(-1px);
+    }
+}
+
+.floating-genesis-button.moving {
+    animation: wobble 0.5s ease-in-out infinite;
+}
+
+/* Modal overlay */
+.genesis-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.genesis-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal container */
+.genesis-modal {
+    background: #ffffff;
+    max-width: 800px;
+    width: 100%;
+    max-height: 80vh;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.genesis-modal-overlay.active .genesis-modal {
+    transform: scale(1);
+}
+
+/* Bouton fermeture */
+.genesis-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.genesis-modal-close:hover {
+    color: #eda234;
+    transform: rotate(90deg);
+}
+
+/* Titre modal */
+.genesis-modal-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    color: #eda234;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+/* Contenu modal */
+.genesis-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Sections */
+.genesis-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.genesis-section-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    color: #eda234;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+/* Photo */
+.genesis-photo-container {
+    float: left;
+    margin: 0 30px 20px 0;
+    width: 180px;
+}
+
+.genesis-photo {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eda234;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Texte */
+.genesis-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    overflow: hidden;
+}
+
+.genesis-text p {
+    margin-bottom: 1.2rem;
+}
+
+.genesis-text h4 {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.5rem;
+    color: #8B7355;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.genesis-text ul {
+    margin: 1.2rem 0;
+    padding-left: 2rem;
+}
+
+.genesis-text li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+/* Citation */
+.genesis-quote {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-left: 4px solid #eda234;
+    border-radius: 4px;
+    margin-top: 1.5rem;
+    font-style: italic;
+}
+
+.genesis-quote p {
+    margin: 0;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Prevent body scroll quand modal ouverte */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .floating-genesis-button {
+        height: 40px;
+        padding: 12px 20px;
+        border-radius: 20px;
+        font-size: 12px;
+        right: 20px;
+        gap: 6px;
+    }
+    
+    .floating-genesis-button .btn-icon {
+        font-size: 16px;
+    }
+    
+    .floating-genesis-button .btn-text {
+        font-size: 12px;
+    }
+    
+    .genesis-modal {
+        width: 95%;
+        padding: 20px;
+        max-height: 90vh;
+    }
+    
+    .genesis-modal-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .genesis-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .genesis-text {
+        font-size: 0.95rem;
+    }
+    
+    .genesis-photo-container {
+        float: none;
+        margin: 0 auto 20px;
+        width: 150px;
+    }
+    
+    .genesis-photo {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-genesis-button {
+        height: 38px;
+        padding: 10px 18px;
+        border-radius: 19px;
+        right: 15px;
+        font-size: 11px;
+        gap: 5px;
+    }
+    
+    .floating-genesis-button .btn-icon {
+        font-size: 14px;
+    }
+    
+    .floating-genesis-button .btn-text {
+        font-size: 11px;
+    }
+    
+    .genesis-modal {
+        padding: 15px;
+    }
+    
+    .genesis-modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .genesis-section-title {
+        font-size: 1.3rem;
+    }
+}
