@@ -104,59 +104,90 @@
      * Met à jour la position du bouton avec animation fluide
      */
     function updateButtonPosition() {
-        const acteId = detectCurrentActe();
+        let acteId = detectCurrentActe();
         console.log('📍 Acte détecté:', acteId, '| Scroll Y:', window.scrollY);
 
-        // Si on est après l'acte 5, faire disparaître progressivement
-        if (!acteId || acteId === 'acte-5') {
+        // Si aucun acte détecté, vérifier si on est après l'acte 5
+        if (!acteId) {
             const acte5 = document.getElementById('acte-5');
-            if (acte5) {
-                const rect = acte5.getBoundingClientRect();
+            const acte6 = document.getElementById('acte-6');
+            
+            if (acte5 && acte6) {
                 const scrollY = window.scrollY || window.pageYOffset;
-                const acte5Bottom = scrollY + rect.top + rect.height;
+                const acte5Rect = acte5.getBoundingClientRect();
+                const acte6Rect = acte6.getBoundingClientRect();
+                const acte5Bottom = scrollY + acte5Rect.top + acte5Rect.height;
+                const acte6Top = scrollY + acte6Rect.top;
                 const currentScroll = scrollY + window.innerHeight;
 
-                // Si on a dépassé l'acte 5 de plus de 200px, disparaître
-                if (currentScroll > acte5Bottom + 200 && floatingBtn) {
-                    console.log('👋 Bouton disparaît après acte 5');
-                    floatingBtn.style.opacity = '0';
-                    floatingBtn.classList.remove('visible');
+                // Si on est clairement dans l'acte 6 ou après, cacher le bouton
+                if (currentScroll > acte6Top + 100) {
+                    console.log('👋 Bouton caché : après l\'acte 6');
+                    if (floatingBtn) {
+                        floatingBtn.style.opacity = '0';
+                        floatingBtn.style.pointerEvents = 'none';
+                        floatingBtn.classList.remove('visible');
+                    }
+                    currentActe = null;
                     return;
+                }
+                // Si on est entre l'acte 5 et l'acte 6, considérer qu'on est encore dans l'acte 5
+                else if (currentScroll > acte5Bottom - 200) {
+                    acteId = 'acte-5';
+                    console.log('📍 Zone de transition, considéré comme acte 5');
                 }
             }
         }
 
-        // Si on est dans l'acte 1, afficher le bouton à sa position initiale
-        if (acteId === 'acte-1') {
-            targetPosition = actePositions['acte-1'];
-            currentActe = 'acte-1';
-            console.log('✅ Acte 1 détecté, affichage du bouton');
-        }
-        // Si on est dans un autre acte, afficher le bouton avec position dynamique
-        else if (acteId && acteId !== 'acte-1') {
-            const newPosition = calculateTargetPosition(acteId);
-            if (newPosition) {
-                targetPosition = newPosition;
-                currentActe = acteId;
-                console.log('✅ Acte', acteId, 'détecté, position:', newPosition);
+        // Extraire le numéro de l'acte pour déterminer la visibilité
+        let actNumber = null;
+        if (acteId) {
+            const match = acteId.match(/acte-(\d+)/);
+            if (match) {
+                actNumber = parseInt(match[1], 10);
             }
         }
 
-        // Animer vers la position cible
-        if (currentActe && !isModalOpen && floatingBtn) {
-            // Interpolation fluide
-            const lerp = 0.1; // Facteur de lissage (plus petit = plus fluide)
-            currentPosition.right += (targetPosition.right - currentPosition.right) * lerp;
-            currentPosition.top += (targetPosition.top - currentPosition.top) * lerp;
+        // LOGIQUE DE VISIBILITÉ : Actes 1-5 = visible, Acte 6+ = caché
+        if (actNumber && actNumber >= 1 && actNumber <= 5) {
+            // Actes 1-5 : AFFICHER le bouton
+            if (acteId === 'acte-1') {
+                targetPosition = actePositions['acte-1'];
+                currentActe = 'acte-1';
+                console.log('✅ Acte 1 détecté, affichage du bouton');
+            } else if (acteId && actePositions[acteId]) {
+                const newPosition = calculateTargetPosition(acteId);
+                if (newPosition) {
+                    targetPosition = newPosition;
+                    currentActe = acteId;
+                    console.log('✅ Acte', acteId, 'détecté, position:', newPosition);
+                }
+            }
 
-            floatingBtn.style.right = currentPosition.right + 'px';
-            floatingBtn.style.top = currentPosition.top + '%';
-            floatingBtn.style.transform = 'translateY(-50%)';
-            floatingBtn.classList.add('visible');
-            console.log('👁️ Bouton visible, position:', currentPosition);
-        } else if (!currentActe && floatingBtn) {
-            floatingBtn.classList.remove('visible');
-            console.log('❌ Aucun acte, bouton masqué');
+            // Animer vers la position cible et AFFICHER le bouton
+            if (currentActe && !isModalOpen && floatingBtn) {
+                // Interpolation fluide
+                const lerp = 0.1; // Facteur de lissage (plus petit = plus fluide)
+                currentPosition.right += (targetPosition.right - currentPosition.right) * lerp;
+                currentPosition.top += (targetPosition.top - currentPosition.top) * lerp;
+
+                floatingBtn.style.right = currentPosition.right + 'px';
+                floatingBtn.style.top = currentPosition.top + '%';
+                floatingBtn.style.transform = 'translateY(-50%)';
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.pointerEvents = 'auto';
+                floatingBtn.classList.add('visible');
+                console.log('👁️ Bouton visible, position:', currentPosition);
+            }
+        } else {
+            // Acte 6 ou plus, ou aucun acte détecté : CACHER le bouton
+            if (floatingBtn) {
+                console.log('❌ Acte', actNumber || 'inconnu', '- Bouton masqué');
+                floatingBtn.style.opacity = '0';
+                floatingBtn.style.pointerEvents = 'none';
+                floatingBtn.classList.remove('visible');
+                currentActe = null;
+            }
         }
     }
 
