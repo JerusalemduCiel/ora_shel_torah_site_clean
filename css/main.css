@@ -296,7 +296,6 @@ section {
 
 /* Boutons adaptés - garder le style doré */
 #acte-6 a[style*="background: #eda234"],
-#acte-6 a[style*="background: #8B7355"],
 #acte-6 a[style*="background: #2c3e50"] {
   background: #DAA520 !important;
   color: #040b16 !important;
@@ -308,6 +307,41 @@ section {
   border-color: #FFD700 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4);
+}
+
+/* Bouton Spotify */
+.btn-spotify {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 12px 24px;
+  background: #1DB954; /* Vert Spotify officiel */
+  color: #FFFFFF;
+  
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  
+  border-radius: 25px;
+  border: none;
+  
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-spotify:hover {
+  background: #1ed760; /* Vert plus clair au hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
+}
+
+.btn-spotify svg {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
 h1, h2, h3, h4, h5, h6 {
