@@ -3220,37 +3220,6 @@ html body #hero-bis-poz .hero-bis-background img {
   justify-content: center;
 }
 
-/* POINT #4 : PARALLAXE BACKGROUNDS */
-.hero-bis {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-bis-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.hero-bis-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: fixed;
-    top: 0;
-    left: 0;
-    will-change: transform;
-}
-
-.hero-bis-content,
-.hero-bis-actions {
-    position: relative;
-    z-index: 2;
-}
-
 /* Pas de fond semi-transparent - uniquement ombres portées sur le texte */
 
 .hero-bis-content h2 {
