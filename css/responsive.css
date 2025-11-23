@@ -46,7 +46,7 @@ img {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        /* Hauteur fixe respectée depuis main.css : 500px sur mobile */
+        /* Hauteur fixe depuis main.css : 500px sur mobile */
         height: 500px !important;
         min-height: 500px !important;
     }
@@ -55,9 +55,8 @@ img {
         display: block !important;
         visibility: visible !important;
         width: 100% !important;
-        /* Hauteur fixe respectée depuis main.css : 500px sur mobile */
-        height: 500px !important;
-        min-height: 500px !important;
+        height: 100% !important;
+        min-height: 100% !important;
     }
     
     /* Permettre les animations de transition des slides (gérées dans main.css) */
@@ -129,7 +128,7 @@ img {
        ============================================================ */
     
     .hero-slider {
-        /* Hauteur fixe respectée depuis main.css : 500px sur mobile */
+        /* Hauteur fixe depuis main.css : 500px sur mobile */
         height: 500px !important;
         min-height: 500px !important;
         position: relative !important;
@@ -142,9 +141,8 @@ img {
     
     .slider-container {
         width: 100% !important;
-        /* Hauteur fixe respectée depuis main.css : 500px sur mobile */
-        height: 500px !important;
-        min-height: 500px !important;
+        height: 100% !important;
+        min-height: 100% !important;
         display: block !important;
         visibility: visible !important;
         position: relative !important;
@@ -152,9 +150,8 @@ img {
     
     .slide {
         width: 100% !important;
-        /* Hauteur fixe respectée depuis main.css : 500px sur mobile */
-        height: 500px !important;
-        min-height: 500px !important;
+        height: 100% !important;
+        min-height: 100% !important;
         display: block !important;
         visibility: visible !important;
         flex-direction: column !important;
@@ -169,30 +166,30 @@ img {
     /* Mobile très petit (≤480px) */
     @media screen and (max-width: 480px) {
         .hero-slider {
-            /* Hauteur fixe respectée depuis main.css : 400px sur très petit mobile */
+            /* Hauteur fixe depuis main.css : 400px sur très petit mobile */
             height: 400px !important;
             min-height: 400px !important;
         }
         
         .slider-container {
-            /* Hauteur fixe respectée depuis main.css : 400px sur très petit mobile */
-            height: 400px !important;
-            min-height: 400px !important;
+            height: 100% !important;
+            min-height: 100% !important;
         }
         
         .slide {
-            /* Hauteur fixe respectée depuis main.css : 400px sur très petit mobile */
-            height: 400px !important;
-            min-height: 400px !important;
+            height: 100% !important;
+            min-height: 100% !important;
             padding: 40px 15px !important;
         }
         
         .slide img {
-            min-height: 400px !important;
+            height: 100% !important;
+            min-height: 100% !important;
         }
         
         .slide-overlay {
-            min-height: 400px !important;
+            height: 100% !important;
+            min-height: 100% !important;
         }
     }
     

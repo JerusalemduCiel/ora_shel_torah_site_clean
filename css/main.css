@@ -199,28 +199,11 @@ section {
   /* Pas de scroll-snap-stop pour permettre le scroll libre */
 }
 
-/* Hero principal - Hauteur fixe respectée */
+/* Hero principal - scroll snap */
 #acte-1 {
-  height: 600px !important; /* Hauteur fixe desktop */
-  min-height: 600px !important;
-  max-height: none !important;
   scroll-snap-align: center; /* Centre le hero à l'écran */
   position: relative;
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
-}
-
-@media (max-width: 768px) {
-  #acte-1 {
-    height: 500px !important;
-    min-height: 500px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  #acte-1 {
-    height: 400px !important;
-    min-height: 400px !important;
-  }
 }
 
 /* Les autres sections aussi */
@@ -862,52 +845,40 @@ img {
   display: flex;
 }
 
-/* ACTE 1: Hero Slider Moderne (Style Asmodee) */
-/* FIX HAUTEUR HERO - URGENT */
-/* Sélecteurs ultra-spécifiques pour forcer la hauteur */
-html body .hero,
-html body .hero-slider,
-html body section.hero-slider,
-html body #acte-1.hero-slider,
-html body section#acte-1 {
-  height: 600px !important; /* Desktop */
-  min-height: 600px !important;
-  max-height: none !important;
-}
+/* ========================================
+   ACTE 1: Hero Slider Moderne (Style Asmodee)
+   ======================================== */
 
-.hero-slide {
-  height: 100% !important;
-}
-
-.hero-slide img {
-  height: 100% !important;
-  object-fit: cover !important;
-}
-
+/* HERO BASE - HAUTEUR FIXE (NE PAS MODIFIER) */
+#acte-1.hero-slider,
+section#acte-1,
 .hero-slider {
   position: relative;
   width: 100%;
+  height: 600px; /* DESKTOP - VALEUR FIXE */
+  min-height: 600px;
+  max-height: none;
   overflow: hidden;
   /* Fond de secours discret (noir au lieu de bleu) - ne sera visible que pendant chargement */
   background: #000000;
 }
 
+/* CONTAINER DES SLIDES */
 .slider-container {
   position: relative;
   width: 100%;
-  height: 100% !important;
-  min-height: 100% !important;
-  /* Fond transparent pour éviter tout flash visible */
-  background: transparent;
+  height: 100%;
   overflow: hidden;
+  background: transparent;
 }
 
+/* SLIDES - POSITION ABSOLUTE POUR SUPERPOSITION */
 .slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100% !important;
+  height: 100%;
   opacity: 0;
   z-index: 1;
   pointer-events: none;
@@ -969,10 +940,11 @@ html body section#acte-1 {
   }
 }
 
+/* IMAGES DES SLIDES */
 .slide img {
   width: 100%;
-  height: 100% !important;
-  object-fit: cover !important;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
   /* Support GPU acceleration */
   transform: translateZ(0);
@@ -1001,16 +973,13 @@ html body section#acte-1 {
    MEDIA QUERIES - TRANSITIONS RESPONSIVE
    ======================================== */
 
-/* Simplifier sur mobile si performance faible */
+/* MOBILE - HAUTEUR FIXE */
 @media (max-width: 768px) {
-  html body .hero,
-  html body .hero-slider,
-  html body section.hero-slider,
-  html body #acte-1.hero-slider,
-  html body section#acte-1 {
-    height: 500px !important;
-    min-height: 500px !important;
-    max-height: none !important;
+  #acte-1.hero-slider,
+  section#acte-1,
+  .hero-slider {
+    height: 500px;
+    min-height: 500px;
   }
   
   .slide.slide-exit,
@@ -1065,15 +1034,13 @@ html body section#acte-1 {
   }
 }
 
+/* MOBILE TRÈS PETIT */
 @media (max-width: 480px) {
-  html body .hero,
-  html body .hero-slider,
-  html body section.hero-slider,
-  html body #acte-1.hero-slider,
-  html body section#acte-1 {
-    height: 400px !important;
-    min-height: 400px !important;
-    max-height: none !important;
+  #acte-1.hero-slider,
+  section#acte-1,
+  .hero-slider {
+    height: 400px;
+    min-height: 400px;
   }
 }
 
