@@ -2282,27 +2282,35 @@ nav .btn-precommander:active {
 }
 
 /* ========================================
-   BOUTON SPOTIFY - VERT PREMIUM
+   BOUTON SPOTIFY - VERT PREMIUM (FORCÉ)
    ======================================== */
 
+/* Sélecteurs multiples avec spécificité maximale pour FORCER le style vert */
 .btn-spotify,
 .spotify-btn,
 .spotify-link,
 a[href*="spotify"],
-.inspiration-card .btn-spotify,
-.inspiration-card a[href*="spotify"] {
-  /* Reset */
+a[href*="open.spotify.com"],
+#acte-6 .inspiration-card .btn-spotify,
+#acte-6 .inspiration-card a[href*="spotify"],
+.inspirations-acte .inspiration-card .btn-spotify,
+.inspirations-acte .inspiration-card a[href*="spotify"],
+.inspirations-section .inspiration-card .btn-spotify,
+.inspirations-section .inspiration-card a[href*="spotify"] {
+  /* FORCER avec !important partout */
+  
+  /* Reset complet */
   display: inline-block !important;
   border: none !important;
   text-decoration: none !important;
   text-align: center !important;
   
-  /* Apparence premium Spotify */
-  position: relative;
-  overflow: hidden;
+  /* Apparence premium Spotify VERTE */
+  position: relative !important;
+  overflow: hidden !important;
   background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%) !important;
-  color: #ffffff !important;  /* Texte blanc sur fond vert */
-  font-family: 'Inter', sans-serif;
+  color: #ffffff !important;  /* Texte BLANC sur fond vert */
+  font-family: 'Inter', sans-serif !important;
   font-weight: 600 !important;
   font-size: 1rem !important;
   padding: 14px 32px !important;
@@ -2320,38 +2328,51 @@ a[href*="spotify"],
   /* Animation de pulse VERT */
   animation: pulse-glow-green 3s ease-in-out infinite !important;
   
-  /* Texte lisible */
+  /* Texte lisible BLANC */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Hover - Intensification du glow VERT */
+/* Hover - VERT intensifié */
 .btn-spotify:hover,
 .spotify-btn:hover,
 .spotify-link:hover,
 a[href*="spotify"]:hover,
-.inspiration-card .btn-spotify:hover,
-.inspiration-card a[href*="spotify"]:hover {
-  color: #ffffff !important;  /* Texte reste blanc */
+a[href*="open.spotify.com"]:hover,
+#acte-6 .inspiration-card .btn-spotify:hover,
+#acte-6 .inspiration-card a[href*="spotify"]:hover,
+.inspirations-acte .inspiration-card .btn-spotify:hover,
+.inspirations-acte .inspiration-card a[href*="spotify"]:hover,
+.inspirations-section .inspiration-card .btn-spotify:hover,
+.inspirations-section .inspiration-card a[href*="spotify"]:hover {
+  color: #ffffff !important;  /* Texte reste BLANC */
   
   /* Glow VERT intense */
   box-shadow: 
     0 0 35px rgba(29, 185, 84, 0.7),
     0 6px 20px rgba(0, 0, 0, 0.3) !important;
   
-  /* Gradient inversé */
+  /* Gradient VERT inversé */
   background: linear-gradient(135deg, #1ed760 0%, #1DB954 100%) !important;
   
   /* Stopper le pulse */
   animation: none !important;
+  
+  /* PAS de transform pour cohérence avec les autres boutons */
+  transform: none !important;
 }
 
-/* Active (clic) - Feedback minimal */
+/* Active (clic) - VERT */
 .btn-spotify:active,
 .spotify-btn:active,
 .spotify-link:active,
 a[href*="spotify"]:active,
-.inspiration-card .btn-spotify:active,
-.inspiration-card a[href*="spotify"]:active {
+a[href*="open.spotify.com"]:active,
+#acte-6 .inspiration-card .btn-spotify:active,
+#acte-6 .inspiration-card a[href*="spotify"]:active,
+.inspirations-acte .inspiration-card .btn-spotify:active,
+.inspirations-acte .inspiration-card a[href*="spotify"]:active,
+.inspirations-section .inspiration-card .btn-spotify:active,
+.inspirations-section .inspiration-card a[href*="spotify"]:active {
   color: #ffffff !important;
   box-shadow: 
     0 0 25px rgba(29, 185, 84, 0.6),
