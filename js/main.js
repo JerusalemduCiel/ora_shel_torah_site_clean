@@ -1507,6 +1507,45 @@ function initBurgerMenu() {
     console.log('✅ Menu burger initialisé');
 }
 
+// ========================================
+// EFFET RIPPLE SUR BOUTONS CTA
+// ========================================
+
+function initRippleEffect() {
+    // Effet ripple sur les boutons CTA
+    document.querySelectorAll('.btn-primary, .btn-cta, .hero-cta, .btn-commander').forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Créer l'élément ripple
+            const ripple = document.createElement('span');
+            ripple.classList.add('btn-ripple-effect');
+            
+            // Calculer la position du clic
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            // Positionner et dimensionner
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            
+            // Ajouter au bouton
+            this.appendChild(ripple);
+            
+            // Retirer après l'animation
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+    
+    console.log('✨ Effet ripple CTA initialisé');
+}
+
+// Initialiser l'effet ripple au chargement
+document.addEventListener('DOMContentLoaded', function() {
+    initRippleEffect();
+});
+
 } catch(e) {
     alert('ERREUR main.js : ' + e.message);
 }

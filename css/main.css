@@ -1840,32 +1840,64 @@ img {
   display: inline-block;
 }
 
+/* ===== BOUTONS CTA PREMIUM - GLOW DORÉ ===== */
+
 /* Style spécifique pour les boutons dans le hero-slider */
 .hero-slider .btn-primary,
 #acte-1 .btn-primary,
 .slide-content .btn-primary {
-  background: var(--color-gold);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eda234 0%, #f4c86f 100%);
   color: #1a1a1a;
   padding: 16px 40px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  /* Glow doré permanent */
+  box-shadow: 
+    0 0 20px rgba(237, 162, 52, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  
+  /* Animation de pulse subtile + micro-rebond au chargement */
+  animation: 
+    pulse-glow 3s ease-in-out infinite,
+    bounceIn 0.6s ease-out;
   
   /* Limiter la largeur */
   max-width: 350px;
   width: auto;
   display: inline-block;
   margin: 0;
+  transition: all 0.3s ease;
 }
 
 .hero-slider .btn-primary:hover,
 #acte-1 .btn-primary:hover,
 .slide-content .btn-primary:hover {
-  background: #d89020;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(237, 162, 52, 0.4);
+  /* Levée du bouton */
+  transform: translateY(-4px) scale(1.02);
+  
+  /* Brillance intense */
+  box-shadow: 
+    0 0 40px rgba(237, 162, 52, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+  
+  /* Gradient plus lumineux */
+  background: linear-gradient(135deg, #f4c86f 0%, #eda234 100%);
+  
+  /* Stopper l'animation de pulse au hover */
+  animation: none;
+}
+
+.hero-slider .btn-primary:active,
+#acte-1 .btn-primary:active,
+.slide-content .btn-primary:active {
+  /* Effet de clic enfoncé */
+  transform: translateY(-1px) scale(0.98);
+  transition: all 0.1s ease;
 }
 
 /* Mobile - encore plus compact */
@@ -1879,29 +1911,90 @@ img {
   }
 }
 
-/* Style par défaut pour les autres sections */
+/* Style par défaut pour les autres sections - Premium avec glow */
 .btn-primary {
-  background: var(--color-gold);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eda234 0%, #f4c86f 100%);
   color: var(--color-dark-bg);
-  box-shadow: var(--shadow-lg);
+  
+  /* Glow doré permanent */
+  box-shadow: 
+    0 0 20px rgba(237, 162, 52, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  
+  /* Animation de pulse subtile */
+  animation: pulse-glow 3s ease-in-out infinite;
+  
+  /* Text shadow pour contraste */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-gold);
+  /* Levée du bouton */
+  transform: translateY(-4px) scale(1.02);
+  
+  /* Brillance intense */
+  box-shadow: 
+    0 0 40px rgba(237, 162, 52, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+  
+  /* Gradient plus lumineux */
+  background: linear-gradient(135deg, #f4c86f 0%, #eda234 100%);
+  
+  /* Stopper l'animation de pulse au hover */
+  animation: none;
+}
+
+.btn-primary:active {
+  /* Effet de clic enfoncé */
+  transform: translateY(-1px) scale(0.98);
+  transition: all 0.1s ease;
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   color: var(--color-white);
-  border: 2px solid var(--color-gold);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary:hover {
-  background: var(--color-gold);
-  color: var(--color-dark-bg);
-  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Boutons modaux (teaser, démo) - Style cohérent */
+.btn-modal,
+.btn-teaser,
+.btn-demo {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-modal:hover,
+.btn-teaser:hover,
+.btn-demo:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .scroll-indicator {
