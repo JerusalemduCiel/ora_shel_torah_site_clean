@@ -244,6 +244,20 @@
   }
 }
 
+/* Animation de pulse du glow VERT pour Spotify */
+@keyframes pulse-glow-green {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px rgba(29, 185, 84, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(29, 185, 84, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
 /* Animation de glissement pour les éléments de liste */
 .slide-in-left {
   animation: slideInLeft 0.5s ease-out;

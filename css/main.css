@@ -310,39 +310,7 @@ section {
 }
 
 /* Bouton Spotify */
-.btn-spotify {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  
-  padding: 12px 24px;
-  background: #1DB954; /* Vert Spotify officiel */
-  color: #FFFFFF;
-  
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  
-  border-radius: 25px;
-  border: none;
-  
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.btn-spotify:hover {
-  background: #1ed760; /* Vert plus clair au hover */
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
-}
-
-.btn-spotify svg {
-  fill: currentColor;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
+/* Ancien style .btn-spotify supprimé - Remplacé par le style premium ci-dessous */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -2270,10 +2238,10 @@ nav .btn-precommander:active {
   transition: box-shadow 0.1s ease !important;
 }
 
-/* Inspirations - Tous les liens dans les cartes (Amazon + Découvrir) */
-#acte-6 .inspiration-card a,
-.inspirations-acte .inspiration-card a,
-.inspirations-section .inspiration-card a {
+/* Inspirations - Tous les liens dans les cartes (Amazon + Découvrir) - EXCLURE SPOTIFY */
+#acte-6 .inspiration-card a:not(.btn-spotify):not([href*="spotify"]),
+.inspirations-acte .inspiration-card a:not(.btn-spotify):not([href*="spotify"]),
+.inspirations-section .inspiration-card a:not(.btn-spotify):not([href*="spotify"]) {
   background: linear-gradient(135deg, #eda234 0%, #f4c86f 100%) !important;
   color: #1a1a1a !important;
   box-shadow: 
@@ -2292,9 +2260,9 @@ nav .btn-precommander:active {
   display: inline-block !important;
 }
 
-#acte-6 .inspiration-card a:hover,
-.inspirations-acte .inspiration-card a:hover,
-.inspirations-section .inspiration-card a:hover {
+#acte-6 .inspiration-card a:not(.btn-spotify):not([href*="spotify"]):hover,
+.inspirations-acte .inspiration-card a:not(.btn-spotify):not([href*="spotify"]):hover,
+.inspirations-section .inspiration-card a:not(.btn-spotify):not([href*="spotify"]):hover {
   color: #1a1a1a !important;
   box-shadow: 
     0 0 35px rgba(237, 162, 52, 0.7),
@@ -2303,9 +2271,9 @@ nav .btn-precommander:active {
   animation: none !important;
 }
 
-#acte-6 .inspiration-card a:active,
-.inspirations-acte .inspiration-card a:active,
-.inspirations-section .inspiration-card a:active {
+#acte-6 .inspiration-card a:not(.btn-spotify):not([href*="spotify"]):active,
+.inspirations-acte .inspiration-card a:not(.btn-spotify):not([href*="spotify"]):active,
+.inspirations-section .inspiration-card a:not(.btn-spotify):not([href*="spotify"]):active {
   color: #1a1a1a !important;
   box-shadow: 
     0 0 25px rgba(237, 162, 52, 0.6),
@@ -2313,23 +2281,94 @@ nav .btn-precommander:active {
   transition: box-shadow 0.1s ease !important;
 }
 
-/* Exceptions : Boutons Spotify et autres boutons secondaires (gris) */
+/* ========================================
+   BOUTON SPOTIFY - VERT PREMIUM
+   ======================================== */
+
+.btn-spotify,
+.spotify-btn,
+.spotify-link,
+a[href*="spotify"],
 .inspiration-card .btn-spotify,
 .inspiration-card a[href*="spotify"] {
-  background: rgba(30, 215, 96, 0.9) !important; /* Vert Spotify */
-  color: #ffffff !important;
+  /* Reset */
+  display: inline-block !important;
+  border: none !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  
+  /* Apparence premium Spotify */
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%) !important;
+  color: #ffffff !important;  /* Texte blanc sur fond vert */
+  font-family: 'Inter', sans-serif;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 14px 32px !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  
+  /* Glow VERT permanent */
   box-shadow: 
-    0 0 15px rgba(30, 215, 96, 0.4),
+    0 0 20px rgba(29, 185, 84, 0.4),
     0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  
+  /* Transition fluide */
+  transition: box-shadow 0.4s ease, background 0.4s ease !important;
+  
+  /* Animation de pulse VERT */
+  animation: pulse-glow-green 3s ease-in-out infinite !important;
+  
+  /* Texte lisible */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover - Intensification du glow VERT */
+.btn-spotify:hover,
+.spotify-btn:hover,
+.spotify-link:hover,
+a[href*="spotify"]:hover,
+.inspiration-card .btn-spotify:hover,
+.inspiration-card a[href*="spotify"]:hover {
+  color: #ffffff !important;  /* Texte reste blanc */
+  
+  /* Glow VERT intense */
+  box-shadow: 
+    0 0 35px rgba(29, 185, 84, 0.7),
+    0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  
+  /* Gradient inversé */
+  background: linear-gradient(135deg, #1ed760 0%, #1DB954 100%) !important;
+  
+  /* Stopper le pulse */
   animation: none !important;
 }
 
-.inspiration-card .btn-spotify:hover,
-.inspiration-card a[href*="spotify"]:hover {
-  background: rgba(30, 215, 96, 1) !important;
+/* Active (clic) - Feedback minimal */
+.btn-spotify:active,
+.spotify-btn:active,
+.spotify-link:active,
+a[href*="spotify"]:active,
+.inspiration-card .btn-spotify:active,
+.inspiration-card a[href*="spotify"]:active {
+  color: #ffffff !important;
   box-shadow: 
-    0 0 25px rgba(30, 215, 96, 0.6),
-    0 6px 20px rgba(0, 0, 0, 0.3) !important;
+    0 0 25px rgba(29, 185, 84, 0.6),
+    0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  transition: box-shadow 0.1s ease !important;
+}
+
+/* ===== ICÔNE SPOTIFY SVG ===== */
+.btn-spotify svg,
+.spotify-btn svg,
+a[href*="spotify"] svg {
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+  fill: white !important;
+  display: inline-block !important;
 }
 
 /* Contact - Bouton Envoyer */

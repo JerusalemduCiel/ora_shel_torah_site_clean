@@ -680,5 +680,37 @@ img {
 }
 
 /* ============================================================
+   BOUTON SPOTIFY - RESPONSIVE MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .btn-spotify,
+  .spotify-btn,
+  a[href*="spotify"],
+  .inspiration-card .btn-spotify,
+  .inspiration-card a[href*="spotify"] {
+    padding: 12px 24px !important;
+    font-size: 0.95rem !important;
+    min-width: 200px;
+  }
+  
+  /* Désactiver le pulse sur mobile pour performance */
+  .btn-spotify,
+  .spotify-btn,
+  a[href*="spotify"] {
+    animation: none !important;
+  }
+  
+  /* Ajuster l'icône SVG sur mobile */
+  .btn-spotify svg,
+  .spotify-btn svg,
+  a[href*="spotify"] svg {
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 6px !important;
+  }
+}
+
+/* ============================================================
    FIN DU FICHIER
    ============================================================ */
