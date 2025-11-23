@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Hero - Ora Shel Torah</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #0f0;
+        }
+        .diagnostic-box {
+            background: #000;
+            border: 2px solid #0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        h1 { color: #0f0; }
+        h2 { color: #ff0; }
+        .error { color: #f00; }
+        .success { color: #0f0; }
+        .warning { color: #ff0; }
+        pre {
+            background: #222;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        button {
+            background: #0f0;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0f0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 DIAGNOSTIC HERO - Ora Shel Torah</h1>
+    
+    <div class="diagnostic-box">
+        <h2>Instructions</h2>
+        <p>1. Ouvrez votre site dans un onglet séparé</p>
+        <p>2. Ouvrez la console (F12)</p>
+        <p>3. Collez le code ci-dessous dans la console</p>
+        <p>4. Copiez les résultats et envoyez-les</p>
+    </div>
+
+    <div class="diagnostic-box">
+        <h2>Code à coller dans la console :</h2>
+        <pre id="diagnostic-code">
+const hero = document.querySelector('.hero');
+const slider = document.querySelector('.hero-slider');
+const slide = document.querySelector('.slide');
+const acte1 = document.getElementById('acte-1');
+
+console.log('=== DIAGNOSTIC HERO ===');
+console.log('Window height:', window.innerHeight + 'px');
+console.log('Window width:', window.innerWidth + 'px');
+console.log('---');
+
+if (hero) {
+    console.log('Hero found:', hero);
+    console.log('Hero computed height:', window.getComputedStyle(hero).height);
+    console.log('Hero offsetHeight:', hero.offsetHeight + 'px');
+    console.log('Hero classes:', hero.className);
+} else {
+    console.error('❌ Hero (.hero) NOT FOUND');
+}
+
+if (slider) {
+    console.log('---');
+    console.log('Slider found:', slider);
+    console.log('Slider computed height:', window.getComputedStyle(slider).height);
+    console.log('Slider offsetHeight:', slider.offsetHeight + 'px');
+    console.log('Slider classes:', slider.className);
+    console.log('Slider inline style:', slider.style.cssText);
+} else {
+    console.error('❌ Slider (.hero-slider) NOT FOUND');
+}
+
+if (acte1) {
+    console.log('---');
+    console.log('Acte-1 found:', acte1);
+    console.log('Acte-1 computed height:', window.getComputedStyle(acte1).height);
+    console.log('Acte-1 offsetHeight:', acte1.offsetHeight + 'px');
+    console.log('Acte-1 classes:', acte1.className);
+}
+
+if (slide) {
+    console.log('---');
+    console.log('Slide found:', slide);
+    console.log('Slide computed height:', window.getComputedStyle(slide).height);
+    console.log('Slide offsetHeight:', slide.offsetHeight + 'px');
+    console.log('Slide classes:', slide.className);
+} else {
+    console.warn('⚠️ Slide (.slide) NOT FOUND');
+}
+
+console.log('---');
+console.log('Parent of slider:', slider ? slider.parentElement.tagName + ' ' + slider.parentElement.className : 'N/A');
+
+// Lister TOUTES les règles CSS qui affectent la hauteur
+console.log('---');
+console.log('=== CSS RULES AFFECTING HEIGHT ===');
+const allRules = [];
+try {
+    [...document.styleSheets].forEach((sheet, sheetIndex) => {
+        try {
+            [...sheet.cssRules].forEach((rule, ruleIndex) => {
+                if (rule.selectorText && (
+                    rule.selectorText.includes('hero') ||
+                    rule.selectorText.includes('acte-1') ||
+                    rule.selectorText.includes('slide')
+                )) {
+                    if (rule.style.height || rule.style.minHeight || rule.style.maxHeight) {
+                        allRules.push({
+                            selector: rule.selectorText,
+                            height: rule.style.height,
+                            minHeight: rule.style.minHeight,
+                            maxHeight: rule.style.maxHeight,
+                            sheet: sheet.href || 'inline',
+                            index: `${sheetIndex}-${ruleIndex}`
+                        });
+                    }
+                }
+            });
+        } catch(e) {
+            // Cross-origin stylesheet, skip
+        }
+    });
+    
+    if (allRules.length > 0) {
+        console.table(allRules);
+    } else {
+        console.warn('⚠️ No CSS rules found affecting height');
+    }
+} catch(e) {
+    console.error('❌ Error reading stylesheets:', e);
+}
+
+// Vérifier les styles inline
+console.log('---');
+console.log('=== INLINE STYLES ===');
+if (slider) {
+    console.log('Slider inline style:', slider.style.cssText || 'none');
+}
+if (acte1) {
+    console.log('Acte-1 inline style:', acte1.style.cssText || 'none');
+}
+        </pre>
+        <button onclick="copyCode()">📋 Copier le code</button>
+    </div>
+
+    <div class="diagnostic-box">
+        <h2>Analyse automatique (à exécuter après le diagnostic)</h2>
+        <pre id="analysis-code">
+// Analyse des résultats
+function analyzeHero() {
+    const slider = document.querySelector('.hero-slider');
+    const acte1 = document.getElementById('acte-1');
+    
+    if (!slider) {
+        console.error('❌ Slider non trouvé');
+        return;
+    }
+    
+    const computedHeight = parseInt(window.getComputedStyle(slider).height);
+    const viewportHeight = window.innerHeight;
+    const expectedHeight = viewportHeight; // 100vh
+    
+    console.log('=== ANALYSE ===');
+    console.log('Hauteur calculée:', computedHeight + 'px');
+    console.log('Hauteur viewport:', viewportHeight + 'px');
+    console.log('Hauteur attendue (100vh):', expectedHeight + 'px');
+    console.log('Différence:', Math.abs(computedHeight - expectedHeight) + 'px');
+    
+    if (Math.abs(computedHeight - expectedHeight) > 10) {
+        console.error('❌ PROBLÈME: La hauteur ne correspond pas à 100vh');
+        console.log('Causes possibles:');
+        console.log('1. Un CSS avec !important override');
+        console.log('2. Un JavaScript modifie la hauteur');
+        console.log('3. Un parent limite la hauteur');
+    } else {
+        console.log('✅ Hauteur correcte');
+    }
+    
+    // Vérifier les parents
+    let parent = slider.parentElement;
+    let level = 0;
+    console.log('---');
+    console.log('=== HIÉRARCHIE DES PARENTS ===');
+    while (parent && level < 5) {
+        const parentHeight = window.getComputedStyle(parent).height;
+        const parentMaxHeight = window.getComputedStyle(parent).maxHeight;
+        console.log(`Niveau ${level}:`, parent.tagName, parent.className);
+        console.log(`  - height:`, parentHeight);
+        console.log(`  - max-height:`, parentMaxHeight);
+        parent = parent.parentElement;
+        level++;
+    }
+}
+
+// Exécuter l'analyse
+analyzeHero();
+        </pre>
+        <button onclick="copyAnalysis()">📋 Copier le code d'analyse</button>
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = document.getElementById('diagnostic-code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('✅ Code copié ! Collez-le dans la console de votre site.');
+            });
+        }
+        
+        function copyAnalysis() {
+            const code = document.getElementById('analysis-code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('✅ Code d\'analyse copié !');
+            });
+        }
+    </script>
+</body>
+</html>
