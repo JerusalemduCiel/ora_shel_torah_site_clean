@@ -2312,8 +2312,8 @@ a[href*="open.spotify.com"],
   color: #ffffff !important;  /* Texte BLANC sur fond vert */
   font-family: 'Inter', sans-serif !important;
   font-weight: 600 !important;
-  font-size: 1rem !important;
-  padding: 14px 32px !important;
+  font-size: 0.9rem !important;  /* Réduit pour cohérence avec les autres boutons */
+  padding: 10px 20px !important;  /* Réduit pour cohérence avec les autres boutons */
   border-radius: 50px !important;
   cursor: pointer !important;
   
@@ -2384,9 +2384,9 @@ a[href*="open.spotify.com"]:active,
 .btn-spotify svg,
 .spotify-btn svg,
 a[href*="spotify"] svg {
-  width: 20px !important;
-  height: 20px !important;
-  margin-right: 8px !important;
+  width: 18px !important;  /* Réduit pour cohérence */
+  height: 18px !important;  /* Réduit pour cohérence */
+  margin-right: 6px !important;  /* Réduit pour cohérence */
   vertical-align: middle !important;
   fill: white !important;
   display: inline-block !important;
