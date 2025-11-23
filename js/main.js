@@ -77,20 +77,20 @@ function initHeroSlider() {
             s.classList.remove('slide-exit', 'slide-enter');
         });
         
-        // ÉTAPE 1 : Démarrer les deux transitions EN MÊME TEMPS
-        // D'abord, faire entrer le nouveau slide (il devient visible immédiatement)
+        // ÉTAPE 1 : Préparer le nouveau slide (invisible, en position)
         newSlideEl.classList.add('slide-enter');
         
-        // Ensuite, faire sortir l'ancien slide (les deux sont maintenant visibles)
+        // ÉTAPE 2 : Démarrer l'animation de sortie SUR LE SLIDE ACTIF
+        // IMPORTANT : NE PAS retirer .active immédiatement !
         if (currentSlideEl.classList.contains('active')) {
             currentSlideEl.classList.add('slide-exit');
-            currentSlideEl.classList.remove('active');
+            // On garde .active pour maintenir l'opacité pendant l'animation
         }
         
-        // ÉTAPE 2 : Après la transition (600ms), nettoyer et activer
+        // ÉTAPE 3 : Après 600ms, nettoyer et activer le nouveau
         setTimeout(() => {
-            // Nettoyer l'ancien slide
-            currentSlideEl.classList.remove('slide-exit');
+            // Maintenant on peut retirer .active de l'ancien slide
+            currentSlideEl.classList.remove('slide-exit', 'active');
             
             // Activer le nouveau slide
             newSlideEl.classList.remove('slide-enter');
