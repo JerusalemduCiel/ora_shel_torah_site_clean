@@ -847,10 +847,25 @@ img {
 }
 
 /* ACTE 1: Hero Slider Moderne (Style Asmodee) */
+/* FIX HAUTEUR HERO - URGENT */
+.hero,
+.hero-slider {
+  height: 600px !important; /* Desktop */
+  min-height: 500px !important;
+}
+
+.hero-slide {
+  height: 100% !important;
+}
+
+.hero-slide img {
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
 .hero-slider {
   position: relative;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   /* Fond de secours discret (noir au lieu de bleu) - ne sera visible que pendant chargement */
   background: #000000;
@@ -870,7 +885,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100% !important;
   opacity: 0;
   z-index: 1;
   pointer-events: none;
@@ -934,8 +949,8 @@ img {
 
 .slide img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100% !important;
+  object-fit: cover !important;
   object-position: center;
   /* Support GPU acceleration */
   transform: translateZ(0);
@@ -966,6 +981,12 @@ img {
 
 /* Simplifier sur mobile si performance faible */
 @media (max-width: 768px) {
+  .hero,
+  .hero-slider {
+    height: 500px !important;
+    min-height: 400px !important;
+  }
+  
   .slide.slide-exit,
   .slide.slide-enter {
     animation-duration: 0.4s; /* Plus rapide */
@@ -1015,6 +1036,13 @@ img {
   /* Fond de secours mobile (noir discret) */
   .hero-slider {
     background: #000000;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero,
+  .hero-slider {
+    height: 400px !important;
   }
 }
 
