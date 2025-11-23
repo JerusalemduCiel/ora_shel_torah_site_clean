@@ -41,16 +41,34 @@ img {
        ============================================================ */
     
     /* Hero Slider - Neutralisation partielle */
+    /* FORCER la visibilité du hero slider sur mobile */
+    .hero-slider {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        min-height: 400px !important;
+        height: auto !important;
+    }
+    
+    .slider-container {
+        display: block !important;
+        visibility: visible !important;
+        width: 100% !important;
+        height: 400px !important;
+        min-height: 400px !important;
+    }
+    
     /* Permettre les animations de transition des slides (gérées dans main.css) */
     .slide.slide-exit,
     .slide.slide-enter {
         animation: inherit !important; /* Permettre les animations de transition */
         transform: inherit !important; /* Permettre les transforms de transition */
         filter: inherit !important; /* Permettre le blur de transition */
+        display: block !important;
+        visibility: visible !important;
     }
     
     /* Neutraliser les autres animations non essentielles */
-    .hero-slider,
     .slide-content,
     .slide-content *,
     .slide-brand-name,
@@ -63,6 +81,8 @@ img {
     .slide {
         will-change: opacity, transform, filter !important;
         backface-visibility: hidden !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     /* Showcase Jeux - Neutralisation */
@@ -107,45 +127,101 @@ img {
        ============================================================ */
     
     .hero-slider {
-        min-height: 100vh !important;
-    position: relative !important;
+        min-height: 400px !important;
+        height: auto !important;
+        position: relative !important;
         overflow: hidden !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .slider-container {
-    width: 100% !important;
-        height: 100vh !important;
+        width: 100% !important;
+        height: 400px !important;
+        min-height: 400px !important;
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
     }
     
     .slide {
         width: 100% !important;
-        height: 100vh !important;
-    display: flex !important;
+        height: 400px !important;
+        min-height: 400px !important;
+        display: block !important;
+        visibility: visible !important;
         flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
+        justify-content: center !important;
+        align-items: center !important;
         padding: 60px 20px !important;
-        position: relative !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+    
+    /* Mobile très petit (≤480px) */
+    @media screen and (max-width: 480px) {
+        .hero-slider {
+            min-height: 300px !important;
+        }
+        
+        .slider-container {
+            height: 300px !important;
+            min-height: 300px !important;
+        }
+        
+        .slide {
+            height: 300px !important;
+            min-height: 300px !important;
+            padding: 40px 15px !important;
+        }
+        
+        .slide img {
+            min-height: 300px !important;
+        }
+        
+        .slide-overlay {
+            min-height: 300px !important;
+        }
     }
     
     /* CRITIQUE : Toutes les slides doivent pouvoir s'afficher */
-    .slide:not(.active) {
-    display: flex !important;
+    .slide:not(.active):not(.slide-exit):not(.slide-enter) {
+        display: block !important;
+        visibility: visible !important;
         opacity: 0 !important;
         pointer-events: none !important;
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
-    width: 100% !important;
+        width: 100% !important;
         height: 100% !important;
-  }
+    }
+    
+    /* Gérer les slides en transition */
+    .slide.slide-exit {
+        display: block !important;
+        visibility: visible !important;
+        position: absolute !important;
+        z-index: 1 !important;
+    }
+    
+    .slide.slide-enter {
+        display: block !important;
+        visibility: visible !important;
+        position: absolute !important;
+        z-index: 2 !important;
+    }
 
     .slide.active {
-        display: flex !important;
-    opacity: 1 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         pointer-events: auto !important;
-        position: relative !important;
-        z-index: 1 !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 2 !important;
     }
     
     .slide img {
@@ -154,8 +230,11 @@ img {
         left: 0 !important;
         width: 100% !important;
         height: 100% !important;
+        min-height: 400px !important;
         object-fit: cover !important;
         object-position: center !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .slide-overlay {
@@ -164,8 +243,11 @@ img {
         left: 0 !important;
         width: 100% !important;
         height: 100% !important;
+        min-height: 400px !important;
         background: rgba(0, 0, 0, 0.4) !important;
         z-index: 1 !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     /* Surtitre et Mantra - Centrés en haut */
@@ -220,16 +302,18 @@ img {
         right: auto !important;
         top: auto !important;
         transform: none !important;
-    width: 100% !important;
+        width: 100% !important;
         max-width: 100% !important;
         margin: 180px auto 0 !important;
         padding: 0 20px !important;
         text-align: center !important;
-    display: flex !important;
+        display: flex !important;
         flex-direction: column !important;
-    align-items: center !important;
+        align-items: center !important;
         gap: 1.5rem !important;
         z-index: 20 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .slide-main-value {

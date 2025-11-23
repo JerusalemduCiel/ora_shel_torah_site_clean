@@ -42,9 +42,21 @@ function initHeroSlider() {
     const prevBtn = document.querySelector('.slider-nav.prev');
     const nextBtn = document.querySelector('.slider-nav.next');
     
-    if (!slides.length || !dots.length) {
-        console.log('Hero slider non trouvé, initialisation ignorée');
+    // Debug pour mobile
+    console.log('🎯 Hero Slider Initialization');
+    console.log('Hero slider element:', document.querySelector('.hero-slider'));
+    console.log('Slides count:', slides.length);
+    console.log('Dots count:', dots.length);
+    console.log('Window width:', window.innerWidth);
+    console.log('Is mobile:', window.innerWidth <= 768);
+    
+    if (!slides.length) {
+        console.error('❌ Hero slider non trouvé - slides.length =', slides.length);
         return;
+    }
+    
+    if (!dots.length) {
+        console.warn('⚠️ Dots non trouvés, mais on continue sans dots');
     }
     
     let currentSlide = 0;
