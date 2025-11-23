@@ -852,13 +852,17 @@ img {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+  /* Fond de secours discret (noir au lieu de bleu) - ne sera visible que pendant chargement */
+  background: #000000;
 }
 
 .slider-container {
   position: relative;
   width: 100%;
   height: 100%;
+  /* Fond transparent pour éviter tout flash visible */
+  background: transparent;
+  overflow: hidden;
 }
 
 .slide {
@@ -869,7 +873,9 @@ img {
   height: 100%;
   opacity: 0;
   z-index: 1;
-  /* Optimisation performance */
+  pointer-events: none;
+  /* Optimisation performance - accélération GPU */
+  transform: translateZ(0);
   will-change: opacity, transform, filter;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -878,44 +884,50 @@ img {
 .slide.active {
   opacity: 1;
   z-index: 2;
+  pointer-events: auto;
 }
 
-/* Slide sortant : fade + zoom + blur */
+/* Slide sortant : fade + zoom + blur - AU-DESSUS pendant transition */
 .slide.slide-exit {
   animation: slideOut 0.6s ease-out forwards;
-  z-index: 1;
+  z-index: 3 !important; /* Au-dessus pour rester visible pendant la sortie */
+  opacity: 1; /* Commencer visible */
+  pointer-events: none;
 }
 
-/* Slide entrant : fade + zoom inverse + blur */
+/* Slide entrant : fade + zoom inverse + blur - EN DESSOUS mais visible */
 .slide.slide-enter {
   animation: slideIn 0.6s ease-out forwards;
-  z-index: 2;
+  animation-delay: 0s; /* Démarrer immédiatement, en même temps que exit */
+  z-index: 2 !important; /* En dessous de exit mais au-dessus du fond */
+  opacity: 0; /* Commencer invisible */
+  pointer-events: none;
 }
 
 /* Animation de sortie : fade + zoom + blur */
 @keyframes slideOut {
   0% {
     opacity: 1;
-    transform: scale(1) translateX(0);
+    transform: scale(1) translateX(0) translateZ(0);
     filter: blur(0px);
   }
   100% {
     opacity: 0;
-    transform: scale(1.05) translateX(-2%);
+    transform: scale(1.05) translateX(-2%) translateZ(0);
     filter: blur(4px);
   }
 }
 
-/* Animation d'entrée : fade + zoom inverse + blur */
+/* Animation d'entrée : fade + zoom inverse + blur - DÉMARRAGE SIMULTANÉ */
 @keyframes slideIn {
   0% {
     opacity: 0;
-    transform: scale(1.05) translateX(2%);
+    transform: scale(1.05) translateX(2%) translateZ(0);
     filter: blur(4px);
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateX(0);
+    transform: scale(1) translateX(0) translateZ(0);
     filter: blur(0px);
   }
 }
@@ -928,6 +940,10 @@ img {
   /* Support GPU acceleration */
   transform: translateZ(0);
   will-change: transform;
+  /* Fond transparent pour éviter les flashes */
+  background-color: transparent;
+  /* Préchargement optimisé */
+  loading: eager;
 }
 
 /* Effet Ken Burns sur l'image pendant affichage */
@@ -953,17 +969,18 @@ img {
   .slide.slide-exit,
   .slide.slide-enter {
     animation-duration: 0.4s; /* Plus rapide */
+    animation-delay: 0s; /* Pas de délai pour synchronisation parfaite */
   }
   
   @keyframes slideOut {
     0% {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1) translateZ(0);
       filter: none; /* Pas de blur sur mobile pour performance */
     }
     100% {
       opacity: 0;
-      transform: scale(1.03);
+      transform: scale(1.03) translateZ(0);
       filter: none;
     }
   }
@@ -971,12 +988,12 @@ img {
   @keyframes slideIn {
     0% {
       opacity: 0;
-      transform: scale(1.03);
+      transform: scale(1.03) translateZ(0);
       filter: none; /* Pas de blur sur mobile pour performance */
     }
     100% {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1) translateZ(0);
       filter: none;
     }
   }
@@ -993,6 +1010,11 @@ img {
     100% {
       transform: scale(1.05) translateZ(0); /* Zoom plus subtil */
     }
+  }
+  
+  /* Fond de secours mobile (noir discret) */
+  .hero-slider {
+    background: #000000;
   }
 }
 

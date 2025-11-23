@@ -133,6 +133,8 @@ img {
         overflow: hidden !important;
         display: block !important;
         visibility: visible !important;
+        /* Fond noir discret au lieu de bleu pour éviter le flash */
+        background: #000000 !important;
     }
     
     .slider-container {
@@ -198,19 +200,23 @@ img {
         height: 100% !important;
     }
     
-    /* Gérer les slides en transition */
+    /* Gérer les slides en transition - CRITIQUE pour éviter le flash */
     .slide.slide-exit {
         display: block !important;
         visibility: visible !important;
         position: absolute !important;
-        z-index: 1 !important;
+        z-index: 3 !important; /* AU-DESSUS pendant la transition */
+        opacity: 1 !important; /* Commencer visible */
+        pointer-events: none !important;
     }
     
     .slide.slide-enter {
         display: block !important;
         visibility: visible !important;
         position: absolute !important;
-        z-index: 2 !important;
+        z-index: 2 !important; /* En dessous de exit mais visible */
+        opacity: 0 !important; /* Commencer invisible */
+        pointer-events: none !important;
     }
 
     .slide.active {

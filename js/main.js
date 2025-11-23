@@ -86,28 +86,35 @@ function initHeroSlider() {
             s.classList.remove('slide-exit', 'slide-enter');
         });
         
-        // Si on a un slide actif, le faire sortir
-        if (currentSlideEl && currentSlideEl.classList.contains('active')) {
-            currentSlideEl.classList.add('slide-exit');
-            currentSlideEl.classList.remove('active');
-        }
-        
-        // Faire entrer le nouveau slide
+        // CRITIQUE : Ajouter slide-enter AVANT de retirer active pour éviter le flash
+        // 1. DÉMARRER la transition du nouveau slide IMMÉDIATEMENT
         newSlideEl.classList.add('slide-enter');
         
-        // Après la transition, nettoyer et activer
+        // Forcer le reflow pour que le navigateur applique la classe
+        void newSlideEl.offsetHeight;
+        
+        // 2. PUIS démarrer la sortie de l'ancien (synchronisé)
+        if (currentSlideEl && currentSlideEl.classList.contains('active')) {
+            currentSlideEl.classList.add('slide-exit');
+            // Ne pas retirer 'active' immédiatement - le laisser pour la superposition
+        }
+        
+        // 3. Après la transition, nettoyer et activer
         setTimeout(() => {
-            // Retirer toutes les classes de transition
-            slides.forEach(s => {
-                s.classList.remove('slide-exit', 'slide-enter', 'active');
-            });
+            // Retirer toutes les classes de transition et active de l'ancien
+            if (currentSlideEl) {
+                currentSlideEl.classList.remove('slide-exit', 'active');
+            }
             
-            // Activer le nouveau slide
+            // Activer le nouveau slide et retirer slide-enter
+            newSlideEl.classList.remove('slide-enter');
             newSlideEl.classList.add('active');
             
             // Mettre à jour les dots
-            dots.forEach(d => d.classList.remove('active'));
-            dots[index].classList.add('active');
+            if (dots.length) {
+                dots.forEach(d => d.classList.remove('active'));
+                dots[index].classList.add('active');
+            }
         }, 600); // Durée de l'animation (0.6s)
         
         currentSlide = index;
@@ -149,8 +156,42 @@ function initHeroSlider() {
         });
     });
 
-    // Démarrer l'autoplay initial - afficher le premier slide et démarrer le timer
-    showSlide(0);
+    // Précharger toutes les images avant d'initialiser le slider
+    function preloadHeroImages() {
+        const images = document.querySelectorAll('.hero-slider .slide img');
+        const imagePromises = Array.from(images).map(img => {
+            return new Promise((resolve, reject) => {
+                if (img.complete && img.naturalHeight !== 0) {
+                    // Image déjà chargée
+                    resolve();
+                } else {
+                    // Attendre le chargement
+                    img.onload = resolve;
+                    img.onerror = resolve; // Continuer même si une image échoue
+                    // Timeout de sécurité (5 secondes max par image)
+                    setTimeout(resolve, 5000);
+                }
+            });
+        });
+        
+        return Promise.all(imagePromises);
+    }
+    
+    // Précharger les images puis initialiser
+    preloadHeroImages().then(() => {
+        console.log('✅ Hero images préchargées');
+        // Démarrer l'autoplay initial - afficher le premier slide et démarrer le timer
+        showSlide(0);
+        // Ajouter classe loaded pour masquer le loader si présent
+        const heroSlider = document.querySelector('.hero-slider');
+        if (heroSlider) {
+            heroSlider.classList.add('loaded');
+        }
+    }).catch(() => {
+        // En cas d'erreur, initialiser quand même
+        console.warn('⚠️ Erreur préchargement images, initialisation quand même');
+        showSlide(0);
+    });
 
     // Pause au hover
     const sliderContainer = document.querySelector('.slider-container');
