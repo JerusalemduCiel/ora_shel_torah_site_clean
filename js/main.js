@@ -69,28 +69,31 @@ function initHeroSlider() {
         const currentSlideEl = slides[currentSlide];
         const newSlideEl = slides[index];
         
+        // Vérifications de sécurité
+        if (!currentSlideEl || !newSlideEl) return;
+        
         // Retirer les classes de transition précédentes
         slides.forEach(s => {
             s.classList.remove('slide-exit', 'slide-enter');
         });
         
-        // Si on a un slide actif, le faire sortir
-        if (currentSlideEl && currentSlideEl.classList.contains('active')) {
+        // ÉTAPE 1 : Démarrer les deux transitions EN MÊME TEMPS
+        // D'abord, faire entrer le nouveau slide (il devient visible immédiatement)
+        newSlideEl.classList.add('slide-enter');
+        
+        // Ensuite, faire sortir l'ancien slide (les deux sont maintenant visibles)
+        if (currentSlideEl.classList.contains('active')) {
             currentSlideEl.classList.add('slide-exit');
             currentSlideEl.classList.remove('active');
         }
         
-        // Faire entrer le nouveau slide
-        newSlideEl.classList.add('slide-enter');
-        
-        // Après la transition, nettoyer et activer
+        // ÉTAPE 2 : Après la transition (600ms), nettoyer et activer
         setTimeout(() => {
-            // Retirer toutes les classes de transition
-            slides.forEach(s => {
-                s.classList.remove('slide-exit', 'slide-enter', 'active');
-            });
+            // Nettoyer l'ancien slide
+            currentSlideEl.classList.remove('slide-exit');
             
             // Activer le nouveau slide
+            newSlideEl.classList.remove('slide-enter');
             newSlideEl.classList.add('active');
             
             // Mettre à jour les dots
