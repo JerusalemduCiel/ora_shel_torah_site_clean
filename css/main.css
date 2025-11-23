@@ -199,12 +199,28 @@ section {
   /* Pas de scroll-snap-stop pour permettre le scroll libre */
 }
 
-/* Hero principal doit occuper 100vh pour le snap */
+/* Hero principal - Hauteur fixe respectée */
 #acte-1 {
-  min-height: 100vh;
+  height: 600px !important; /* Hauteur fixe desktop */
+  min-height: 600px !important;
+  max-height: none !important;
   scroll-snap-align: center; /* Centre le hero à l'écran */
   position: relative;
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+}
+
+@media (max-width: 768px) {
+  #acte-1 {
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #acte-1 {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
 }
 
 /* Les autres sections aussi */
@@ -848,10 +864,15 @@ img {
 
 /* ACTE 1: Hero Slider Moderne (Style Asmodee) */
 /* FIX HAUTEUR HERO - URGENT */
-.hero,
-.hero-slider {
+/* Sélecteurs ultra-spécifiques pour forcer la hauteur */
+html body .hero,
+html body .hero-slider,
+html body section.hero-slider,
+html body #acte-1.hero-slider,
+html body section#acte-1 {
   height: 600px !important; /* Desktop */
-  min-height: 500px !important;
+  min-height: 600px !important;
+  max-height: none !important;
 }
 
 .hero-slide {
@@ -874,7 +895,8 @@ img {
 .slider-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100% !important;
+  min-height: 100% !important;
   /* Fond transparent pour éviter tout flash visible */
   background: transparent;
   overflow: hidden;
@@ -981,10 +1003,14 @@ img {
 
 /* Simplifier sur mobile si performance faible */
 @media (max-width: 768px) {
-  .hero,
-  .hero-slider {
+  html body .hero,
+  html body .hero-slider,
+  html body section.hero-slider,
+  html body #acte-1.hero-slider,
+  html body section#acte-1 {
     height: 500px !important;
-    min-height: 400px !important;
+    min-height: 500px !important;
+    max-height: none !important;
   }
   
   .slide.slide-exit,
@@ -1040,9 +1066,14 @@ img {
 }
 
 @media (max-width: 480px) {
-  .hero,
-  .hero-slider {
+  html body .hero,
+  html body .hero-slider,
+  html body section.hero-slider,
+  html body #acte-1.hero-slider,
+  html body section#acte-1 {
     height: 400px !important;
+    min-height: 400px !important;
+    max-height: none !important;
   }
 }
 
