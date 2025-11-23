@@ -40,19 +40,29 @@ img {
        NEUTRALISATION CIBLÉE (pour éviter bugs de rendu)
        ============================================================ */
     
-    /* Hero Slider - Neutralisation */
+    /* Hero Slider - Neutralisation partielle */
+    /* Permettre les animations de transition des slides (gérées dans main.css) */
+    .slide.slide-exit,
+    .slide.slide-enter {
+        animation: inherit !important; /* Permettre les animations de transition */
+        transform: inherit !important; /* Permettre les transforms de transition */
+        filter: inherit !important; /* Permettre le blur de transition */
+    }
+    
+    /* Neutraliser les autres animations non essentielles */
     .hero-slider,
-    .hero-slider *,
-    .slide,
-    .slide *,
     .slide-content,
-    .slide-content * {
-        transform: none !important;
-        will-change: auto !important;
+    .slide-content *,
+    .slide-brand-name,
+    .slide-supertitle,
+    .slide-mantra {
         animation: none !important;
-        transition: none !important;
-        backface-visibility: visible !important;
-        perspective: none !important;
+    }
+    
+    /* Garder les propriétés de performance pour les slides */
+    .slide {
+        will-change: opacity, transform, filter !important;
+        backface-visibility: hidden !important;
     }
     
     /* Showcase Jeux - Neutralisation */

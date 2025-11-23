@@ -868,8 +868,11 @@ img {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
   z-index: 1;
+  /* Optimisation performance */
+  will-change: opacity, transform, filter;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .slide.active {
@@ -877,11 +880,155 @@ img {
   z-index: 2;
 }
 
+/* Slide sortant : fade + zoom + blur */
+.slide.slide-exit {
+  animation: slideOut 0.6s ease-out forwards;
+  z-index: 1;
+}
+
+/* Slide entrant : fade + zoom inverse + blur */
+.slide.slide-enter {
+  animation: slideIn 0.6s ease-out forwards;
+  z-index: 2;
+}
+
+/* Animation de sortie : fade + zoom + blur */
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05) translateX(-2%);
+    filter: blur(4px);
+  }
+}
+
+/* Animation d'entrée : fade + zoom inverse + blur */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.05) translateX(2%);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    filter: blur(0px);
+  }
+}
+
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  /* Support GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Effet Ken Burns sur l'image pendant affichage */
+.slide.active img {
+  animation: kenBurns 8s ease-out forwards;
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translateZ(0);
+  }
+  100% {
+    transform: scale(1.08) translateZ(0);
+  }
+}
+
+/* ========================================
+   MEDIA QUERIES - TRANSITIONS RESPONSIVE
+   ======================================== */
+
+/* Simplifier sur mobile si performance faible */
+@media (max-width: 768px) {
+  .slide.slide-exit,
+  .slide.slide-enter {
+    animation-duration: 0.4s; /* Plus rapide */
+  }
+  
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: none; /* Pas de blur sur mobile pour performance */
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.03);
+      filter: none;
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: scale(1.03);
+      filter: none; /* Pas de blur sur mobile pour performance */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: none;
+    }
+  }
+  
+  /* Réduire l'effet Ken Burns sur mobile */
+  .slide.active img {
+    animation: kenBurnsMobile 6s ease-out forwards;
+  }
+  
+  @keyframes kenBurnsMobile {
+    0% {
+      transform: scale(1) translateZ(0);
+    }
+    100% {
+      transform: scale(1.05) translateZ(0); /* Zoom plus subtil */
+    }
+  }
+}
+
+/* Respecter préférence utilisateur pour réduire les animations */
+@media (prefers-reduced-motion: reduce) {
+  .slide.slide-exit,
+  .slide.slide-enter {
+    animation: simpleFade 0.3s ease !important;
+  }
+  
+  @keyframes simpleFade {
+    from {
+      opacity: 0;
+      transform: scale(1);
+      filter: none;
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: none;
+    }
+  }
+  
+  .slide.active img {
+    animation: none !important;
+    transform: scale(1) translateZ(0) !important;
+  }
+  
+  /* Désactiver les transitions complexes */
+  .slide {
+    transition: opacity 0.3s ease !important;
+  }
+  
+  .slide.active {
+    opacity: 1 !important;
+  }
 }
 
 .slide-overlay {

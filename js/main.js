@@ -57,18 +57,46 @@ function initHeroSlider() {
         if (index >= slides.length) index = 0;
         if (index < 0) index = slides.length - 1;
         
+        // Si c'est le même slide, ne rien faire
+        if (index === currentSlide) return;
+        
         // Annuler tout timeout en cours
         if (autoplayTimeout) {
             clearTimeout(autoplayTimeout);
         }
         
-        // Retirer active de tous
-        slides.forEach(s => s.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
+        // Trouver le slide actuel et le nouveau
+        const currentSlideEl = slides[currentSlide];
+        const newSlideEl = slides[index];
         
-        // Ajouter active au courant
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
+        // Retirer les classes de transition précédentes
+        slides.forEach(s => {
+            s.classList.remove('slide-exit', 'slide-enter');
+        });
+        
+        // Si on a un slide actif, le faire sortir
+        if (currentSlideEl && currentSlideEl.classList.contains('active')) {
+            currentSlideEl.classList.add('slide-exit');
+            currentSlideEl.classList.remove('active');
+        }
+        
+        // Faire entrer le nouveau slide
+        newSlideEl.classList.add('slide-enter');
+        
+        // Après la transition, nettoyer et activer
+        setTimeout(() => {
+            // Retirer toutes les classes de transition
+            slides.forEach(s => {
+                s.classList.remove('slide-exit', 'slide-enter', 'active');
+            });
+            
+            // Activer le nouveau slide
+            newSlideEl.classList.add('active');
+            
+            // Mettre à jour les dots
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
+        }, 600); // Durée de l'animation (0.6s)
         
         currentSlide = index;
         
