@@ -107,45 +107,64 @@ img {
        ============================================================ */
     
     .hero-slider {
+        height: 100vh !important;
         min-height: 100vh !important;
-    position: relative !important;
+        position: relative !important;
         overflow: hidden !important;
     }
     
     .slider-container {
-    width: 100% !important;
-        height: 100vh !important;
+        width: 100% !important;
+        height: 100% !important; /* Prend la hauteur du parent .hero-slider */
+        min-height: 100% !important;
     }
     
+    /* TOUTES les slides en position absolute pour superposition */
     .slide {
         width: 100% !important;
-        height: 100vh !important;
-    display: flex !important;
+        height: 100% !important; /* Prend la hauteur du parent .slider-container */
+        display: flex !important;
         flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
+        justify-content: center !important;
+        align-items: center !important;
         padding: 60px 20px !important;
-        position: relative !important;
+        position: absolute !important; /* TOUTES les slides en absolute */
+        top: 0 !important;
+        left: 0 !important;
     }
     
     /* CRITIQUE : Toutes les slides doivent pouvoir s'afficher */
-    .slide:not(.active) {
-    display: flex !important;
+    .slide:not(.active):not(.slide-exit):not(.slide-enter) {
+        display: flex !important;
         opacity: 0 !important;
         pointer-events: none !important;
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
-    width: 100% !important;
+        width: 100% !important;
         height: 100% !important;
-  }
+    }
 
+    /* Slide active - même position absolute */
     .slide.active {
         display: flex !important;
-    opacity: 1 !important;
+        opacity: 1 !important;
         pointer-events: auto !important;
-        position: relative !important;
-        z-index: 1 !important;
+        position: absolute !important; /* Même position absolute que les autres */
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 2 !important;
+    }
+    
+    /* Slides en transition */
+    .slide.slide-exit {
+        position: absolute !important;
+        z-index: 3 !important; /* Au-dessus pendant la transition */
+    }
+    
+    .slide.slide-enter {
+        position: absolute !important;
+        z-index: 2 !important;
     }
     
     .slide img {
