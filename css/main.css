@@ -1046,6 +1046,24 @@ img {
   z-index: 1 !important;
 }
 
+/* Dégradé sombre en bas des slides pour améliorer la lisibilité */
+.slide::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
 .slide-content {
   position: absolute !important;
   left: 120px !important;
@@ -1059,7 +1077,7 @@ img {
   gap: 1.5rem !important;
   padding-left: 0 !important;
   color: white;
-  z-index: 3;
+  z-index: 10;
   box-sizing: border-box;
 }
 
@@ -1081,7 +1099,9 @@ img {
   font-size: clamp(0.85rem, 2vw, 1.2rem) !important;
   font-weight: 700 !important;
   color: #ffffff !important;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 1px 1px 4px rgba(0, 0, 0, 0.7) !important;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 1px 4px rgba(0, 0, 0, 0.4) !important;
   animation: fadeInDown 0.8s ease-out;
   letter-spacing: 2px !important;
 }
@@ -1094,7 +1114,9 @@ img {
   text-transform: uppercase !important;
   letter-spacing: 5px !important;
   color: #eda234 !important;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9), 1px 1px 5px rgba(0, 0, 0, 0.7) !important;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 1px 4px rgba(0, 0, 0, 0.4) !important;
   animation: fadeInDown 0.8s ease-out;
 }
 
@@ -1105,7 +1127,9 @@ img {
   font-style: italic !important;
   font-weight: 400 !important;
   color: rgba(255, 255, 255, 0.95) !important;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9), 1px 1px 5px rgba(0, 0, 0, 0.7) !important;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 1px 4px rgba(0, 0, 0, 0.4) !important;
   max-width: 700px !important;
   margin: 0 auto !important;
   padding: 0 20px !important;
@@ -1117,7 +1141,10 @@ img {
   font-weight: 900 !important;
   color: #ffffff !important;
   line-height: 0.95 !important;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) !important;
+  text-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.3) !important;
   max-width: 800px !important;
   letter-spacing: -2px !important;
   margin: 0 !important;
@@ -1131,7 +1158,9 @@ img {
   color: rgba(255, 255, 255, 0.95) !important;
   line-height: 1.6 !important;
   max-width: 550px !important;
-  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9), 1px 1px 6px rgba(0, 0, 0, 0.7) !important;
+  text-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.6),
+    0 2px 5px rgba(0, 0, 0, 0.4) !important;
   text-align: left !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -1818,6 +1847,7 @@ img {
   background: var(--color-gold);
   color: #1a1a1a;
   padding: 16px 40px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
@@ -2666,14 +2696,24 @@ html body #hero-bis-poz .hero-bis-background img {
   text-align: center;
 }
 
-/* Contraste amélioré pour MOH et POZ - Ombres portées fortes */
-#hero-bis-moh .hero-bis-content h2,
-#hero-bis-poz .hero-bis-content h2 {
-  color: #ffffff;
+/* MOH : Titre en doré (harmonisé avec JDC - même couleur exacte) */
+#hero-bis-moh .hero-bis-content h2 {
+  color: var(--color-gold); /* Même doré que JDC : #eda234 */
   text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.8),
-    4px 4px 8px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(0, 0, 0, 0.5);
+    0 4px 12px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* POZ : Titre en BLANC avec ombres épaisses (contraste maximum sur fond coloré) */
+#hero-bis-poz .hero-bis-content h2 {
+  color: #FFFFFF !important;
+  text-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.9),
+    0 4px 10px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 0, 0, 0.4);
+  font-weight: 800;
 }
 
 /* ========================================
@@ -2694,14 +2734,22 @@ html body #hero-bis-poz .hero-bis-background img {
   font-family: 'Inter', sans-serif;
 }
 
-/* Contraste amélioré pour MOH et POZ - Sous-titres dans h2 avec ombres fortes */
-#hero-bis-moh .hero-bis h2 .h2-subtitle,
-#hero-bis-poz .hero-bis h2 .h2-subtitle {
-  color: #ffffff;
+/* MOH : Sous-titre dans h2 - Blanc avec ombres */
+#hero-bis-moh .hero-bis h2 .h2-subtitle {
+  color: rgba(255, 255, 255, 0.9);
   text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.8),
-    4px 4px 8px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(0, 0, 0, 0.5);
+    0 3px 10px rgba(0, 0, 0, 0.6),
+    0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* POZ : Sous-titre dans h2 - BLANC avec ombres épaisses */
+#hero-bis-poz .hero-bis h2 .h2-subtitle {
+  color: #FFFFFF !important;
+  text-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.85),
+    0 3px 8px rgba(0, 0, 0, 0.65),
+    0 2px 4px rgba(0, 0, 0, 0.45);
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -2722,14 +2770,22 @@ html body #hero-bis-poz .hero-bis-background img {
   text-align: center;
 }
 
-/* Contraste amélioré pour MOH et POZ - Sous-titres avec ombres fortes */
-#hero-bis-moh .hero-bis-subtitle,
-#hero-bis-poz .hero-bis-subtitle {
-  color: #ffffff;
+/* MOH : Sous-titre - Blanc avec ombres */
+#hero-bis-moh .hero-bis-subtitle {
+  color: rgba(255, 255, 255, 0.9);
   text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.8),
-    4px 4px 8px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(0, 0, 0, 0.5);
+    0 3px 10px rgba(0, 0, 0, 0.6),
+    0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* POZ : Sous-titre - BLANC avec ombres épaisses */
+#hero-bis-poz .hero-bis-subtitle {
+  color: #FFFFFF !important;
+  text-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.85),
+    0 3px 8px rgba(0, 0, 0, 0.65),
+    0 2px 4px rgba(0, 0, 0, 0.45);
+  font-weight: 600;
 }
 
 .hero-bis-actions {
