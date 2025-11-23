@@ -447,7 +447,7 @@ function initBoxAnimations() {
         });
     }, { threshold: 0.3 });
     
-    const acte4 = document.getElementById('acte-4');
+    const acte4 = document.getElementById('hero-bis-moh');
     if (acte4) {
         observer.observe(acte4);
     }

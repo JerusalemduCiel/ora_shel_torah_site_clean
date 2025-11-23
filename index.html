@@ -465,7 +465,7 @@
                             3000 ans d'histoire juive<br>
                             sur un plateau circulaire fascinant
                         </p>
-                        <button class="btn-discover" data-scroll-to="acte-3">
+                        <button class="btn-discover" data-scroll-to="hero-bis-jdc">
                             Découvrir ce jeu →
                         </button>
                 </div>
@@ -484,7 +484,7 @@
                             Distinguer la loi religieuse<br>
                             de la coutume avec pédagogie
                         </p>
-                        <button class="btn-discover" data-scroll-to="acte-4">
+                        <button class="btn-discover" data-scroll-to="hero-bis-moh">
                             Découvrir ce jeu →
                         </button>
             </div>
@@ -503,7 +503,7 @@
                             Reconnaître les mitzvot cachées<br>
                             dans le quotidien
                         </p>
-                        <button class="btn-discover" data-scroll-to="acte-5">
+                        <button class="btn-discover" data-scroll-to="hero-bis-poz">
                             Découvrir ce jeu →
                         </button>
                     </div>
@@ -535,7 +535,7 @@
     </section>
 
     <!-- ACTE 3: HERO BIS - Jérusalem du Ciel -->
-    <section id="acte-3" class="hero-bis jdc-hero">
+    <section id="hero-bis-jdc" class="hero-bis jdc-hero">
         <div class="hero-bis-background">
             <img src="images/produits/jdc_hero_bg.png" alt="Plateau circulaire du jeu Jérusalem du Ciel montrant les 6 périodes de l'histoire juive" loading="lazy">
         </div>
@@ -546,7 +546,7 @@
                 <button class="btn-modal" data-action="video">
                     🎬 Voir le teaser
                 </button>
-                <a href="/demo/" class="btn-modal" style="text-decoration: none;">
+                <a href="animations/jdc/plateau-jdc.html" class="btn-modal" style="text-decoration: none;" target="_blank">
                     🎮 Essayer la démo
                 </a>
                 <button class="btn-modal btn-store" data-modal="content-discovery-jdc">
@@ -716,7 +716,7 @@
     </section>
 
     <!-- ACTE 4: HERO BIS - Minhag ou Halakha -->
-    <section id="acte-4" class="hero-bis moh-hero">
+    <section id="hero-bis-moh" class="hero-bis moh-hero">
         <div class="hero-bis-background">
             <img src="images/produits/moh_hero_bg.png" alt="Cartes du jeu Minhag ou Halakha avec sources rabbiniques et explications halakhiques pour distinguer lois et coutumes" loading="lazy">
         </div>
@@ -887,7 +887,7 @@
     </section>
 
     <!-- ACTE 5: HERO BIS - Poztamitsvah -->
-    <section id="acte-5" class="hero-bis poz-hero">
+    <section id="hero-bis-poz" class="hero-bis poz-hero">
         <div class="hero-bis-background">
             <img src="images/produits/poz_hero_bg.png" alt="Cartes mitsvot du jeu Poztamitsvah illustrant des commandements de la vie quotidienne juive" loading="lazy">
         </div>
@@ -916,10 +916,12 @@
             <button class="btn-close" aria-label="Fermer la vidéo">×</button>
             <div class="video-container">
                 <h3>Poztamitsvah - Présentation vidéo</h3>
-                <p style="text-align: center; padding: 2rem; color: #666; font-size: 1.2rem;">
-                    🎬 La vidéo de présentation de Poztamitsvah sera disponible très prochainement.<br>
-                    En attendant, essayez la démo interactive !
-                </p>
+                <video controls playsinline preload="metadata" 
+                       poster="images/produits/poz_hero_bg.png"
+                       style="position: relative; z-index: 10;">
+                    <source src="videos/reveal-poz.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
             </div>
         </div>
         

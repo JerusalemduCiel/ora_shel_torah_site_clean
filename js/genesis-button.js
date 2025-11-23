@@ -33,16 +33,16 @@
     const actePositions = {
         'acte-1': { right: 120, top: 50 },
         'acte-2': { right: 140, top: 30 },
-        'acte-3': { right: 110, top: 60 },
-        'acte-4': { right: 130, top: 40 },
-        'acte-5': { right: 125, top: 55 }
+        'hero-bis-jdc': { right: 110, top: 60 },
+        'hero-bis-moh': { right: 130, top: 40 },
+        'hero-bis-poz': { right: 125, top: 55 }
     };
 
     /**
      * Détecte l'acte actuel selon la position du scroll
      */
     function detectCurrentActe() {
-        const actes = ['acte-1', 'acte-2', 'acte-3', 'acte-4', 'acte-5'];
+        const actes = ['acte-1', 'acte-2', 'hero-bis-jdc', 'hero-bis-moh', 'hero-bis-poz'];
         const scrollY = window.scrollY || window.pageYOffset;
         const windowHeight = window.innerHeight;
         const viewportMiddle = scrollY + windowHeight / 2;
@@ -110,7 +110,7 @@
 
         // Si aucun acte détecté, vérifier si on est après l'acte 5
         if (!acteId) {
-            const acte5 = document.getElementById('acte-5');
+            const acte5 = document.getElementById('hero-bis-poz');
             const acte6 = document.getElementById('acte-6');
             
             if (acte5 && acte6) {
@@ -134,7 +134,7 @@
                 }
                 // Si on est entre l'acte 5 et l'acte 6, considérer qu'on est encore dans l'acte 5
                 else if (currentScroll > acte5Bottom - 200) {
-                    acteId = 'acte-5';
+                    acteId = 'hero-bis-poz';
                     console.log('📍 Zone de transition, considéré comme acte 5');
                 }
             }
@@ -146,6 +146,11 @@
             const match = acteId.match(/acte-(\d+)/);
             if (match) {
                 actNumber = parseInt(match[1], 10);
+            } else if (acteId.startsWith('hero-bis-')) {
+                // Les hero-bis sont considérés comme actes 3, 4, 5
+                if (acteId === 'hero-bis-jdc') actNumber = 3;
+                else if (acteId === 'hero-bis-moh') actNumber = 4;
+                else if (acteId === 'hero-bis-poz') actNumber = 5;
             }
         }
 

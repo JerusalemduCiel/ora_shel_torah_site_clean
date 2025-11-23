@@ -108,7 +108,7 @@ class BoxAnimation {
             rootMargin: '0px 0px -100px 0px'
         });
         
-        const acte4 = document.getElementById('acte-4');
+        const acte4 = document.getElementById('hero-bis-moh');
         if (acte4) {
             this.observer.observe(acte4);
         }
