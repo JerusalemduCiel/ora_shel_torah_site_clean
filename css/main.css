@@ -7479,17 +7479,18 @@ footer {
   height: 100%;
   background: rgba(0, 0, 0, 0.75);
   z-index: 10000;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
   align-items: center;
   justify-content: center;
-  opacity: 0;
   transition: opacity 0.3s ease;
   backdrop-filter: blur(4px);
+  display: flex;
 }
 
 .content-discovery-overlay.active {
-  display: flex;
   opacity: 1;
+  visibility: visible;
 }
 
 /* Modal container */
@@ -7892,7 +7893,8 @@ footer {
    ======================================== */
 
 .content-discovery-overlay {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -7900,15 +7902,16 @@ footer {
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
     z-index: 10000;
-    opacity: 0;
     transition: opacity 0.3s ease;
     align-items: center;
     justify-content: center;
     padding: 20px;
+    display: flex;
 }
 
 .content-discovery-overlay.active {
     opacity: 1;
+    visibility: visible;
 }
 
 .content-discovery-modal {
@@ -8290,11 +8293,11 @@ footer {
 /* FIX ANDROID - Forcer l'affichage de la modale */
 @media (max-width: 1024px) {
   .content-discovery-overlay {
-    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
   
   .content-discovery-overlay.active {
-    display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
     z-index: 999999 !important;
@@ -10396,7 +10399,6 @@ img[src*="poz-box"],
     height: 100vh;
     background: rgba(0, 0, 0, 0.85);
     z-index: 10000;
-    display: none;
     align-items: center;
     justify-content: center;
     overflow: hidden !important;
@@ -10404,10 +10406,10 @@ img[src*="poz-box"],
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     padding: 20px;
+    display: flex;
 }
 
 .genesis-modal-overlay.active {
-    display: flex !important;
     opacity: 1;
     visibility: visible;
 }
@@ -10853,7 +10855,8 @@ img[src*="poz-box"],
    ======================================== */
 
 .certificats-modal-overlay {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -10865,12 +10868,14 @@ img[src*="poz-box"],
     padding: 40px 20px;
     box-sizing: border-box;
     backdrop-filter: blur(5px);
-}
-
-.certificats-modal-overlay.active {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+
+.certificats-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .certificats-modal {
@@ -11045,5 +11050,123 @@ img[src*="poz-box"],
     
     .certificat-card h3 {
         font-size: 1.3rem;
+    }
+}
+
+/* ========================================
+   POINT #6 : ANIMATIONS MODALES FLUIDES
+   ======================================== */
+
+/* Animation d'entrée - Overlay (fond sombre) */
+.certificats-modal-overlay,
+.content-discovery-overlay,
+.genesis-modal-overlay,
+.checkout-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.certificats-modal-overlay.active,
+.content-discovery-overlay.active,
+.genesis-modal-overlay.active,
+.checkout-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animation d'entrée - Contenu modal (slide up + scale) */
+.certificats-modal,
+.content-discovery-modal,
+.genesis-modal,
+.checkout-content {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.certificats-modal-overlay.active .certificats-modal,
+.content-discovery-overlay.active .content-discovery-modal,
+.genesis-modal-overlay.active .genesis-modal,
+.checkout-modal.show .checkout-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Animation de sortie - Plus rapide et fluide */
+.certificats-modal-overlay:not(.active) .certificats-modal,
+.content-discovery-overlay:not(.active) .content-discovery-modal,
+.genesis-modal-overlay:not(.active) .genesis-modal,
+.checkout-modal:not(.show) .checkout-content {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Bouton fermeture - Animation rotation au hover */
+.certificats-modal-close,
+.content-discovery-close,
+.genesis-modal-close,
+.close-modal {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.certificats-modal-close:hover,
+.content-discovery-close:hover,
+.genesis-modal-close:hover,
+.close-modal:hover {
+    transform: rotate(90deg) scale(1.1);
+    color: #daa520;
+}
+
+/* Effet de pulsation subtile à l'ouverture */
+@keyframes modalPulse {
+    0% { box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4); }
+    50% { box-shadow: 0 30px 90px rgba(218, 165, 32, 0.2); }
+    100% { box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4); }
+}
+
+.certificats-modal-overlay.active .certificats-modal,
+.content-discovery-overlay.active .content-discovery-modal {
+    animation: modalPulse 2s ease-in-out 0.5s;
+}
+
+/* ========================================
+   POINT #6 : ANIMATIONS MODALES - MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Animations plus légères sur mobile (performance) */
+    .certificats-modal,
+    .content-discovery-modal,
+    .genesis-modal,
+    .checkout-content {
+        transform: translateY(30px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .certificats-modal-overlay.active .certificats-modal,
+    .content-discovery-overlay.active .content-discovery-modal,
+    .genesis-modal-overlay.active .genesis-modal,
+    .checkout-modal.show .checkout-content {
+        transform: translateY(0);
+    }
+    
+    /* Désactiver pulse sur mobile */
+    .certificats-modal-overlay.active .certificats-modal,
+    .content-discovery-overlay.active .content-discovery-modal {
+        animation: none;
+    }
+}
+
+/* Réduire les mouvements si préférence utilisateur */
+@media (prefers-reduced-motion: reduce) {
+    .certificats-modal,
+    .content-discovery-modal,
+    .genesis-modal,
+    .checkout-content {
+        transition: opacity 0.2s ease;
+        transform: none !important;
     }
 }
