@@ -477,120 +477,79 @@
     'use strict';
 
     // Fonction d'initialisation
-    function initNavigationLinks() {
-        // Récupérer les éléments
-        const navHistoire = document.getElementById('nav-histoire');
-        const navPhilosophie = document.getElementById('nav-philosophie');
-        const navHistoireMobile = document.getElementById('nav-histoire-mobile');
-        const navPhilosophieMobile = document.getElementById('nav-philosophie-mobile');
+    // ========================================
+    // LIENS HEADER : NOTRE HISTOIRE & PHILOSOPHIE
+    // ========================================
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const genesisModal = document.getElementById('genesis-modal-overlay');
+        const videoSection = document.querySelector('.modal-video-section');
         
-        // Fonction pour ouvrir la modale
-        function openModalFromNav() {
-            if (window.genesisButton && window.genesisButton.openModal) {
-                window.genesisButton.openModal();
-            } else {
-                // Fallback si genesisButton n'est pas encore chargé
-                const modalOverlay = document.getElementById('genesis-modal-overlay');
-                if (modalOverlay) {
-                    // Sauvegarder la position de scroll
-                    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                    
-                    modalOverlay.classList.add('active');
-                    
-                    // FORCER le blocage du scroll du body
-                    document.body.classList.add('modal-open', 'no-scroll');
-                    document.documentElement.classList.add('modal-open', 'no-scroll');
-                    document.body.style.position = 'fixed';
-                    document.body.style.top = `-${scrollY}px`;
-                    document.body.style.width = '100%';
-                    document.body.style.overflow = 'hidden';
-                    document.documentElement.style.overflow = 'hidden';
-                }
+        // NOTRE HISTOIRE → Ouvre la modale au début
+        const navHistoire = document.getElementById('nav-histoire');
+        const navHistoireMobile = document.getElementById('nav-histoire-mobile');
+        
+        function openGenesisModal() {
+            if (genesisModal) {
+                genesisModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Scroll au début de la modale
+                const modalContent = genesisModal.querySelector('.genesis-modal-content');
+                if (modalContent) modalContent.scrollTop = 0;
             }
         }
         
-        // Fonction pour ouvrir la modale et scroller vers la vidéo
-        function openModalAndScrollToVideo() {
-            openModalFromNav();
-            // Attendre un peu plus pour que la modale soit complètement ouverte
-            setTimeout(() => {
-                if (window.genesisButton && window.genesisButton.scrollToVideo) {
-                    window.genesisButton.scrollToVideo();
-                } else {
-                    // Fallback
-                    const modal = document.querySelector('.genesis-modal');
-                    const videoSection = document.querySelector('.modal-video-section');
-                    if (modal && videoSection) {
-                        const modalRect = modal.getBoundingClientRect();
-                        const videoRect = videoSection.getBoundingClientRect();
-                        const offset = videoRect.top - modalRect.top + modal.scrollTop;
-                        modal.scrollTo({ 
-                            top: offset - 20, 
-                            behavior: 'smooth' 
-                        });
-                    }
-                }
-            }, 350);
-        }
-        
-        // Lien "Notre histoire" (desktop) → ouvre la modale
         if (navHistoire) {
             navHistoire.addEventListener('click', function(e) {
                 e.preventDefault();
-                openModalFromNav();
+                openGenesisModal();
             });
         }
         
-        // Lien "Philosophie" (desktop) → ouvre la modale + scroll vers vidéo
-        if (navPhilosophie) {
-            navPhilosophie.addEventListener('click', function(e) {
-                e.preventDefault();
-                openModalAndScrollToVideo();
-            });
-        }
-        
-        // Lien "Notre histoire" (mobile) → ouvre la modale
         if (navHistoireMobile) {
             navHistoireMobile.addEventListener('click', function(e) {
                 e.preventDefault();
-                openModalFromNav();
-                // Fermer le menu mobile si ouvert
-                const mobileNav = document.getElementById('mobile-nav');
-                const burgerMenu = document.getElementById('burger-menu');
-                if (mobileNav && burgerMenu) {
-                    mobileNav.classList.remove('active');
-                    burgerMenu.classList.remove('active');
-                }
+                openGenesisModal();
+                // Fermer le menu mobile
+                document.getElementById('mobile-nav')?.classList.remove('open');
+                document.getElementById('burger-menu')?.classList.remove('active');
             });
         }
         
-        // Lien "Philosophie" (mobile) → ouvre la modale + scroll vers vidéo
+        // PHILOSOPHIE → Ouvre la modale ET scrolle vers la vidéo
+        const navPhilosophie = document.getElementById('nav-philosophie');
+        const navPhilosophieMobile = document.getElementById('nav-philosophie-mobile');
+        
+        function openGenesisModalAtVideo() {
+            if (genesisModal) {
+                genesisModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Attendre que la modale soit visible, puis scroller vers la vidéo
+                setTimeout(function() {
+                    if (videoSection) {
+                        videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+        }
+        
+        if (navPhilosophie) {
+            navPhilosophie.addEventListener('click', function(e) {
+                e.preventDefault();
+                openGenesisModalAtVideo();
+            });
+        }
+        
         if (navPhilosophieMobile) {
             navPhilosophieMobile.addEventListener('click', function(e) {
                 e.preventDefault();
-                openModalAndScrollToVideo();
-                // Fermer le menu mobile si ouvert
-                const mobileNav = document.getElementById('mobile-nav');
-                const burgerMenu = document.getElementById('burger-menu');
-                if (mobileNav && burgerMenu) {
-                    mobileNav.classList.remove('active');
-                    burgerMenu.classList.remove('active');
-                }
+                openGenesisModalAtVideo();
+                // Fermer le menu mobile
+                document.getElementById('mobile-nav')?.classList.remove('open');
+                document.getElementById('burger-menu')?.classList.remove('active');
             });
         }
-    }
-
-    // Initialisation
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initNavigationLinks);
-    } else {
-        // DOM déjà chargé
-        setTimeout(initNavigationLinks, 100);
-    }
-    
-    // Backup : réessayer après le chargement complet
-    window.addEventListener('load', () => {
-        setTimeout(initNavigationLinks, 200);
     });
 
     // ========================================
