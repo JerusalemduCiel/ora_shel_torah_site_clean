@@ -550,6 +550,42 @@
                 document.getElementById('burger-menu')?.classList.remove('active');
             });
         }
+        
+        // ========================================
+        // FERMETURE MODALE GENESIS
+        // ========================================
+        
+        const genesisCloseBtn = document.querySelector('.genesis-modal-close');
+        
+        // Fermer avec le bouton X
+        if (genesisCloseBtn) {
+            genesisCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (genesisModal) {
+                    genesisModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Fermer en cliquant sur l'overlay (fond sombre)
+        if (genesisModal) {
+            genesisModal.addEventListener('click', function(e) {
+                if (e.target === genesisModal) {
+                    genesisModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Fermer avec Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && genesisModal && genesisModal.classList.contains('active')) {
+                genesisModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     });
 
     // ========================================
