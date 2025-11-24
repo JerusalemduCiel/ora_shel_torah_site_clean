@@ -3340,6 +3340,7 @@ html body #hero-bis-poz .hero-bis-background img {
   border-radius: 50px;
   color: #1a1a1a;
   font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -3393,6 +3394,7 @@ html body #hero-bis-poz .hero-bis-background img {
   background: linear-gradient(135deg, #eda234 0%, #f4c86f 100%);
   border: none;
   color: #1a1a1a;
+  font-size: 16px;
   max-width: 300px;
   width: 100%;
   
@@ -3434,10 +3436,6 @@ html body #hero-bis-poz .hero-bis-background img {
   transition: box-shadow 0.1s ease;
 }
 
-/* Taille du texte "Essayer la démo" dans hero-bis-jdc */
-#hero-bis-jdc .hero-bis-actions .btn-modal[href*="plateau-jdc"] {
-  font-size: 16px;
-}
 
 .boxes-container {
   display: flex;
