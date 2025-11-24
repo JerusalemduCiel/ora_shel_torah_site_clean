@@ -1,0 +1,163 @@
+/* ========================================
+   STYLES PAGES LÉGALES - Ora Shel Torah
+   ======================================== */
+
+/* Base de la page */
+.legal-page {
+    background: linear-gradient(135deg, #faf9f6 0%, #f5f0e8 100%);
+    min-height: 100vh;
+}
+
+/* Header simplifié pour pages légales */
+.legal-page #main-header {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.legal-page #main-header .container {
+    max-width: 900px;
+}
+
+/* Conteneur principal */
+.legal-page main {
+    margin-top: 80px;
+    padding: 40px 20px 60px;
+}
+
+.legal-page main .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Titre principal */
+.legal-page h1 {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 2.5rem;
+    color: #daa520;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #daa520;
+}
+
+/* Sections */
+.legal-page section {
+    background: #ffffff;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    border-left: 4px solid #daa520;
+}
+
+.legal-page section h2 {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.legal-page section h3 {
+    font-size: 1.1rem;
+    color: #444;
+    margin: 18px 0 10px;
+    font-weight: 600;
+}
+
+/* Paragraphes */
+.legal-page section p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.legal-page section strong {
+    color: #333;
+}
+
+/* Listes */
+.legal-page section ul,
+.legal-page section ol {
+    margin: 12px 0 12px 20px;
+    padding: 0;
+}
+
+.legal-page section li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Liens */
+.legal-page section a {
+    color: #daa520;
+    text-decoration: none;
+    border-bottom: 1px dotted #daa520;
+    transition: all 0.2s ease;
+}
+
+.legal-page section a:hover {
+    color: #b8860b;
+    border-bottom-style: solid;
+}
+
+/* Date de mise à jour */
+.legal-page main > .container > p:last-of-type {
+    text-align: center;
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+/* Footer simplifié */
+.legal-page #main-footer {
+    background: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .legal-page h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .legal-page section {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .legal-page section h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-page main {
+        padding: 30px 15px 50px;
+    }
+    
+    .legal-page h1 {
+        font-size: 1.5rem;
+    }
+    
+    .legal-page section {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    .legal-page section h2 {
+        font-size: 1.1rem;
+    }
+    
+    .legal-page section p,
+    .legal-page section li {
+        font-size: 0.9rem;
+    }
+}
+
