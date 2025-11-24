@@ -593,5 +593,51 @@
         setTimeout(initNavigationLinks, 200);
     });
 
+    // ========================================
+    // EFFET D'ATTRACTION VERS LA SOURIS
+    // ========================================
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let buttonCenterX = 0;
+    let buttonCenterY = 0;
+    
+    // Suivre la position de la souris
+    document.addEventListener('mousemove', function(e) {
+        if (!floatingBtn || !floatingBtn.classList.contains('visible')) return;
+        
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Calculer le centre du bouton
+        const rect = floatingBtn.getBoundingClientRect();
+        buttonCenterX = rect.left + rect.width / 2;
+        buttonCenterY = rect.top + rect.height / 2;
+        
+        // Calculer la distance
+        const deltaX = mouseX - buttonCenterX;
+        const deltaY = mouseY - buttonCenterY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        // Si la souris est proche (< 200px), attirer le bouton
+        if (distance < 200 && distance > 50) {
+            const attraction = 0.15; // Force d'attraction (0.1 = subtil, 0.3 = fort)
+            const moveX = deltaX * attraction * (1 - distance / 200);
+            const moveY = deltaY * attraction * (1 - distance / 200);
+            
+            floatingBtn.style.transform = `translateY(-50%) translate(${-moveX}px, ${moveY}px)`;
+        } else if (distance >= 200) {
+            // Revenir à la position normale
+            floatingBtn.style.transform = 'translateY(-50%)';
+        }
+    });
+    
+    // Reset quand la souris quitte la fenêtre
+    document.addEventListener('mouseleave', function() {
+        if (floatingBtn) {
+            floatingBtn.style.transform = 'translateY(-50%)';
+        }
+    });
+
 })();
 

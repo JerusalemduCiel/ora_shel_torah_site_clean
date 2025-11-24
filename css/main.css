@@ -10209,8 +10209,6 @@ img[src*="poz-box"],
         0 2px 8px rgba(0, 0, 0, 0.03),
         inset 0 1px 3px rgba(255, 255, 255, 0.1);
     
-    /* Animation très subtile */
-    animation: bubble-float 4s ease-in-out infinite;
     transition: all 0.4s ease;
     
     cursor: pointer;
@@ -10281,38 +10279,47 @@ img[src*="poz-box"],
     z-index: 1;
 }
 
-/* Animation flottement (très subtile) */
-@keyframes bubble-float {
-    0%, 100% {
-        transform: translateY(-50%) translateX(0) scale(1);
+/* ========================================
+   ANIMATION DU BOUTON "?" - POINT #7
+   ======================================== */
+
+/* Animation pulse subtil permanent (attention) */
+@keyframes attention-pulse {
+    0%, 100% { 
+        transform: translateY(-50%) scale(1); 
+        opacity: 1;
     }
-    50% {
-        transform: translateY(-50%) translateX(2px) scale(1.01);
+    50% { 
+        transform: translateY(-50%) scale(1.08); 
+        opacity: 0.9;
+    }
+    70% {
+        transform: translateY(-50%) scale(1.12);
+    }
+    85% {
+        transform: translateY(-50%) scale(1);
     }
 }
 
-/* HOVER : Révéler légèrement la bulle */
-.floating-genesis-button:hover {
-    /* La bulle devient un peu plus visible au hover */
-    background: radial-gradient(
-        circle at 30% 30%,
-        rgba(255, 255, 255, 0.12) 0%,
-        rgba(255, 245, 200, 0.08) 40%,
-        rgba(218, 165, 32, 0.06) 100%
-    );
-    
-    /* Bordure plus visible */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    
-    /* Ombre légèrement plus marquée */
-    box-shadow: 
-        0 4px 15px rgba(218, 165, 32, 0.12),
-        0 0 25px rgba(255, 215, 0, 0.15),
-        inset 0 2px 6px rgba(255, 255, 255, 0.2);
-    
-    transform: translateY(-50%) scale(1.15) rotate(5deg);
-    animation: none;
+/* Remplacer l'animation flottante par le pulse */
+.floating-genesis-button {
+    animation: attention-pulse 3s ease-in-out infinite;
 }
+
+/* HOVER : Rotation + Scale (arrêter le pulse) */
+.floating-genesis-button:hover {
+    animation: none;
+    transform: translateY(-50%) rotate(15deg) scale(1.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Glow doré au hover */
+    box-shadow: 
+        0 0 20px rgba(218, 165, 32, 0.4),
+        0 0 40px rgba(218, 165, 32, 0.2),
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Supprimer l'ancien @keyframes bubble-float */
 
 /* Hover - le ? s'illumine */
 .floating-genesis-button:hover::after {
