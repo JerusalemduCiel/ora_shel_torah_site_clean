@@ -1507,6 +1507,53 @@ function initBurgerMenu() {
     console.log('✅ Menu burger initialisé');
 }
 
+// ========================================
+// MODALE CERTIFICATS
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const certificatsModal = document.getElementById('certificats-modal');
+    const certificatsCloseBtn = document.querySelector('.certificats-modal-close');
+    
+    // Bouton "Voir nos certificats" dans le hero slide 4
+    const btnCertificats = document.querySelector('button[data-scroll-to="certificats"]');
+    
+    // Ouvrir la modale
+    if (btnCertificats) {
+        btnCertificats.addEventListener('click', function(e) {
+            e.preventDefault();
+            certificatsModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    // Fermer avec le bouton X
+    if (certificatsCloseBtn) {
+        certificatsCloseBtn.addEventListener('click', function() {
+            certificatsModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Fermer en cliquant sur le fond
+    if (certificatsModal) {
+        certificatsModal.addEventListener('click', function(e) {
+            if (e.target === certificatsModal) {
+                certificatsModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Fermer avec Échap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && certificatsModal.classList.contains('active')) {
+            certificatsModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+
 } catch(e) {
     alert('ERREUR main.js : ' + e.message);
 }
