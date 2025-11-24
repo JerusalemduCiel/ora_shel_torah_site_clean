@@ -10443,8 +10443,10 @@ img[src*="poz-box"],
     position: relative;
     transform: scale(0.9);
     transition: transform 0.3s ease;
-    /* Le scroll sera géré par .genesis-modal-content */
-    overflow: visible;
+    overflow: hidden;
+    /* FLEXBOX pour gérer titre + contenu */
+    display: flex;
+    flex-direction: column;
 }
 
 .genesis-modal-overlay.active .genesis-modal {
@@ -10522,23 +10524,15 @@ img[src*="poz-box"],
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    
-    /* Padding */
     padding-right: 30px;
     padding-bottom: 80px;
-    
-    /* Hauteur optimisée */
-    max-height: 90vh;
-    height: auto;
-    
-    /* Autoriser le scroll UNIQUEMENT ici */
+    /* FLEX pour prendre l'espace restant après le titre */
+    flex: 1;
+    min-height: 0;
+    /* Suppression du max-height fixe - flex gère ça */
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    
-    /* Smooth scroll */
     scroll-behavior: smooth;
-    
-    /* Scrollbar personnalisée - SEULE scrollbar visible */
     scrollbar-width: thin;
     scrollbar-color: rgba(218, 165, 32, 0.6) #f1f1f1;
 }
