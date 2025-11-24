@@ -1,0 +1,454 @@
+{
+  "categorie": "ethique",
+  "titre": "Éthique et justice sociale",
+  "description": "Dilemmes moraux et questions d'éthique juive avec réponses à choix multiples",
+  "total": 14,
+  "themes": [
+    "HONNÊTETÉ ET VÉRITÉ",
+    "RESPECT DES DIFFÉRENCES ET TOLÉRANCE",
+    "RESPECT DES PARENTS ET DES AÎNÉS",
+    "CHARITÉ ET SOUTIEN AUX DÉMUNIS",
+    "HONNÊTETÉ ET COMMERCE ÉTHIQUE",
+    "GÉNÉROSITÉ ET AIDE AUX AUTRES",
+    "LE RESPECT DE LA VIE PRIVÉE ET L\\'HONNEUR D\\'AUTRUI",
+    "QUESTIONS ADDITIONNELLES",
+    "SHALOM ET RÉCONCILIATION",
+    "ÉDUCATION ET TRANSMISSION"
+  ],
+  "dilemmes": [
+    {
+      "id": "ethique_1",
+      "theme": "CHARITÉ ET SOUTIEN AUX DÉMUNIS",
+      "question": " Quel est le minimum requis en tzedaka selon la Torah ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Entre 10% et 20% des revenus, selon ses moyens.",
+          "correcte": true,
+          "niveau": "excellente"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Ce que la personne peut se permettre, au moins",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Un tiers de shekel par an pour le Temple.",
+          "correcte": true,
+          "niveau": "acceptable"
+        },
+        {
+          "lettre": "D",
+          "texte": "Rien, la tzedaka n\\'est pas obligatoire.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_2",
+      "theme": "HONNÊTETÉ ET COMMERCE ÉTHIQUE",
+      "question": " Pourquoi la Torah interdit-elle la fraude commerciale ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que tromper autrui va à l\\'encontre du principe de",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que cela sape la confiance qui est nécessaire aux",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que Dieu voit tout et punit la malhonnêteté.",
+          "correcte": true,
+          "niveau": "acceptable"
+        },
+        {
+          "lettre": "D",
+          "texte": "Parce que c\\'est moins rentable à long terme.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_3",
+      "theme": "RESPECT DES PARENTS ET DES AÎNÉS",
+      "question": " Pourquoi la Torah ordonne-t-elle d\\'honorer ses parents ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce qu\\'ils sont partenaires de Dieu dans la création",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que l\\'honneur des parents assure la continuité des",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que cela favorise la stabilité sociale et",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Parce que c\\'est une tradition ancienne.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_4",
+      "theme": "SHALOM ET RÉCONCILIATION",
+      "question": " Pourquoi ne faut-il pas prolonger un conflit inutilement ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Car l\\'orgueil et l\\'entêtement sont destructeurs et",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que le temps passé en conflit pourrait être",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que les conflits prolongés causent souvent",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Pour éviter d\\'avoir mauvaise réputation dans la communauté.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_5",
+      "theme": "LE RESPECT DE LA VIE PRIVÉE ET L\\'HONNEUR D\\'AUTRUI",
+      "question": " Pourquoi la Torah interdit-elle de médire (Lachon Hara) ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que les paroles peuvent détruire une réputation et",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que la parole a un pouvoir créateur ou destructeur",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Pour préserver la paix et l\\'harmonie dans la communauté.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Uniquement si les propos sont faux ou exagérés.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_6",
+      "theme": "LE RESPECT DE LA VIE PRIVÉE ET L\\'HONNEUR D\\'AUTRUI",
+      "question": " Qu\\'est-ce que la \\\"Geneivat Daat\\\" ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Tromper quelqu\\'un en lui donnant une fausse impression.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Voler des informations confidentielles ou des secrets.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Manipuler les autres par la parole ou des actions.",
+          "correcte": true,
+          "niveau": "acceptable"
+        },
+        {
+          "lettre": "D",
+          "texte": "Copier les idées ou le travail intellectuel d\\'autrui.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_7",
+      "theme": "HONNÊTETÉ ET VÉRITÉ",
+      "question": " Pourquoi la Torah ordonne-t-elle de s\\'éloigner du mensonge ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que la vérité est un fondement divin et que la",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que le mensonge détruit la confiance entre les",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que mentir est une négation de la réalité créée par",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Uniquement dans un contexte juridique ou commercial.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_8",
+      "theme": "HONNÊTETÉ ET VÉRITÉ",
+      "question": " Pourquoi la Torah interdit-elle le faux témoignage ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce qu\\'un mensonge en justice peut détruire des vies",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que cela pervertit le système juridique établi par",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que la justice doit refléter la vérité divine.",
+          "correcte": true,
+          "niveau": "acceptable"
+        },
+        {
+          "lettre": "D",
+          "texte": "Seulement si cela cause un préjudice financier.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_9",
+      "theme": "GÉNÉROSITÉ ET AIDE AUX AUTRES",
+      "question": " Pourquoi le judaïsme valorise-t-il la générosité ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que donner renforce le lien social et favorise une",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que Dieu a été généreux envers nous en nous donnant",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que donner nous détache de l\\'emprise des biens",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Uniquement pour obtenir une reconnaissance sociale.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_10",
+      "theme": "GÉNÉROSITÉ ET AIDE AUX AUTRES",
+      "question": " Pourquoi aider un non-juif dans le besoin est aussi une Mitsva ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que la Torah commande d\\'être juste avec tous les",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Pour sanctifier le Nom de Dieu (Kiddoush Hashem) aux yeux",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Pour établir des relations pacifiques avec tous les",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Uniquement pour éviter l\\'animosité envers les Juifs.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_11",
+      "theme": "ÉDUCATION ET TRANSMISSION",
+      "question": " Pourquoi l\\'éducation des enfants est une Mitsva si centrale ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que sans transmission, la Torah se perdrait en une",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que chaque génération doit réinterpréter la Torah",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que l\\'éducation forge le caractère moral de",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "C\\'est principalement une responsabilité des institutions",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_12",
+      "theme": "RESPECT DES DIFFÉRENCES ET TOLÉRANCE",
+      "question": " Pourquoi le judaïsme condamne-t-il le racisme ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que chaque être humain est créé à l\\'image de Dieu",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que le peuple juif a lui-même souffert de la",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que cela va à l\\'encontre de l\\'unité fondamentale",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "C\\'est une position politique moderne, pas une valeur juive",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_13",
+      "theme": "QUESTIONS ADDITIONNELLES",
+      "question": " Pourquoi est-il interdit de retarder le paiement d\\'une dette ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce que cela cause de l\\'anxiété et de la souffrance au",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que les obligations financières sont des",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce que cela nuit à la confiance commerciale et",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Seulement si la dette est importante ou le créancier dans le",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    },
+    {
+      "id": "ethique_14",
+      "theme": "QUESTIONS ADDITIONNELLES",
+      "question": " Pourquoi la Torah interdit-elle la vengeance et la rancune ?",
+      "options": [
+        {
+          "lettre": "A",
+          "texte": "🟢 Parce qu\\'elles détruisent la cohésion sociale et",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "B",
+          "texte": "🟠 Parce que la vengeance appartient à Dieu seul, pas aux",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "C",
+          "texte": "🟠 Parce qu\\'elles corrompent l\\'âme de celui qui les",
+          "correcte": false,
+          "niveau": "incorrecte"
+        },
+        {
+          "lettre": "D",
+          "texte": "Uniquement entre Juifs, pas envers les autres peuples.",
+          "correcte": false,
+          "niveau": "incorrecte"
+        }
+      ]
+    }
+  ]
+}

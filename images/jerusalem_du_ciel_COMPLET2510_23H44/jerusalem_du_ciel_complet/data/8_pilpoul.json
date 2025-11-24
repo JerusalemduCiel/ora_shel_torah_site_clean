@@ -1,0 +1,248 @@
+{
+  "categorie": "pilpoul",
+  "titre": "Pilpoul - Art du raisonnement talmudique",
+  "description": "Thèmes de débat talmudique avec positions contradictoires pour exercer le raisonnement dialectique",
+  "total": 10,
+  "debats": [
+    {
+      "id": "pilpoul_1",
+      "theme": "1️⃣ KAL VA\\'HOMER & RAISONNEMENT LOGIQUE",
+      "question": "pour dériver une nouvelle loi non explicitement mentionnée dans la Torah",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "La Torah a été donnée pour être interprétée par la raison humaine",
+          "Le Talmud lui-même utilise constamment ce mode de raisonnement",
+          "C\\'est l\\'une des 13 méthodes d\\'interprétation reconnues par Rabbi",
+          "Les Sages ont toujours étendu la portée des lois par déduction"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "Seule la tradition orale peut compléter légitimement la Torah écrite",
+          "Un raisonnement humain peut être fallacieux et déformer la volonté",
+          "Le Talmud limite explicitement l\\'application du Kal Va\\'Homer dans",
+          "On ne peut pas punir sur la base d\\'un raisonnement a fortiori"
+        ]
+      },
+      "sources": "Traité Baba Kamma 25a, Rachi sur Deutéronome"
+    },
+    {
+      "id": "pilpoul_2",
+      "theme": "2️⃣ HEFKER & PROPRIÉTÉ",
+      "question": "d\\'un bien (Hefker) pour éviter certaines obligations halakhiques ?",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "Cette pratique est utilisée pour le Prozbul avant la Shmita",
+          "Le Talmud reconnaît le droit de chacun de renoncer à sa propriété",
+          "L\\'intention reste le respect de la Torah dans un contexte moderne",
+          "Plusieurs autorités rabbiniques l\\'ont accepté au fil des"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "C\\'est une manière détournée d\\'échapper à ses obligations",
+          "L\\'intention de reprendre possession du bien ultérieurement n\\'est",
+          "Cela va contre l\\'esprit de la loi, même si cela respecte sa lettre",
+          "Les Sages mettent en garde contre toute forme de ruse légale"
+        ]
+      },
+      "sources": "Mishna Nedarim 45a, Choulhan Aroukh Hoshen"
+    },
+    {
+      "id": "pilpoul_3",
+      "theme": "3️⃣ LOIS DE ONESS & VOLONTÉ",
+      "question": "est-elle spirituellement responsable de son acte ?",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "\\\"La Torah exempte la contrainte\\\" (Oness Rachmana Patrei)",
+          "Dieu ne tient pas rigueur de ce qu\\'on ne peut éviter",
+          "L\\'intention est cruciale dans l\\'accomplissement des Mitsvot",
+          "La volonté (Ratzon) est nécessaire pour qu\\'une transgression soit"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "Mieux vaut accepter une souffrance que transgresser publiquement",
+          "La contrainte n\\'efface pas complètement l\\'acte de transgression",
+          "Une réparation (Teshouva) reste nécessaire même en cas de contrainte",
+          "Certains Sages considèrent qu\\'une expiation mineure est requise"
+        ]
+      },
+      "sources": "Traité Baba Kamma 28b, Rambam Hilkhot Yesodei"
+    },
+    {
+      "id": "pilpoul_4",
+      "theme": "4️⃣ MAHLOKET & DIVERGENCES D\\'OPINION",
+      "question": "sont toutes \\\"les paroles du Dieu vivant\\\" (Eilu Ve\\'eilu Divrei Elokim",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "La Torah a de multiples facettes et niveaux d\\'interprétation",
+          "Chaque sage perçoit un aspect différent mais authentique de la",
+          "Des conclusions contradictoires peuvent découler de prémisses",
+          "La diversité d\\'opinions enrichit la Torah plutôt que de"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "Il existe une vérité unique, mais notre compréhension est limitée",
+          "Les opinions divergentes reflètent différents contextes",
+          "Certaines opinions étaient correctes pour leur époque mais pas",
+          "La vraie opinion finira par prévaloir dans le monde à venir"
+        ]
+      },
+      "sources": "Traité Erouvin 13b, Ritva sur ce passage"
+    },
+    {
+      "id": "pilpoul_5",
+      "theme": "5️⃣ EDOUT & TÉMOIGNAGE",
+      "question": "établir un fait halakhique important ?",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "Pour libérer une Agouna (femme dont le mari a disparu), un témoin",
+          "Les questions rituelles (Issur Ve\\'heter) peuvent être résolues sur",
+          "Lorsqu\\'il n\\'y a pas d\\'opposition ou de contestation, un témoin",
+          "La Torah donne parfois une crédibilité particulière à certains"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "La Torah exige clairement \\\"deux témoins ou trois témoins\\\"",
+          "Les exceptions créent une pente glissante qui menace l\\'intégrité du",
+          "L\\'histoire montre que les témoignages uniques ont souvent conduit à",
+          "Les questions graves comme le mariage nécessitent une preuve"
+        ]
+      },
+      "sources": "Traité Yevamot 87b-88a, Rambam Hilkhot Edout"
+    },
+    {
+      "id": "pilpoul_6",
+      "theme": "6️⃣ DINEI MAMONOT & LITIGES FINANCIERS",
+      "question": "(Peshara) plutôt qu\\'un jugement strictement conforme à la Halakha ?",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "La Torah enjoint \\\"Tsedek Tsedek Tirdof\\\" (tu poursuivras la",
+          "Un compromis peut éviter l\\'humiliation et la discorde entre membres",
+          "Le Talmud valorise la paix plus que la stricte application de la loi",
+          "Certains cas nécessitent une solution qui préserve les relations et"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "Le juge n\\'a pas le droit de déformer le jugement de la Torah",
+          "Un compromis risque de priver quelqu\\'un de ses droits légitimes",
+          "La Torah est parfaite et ses solutions sont toujours les meilleures",
+          "Les juges ne peuvent imposer un compromis sans le consentement des"
+        ]
+      },
+      "sources": "Traité Sanhedrin 6a-b, Choulhan Aroukh Hoshen"
+    },
+    {
+      "id": "pilpoul_7",
+      "theme": "7️⃣ ONESH & SANCTIONS",
+      "question": "sanctions non prévues explicitement par la Torah ?",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "Le Beth Din a le pouvoir d\\'établir des \\\"barrières\\\" pour protéger",
+          "Le Talmud reconnaît l\\'autorité des Sages d\\'instaurer des sanctions",
+          "L\\'évolution de la société nécessite des adaptations des sanctions",
+          "Sans ce pouvoir, la Halakha ne pourrait pas être maintenue"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "Seules les sanctions explicitement mentionnées dans la Torah sont",
+          "Ajouter des punitions revient à modifier la Torah, ce qui est",
+          "Les rabbins modernes n\\'ont pas l\\'autorité des Sages du Talmud",
+          "Le droit d\\'innover en matière de sanctions s\\'est perdu avec la"
+        ]
+      },
+      "sources": "Traité Yevamot 90b, Rambam Hilkhot Sanhedrin"
+    },
+    {
+      "id": "pilpoul_8",
+      "theme": "8️⃣ NEZIKIN & DOMMAGES",
+      "question": "(Grama) par nos actions ?",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "\\\"Patur Aval Assur\\\" - on peut être légalement exempt mais",
+          "Le principe de \\\"Latzet Yedei Shamayim\\\" exige de réparer même les",
+          "Les lois de Nezikin visent à protéger autrui, pas seulement à",
+          "La responsabilité morale va au-delà de la responsabilité juridique"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "La Halakha distingue clairement entre dommage direct (Hezek) et",
+          "Si la Torah n\\'impose pas de compensation, on ne peut pas",
+          "La causalité indirecte comporte trop d\\'éléments extérieurs pour",
+          "Étendre la responsabilité crée une insécurité juridique excessive"
+        ]
+      },
+      "sources": "Traité Baba Kamma 60a, Choulhan Aroukh Hoshen"
+    },
+    {
+      "id": "pilpoul_9",
+      "theme": "9️⃣ ISUR VEHETER & INTERDITS ALIMENTAIRES",
+      "question": "soixante fois la quantité) s\\'applique-t-il aux aliments",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "\\\"Ein Mevatlin Issur Lekhatchila\\\" - on ne peut annuler",
+          "La Torah interdit les ruses et les contournements volontaires",
+          "Le Bitul est une solution pour des mélanges accidentels, pas",
+          "L\\'intention de contourner un interdit invalide le principe"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "Pour des besoins médicaux ou particuliers, certains poskim",
+          "La règle s\\'applique différemment selon les types d\\'interdits",
+          "La réalité industrielle moderne nécessite parfois des accommodements",
+          "Certains aliments peuvent être mélangés intentionnellement s\\'ils"
+        ]
+      },
+      "sources": "Traité Avoda Zara 73a, Yoreh Deah 99"
+    },
+    {
+      "id": "pilpoul_10",
+      "theme": "🔟 KIDOUSHIN & GUITIN",
+      "question": "(Hafka\\'at Kidoushin) si le mari refuse de donner le divorce ?",
+      "position_1": {
+        "titre": "Position affirmative",
+        "arguments": [
+          "\\\"Kol Hamekadesh Adaata DeRabbanan Mekadesh\\\" - tout mariage est",
+          "Le pouvoir d\\'annuler un mariage est mentionné dans le Talmud pour",
+          "L\\'abus d\\'une femme en refusant le divorce justifie une",
+          "Cette solution est préférable à laisser une femme sans possibilité"
+        ]
+      },
+      "position_2": {
+        "titre": "Position négative",
+        "arguments": [
+          "Seul le mari peut défaire le lien qu\\'il a créé en donnant le Guet",
+          "L\\'annulation rétroactive crée des problèmes juridiques concernant",
+          "Les pouvoirs mentionnés dans le Talmud n\\'existent plus à notre",
+          "D\\'autres solutions doivent être trouvées pour résoudre le problème"
+        ]
+      },
+      "sources": "Traité Gittin 33a, Responsa contemporaines sur"
+    }
+  ]
+}

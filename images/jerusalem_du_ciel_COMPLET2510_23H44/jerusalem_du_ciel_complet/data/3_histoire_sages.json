@@ -1,0 +1,122 @@
+{
+  "category": "histoire_sages",
+  "title": "Histoire des Sages d'Israël",
+  "description": "Histoire de la transmission de la sagesse juive à travers les âges",
+  "color": "#4A5568",
+  "questions": [
+    {
+      "id": "hist_001",
+      "type": "historical",
+      "difficulty": "easy",
+      "period": "tannaim",
+      "question": "Que signifie 'Tanna' ?",
+      "answer": "Un sage qui enseigne ou répète la Torah orale (Michna)",
+      "context": "Période des Tannaïm (10-220 EC)",
+      "importance": "Les Tannaïm ont structuré la Michna, base du Talmud"
+    },
+    {
+      "id": "hist_002",
+      "type": "historical",
+      "difficulty": "easy",
+      "period": "tannaim",
+      "question": "Qui a rédigé la Michna ?",
+      "answer": "Rabbi Yehuda HaNassi (Rabbi Judah le Prince)",
+      "context": "Vers 200 EC en Terre d'Israël",
+      "importance": "Première codification écrite de la Torah orale"
+    },
+    {
+      "id": "hist_003",
+      "type": "historical",
+      "difficulty": "medium",
+      "period": "amoraim",
+      "question": "Que signifie 'Amora' ?",
+      "answer": "Un interprète ou commentateur de la Michna",
+      "context": "Période des Amoraïm (220-500 EC)",
+      "importance": "Les Amoraïm ont créé la Guemara qui complète la Michna"
+    },
+    {
+      "id": "hist_004",
+      "type": "historical",
+      "difficulty": "medium",
+      "period": "talmud",
+      "question": "Quelle est la différence entre le Talmud de Babylone et celui de Jérusalem ?",
+      "answer": "Le Talmud de Babylone est plus développé et complet. Celui de Jérusalem fut écrit sous pression des persécutions",
+      "context": "TJ: ~400 EC, TB: ~500 EC",
+      "importance": "Le Talmud de Babylone est devenu la référence principale"
+    },
+    {
+      "id": "hist_005",
+      "type": "historical",
+      "difficulty": "easy",
+      "period": "gueonim",
+      "question": "Que signifie 'Guéonim' ?",
+      "answer": "Les 'illustres' ou 'hauts maîtres', chefs des académies talmudiques",
+      "context": "6e-11e siècle en Babylonie (Soura et Poumbedita)",
+      "importance": "Ils dirigeaient les yeshivot et les décisions halakhiques du monde juif"
+    },
+    {
+      "id": "hist_006",
+      "type": "historical",
+      "difficulty": "medium",
+      "period": "rishonim",
+      "question": "Qui sont les Rishonim ?",
+      "answer": "Les 'premiers commentateurs' du Talmud (11e-15e siècle)",
+      "context": "Après les Guéonim, avant les A'haronim",
+      "importance": "Incluent Rachi, Rambam, Tosafistes - bases de l'étude actuelle"
+    },
+    {
+      "id": "hist_007",
+      "type": "historical",
+      "difficulty": "easy",
+      "period": "rishonim",
+      "question": "Qui a écrit le Mishné Torah ?",
+      "answer": "Le Rambam (Maïmonide)",
+      "context": "12e siècle en Égypte",
+      "importance": "Codification complète de toute la halakha"
+    },
+    {
+      "id": "hist_008",
+      "type": "historical",
+      "difficulty": "medium",
+      "period": "aharonim",
+      "question": "Qui a écrit le Choul'han Aroukh ?",
+      "answer": "Rabbi Yossef Karo (16e siècle)",
+      "context": "Écrit à Safed, commenté par le Rama",
+      "importance": "Code de loi halakhique de référence"
+    },
+    {
+      "id": "hist_009",
+      "type": "historical",
+      "difficulty": "hard",
+      "period": "moderne",
+      "question": "Qu'est-ce que la Haskala ?",
+      "answer": "Le mouvement des Lumières juives en Europe (18e-19e siècle)",
+      "context": "Période de modernisation et d'intégration",
+      "importance": "A profondément marqué le judaïsme moderne"
+    },
+    {
+      "id": "hist_010",
+      "type": "historical",
+      "difficulty": "medium",
+      "period": "moderne",
+      "question": "Qui a fondé le sionisme moderne ?",
+      "answer": "Theodor Herzl avec son livre 'L'État juif'",
+      "context": "Fin 19e siècle, aboutit à la création d'Israël en 1948",
+      "importance": "Changement majeur dans l'histoire juive"
+    }
+  ],
+  "total_questions": 10,
+  "metadata": {
+    "source_file": "HISTOIRE_SAGES_TERMINE.docx",
+    "extraction_date": "2025-10-25",
+    "verified_halakhically": true,
+    "periods_covered": [
+      "tannaim",
+      "amoraim",
+      "gueonim",
+      "rishonim",
+      "aharonim",
+      "moderne"
+    ]
+  }
+}

@@ -1,0 +1,5384 @@
+{
+  "categorie": "halakha",
+  "titre": "Questions de Halakha",
+  "description": "Questions et réponses sur la loi juive (halakha), principalement sur Shabbat",
+  "total": 672,
+  "questions": [
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel jour de la semaine est Chabbat ?",
+      "reponse": "Le septième jour, du vendredi soir au samedi soir.*"
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand commence Chabbat ?",
+      "reponse": "Quelques minutes avant le coucher du soleil, avec l'allumage des"
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Par quoi commence Chabbat à la maison ?",
+      "reponse": "Par l'allumage des bougies (nerot Chabbat).*"
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de bougies allume-t-on à Chabbat ?",
+      "reponse": "Au moins deux (Zachor et Shamor), mais on peut en allumer plus.*"
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qui allume les bougies de Chabbat ?",
+      "reponse": "Traditionnellement, la femme, mais tout adulte peut les allumer.*"
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle prière récite-t-on après l'allumage des bougies ?",
+      "reponse": "\"Baroukh Ata Hachem... léhadlik ner shel Chabbat.\"*"
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel repas fait-on après l'allumage ?",
+      "reponse": "Le repas du vendredi soir avec kiddouch, pain (hallot), chants.*"
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que fait-on à la synagogue le vendredi soir ?",
+      "reponse": "On récite Kabbalat Chabbat, la Amida, et parfois des chants comme"
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel aliment symbolise le Chabbat sur la table ?",
+      "reponse": "Les deux hallot (pains tressés).*"
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi a-t-on deux pains à chaque repas de Chabbat ?",
+      "reponse": "En souvenir de la double portion de manne tombée dans le désert.*"
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle bénédiction fait-on sur le vin au début du repas ?",
+      "reponse": "\"Boré peri haguefen\", dans le Kiddouch.*"
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de repas doit-on prendre pendant Chabbat ?",
+      "reponse": "Trois : vendredi soir, samedi midi, et un troisième repas"
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on cuisiner pendant Chabbat ?",
+      "reponse": "Non -- on prépare la nourriture avant Chabbat.*"
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on allumer ou éteindre la lumière pendant Chabbat ?",
+      "reponse": "Non -- c'est interdit par les lois de Chabbat.*"
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Comment finit-on Chabbat ?",
+      "reponse": "Par la Havdala, une cérémonie qui sépare le saint et le profane.* \\"
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi la Torah interdit-elle de faire du \"melakha\" pendant",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'une \"melakha\" dans la halakha ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on appuyer sur un interrupteur ou utiliser son téléphone",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi utilise-t-on une \"plaque chauffante\" (plata) pour les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on porter un objet dans la rue pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Pourquoi couvre-t-on les hallot pendant le kiddouch ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_22",
+      "numero": 22,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on écrire ou dessiner pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_23",
+      "numero": 23,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on ouvrir une bouteille ou un paquet pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_24",
+      "numero": 24,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-ce qu'un enfant peut faire ce qu'un adulte ne peut pas",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_25",
+      "numero": 25,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on utiliser une minuterie ou un programmateur pour la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_26",
+      "numero": 26,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on déplacer un objet qu'on n'a pas le droit d'utiliser",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_27",
+      "numero": 27,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-ce que la prière du Chabbat est différente de la semaine",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_28",
+      "numero": 28,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quel est le but des chants de table (zemirot) pendant Chabbat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_29",
+      "numero": 29,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi Chabbat est-il appelé un \"cadeau\" dans la tradition",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_30",
+      "numero": 30,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on demander à un non-juif de faire une mélakha à notre",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que Yom Tov dans le judaïsme ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelles fêtes sont des Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de jours dure un Yom Tov en Israël ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de jours dure un Yom Tov en dehors d'Israël ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Est-ce que les travaux sont interdits pendant Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on cuisiner pendant Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on allumer une lumière électrique à Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Comment commence Yom Tov à la maison ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Doit-on faire trois repas comme à Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle prière spéciale dit-on pendant Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la différence principale entre Chabbat et Yom Tov",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on transporter un objet dans la rue pendant Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on allumer une flamme à Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on éteindre une flamme ou une plaque chauffante pendant",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi ne peut-on pas préparer de la nourriture pour le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que le \\\"érouv tavshilin\\\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quelle est la structure de l'Amida de Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on faire une lessive pendant Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on couper des fleurs pour décorer la table de Yom Tov",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel est le sens spirituel du travail permis à Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que Roch 'Hodech ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Comment détermine-t-on Roch 'Hodech ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de jours dure Roch 'Hodech ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de mois compte le calendrier juif ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi ajoute-t-on un 13e mois certaines années ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel est le mois supplémentaire ajouté dans ces années ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Y a-t-il des prières spéciales à Roch 'Hodech ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on faire des travaux pendant Roch 'Hodech ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quel livre parle en premier du Kiddoush Ha'Hodech",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qui fixait Roch 'Hodech à l'époque du Temple ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Pourquoi dit-on Hallel à Roch 'Hodech ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi certaines femmes ont la coutume de ne pas faire",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Comment la Torah appelle-t-elle les mois ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la prière ajoutée dans la Amida et le Birkat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que signifie \\\"birkat ha'hodesh\\\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel jour du mois tombe généralement Roch 'Hodech Tevet ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que la Séfirat HaOmer ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand commence-t-on à compter le Omer ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de jours compte-t-on pendant le Omer ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle bénédiction dit-on avant de compter ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que marque la période du Omer dans l'histoire ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quels signes de deuil observe-t-on durant le Omer ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que les \"Trois Semaines\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Le 9 Av est-il un jour de jeûne complet ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que fait-on si on oublie de compter un soir du Omer ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Et si on oublie un jour entier ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Pourquoi ne coupe-t-on pas les cheveux pendant le Omer ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la différence entre les coutumes séfarades et",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on célébrer une bar-mitsva ou un mariage pendant le Omer",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quels actes sont interdits pendant les 9 jours avant Tisha",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on laver du linge pendant les 9 jours ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on étudier la Torah à Tisha BeAv ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelles sont les trois prières quotidiennes obligatoires ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel texte central récite-t-on matin et soir ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Comment commence-t-on la journée selon la halakha ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel est le nom de la prière centrale dans chaque office ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Dans quelle direction se tourne-t-on pour prier ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on prier sans se laver les mains le matin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on prier dans n'importe quel endroit ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel est le rôle du 'hazan ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on prier seul ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la durée moyenne de Cha'harit ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Pourquoi prie-t-on trois fois par jour ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que le \"minyan\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on répondre au Kaddich ou à la Amida sans minyan ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel est le rôle du \"Kaddich\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quand dit-on le \"Bar'khou\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que récite-t-on entre le Shema et la Amida ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Pourquoi la Amida est-elle dite à voix basse ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on parler ou bouger pendant la Amida ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que fait-on si on a raté la Amida de Min'ha ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que \"tachanoun\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que fait-on si on ne comprend pas bien l'hébreu ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_22",
+      "numero": 22,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi la tefila commence-t-elle par les bénédictions du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie le mot \"béra'ha\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi dit-on une bénédiction avant de manger ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la bénédiction pour le pain ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la bénédiction pour un fruit (pomme, poire...) ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Et pour les légumes ou produits de la terre ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la bénédiction pour de l'eau, du thé ou du jus ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la bénédiction pour le vin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Fait-on une bénédiction pour chaque aliment ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on manger sans dire de bénédiction ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand faut-il dire la bénédiction ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Que fait-on si on a oublié de dire la bénédiction avant de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Doit-on faire une nouvelle bénédiction si on change d'endroit",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la bénédiction sur les céréales (riz, maïs, etc.)",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'un aliment \"ikar\" et \"taféle\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Si je mange un yaourt avec des céréales, quelle bénédiction je",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quelle est la bénédiction sur une pizza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi dit-on \"Boré peri haadama\" sur une banane alors",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quel est le lien entre la bénédiction et la kavanah",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la bénédiction sur les gâteaux, biscuits, pâtes",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quelle est la bénédiction après avoir mangé du pain ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quelle est la bénédiction après avoir mangé un fruit ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_22",
+      "numero": 22,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Faut-il dire une bénédiction pour goûter juste un peu ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que sont les téfilin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand met-on les téfilin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Sur quel bras place-t-on les téfilin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de boîtiers de téfilin porte-t-on ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'un talit ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand met-on le talit ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'une mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Sur quelles portes place-t-on une mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "À partir de quel âge un garçon doit-il mettre les téfilin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Doit-on faire une bénédiction pour les téfilin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on parler entre la pose des deux téfilin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la kavana (intention) principale quand on porte les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quel verset figure dans les téfilin, dans le talit et dans la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Faut-il dormir avec ses téfilin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on porter le talit toute la journée ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "À quelle hauteur doit-on fixer une mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Doit-on embrasser la mezouza en entrant ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"kasher\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quels sont les deux types de viande interdits ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quels poissons sont permis ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Les fruits et légumes sont-ils toujours kasher ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on mélanger viande et lait ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la règle après avoir mangé de la viande ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la règle avant de manger de la viande après du lait",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi faut-il avoir deux vaisselles dans une cuisine kasher",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on utiliser un même micro-ondes pour viande et lait ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi les œufs doivent-ils être vérifiés ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi la Torah interdit-elle de cuire un chevreau dans le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelles catégories de vaisselle doit-on avoir dans une cuisine",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Pourquoi utilise-t-on parfois une vaisselle \"parvé\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on couper un oignon avec un couteau ayant coupé de la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on utiliser un four unique pour le lait et la viande ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel est le délai classique entre viande et lait ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on consommer du lait végétal avec un repas de viande ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi faut-il un contrôle des insectes dans les salades",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que signifie le terme \"bassar b'halav\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on manger dans un restaurant non-kasher même si on",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'un \"hechsher\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Où trouve-t-on le hechsher sur un produit ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on manger un produit sans hechsher s'il semble végétarien",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on boire un jus de fruit industriel sans hechsher ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quels sont les principaux logos de kashrout reconnus ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que le \"bitoul béchichim\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi certains produits laitiers nécessitent un hechsher",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que signifie \"pâtisserie yisrael\" (pat Israël) ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi les fromages nécessitent un hechsher même s'ils sont",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Que fait-on avant d'acheter un produit nouveau au supermarché",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que signifie \"kasher lePessah\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"lashon hara\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Est-il interdit de mentir dans la Torah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Est-ce du lashon hara si la personne concernée n'est pas là",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Faut-il que la parole soit humiliante pour être lashon hara",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Est-ce que parler \"en plaisantant\" sur quelqu'un est permis",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"rechilout\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on dire du mal d'un groupe (pas d'une personne précise)",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi la Torah interdit-elle ces paroles ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on écouter du lashon hara si on ne le répète pas ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi le 'Hafets 'Haïm est-il un maître de cette halakha",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on avertir quelqu'un d'un danger concernant une autre",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelles sont les conditions pour dire une critique autorisée",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on dire du mal de quelqu'un à un proche \"pour se",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on demander à quelqu'un : \"Que penses-tu de cette",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de dire à un employeur qu'un candidat est peu",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que faire si quelqu'un commence à dire du lashon hara ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Et si on a écouté du lashon hara sans répondre ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi certaines personnes ne se rendent pas compte qu'elles",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on dire du mal d'une personne connue ou publique ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quelle est la réparation si on a fait du lashon hara ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"tsedaka\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la source de la mitsva de tsedaka ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Est-ce une mitsva pour les riches uniquement ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la différence entre tsedaka et guemilout 'hassadim",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Doit-on donner même si la personne ne demande pas ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on donner de la tsedaka à un non-Juif ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Faut-il donner à chaque personne qui demande ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Doit-on donner même une petite somme ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on refuser de donner si on n'a rien ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que représente la boîte de tsedaka (kupat tsedaka) ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel est le montant minimal recommandé pour la tsedaka ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on donner tout son argent à la tsedaka ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qui doit-on aider en priorité selon la halakha ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Que faire si on ne peut pas vérifier si une cause est légitime",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on donner de la tsedaka à une institution éducative ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-ce mieux de donner beaucoup rarement ou un peu souvent",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Doit-on faire une bénédiction avant de donner ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on donner de la tsedaka à quelqu'un qu'on n'aime pas ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi la tsedaka est-elle considérée comme une protection",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on donner en cachette ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"Kiboud Av VaEm\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Où cette mitsva est-elle écrite dans la Torah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Est-ce une mitsva facile ou difficile selon les sages ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Faut-il respecter ses parents même si on est adulte ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"les honorer\" dans la halakha ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"les craindre\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Faut-il les honorer même s'ils ne sont pas pratiquants ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Doit-on leur obéir en toute circonstance ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Faut-il se lever quand un parent entre dans une pièce ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on contredire ses parents dans une discussion ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Si un parent demande quelque chose de contraire à la halakha,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-ce qu'aider financièrement ses parents fait partie de la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Doit-on faire passer les parents avant sa femme ou son mari",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on déménager loin si les parents préfèrent qu'on reste",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **La mitsva s'applique-t-elle aussi après la mort des parents",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on faire une remarque à ses parents s'ils se trompent",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Doit-on honorer des parents adoptifs ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Que faire si la relation avec un parent est très difficile ou",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Faut-il interrompre sa tefila pour répondre à un parent ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on appeler ses parents par leur prénom ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'un \"avel\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quels proches sont concernés par les lois de deuil ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la durée de la première période de deuil ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que fait-on pendant la shiv'a ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on écouter de la musique ou se raser pendant la shiv'a",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la suite de la shiv'a ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de temps dure le deuil d'un parent (père/mère) ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle prière dit-on pour l'élévation de l'âme du défunt ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on aller à la synagogue pendant la shiv'a ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quand commence la shiv'a ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on se couper les cheveux pendant le deuil ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Un endeuillé peut-il étudier la Torah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on saluer un endeuillé pendant la shiv'a ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Un endeuillé peut-il porter des vêtements neufs pendant les 30",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on se marier pendant l'année de deuil d'un parent ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"tsniout\" en hébreu ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "La tsniout concerne-t-elle seulement les vêtements ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi la Torah encourage-t-elle la pudeur ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "La tsniout concerne-t-elle les hommes aussi ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on être joyeux, expressif et avoir de la tsniout ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Est-ce que la tsniout varie selon les contextes (lieux, âges)",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Faut-il être tsanou même quand on est seul ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'un langage pudique ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **La tsniout concerne-t-elle la façon de marcher ou de s'asseoir",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle femme dans la Torah est décrite comme pudique ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelles parties du corps une femme doit-elle couvrir selon la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Un garçon a-t-il aussi des règles de tsniout dans sa tenue",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi évite-t-on les vêtements trop serrés ou transparents",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on porter des couleurs vives ou des vêtements esthétiques",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "La tsniout exige-t-elle d'être négligé dans son apparence ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on s'habiller différemment pour le sport, à la maison ou",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel est le lien entre tsniout et respect de l'autre ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Les règles de tsniout sont-elles les mêmes pour toutes les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on imposer la tsniout à quelqu'un d'autre ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel est le but spirituel de la tsniout selon la Torah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"nidda\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la mitsva principale liée à la nidda ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que le mikvé ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand une femme va-t-elle au mikvé ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi la Torah demande-t-elle cette séparation temporaire",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "La nidda est-elle une punition ou une impureté morale ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Le mari et la femme peuvent-ils continuer à parler et à vivre",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Cette mitsva concerne-t-elle aussi les couples modernes ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Combien de jours minimum une femme attend-elle après le début",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Après la fin des règles, que fait la femme avant d'aller au",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Que sont les \"vérifications\" pendant les 7 jours de pureté",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quand a lieu l'immersion au mikvé ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Le mari et la femme doivent-ils éviter tout contact pendant la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Le respect de la nidda concerne-t-il aussi les jeunes couples",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi les couples religieux attachent-ils tant d'importance",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce qu'une synagogue dans la halakha ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Doit-on se couvrir la tête dans une synagogue ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on manger ou bavarder dans une synagogue ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on entrer dans une synagogue sans intention de prier ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Doit-on se lever lorsque le Sefer Torah est transporté ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on tourner le dos à l'Arche Sainte (Aron Hakodesh) ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on utiliser son téléphone pendant la prière ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Faut-il répondre \"Amen\" à voix haute ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Doit-on porter un talit dans la synagogue ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on réciter des prières personnelles à voix basse ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Combien de personnes montent à la Torah un jour de semaine",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Et combien pendant Chabbat matin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qui monte en premier à la Torah selon la tradition ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on sauter une montée de cohen si aucun n'est présent ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Doit-on être appelé par son nom hébraïque pour monter à la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que fait-on avant de lire dans le Sefer Torah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on lire la Torah seul, sans minyan ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on monter à la Torah si l'on est en deuil ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Comment montre-t-on du respect au Sefer Torah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quel est le rôle du \"gabaï\" dans la synagogue ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie \"Chabbat\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi observe-t-on le Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand commence et se termine le Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce qu\\'une \"melakha\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Combien de melakhot sont interdites le Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on cuisiner pendant le Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on allumer ou éteindre une lumière électrique le Chabbat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi allume-t-on les bougies avant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Peut-on écrire ou effacer pendant le Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Le Chabbat est-il un jour de tristesse ou de joie ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on utiliser des minuteries électriques pendant Chabbat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de déplacer un objet mouktsé avec une partie du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on ouvrir un réfrigérateur pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de porter des objets dans un domaine public",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on cuisiner ou réchauffer des aliments pendant Chabbat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Est-il permis de trier des aliments pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on écrire ou dessiner pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Est-il permis de se laver pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on utiliser un téléphone portable pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Est-il permis de se brosser les dents pendant Chabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on prier en pyjama ou en tenue décontractée ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de prier en français si l\\'on ne comprend pas",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on prier en marchant ou en voiture ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que faire si l\\'on a manqué une prière obligatoire ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Les femmes doivent-elles prier trois fois par jour ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on prier sans avoir fait Nétilat Yadaïm (ablution des",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de prier dans un lieu non consacré, comme une",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on prier en groupe sans Minyan ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il obligatoire de répondre \\\"Amen\\\" aux bénédictions",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on prier en étant assis si l\\'on est fatigué ou malade",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce qu\\'une mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quels versets sont inscrits dans la mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi fixe-t-on une mezouza sur les portes ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Sur quelles portes doit-on fixer une mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Comment positionner la mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Faut-il réciter une bénédiction en fixant la mezouza ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie le mot \\\"mezouza\\\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on fixer une mezouza à l\\'intérieur de la maison pour des",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Quels sont les objets sacrés couramment présents dans une",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi est-il important d\\'avoir des livres saints dans la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on fixer une mezouza à l\\'intérieur de la maison pour des",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Doit-on fixer une mezouza sur les portes des pièces non",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on fixer une mezouza sur une porte coulissante ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de retirer les mezouzot en quittant un logement",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quels livres saints est-il recommandé d\\'avoir dans une maison",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on avoir des relations conjugales dans une chambre",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Faut-il vérifier les mezouzot régulièrement ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on fixer une mezouza sur une porte d\\'entrée sans linteau",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de fixer une mezouza sur une porte donnant sur",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on fixer une mezouza sur une porte en verre ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce que la Niddah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la source biblique des lois de Niddah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce que le Mikvé ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand une femme doit-elle s\\'immerger au Mikvé ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Quelles sont les préparations nécessaires avant l\\'immersion",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Pourquoi les lois de la pureté familiale sont-elles",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Quelles sont les restrictions pendant la période de Niddah",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Une femme célibataire est-elle concernée par les lois de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Les lois de Niddah s\\'appliquent-elles en l\\'absence de Temple",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel est le rôle du mari pendant la période de Niddah ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce que le \\\"Hefsek Tahara\\\" ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quand la femme commence-t-elle à compter les sept jours de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quels sont les préparatifs requis avant l\\'immersion au Mikvé",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on avoir des relations conjugales immédiatement après",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Que faire si une femme découvre une tache de sang pendant les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Les femmes ménopausées doivent-elles s\\'immerger au Mikvé ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on utiliser un bain ou une douche à la place du Mikvé",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis d\\'avoir des contacts affectueux pendant la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Une femme célibataire est-elle concernée par les lois de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Peut-on prier ou étudier la Torah pendant la période de Niddah",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que le Kiddouchin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelle est la deuxième étape du mariage juif ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu'est-ce que la Kétouba ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quand la Kétouba est-elle signée ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **Quels sont les éléments essentiels pour un Kiddouchin valide",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel est le rôle de la \\'Houppa ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que signifie le bris du verre à la fin de la cérémonie ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quelles sont les obligations du mari selon la Kétouba ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ **La Kétouba est-elle obligatoire pour la validité du mariage",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que sont les Cheva Brakhot ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on échanger des alliances sous la \\'Houppa ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Que faire en cas de perte de la Kétouba ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quels sont les critères pour choisir les témoins du mariage",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Est-il permis de se marier pendant certaines périodes de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ **Quelle est la signification de la mariée tournant autour du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce que le \\\"Yihoud\\\" après la cérémonie ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "La mariée doit-elle s\\'immerger au Mikvé avant le mariage ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Peut-on célébrer un mariage sans Kétouba ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "La Kétouba est-elle signée par la mariée ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "Quelle est la durée des Cheva Brakhot après le mariage ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce qu\\'un \\\"Guer\\\" (ou \\\"Gueret\\\" au féminin) ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Qui dirige le processus de conversion au judaïsme ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "**Quelle est l\\'une des principales motivations acceptables pour la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "**Que signifie l\\'immersion dans le mikvé lors de la conversion",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Que doit apprendre un candidat à la conversion ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "**Quelle cérémonie est nécessaire pour les hommes qui se",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Comment appelle-t-on un converti après sa conversion ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pourquoi la Torah nous commande-t-elle d\\'aimer le converti ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "**Que doit accepter un candidat à la conversion devant le Beth Din",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Quel nouveau nom reçoit généralement un converti ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Quelle est la différence entre un \\\"Guer Tsedek\\\" et un \\\"Guer",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Pourquoi la tradition demande-t-elle de décourager initialement",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Selon la Halakha, que se passe-t-il avec les relations familiales",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Quelles sont les trois étapes principales du processus de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Quelles mitsvot le converti doit-il particulièrement observer dès",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Quelle est la signification du terme \\\"Kabbalat Ol Mitsvot\\\" dans",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Comment la tradition juive considère-t-elle l\\'âme d\\'un converti",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Quelle est la position halakhique concernant un converti qui",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Quelles responsabilités particulières a la communauté envers un",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "**Quelle bénédiction un converti récite-t-il après son immersion",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "**Selon la Halakha, comment doit-on considérer la généalogie d\\'un",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "**Quel est le débat halakhique concernant une conversion motivée",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "**Quelle est la position du Rambam (Maïmonide) concernant la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "**Comment la Halakha traite-t-elle une conversion réalisée sous la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "**Selon les décisionnaires contemporains, quelle est la position",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le Birkat Hamazon ? La bénédiction de grâce après",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la source biblique du Birkat Hamazon ? \\\"Tu mangeras,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Combien de bénédictions principales contient le Birkat Hamazon ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Après quel aliment le Birkat Hamazon est-il obligatoire ? Après",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on réciter le Birkat Hamazon en français ? Oui, si on ne",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Jusqu\\'à quand peut-on réciter le Birkat Hamazon après avoir",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelles sont les quatre bénédictions principales du Birkat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "Pour la nourriture, 2) Pour la terre, 3) Pour Jérusalem, 4)",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Doit-on réciter le Birkat Hamazon assis ? Oui, il faut rester",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'ajoute-t-on dans le Birkat Hamazon pour Shabbat ? La prière",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'ajoute-t-on dans le Birkat Hamazon pour Rosh \\'Hodesh et les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le zimoun et quand est-il requis ? C\\'est",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on si on a oublié de dire \\\"Retsé\\\" pendant Shabbat ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Les femmes sont-elles obligées de réciter le Birkat Hamazon ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on si on doute d\\'avoir récité le Birkat Hamazon ? On",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on réciter le Birkat Hamazon en marchant ? Non, on doit",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi couvre-t-on les couteaux pendant le Birkat Hamazon ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Une personne a mangé moins d\\'un kazayit (volume d\\'une olive) de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Que faire si on a commencé à manger du pain juste avant la sortie",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Quelle est la règle si on a oublié \\\"Yaalé Véyavo\\\" pendant une",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Peut-on s\\'acquitter de l\\'obligation du Birkat Hamazon en écoutant",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si quelqu\\'un s\\'interrompt au milieu du Birkat Hamazon, que",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce qu\\'un Sefer Torah ? Un rouleau de parchemin",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qui peut écrire un Sefer Torah ? Un scribe qualifié (sofer) qui",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Sur quel matériau un Sefer Torah doit-il être écrit ? Sur du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Avec quoi écrit-on un Sefer Torah ? Avec de l\\'encre noire",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Doit-on se lever quand on déplace le Sefer Torah ? Oui, par",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on toucher directement un Sefer Torah avec les mains ? Non,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Comment appelle-t-on les rouleaux en bois sur lesquels est fixé",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on si un Sefer Torah tombe au sol ? C\\'est considéré",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelles vérifications doit-on faire régulièrement sur un Sefer",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce qui rend un Sefer Torah invalide (passoul) ? Une",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Combien de personnes sont nécessaires pour la lecture publique",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Comment peut-on réparer un Sefer Torah abîmé ? Seul un sofer",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on vendre un Sefer Torah appartenant à la communauté ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Où place-t-on le Sefer Torah dans la synagogue ? Dans l\\'Aron",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on avec un Sefer Torah usé qui ne peut plus être réparé",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi entoure-t-on le Sefer Torah d\\'ornements comme la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si une lettre s\\'efface pendant la lecture publique de la Torah,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Une communauté peut-elle vendre un Sefer Torah pour construire une",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Lorsqu\\'on transporte un Sefer Torah d\\'un endroit à un autre, que",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Quelle distance minimale doit-on maintenir entre deux Sifré Torah",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si l\\'on trouve une erreur dans un Sefer Torah pendant la lecture,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce qu\\'un érouv ? Une délimitation symbolique qui",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quel problème de Shabbat l\\'érouv vient-il résoudre ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quels sont les différents types d\\'érouv ? Érouv \\'hatserot",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ De quoi est généralement constitué un érouv communautaire ? De",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Doit-on vérifier l\\'érouv avant Shabbat ? Oui, il est recommandé",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on porter dans une zone couverte par un érouv ? Oui, à",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Que se passe-t-il si l\\'érouv est endommagé pendant Shabbat ? On",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qui est responsable de l\\'érouv communautaire ? Généralement, la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce qu\\'un érouv tavshilin et quand le fait-on ? C\\'est",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelles sont les dimensions maximales d\\'une zone pouvant être",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce qu\\'un lehi et à quoi sert-il dans un érouv ? Un",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce qu\\'une tsurat hapeta\\'h ? Une structure en forme de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que signifie \\\"karmelit\\\" dans les lois de Shabbat ? Un domaine",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on établir un érouv dans une ville où il y a un \\\"reshut",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelles barrières naturelles peuvent servir de limites à un",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelle bénédiction récite-t-on en préparant un érouv \\'hatserot",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Qu\\'est-ce qui invalide un érouv communautaire pendant Shabbat ? •",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Comment établit-on un érouv \\'hatserot entre plusieurs maisons",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Une personne qui ne croit pas en la validité de l\\'érouv",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si un érouv communautaire inclut un espace où se trouvent des",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Peut-on inclure un cimetière dans un érouv communautaire ? • Oui,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le Kiddoush Levana ? La bénédiction récitée lors",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la bénédiction principale du Kiddoush Levana ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ À partir de quand peut-on réciter le Kiddoush Levana ? À partir",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Jusqu\\'à quand peut-on réciter le Kiddoush Levana ? Jusqu\\'à 15",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on réciter le Kiddoush Levana sous un toit ? Non, il doit",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Le Kiddoush Levana est-il récité individuellement ou en groupe ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Les femmes sont-elles obligées de réciter le Kiddoush Levana ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on réciter le Kiddoush Levana pendant Shabbat et les fêtes",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que symbolise la lune dans la tradition juive ? Le peuple juif,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi danse-t-on pendant le Kiddoush Levana ? Pour exprimer",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi se met-on sur la pointe des pieds trois fois pendant le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on après avoir récité la bénédiction principale ? On",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on réciter le Kiddoush Levana en cas de ciel nuageux ? Oui,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi préfère-t-on attendre la fin de Shabbat pour réciter le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi évite-t-on de réciter le Kiddoush Levana pendant les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que signifie le geste de secouer les franges du vêtement pendant",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Quelle est la période optimale pour réciter le Kiddoush Levana",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Peut-on réciter le Kiddoush Levana si la lune est visible mais",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Une personne en deuil (pendant les 30 premiers jours) peut-elle",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si le dernier jour possible pour réciter le Kiddoush Levana tombe",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si on voit la lune à travers une fenêtre en verre, peut-on réciter",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le tsitsit ? Des franges rituelles fixées aux",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la source biblique de la mitsva du tsitsit ? \\\"Ils se",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qui est obligé de porter le tsitsit ? Les hommes juifs à partir",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Le tsitsit doit-il être porté jour et nuit ? Non, c\\'est une",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle bénédiction récite-t-on en mettant le talit ? \\\"\\...asher",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Combien de fils comporte chaque coin du tsitsit ? Quatre fils",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi porte-t-on le tsitsit ? Pour se rappeler les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la différence entre un talit gadol et un talit katan",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on porter des tsitsit en laine sur un vêtement en lin ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que signifie le fil bleu (tekhelet) dans le tsitsit ? Il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Comment vérifie-t-on si les tsitsit sont casher ? On vérifie que",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on de vieux tsitsit qui ne sont plus utilisables ? On",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Un gaucher noue-t-il ses tsitsit différemment ? Non, le nouage",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on entrer aux toilettes avec un talit katan ? Oui, mais il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Est-il permis de dormir avec un talit katan ? Oui, certains le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Combien de nœuds doit-on faire sur chaque coin du tsitsit ? Cinq",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si un fil de tsitsit se rompt, le tsitsit est-il encore casher ? •",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Quelle est la règle concernant la taille minimale d\\'un talit qui",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Un homme peut-il utiliser un talit ayant appartenu à un défunt ? •",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Quelles sont les conditions pour qu\\'un vêtement nécessite des",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si on n\\'a pas de talit katan à disposition un matin, que doit-on",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce qu\\'un Beit Haknesset ? Une maison de rassemblement,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Vers quelle direction doit être orientée une synagogue ? Vers",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Comment doit-on se comporter dans une synagogue ? Avec respect",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on manger ou boire dans une synagogue ? En général non,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que l\\'Aron Hakodesh ? L\\'Arche Sainte où sont",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que la bima ? L\\'estrade au centre de la synagogue où",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Doit-on se couvrir la tête dans une synagogue ? Oui, les hommes",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on utiliser un téléphone portable dans une synagogue ? Non,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la sainteté d\\'une synagogue par rapport à celle",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on transformer une synagogue en un lieu à usage profane ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Comment se comporte-t-on face à l\\'Aron Hakodesh ? On ne tourne",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on si un Sefer Torah tombe au sol dans la synagogue ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la place traditionnelle du \\'Hazan (officiant) ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on penser à des sujets profanes dans une synagogue ? Il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Est-il permis de dormir dans une synagogue ? En général non,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on utiliser une synagogue pour des activités communautaires",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si on a besoin de faire passer une collecte de fonds pendant le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Une synagogue peut-elle être vendue ? • Non, jamais, car sa",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Peut-on discuter de sujets halakhiques non liés à la prière dans",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Comment doit-on se comporter lors de la démolition d\\'une ancienne",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Est-il permis d\\'entrer dans une synagogue uniquement pour",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le zimoun ? L\\'invitation formelle à réciter",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Combien de personnes au minimum sont nécessaires pour le zimoun",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qui dirige le zimoun ? Traditionnellement la personne la plus",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Par quelles paroles commence le zimoun ? \\\"Rabotaï Nevarech\\\"",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on faire le zimoun si chacun a mangé un aliment différent ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Les femmes sont-elles obligées de participer au zimoun ? Les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on quitter la table avant le zimoun ? Non, il faut attendre",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la réponse des participants au zimoun ? \\\"Baroukh",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Comment change le zimoun quand il y a dix hommes ou plus ? On",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que signifie \\\"mishelo achalnu\\\" dans le zimoun ? \\\"De ce qui",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on inclure quelqu\\'un qui n\\'a pas mangé de pain dans le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Un non-juif peut-il être inclus dans le zimoun ? Non, seuls les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on former un zimoun si les participants ont mangé dans des",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que faire si quelqu\\'un a oublié de dire le zimoun et a commencé",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Les personnes qui ne comprennent pas l\\'hébreu peuvent-elles",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on faire un zimoun après avoir consommé des gâteaux (pat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si trois personnes ont mangé ensemble mais l\\'une d\\'elles s\\'est",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si deux groupes de trois personnes ont mangé séparément dans la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si quelqu\\'un a mangé moins d\\'un kazayit de pain, peut-il être",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si trois personnes ont mangé ensemble, mais l\\'une d\\'elles a déjà",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si un groupe de femmes et d\\'hommes ont mangé ensemble, comment",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que la Netirat Lashon ? La garde de la langue,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la différence entre Lashon Hara et Rechilout ? Lashon",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Est-il permis de dire quelque chose de négatif sur quelqu\\'un si",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on écouter du Lashon Hara sans y prendre part ? Non,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on dire du Lashon Hara à son conjoint ? Non, le Lashon Hara",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Doit-on croire du Lashon Hara qu\\'on a entendu ? Non, on ne doit",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quel est le livre classique qui traite des lois du Lashon Hara ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Est-il permis de faire des compliments excessifs sur quelqu\\'un",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Dans quels cas est-il permis de dire quelque chose de négatif",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelles sont les conditions pour qu\\'une information négative",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Est-il permis de parler négativement de quelqu\\'un qui a péché",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on dire du Lashon Hara sur un groupe sans nommer",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le \\\"avak lashon hara\\\" (la poussière du Lashon",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que doit faire quelqu\\'un qui a parlé Lashon Hara ? Se repentir,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on raconter une histoire négative sans mentionner de noms ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Est-il permis de parler négativement d\\'un objet appartenant à",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Un professeur peut-il discuter des difficultés d\\'un élève avec",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si quelqu\\'un commence à dire du Lashon Hara dans une conversation,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Une personne peut-elle partager ses propres expériences négatives",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Comment considère-t-on les commentaires négatifs sur des figures",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si quelqu\\'un a entendu une information négative sur une personne",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le Pidyon HaBen ? La cérémonie de rachat du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la source biblique du Pidyon HaBen ? \\\"Tu rachèteras",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quand effectue-t-on le Pidyon HaBen ? Le 31ème jour après la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Avec quoi rachète-t-on le premier-né ? Avec cinq pièces",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi rachète-t-on le premier-né ? Parce que tous les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Tous les premiers-nés doivent-ils être rachetés ? Non, seulement",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Un fils né par césarienne doit-il être racheté ? Non, car il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qui est obligé de racheter le premier-né ? Le père. Si le père",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Si le père et le fils sont Cohen ou Lévi, doivent-ils faire le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Si la mère est fille de Cohen ou de Lévi, doit-on faire le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on si le 31ème jour tombe un Shabbat ou un jour de fête",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quel montant d\\'argent est utilisé pour le Pidyon HaBen ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Le Cohen peut-il rendre l\\'argent aux parents après la cérémonie",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelle bénédiction le père récite-t-il lors du Pidyon HaBen ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Si des jumeaux naissent et qu\\'on ne sait pas lequel est né en",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi fait-on parfois un repas festif lors du Pidyon HaBen ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si une femme a eu une fausse couche après le premier trimestre",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si un converti a un premier fils avec une femme juive, doit-il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si le père n\\'est plus en vie au 31ème jour, qui est responsable du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si le Cohen choisi pour le Pidyon HaBen est découvert comme non",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Peut-on utiliser des pièces d\\'or pour le Pidyon HaBen au lieu de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que la Bedikat Hamets ? La recherche méticuleuse du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quand effectue-t-on la Bedikat Hamets ? Le soir du 14 Nissan,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Avec quels ustensiles traditionnels fait-on la Bedikat Hamets ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle bénédiction récite-t-on avant la Bedikat Hamets ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le Biur Hamets ? L\\'élimination physique du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Que dit-on après la Bedikat Hamets ? \\\"Kol hamira\\...\\\" - une",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Jusqu\\'à quand peut-on manger du hamets le matin de la veille de",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Jusqu\\'à quand doit-on avoir éliminé tout le hamets ? Avant la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que faire si on doit voyager avant le 14 Nissan et qu\\'on ne",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi place-t-on traditionnellement dix morceaux de pain",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Doit-on vérifier toutes les pièces de la maison lors de la",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on manger ou étudier avant de faire la Bedikat Hamets ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on du hamets trouvé pendant la Bedikat Hamets ? On le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que fait-on si on trouve du hamets pendant Pessa\\'h ? On le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Que signifie \\\"Bitul Hamets\\\" (annulation du hamets) ? La",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on vendre son hamets à un non-juif pour Pessa\\'h ? Oui,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si le 14 Nissan tombe un Shabbat, quand fait-on la Bedikat Hamets ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Un locataire qui emménage pendant la semaine de Pessa\\'h doit-il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Qu\\'advient-il du hamets qui n\\'a été ni détruit ni vendu avant",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si quelqu\\'un trouve du hamets chez lui pendant Pessa\\'h, et qu\\'il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Peut-on utiliser de la vaisselle qui a contenu du hamets pendant",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que la Brit Mila ? La circoncision rituelle juive,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ À quel âge doit-on circoncire un garçon juif ? Le huitième jour",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qui peut pratiquer la Brit Mila ? Un mohel qualifié, formé aux",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle bénédiction le mohel récite-t-il avant la Brit Mila ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qui d\\'autre a un rôle spécial lors de la Brit Mila ? Le sandak,",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on reporter la Brit Mila après le huitième jour ? Oui, si",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ La Brit Mila remplace-t-elle un sacrifice ? Non, mais elle est",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on faire une Brit Mila pendant Shabbat ? Oui, si c\\'est",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que le \\\"Metsitsa\\\" dans la Brit Mila ? L\\'extraction",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelles vérifications le mohel doit-il faire avant la Brit Mila",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que la cérémonie de \\\"Shalom Zakhar\\\" le vendredi",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quel est le nom de la fête qui a lieu juste avant la Brit Mila ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Pourquoi désigne-t-on un siège vide comme \\\"le trône d\\'Élie\\\"",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quel repas fait-on après la Brit Mila ? Un \\\"Seudat Mitsva\\\", un",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelles prières spéciales récite-t-on après la Brit Mila ? La",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Un adulte qui se convertit au judaïsme doit-il subir une Brit",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si un enfant est né par césarienne, quand doit avoir lieu sa Brit",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Un enfant né en fin d\\'après-midi, juste avant le coucher du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Si l\\'enfant a un problème médical mineur comme une légère",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Qui a priorité pour être sandak lors d\\'une Brit Mila ? • Le",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Pourquoi donne-t-on souvent un nom à l\\'enfant lors de la Brit Mila",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_1",
+      "numero": 1,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Qu\\'est-ce que la mitsva de \\\"Simhat Yom Tov\\\" ? L\\'obligation",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_2",
+      "numero": 2,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Quelle est la source biblique de l\\'obligation de Simhat Yom Tov",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_3",
+      "numero": 3,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Comment les hommes accomplissent-ils cette mitsva à l\\'époque du",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_4",
+      "numero": 4,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Comment les femmes accomplissent-elles traditionnellement cette",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_5",
+      "numero": 5,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Les enfants sont-ils concernés par la mitsva de Simhat Yom Tov ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_6",
+      "numero": 6,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Comment accomplit-on la mitsva de Simhat Yom Tov de nos jours ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_7",
+      "numero": 7,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Doit-on organiser des repas festifs pendant Yom Tov ? Oui, il",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_8",
+      "numero": 8,
+      "niveau": 1,
+      "theme": "Chabbat",
+      "question": "❓ Le vin fait-il partie de la mitsva de Simhat Yom Tov ? Oui, car",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_9",
+      "numero": 9,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Est-il permis de jeûner pendant Yom Tov ? Non, car cela irait à",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_10",
+      "numero": 10,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Comment doit-on répartir son temps pendant Yom Tov ? Moitié pour",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_11",
+      "numero": 11,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Y a-t-il une obligation particulière de chanter pendant Yom Tov",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_12",
+      "numero": 12,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on travailler pendant Yom Tov pour préparer la nourriture ?",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_13",
+      "numero": 13,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Quelle différence y a-t-il entre Simhat Yom Tov et Oneg Shabbat",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_14",
+      "numero": 14,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Comment honorer Yom Tov par les vêtements ? En portant des",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_15",
+      "numero": 15,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Est-il approprié de danser pendant Yom Tov ? Oui, la danse est",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_16",
+      "numero": 16,
+      "niveau": 2,
+      "theme": "Chabbat",
+      "question": "❓ Peut-on étudier des sujets tristes pendant Yom Tov ? Non, on",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_17",
+      "numero": 17,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Quelle est la priorité si on n\\'a pas assez d\\'argent pour les",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_18",
+      "numero": 18,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Une personne en deuil (pendant les 12 mois pour un parent)",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_19",
+      "numero": 19,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Comment concilier Simhat Yom Tov avec les restrictions de cuisine",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_20",
+      "numero": 20,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "Quelle est la différence entre Simhat Yom Tov pendant Souccot et",
+      "reponse": ""
+    },
+    {
+      "id": "halakha_21",
+      "numero": 21,
+      "niveau": 3,
+      "theme": "Chabbat",
+      "question": "En cas de deuil récent, peut-on reporter l\\'achat de nouveaux",
+      "reponse": ""
+    }
+  ]
+}

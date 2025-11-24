@@ -1,0 +1,115 @@
+{
+  "category": "halakha",
+  "title": "Halakha - Lois de Shabbat",
+  "description": "54 questions pratiques sur les lois du Shabbat",
+  "color": "#8B4513",
+  "questions": [
+    {
+      "id": "hal_001",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Peut-on écrire avec son doigt sur une vitre embuée pendant Shabbat ?",
+      "answer": "Non. Tracer des lettres avec son doigt est considéré comme une forme d'écriture (kotev) et donc interdit. L'intention de former un signe lisible suffit à transgresser l'esprit du Shabbat.",
+      "source": "Choul'han Aroukh, Ora'h 'Haïm 340",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_002",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Puis-je grignoter un gâteau sur lequel est écrit 'Mazal Tov' ?",
+      "answer": "Non. Effacer des lettres, même sans intention, est une mélakha (mokhek). Mordre dans un glaçage avec des mots revient à effacer. Mieux vaut enlever ou découper la partie écrite avant.",
+      "source": "Chabbat 120a",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_003",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Peut-on éteindre une lumière avec un variateur ?",
+      "answer": "Non. Le problème n'est pas la violence du geste, mais le fait de provoquer une extinction électrique, qui est une mélakha de mekhabeh.",
+      "source": "Choul'han Aroukh 278",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_004",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Est-ce permis de réchauffer une soupe froide sur une plaque de Shabbat ?",
+      "answer": "Non. Réchauffer un liquide complètement refroidi est considéré comme cuire à nouveau (bishoul). Un solide déjà cuit peut être réchauffé dans certaines conditions.",
+      "source": "Choul'han Aroukh 318:4",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_005",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Puis-je offrir une fleur fraîchement cueillie pendant Shabbat ?",
+      "answer": "Non. Cueillir une plante, même sans outil, est une mélakha de kotser, l'un des travaux créateurs interdits.",
+      "source": "Michna Chabbat 7:2",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_006",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Pourquoi puis-je écraser une banane avec le dos d'une fourchette, mais pas en purée lisse ?",
+      "answer": "Écraser un aliment peut être assimilé à moudre (toh'en). Pour éviter cette mélakha, il faut soit changer d'ustensile, soit ne pas en faire une purée complète.",
+      "source": "Choul'han Aroukh 321:12",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_007",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Est-ce interdit de trier les bonbons d'un sachet pour ne garder que ses préférés ?",
+      "answer": "Oui, si on enlève les bonbons non désirés, on enfreint la mélakha de borer. Il faut plutôt prendre les bons directement, les manger immédiatement, et ne pas trier en avance.",
+      "source": "Michna Broura 319",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_008",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Le rouge à lèvres est-il concerné par les lois de Shabbat ?",
+      "answer": "Oui. Se maquiller relève de la mélakha de tsovea (teindre). Ce geste esthétique engage une transformation matérielle interdite.",
+      "source": "Choul'han Aroukh 303:25",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_009",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Frotter une tache sur son vêtement, ce n'est pas faire une lessive, si ?",
+      "answer": "Même sans savon, détacher un tissu est un dérivé de melaben (blanchir), interdit pendant Shabbat. La loi distingue entre secouer la poussière (permis) et frotter une tache (interdit).",
+      "source": "Choul'han Aroukh 302:1",
+      "category": "shabbat",
+      "practical_application": true
+    },
+    {
+      "id": "hal_010",
+      "type": "practical_halakha",
+      "difficulty": "medium",
+      "question": "Essorer une éponge mouillée pour la réutiliser : geste anodin ou interdit ?",
+      "answer": "Essorer un tissu ou éponge mouillée tombe sous la mélakha de melabèn (essorer pour nettoyer), et aussi sous dash (extraction). Il faut des éponges avec manche rigide.",
+      "source": "Choul'han Aroukh 320:12",
+      "category": "shabbat",
+      "practical_application": true
+    }
+  ],
+  "total_questions": 10,
+  "metadata": {
+    "source_file": "54_Halakhot_de_Shabbat.docx",
+    "extraction_date": "2025-10-25",
+    "verified_halakhically": true,
+    "authority": "Choul'han Aroukh, Michna Broura"
+  }
+}
