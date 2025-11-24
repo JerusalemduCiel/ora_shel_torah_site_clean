@@ -10251,24 +10251,31 @@ img[src*="poz-box"],
 }
 
 /* POINT D'INTERROGATION DORÉ - Même couleur que les boutons "Découvrir nos univers" */
+/* POINT D'INTERROGATION DORÉ - Visible sur TOUS les fonds */
 .floating-genesis-button::after {
     content: '?';
-    font-size: 50px; /* Plus grand pour compenser la finesse du ? */
-    font-weight: 900; /* Très gras pour plus d'impact */
+    font-size: 50px;
+    font-weight: 900;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     
-    /* DORÉ - MÊME COULEUR EXACTE que les boutons "Découvrir nos univers" */
-    color: #eda234; /* var(--color-gold) */
+    /* DORÉ avec contour foncé pour contraste */
+    color: #eda234;
     
-    /* Ombre pour créer du relief avec la couleur dorée */
+    /* CONTOUR FONCÉ pour visibilité sur fond clair */
+    -webkit-text-stroke: 2px #2c3e50;
+    text-stroke: 2px #2c3e50;
+    paint-order: stroke fill;
+    
+    /* Ombre renforcée multi-couches */
     text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.3),
-        0 0 10px rgba(237, 162, 52, 0.4);
+        0 0 8px rgba(255, 255, 255, 0.8),
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(237, 162, 52, 0.5);
     
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     line-height: 1;
     z-index: 1;
@@ -10307,14 +10314,17 @@ img[src*="poz-box"],
     animation: none;
 }
 
-/* Hover - le ? s'illumine avec la couleur hover des boutons */
+/* Hover - le ? s'illumine */
 .floating-genesis-button:hover::after {
     transform: translate(-50%, -50%) scale(1.15);
-    color: #d89020; /* Même couleur hover que les boutons "Découvrir nos univers" */
+    color: #FFD700;
+    -webkit-text-stroke: 2px #1a1a1a;
+    text-stroke: 2px #1a1a1a;
     text-shadow: 
-        0 0 15px rgba(216, 144, 32, 0.6),
-        0 3px 6px rgba(0, 0, 0, 0.4);
-    filter: drop-shadow(0 0 12px rgba(216, 144, 32, 0.5));
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 3px 6px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
 }
 
 /* Tooltip */
