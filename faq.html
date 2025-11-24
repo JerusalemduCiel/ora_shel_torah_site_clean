@@ -366,13 +366,31 @@
 </head>
 <body>
 
-  <!-- HEADER SIMPLIFIÉ FAQ -->
-  <header id="main-header" style="background: #fff; padding: 15px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
-      <a href="/index.html" style="color: #2c3e50; text-decoration: none; font-weight: 500;">Accueil</a>
-      <a href="/index.html#boutique" style="background: linear-gradient(135deg, #daa520, #b8860b); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600;">Précommander</a>
+  <!-- HEADER DU SITE PRINCIPAL -->
+  <header id="main-header">
+    <div class="container">
+      <a href="/index.html" class="logo">
+        <img src="images/logo/logo_large_gold.png" alt="Logo Ora Shel Torah - De génération en génération">
+        <span class="tagline">De génération en génération</span>
+      </a>
+      
+      <nav class="main-nav">
+        <a href="/index.html" class="nav-link">Accueil</a>
+        <a href="/faq.html" class="nav-link active">FAQ</a>
+        <a href="/index.html#boutique" id="btn-preorder" class="btn-preorder">Précommander</a>
+        <a href="/index.html#panier" class="cart-icon" id="cart-icon">
+          🛒 <span class="cart-count">0</span>
+        </a>
+      </nav>
     </div>
   </header>
+
+  <!-- BOUTON RETOUR -->
+  <div style="max-width: 1200px; margin: 20px auto; padding: 0 20px;">
+    <a href="/index.html" class="btn-back" style="display: inline-flex; align-items: center; gap: 8px; color: var(--secondary); text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s;">
+      <span>←</span> Retour à l'accueil
+    </a>
+  </div>
 
   <!-- TITRE PAGE FAQ -->
   <div class="faq-page-header" style="background: linear-gradient(135deg, var(--primary), #2a5a62); color: white; padding: 40px 20px; text-align: center; margin-bottom: 20px;">
