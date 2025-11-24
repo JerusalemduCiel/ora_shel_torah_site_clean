@@ -551,6 +551,27 @@
             });
         }
         
+        // =======================================
+        // FOOTER : Notre histoire / Philosophie
+        // =======================================
+        
+        const footerHistoire = document.getElementById('footer-histoire');
+        const footerPhilosophie = document.getElementById('footer-philosophie');
+        
+        if (footerHistoire) {
+            footerHistoire.addEventListener('click', function(e) {
+                e.preventDefault();
+                openGenesisModal();
+            });
+        }
+        
+        if (footerPhilosophie) {
+            footerPhilosophie.addEventListener('click', function(e) {
+                e.preventDefault();
+                openGenesisModalAtVideo();
+            });
+        }
+        
         // ========================================
         // FERMETURE MODALE GENESIS
         // ========================================
