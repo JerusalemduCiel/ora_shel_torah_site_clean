@@ -677,6 +677,77 @@ img {
     overflow: hidden !important;
     }
     
+    /* === CORRECTION SECTIONS COMMUNAUTÉ & TÉMOIGNAGES - MOBILE === */
+
+    /* Section Communauté - Stats en colonne */
+    .communaute .community-stats,
+    .communaute .stats-container,
+    #acte-7 .community-stats,
+    #acte-7 .stats-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+        padding: 0 20px !important;
+        width: 100% !important;
+    }
+
+    .communaute .stat-item,
+    #acte-7 .stat-item {
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 280px !important;
+    }
+
+    /* Section Témoignages - En colonne */
+    .temoignage,
+    [class*="temoignage"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+        padding: 0 20px !important;
+    }
+
+    .temoignage-item,
+    .testimonial-item,
+    .testimonial-card {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Section Partenaires - En colonne */
+    .partenaires-grid,
+    .partners-grid,
+    #partenaires .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+    }
+
+    /* Fix général - Empêcher débordement horizontal */
+    .communaute,
+    .temoignage,
+    .partenaires,
+    #acte-7,
+    #partenaires {
+        overflow-x: hidden !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .communaute .container,
+    .temoignage .container,
+    .partenaires .container,
+    #acte-7 .container,
+    #partenaires .container {
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        box-sizing: border-box !important;
+    }
+    
 }
 
 /* ============================================================
