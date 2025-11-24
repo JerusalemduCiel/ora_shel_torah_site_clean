@@ -3434,6 +3434,11 @@ html body #hero-bis-poz .hero-bis-background img {
   transition: box-shadow 0.1s ease;
 }
 
+/* Taille du texte "Essayer la démo" dans hero-bis-jdc */
+#hero-bis-jdc .hero-bis-actions .btn-modal[href*="plateau-jdc"] {
+  font-size: 16px;
+}
+
 .boxes-container {
   display: flex;
   justify-content: center;
