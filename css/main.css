@@ -1334,41 +1334,211 @@ img {
   line-height: 1.2;
 }
 
-/* Slider horizontal simple */
-.showcase-window {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: 450px;
-  padding: 0 80px;
-  box-sizing: border-box;
+/* ===== DESKTOP - AFFICHAGE HORIZONTAL STATIQUE (3 jeux côte à côte) ===== */
+@media (min-width: 769px) {
+  .showcase-window {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 450px;
+    padding: 0 2rem;
+    box-sizing: border-box;
+  }
+
+  .slider-container {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    position: relative;
+  }
+
+  .slider-track {
+    display: flex;
+    width: 100%; /* 100% au lieu de 300% pour affichage statique */
+    height: 100%;
+    gap: 2rem;
+    transform: none !important; /* Pas de transformation sur desktop */
+    transition: none !important;
+  }
+
+  /* Slides des jeux - Desktop : affichage horizontal statique */
+  .jeu-slide {
+    width: calc(33.333% - 1.33rem); /* 3 cartes avec gap */
+    flex: 1;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 1 !important; /* Tous visibles sur desktop */
+    position: relative !important; /* Pas d'absolute sur desktop */
+  }
+
+  .jeu-slide:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(237, 162, 52, 0.2);
+  }
+
+  /* Masquer les flèches et dots sur DESKTOP */
+  .slider-arrow,
+  .showcase-dots {
+    display: none !important;
+  }
+
+  /* Ajuster le layout des jeux sur desktop */
+  .jeu-visual {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .jeu-frame {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .jeu-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .jeu-info {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .jeu-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .jeu-tagline {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .btn-discover {
+    margin-top: auto;
+    width: auto;
+  }
 }
 
-.slider-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
+/* ===== MOBILE - SLIDER AVEC SWIPE ===== */
+@media (max-width: 768px) {
+  .showcase-window {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 550px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 
-.slider-track {
-  display: flex;
-  width: 300%; /* 3 slides = 300% */
-  height: 100%;
-  transition: transform 0.6s ease-in-out;
-  will-change: transform;
-}
+  .slider-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 
-/* Slides des jeux */
-.jeu-slide {
-  width: 33.333%; /* Chaque slide prend 1/3 de la largeur totale */
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  padding: 2rem;
-  box-sizing: border-box;
+  .slider-track {
+    display: flex;
+    width: 300%; /* 3 slides = 300% */
+    height: 100%;
+    transition: transform 0.4s ease;
+    will-change: transform;
+  }
+
+  /* Slides des jeux - Mobile : slider */
+  .jeu-slide {
+    width: 33.333%; /* Chaque slide prend 1/3 de la largeur totale */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Flèches de navigation MOBILE */
+  .slider-arrow {
+    display: flex !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(237, 162, 52, 0.9);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-arrow:hover {
+    background: rgba(237, 162, 52, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .slider-arrow.prev {
+    left: 10px;
+  }
+
+  .slider-arrow.next {
+    right: 10px;
+  }
+
+  /* Dots indicateurs MOBILE */
+  .showcase-dots {
+    display: flex !important;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .showcase-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(237, 162, 52, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .showcase-dots .dot.active {
+    background: #eda234;
+    transform: scale(1.3);
+  }
 }
 
 /* Visual - Container de l'image avec cadre */

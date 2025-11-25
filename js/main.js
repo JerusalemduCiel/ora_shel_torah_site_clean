@@ -217,6 +217,18 @@ function initDynamicHeader() {
 // ========================================
 
 function initJeuxShowcase() {
+    // Vérifier qu'on est sur mobile - sinon, ne pas initialiser le slider
+    if (window.innerWidth > 768) {
+        // Desktop : affichage statique, tous les slides visibles
+        const slides = document.querySelectorAll('.jeu-slide');
+        slides.forEach(slide => {
+            slide.classList.add('active'); // Tous actifs sur desktop
+        });
+        console.log('✅ Desktop : affichage statique des 3 jeux');
+        return;
+    }
+    
+    // MOBILE UNIQUEMENT : Initialiser le slider
     const sliderTrack = document.querySelector('.slider-track');
     const slides = document.querySelectorAll('.jeu-slide');
     const indicators = document.querySelectorAll('.showcase-dots .dot');
@@ -280,11 +292,53 @@ function initJeuxShowcase() {
         });
     });
 
+    // Support swipe tactile
+    let startX = 0;
+    let currentX = 0;
+
+    sliderTrack.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    sliderTrack.addEventListener('touchmove', (e) => {
+        currentX = e.touches[0].clientX;
+    }, { passive: true });
+
+    sliderTrack.addEventListener('touchend', () => {
+        const diff = startX - currentX;
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                // Swipe gauche -> slide suivant
+                nextSlide();
+            } else {
+                // Swipe droite -> slide précédent
+                prevSlide();
+            }
+        }
+    });
+
     // Initialisation
     updateSlider();
     
-    console.log('✅ Slider jeux initialisé (navigation manuelle uniquement)');
+    console.log('✅ Slider jeux initialisé (mobile uniquement)');
+    
+    // Retourner les handlers pour pouvoir les nettoyer si nécessaire
+    return {
+        updateSlider,
+        nextSlide,
+        prevSlide,
+        goToSlide
+    };
 }
+
+// Réinitialiser au resize pour gérer le passage mobile/desktop
+let gamesSliderHandlers = null;
+
+window.addEventListener('resize', debounce(() => {
+    // Réinitialiser le slider si on change de taille d'écran
+    initJeuxShowcase();
+}, 150));
 
 // ========================================
 // NAVIGATION & SCROLL
