@@ -1882,6 +1882,12 @@ img {
 .btn-story-cta,
 .btn-cta-acte2,
 .btn-read-more,
+.btn-modal,
+.btn-store,
+#inspirations a[href*="amazon"],
+#inspirations a[href*="youtube"],
+#acte-6 a[href*="amazon"],
+#acte-6 a[href*="youtube"],
 button[type="submit"],
 input[type="submit"] {
   /* Reset */
@@ -1957,6 +1963,12 @@ input[type="submit"] {
 .btn-story-cta:hover,
 .btn-cta-acte2:hover,
 .btn-read-more:hover,
+.btn-modal:hover,
+.btn-store:hover,
+#inspirations a[href*="amazon"]:hover,
+#inspirations a[href*="youtube"]:hover,
+#acte-6 a[href*="amazon"]:hover,
+#acte-6 a[href*="youtube"]:hover,
 button[type="submit"]:hover,
 input[type="submit"]:hover {
   /* PAS de transform - juste le glow */
@@ -1983,6 +1995,12 @@ input[type="submit"]:hover {
 .cta-button:active,
 .amazon-btn:active,
 .discover-btn:active,
+.btn-modal:active,
+.btn-store:active,
+#inspirations a[href*="amazon"]:active,
+#inspirations a[href*="youtube"]:active,
+#acte-6 a[href*="amazon"]:active,
+#acte-6 a[href*="youtube"]:active,
 button[type="submit"]:active,
 input[type="submit"]:active {
   color: #1a1a1a !important;
@@ -2012,8 +2030,9 @@ button[class*="spotify"] {
   
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 1rem;
-  padding: 14px 32px;
+  font-size: 1rem !important;        /* Taille normale, pas énorme */
+  padding: 14px 32px !important;      /* Padding standard */
+  max-width: 250px !important;        /* Limiter la largeur max */
   border-radius: 50px;
   cursor: pointer;
   
@@ -2125,6 +2144,8 @@ header .cta-button:hover,
   .cta-button,
   .amazon-btn,
   .discover-btn,
+  .btn-modal,
+  .btn-store,
   .btn-spotify,
   .spotify-btn {
     padding: 12px 24px !important;
@@ -2137,6 +2158,16 @@ header .cta-button:hover,
   .btn-cta,
   .btn-spotify {
     animation: none !important;
+  }
+  
+  /* Responsive mobile Spotify */
+  .btn-spotify,
+  .spotify-btn,
+  a[href*="spotify"] {
+    padding: 12px 24px !important;
+    font-size: 0.95rem !important;
+    min-width: auto !important;
+    max-width: 100% !important;
   }
 }
 
