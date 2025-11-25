@@ -199,16 +199,29 @@ section {
   /* Pas de scroll-snap-stop pour permettre le scroll libre */
 }
 
-/* Hero principal doit occuper 100vh pour le snap */
+/* Hero principal doit occuper 100vh pour le snap - DESKTOP */
 #acte-1 {
+  height: 100vh;
   min-height: 100vh;
   scroll-snap-align: center; /* Centre le hero à l'écran */
   position: relative;
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ACTE 2 - DESKTOP : 100vh avec contenu centré verticalement */
+#acte-2 {
+  height: 100vh;
+  min-height: 100vh;
+  scroll-snap-align: center; /* Centre les sections à l'écran */
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 /* Les autres sections aussi */
-#acte-2,
 #acte-3,
 #acte-4,
 #acte-7,
@@ -847,10 +860,46 @@ img {
 }
 
 /* ACTE 1: Hero Slider Moderne (Style Asmodee) */
+/* Desktop : 100vh pour prendre toute la hauteur avec contenu centré */
+@media (min-width: 769px) {
+  .hero-slider {
+    height: 100vh;
+    min-height: 100vh;
+  }
+  
+  #acte-1 {
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Centrer verticalement le contenu du slider */
+  .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Mobile : hauteur adaptative (gérée par responsive.css) */
+@media (max-width: 768px) {
+  .hero-slider {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  #acte-1 {
+    height: auto;
+    min-height: 100vh;
+    display: block;
+  }
+}
+
 .hero-slider {
   position: relative;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
 }
@@ -1804,16 +1853,43 @@ img {
   grid-column: 2;
 }
 
-/* RÈGLE ULTRA-SPÉCIFIQUE pour forcer le positionnement du titre ACTE 2 */
-#acte-2 h2.section-title-centered {
-  margin-top: 80px !important;
-  padding-top: 40px !important;
-  position: relative !important;
-  top: 0 !important;
+/* DESKTOP : ACTE 2 - 100vh avec contenu centré verticalement */
+@media (min-width: 769px) {
+  #acte-2 {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+  
+  /* S'assurer que le contenu est centré verticalement */
+  #acte-2.about-section {
+    padding-top: 0 !important;
+    justify-content: center;
+  }
+  
+  #acte-2 h2.section-title-centered {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
 }
 
-#acte-2.about-section {
-  padding-top: 160px !important;
+/* MOBILE : ACTE 2 - hauteur adaptative */
+@media (max-width: 768px) {
+  #acte-2 {
+    min-height: auto;
+    height: auto;
+  }
+  
+  #acte-2.about-section {
+    padding-top: 160px !important;
+  }
+  
+  #acte-2 h2.section-title-centered {
+    margin-top: 80px !important;
+    padding-top: 40px !important;
+  }
 }
 
 /* Overlay blanc fort pour #acte-2 (Mon parcours + Philosophie) */
