@@ -5,6 +5,56 @@ try {
 
 console.log('🎯 Modals.js chargé');
 
+// ========================================
+// UTILITAIRE : HANDLER TACTILE MOBILE
+// ========================================
+
+// Fonction pour ajouter des handlers tactiles (mobile) + clic (desktop)
+// Nettoie les anciens listeners pour éviter les duplications
+function addMobileButtonHandler(element, handler, options = {}) {
+    if (!element || typeof handler !== 'function') {
+        return;
+    }
+    
+    const { passive = false, once = false } = options;
+    
+    // Stocker les handlers pour pouvoir les retirer plus tard
+    if (!element._mobileHandlers) {
+        element._mobileHandlers = {
+            touchstart: null,
+            click: null
+        };
+    }
+    
+    // Retirer les anciens listeners s'ils existent
+    if (element._mobileHandlers.touchstart) {
+        element.removeEventListener('touchstart', element._mobileHandlers.touchstart);
+    }
+    if (element._mobileHandlers.click) {
+        element.removeEventListener('click', element._mobileHandlers.click);
+    }
+    
+    // Créer les nouveaux handlers
+    const touchHandler = function(e) {
+        e.preventDefault();
+        handler.call(this, e);
+    };
+    
+    const clickHandler = function(e) {
+        if (e.pointerType === 'mouse' || e.detail === 0) {
+            handler.call(this, e);
+        }
+    };
+    
+    // Stocker les handlers
+    element._mobileHandlers.touchstart = touchHandler;
+    element._mobileHandlers.click = clickHandler;
+    
+    // Ajouter les nouveaux listeners
+    element.addEventListener('touchstart', touchHandler, { passive: passive, once: once });
+    element.addEventListener('click', clickHandler, { once: once });
+}
+
 // Attendre que le DOM soit prêt
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initialisation du système de modales');
@@ -35,7 +85,7 @@ function initPanelClicks() {
     console.log('🎯 Initialisation des clics sur les panneaux');
     
     document.querySelectorAll('.split-panel').forEach(panel => {
-        panel.addEventListener('click', function(e) {
+        addMobileButtonHandler(panel, function(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -76,7 +126,7 @@ function initPanelClicks() {
 function initModalButtons() {
     // Bouton "Voir le teaser"
     document.querySelectorAll('[data-action="video"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        addMobileButtonHandler(btn, function(e) {
             e.preventDefault();
             e.stopPropagation();
             showSection(this, 'video-section');
@@ -85,7 +135,7 @@ function initModalButtons() {
     
     // Bouton "Essayer la démo"
     document.querySelectorAll('[data-action="demo"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        addMobileButtonHandler(btn, function(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -107,7 +157,7 @@ function initModalButtons() {
     
     // Bouton "Découvrir le contenu" - NOUVELLE MODALE
     document.querySelectorAll('[data-action="content"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        addMobileButtonHandler(btn, function(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -135,7 +185,7 @@ function initModalButtons() {
     
     // Bouton "Store / Shop"
     document.querySelectorAll('[data-action="store"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        addMobileButtonHandler(btn, function(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -158,7 +208,7 @@ function initModalButtons() {
     
     // Boutons "← Retour"
     document.querySelectorAll('.btn-back').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        addMobileButtonHandler(btn, function(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -224,7 +274,7 @@ function showSection(button, sectionClass) {
 function initCloseHandlers() {
     // Gérer les boutons de fermeture (X)
     document.querySelectorAll('.btn-close').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        addMobileButtonHandler(btn, function(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -256,7 +306,7 @@ function initContentDiscoveryModal() {
     
     // Bouton de fermeture X
     document.querySelectorAll('.content-discovery-close').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        addMobileButtonHandler(btn, function(e) {
             e.stopPropagation();
             const overlay = this.closest('.content-discovery-overlay');
             if (overlay) {
@@ -385,7 +435,7 @@ function initVerticalCarousels() {
         
         // Bouton précédent
         if (prevBtn) {
-            prevBtn.addEventListener('click', function(e) {
+            addMobileButtonHandler(prevBtn, function(e) {
                 e.stopPropagation();
                 if (currentIndex > 0) {
                     updateCarousel(currentIndex - 1);
@@ -395,7 +445,7 @@ function initVerticalCarousels() {
         
         // Bouton suivant
         if (nextBtn) {
-            nextBtn.addEventListener('click', function(e) {
+            addMobileButtonHandler(nextBtn, function(e) {
                 e.stopPropagation();
                 if (currentIndex < items.length - 1) {
                     updateCarousel(currentIndex + 1);
@@ -405,7 +455,7 @@ function initVerticalCarousels() {
         
         // Indicateurs
         indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', function(e) {
+            addMobileButtonHandler(indicator, function(e) {
                 e.stopPropagation();
                 updateCarousel(index);
             });

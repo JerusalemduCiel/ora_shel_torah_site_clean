@@ -366,9 +366,54 @@
         if (!modalOverlay || !modal || !closeBtn) {
             console.warn('⚠️ Éléments de la modal non trouvés, le bouton fonctionnera mais pas la modal');
         } else {
-            // Initialiser les event listeners pour la modal
-            floatingBtn.addEventListener('click', openModal);
-            closeBtn.addEventListener('click', closeModal);
+            // Fonction utilitaire pour handlers tactiles
+            // Nettoie les anciens listeners pour éviter les duplications
+            function addMobileButtonHandler(element, handler, options = {}) {
+                if (!element || typeof handler !== 'function') {
+                    return;
+                }
+                const { passive = false, once = false } = options;
+                
+                // Stocker les handlers pour pouvoir les retirer plus tard
+                if (!element._mobileHandlers) {
+                    element._mobileHandlers = {
+                        touchstart: null,
+                        click: null
+                    };
+                }
+                
+                // Retirer les anciens listeners s'ils existent
+                if (element._mobileHandlers.touchstart) {
+                    element.removeEventListener('touchstart', element._mobileHandlers.touchstart);
+                }
+                if (element._mobileHandlers.click) {
+                    element.removeEventListener('click', element._mobileHandlers.click);
+                }
+                
+                // Créer les nouveaux handlers
+                const touchHandler = function(e) {
+                    e.preventDefault();
+                    handler.call(this, e);
+                };
+                
+                const clickHandler = function(e) {
+                    if (e.pointerType === 'mouse' || e.detail === 0) {
+                        handler.call(this, e);
+                    }
+                };
+                
+                // Stocker les handlers
+                element._mobileHandlers.touchstart = touchHandler;
+                element._mobileHandlers.click = clickHandler;
+                
+                // Ajouter les nouveaux listeners
+                element.addEventListener('touchstart', touchHandler, { passive: passive, once: once });
+                element.addEventListener('click', clickHandler, { once: once });
+            }
+            
+            // Initialiser les event listeners pour la modal (support tactile)
+            addMobileButtonHandler(floatingBtn, openModal);
+            addMobileButtonHandler(closeBtn, closeModal);
             
             // Fermeture en cliquant sur l'overlay
             modalOverlay.addEventListener('click', (e) => {

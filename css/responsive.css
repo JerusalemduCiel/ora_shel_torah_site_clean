@@ -111,6 +111,54 @@ img {
         transition: all 0.3s ease !important;
     }
     
+    /* Optimisation tactile mobile - Supprime le délai de 300ms */
+    button,
+    .btn,
+    [role="button"],
+    a.btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-discover,
+    .btn-precommander,
+    .btn-philosophy,
+    .btn-link,
+    .btn-submit,
+    .btn-add-to-cart,
+    .btn-continue-shopping,
+    .btn-checkout,
+    .btn-back,
+    .btn-pay,
+    .btn-modal,
+    .btn-store,
+    .btn-cta-acte2,
+    .btn-story-cta,
+    .btn-read-more,
+    .slider-nav,
+    .slider-arrow,
+    .carousel-nav,
+    .vertical-carousel-nav,
+    .burger-menu,
+    .cart-icon,
+    .close-cart,
+    .close-modal,
+    .btn-close,
+    .content-discovery-close,
+    .genesis-modal-close,
+    .floating-genesis-button,
+    .revelation-card,
+    .split-panel,
+    .carousel-indicator,
+    .vertical-carousel-indicator,
+    .showcase-dots .dot,
+    .slider-dots .dot {
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: rgba(237, 162, 52, 0.3) !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+    
     /* Position relative pour les conteneurs */
     .slide-content,
     .jeu-slide,

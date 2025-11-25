@@ -136,22 +136,22 @@ function initHeroSlider() {
         showSlide(currentSlide - 1);
     }
 
-    // Navigation manuelle
+    // Navigation manuelle avec support tactile
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
+        addMobileButtonHandler(nextBtn, () => {
             showSlide(currentSlide + 1);
         });
     }
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
+        addMobileButtonHandler(prevBtn, () => {
             showSlide(currentSlide - 1);
         });
     }
 
-    // Dots
+    // Dots avec support tactile
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
+        addMobileButtonHandler(dot, () => {
             showSlide(index);
         });
     });
@@ -345,18 +345,18 @@ function initJeuxShowcase() {
         }
     }
 
-    // Navigation avec flèches
+    // Navigation avec flèches (support tactile)
     if (nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
+        addMobileButtonHandler(nextBtn, nextSlide);
     }
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', prevSlide);
+        addMobileButtonHandler(prevBtn, prevSlide);
     }
 
-    // Navigation avec dots
+    // Navigation avec dots (support tactile)
     indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
+        addMobileButtonHandler(indicator, () => {
             goToSlide(index);
         });
     });
@@ -591,7 +591,7 @@ function initPreorderButton() {
     // Cette fonction est conservée pour compatibilité avec d'éventuels autres boutons
     const preorderBtn = document.getElementById('btn-preorder');
     if (preorderBtn) {
-        preorderBtn.addEventListener('click', function(e) {
+        addMobileButtonHandler(preorderBtn, function(e) {
             e.preventDefault();
             // Scroll vers la section boutique
             const targetSection = document.getElementById('boutique');
@@ -667,6 +667,55 @@ function initVideoHandling() {
 // ========================================
 // UTILITAIRES
 // ========================================
+
+// Fonction pour ajouter des handlers tactiles (mobile) + clic (desktop)
+// Supprime le délai de 300ms sur mobile
+// Nettoie les anciens listeners pour éviter les duplications
+function addMobileButtonHandler(element, handler, options = {}) {
+    if (!element || typeof handler !== 'function') {
+        return;
+    }
+    
+    const { passive = false, once = false } = options;
+    
+    // Stocker les handlers pour pouvoir les retirer plus tard
+    if (!element._mobileHandlers) {
+        element._mobileHandlers = {
+            touchstart: null,
+            click: null
+        };
+    }
+    
+    // Retirer les anciens listeners s'ils existent
+    if (element._mobileHandlers.touchstart) {
+        element.removeEventListener('touchstart', element._mobileHandlers.touchstart);
+    }
+    if (element._mobileHandlers.click) {
+        element.removeEventListener('click', element._mobileHandlers.click);
+    }
+    
+    // Créer les nouveaux handlers
+    const touchHandler = function(e) {
+        e.preventDefault();
+        handler.call(this, e);
+    };
+    
+    const clickHandler = function(e) {
+        // Sur mobile, le touchstart a déjà géré l'action
+        // On empêche le double déclenchement en vérifiant si c'est un vrai clic
+        if (e.pointerType === 'mouse' || e.detail === 0) {
+            handler.call(this, e);
+        }
+    };
+    
+    // Stocker les handlers
+    element._mobileHandlers.touchstart = touchHandler;
+    element._mobileHandlers.click = clickHandler;
+    
+    // Ajouter les nouveaux listeners
+    element.addEventListener('touchstart', touchHandler, { passive: passive, once: once });
+    element.addEventListener('click', clickHandler, { once: once });
+}
 
 // Fonction pour ajouter des classes CSS dynamiquement
 function addClass(element, className) {
@@ -978,7 +1027,7 @@ function initContentCarousels() {
         
         // Bouton précédent
         if (prevBtn) {
-            prevBtn.addEventListener('click', (e) => {
+            addMobileButtonHandler(prevBtn, (e) => {
                 e.stopPropagation();
                 const newIndex = (currentSlide - 1 + slides.length) % slides.length;
                 goToSlide(newIndex);
@@ -987,7 +1036,7 @@ function initContentCarousels() {
         
         // Bouton suivant
         if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
+            addMobileButtonHandler(nextBtn, (e) => {
                 e.stopPropagation();
                 const newIndex = (currentSlide + 1) % slides.length;
                 goToSlide(newIndex);
@@ -996,7 +1045,7 @@ function initContentCarousels() {
         
         // Indicateurs cliquables
         indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', (e) => {
+            addMobileButtonHandler(indicator, (e) => {
                 e.stopPropagation();
                 goToSlide(index);
             });
@@ -1532,7 +1581,7 @@ function initBurgerMenu() {
         return;
     }
 
-    burgerBtn.addEventListener('click', function() {
+    addMobileButtonHandler(burgerBtn, function() {
         mobileMenu.classList.toggle('active');
         burgerBtn.classList.toggle('active');
     });

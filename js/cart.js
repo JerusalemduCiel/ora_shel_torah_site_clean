@@ -2,6 +2,52 @@
    ORA SHEL TORAH - GESTION DU PANIER (SIMPLIFIÉ)
    ======================================== */
 
+// Fonction utilitaire pour handlers tactiles
+// Nettoie les anciens listeners pour éviter les duplications
+function addMobileButtonHandler(element, handler, options = {}) {
+    if (!element || typeof handler !== 'function') {
+        return;
+    }
+    
+    const { passive = false, once = false } = options;
+    
+    // Stocker les handlers pour pouvoir les retirer plus tard
+    if (!element._mobileHandlers) {
+        element._mobileHandlers = {
+            touchstart: null,
+            click: null
+        };
+    }
+    
+    // Retirer les anciens listeners s'ils existent
+    if (element._mobileHandlers.touchstart) {
+        element.removeEventListener('touchstart', element._mobileHandlers.touchstart);
+    }
+    if (element._mobileHandlers.click) {
+        element.removeEventListener('click', element._mobileHandlers.click);
+    }
+    
+    // Créer les nouveaux handlers
+    const touchHandler = function(e) {
+        e.preventDefault();
+        handler.call(this, e);
+    };
+    
+    const clickHandler = function(e) {
+        if (e.pointerType === 'mouse' || e.detail === 0) {
+            handler.call(this, e);
+        }
+    };
+    
+    // Stocker les handlers
+    element._mobileHandlers.touchstart = touchHandler;
+    element._mobileHandlers.click = clickHandler;
+    
+    // Ajouter les nouveaux listeners
+    element.addEventListener('touchstart', touchHandler, { passive: passive, once: once });
+    element.addEventListener('click', clickHandler, { once: once });
+}
+
 // Panier minimal
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -184,19 +230,19 @@ function initCart() {
     // Mettre à jour l'affichage
     updateCartDisplay();
     
-    // Écouter les clics sur l'icône du panier
+    // Écouter les clics sur l'icône du panier (support tactile)
     const cartIcon = document.querySelector('.cart-icon');
     if (cartIcon) {
-        cartIcon.addEventListener('click', function(e) {
+        addMobileButtonHandler(cartIcon, function(e) {
             e.preventDefault();
             toggleCart();
         });
     }
     
-    // Écouter les clics sur le bouton fermer
+    // Écouter les clics sur le bouton fermer (support tactile)
     const closeBtn = document.querySelector('.close-cart');
     if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
+        addMobileButtonHandler(closeBtn, function() {
             closeCart();
         });
     }
