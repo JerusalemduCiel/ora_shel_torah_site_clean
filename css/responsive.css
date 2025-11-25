@@ -633,6 +633,52 @@ img {
     overflow: hidden !important;
     }
     
+    /* ===== CORRECTION AFFICHAGE VERTICAL MOBILE ===== */
+    
+    /* 1. Stats communauté - VERTICAL sur mobile */
+    .stats-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+    
+    .stat-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+    }
+    
+    /* 2. Témoignages - VERTICAL sur mobile */
+    .testimonials-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+    
+    .testimonial-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+    }
+    
+    /* 3. Logos partenaires - VERTICAL sur mobile */
+    .partners-logos {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        width: 100% !important;
+        align-items: center !important;
+    }
+    
+    .partner-logo {
+        width: 100% !important;
+        max-width: 300px !important;
+        flex: none !important;
+        text-align: center !important;
+    }
+    
 }
 
 /* ============================================================
