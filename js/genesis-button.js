@@ -259,6 +259,18 @@
 
         // Focus trap : focus sur le bouton de fermeture
         closeBtn.focus();
+        
+        // IMPORTANT : Forcer le scroll en haut IMMÉDIATEMENT
+        const modalContent = modalOverlay.querySelector('.genesis-modal-content');
+        if (modalContent) {
+            // Reset instantané
+            modalContent.scrollTop = 0;
+            
+            // Double sécurité : forcer aussi après 100ms
+            setTimeout(() => {
+                modalContent.scrollTop = 0;
+            }, 100);
+        }
     }
 
     /**
@@ -439,20 +451,18 @@
         if (!modalOverlay || !modal) return;
         
         setTimeout(() => {
-            const videoSection = document.querySelector('.modal-video-section');
+            // Chercher le conteneur scrollable (.genesis-modal-content) et la section vidéo
+            const modalContent = modalOverlay.querySelector('.genesis-modal-content');
+            const videoSection = modalOverlay.querySelector('.modal-video-section');
             
-            if (modal && videoSection) {
-                // Le scroll se fait sur .genesis-modal qui a overflow-y: auto
-                const modalRect = modal.getBoundingClientRect();
-                const videoRect = videoSection.getBoundingClientRect();
+            if (modalContent && videoSection) {
+                // Calculer la position de la vidéo RELATIVE au conteneur de la modale
+                const videoPosition = videoSection.offsetTop;
                 
-                // Calculer la position relative au modal
-                const offset = videoRect.top - modalRect.top + modal.scrollTop;
-                
-                // Scroller dans la modale
-                modal.scrollTo({ 
-                    top: offset - 20, // -20px pour un peu d'espace
-                    behavior: 'smooth' 
+                // Scroller LE CONTENEUR DE LA MODALE (pas la page)
+                modalContent.scrollTo({
+                    top: videoPosition - 100,  // -100px pour laisser un peu d'espace en haut
+                    behavior: 'smooth'
                 });
             }
         }, 300); // Attendre que la modale soit ouverte
@@ -507,6 +517,21 @@
                     document.documentElement.style.overflow = 'hidden';
                 }
             }
+            
+            // IMPORTANT : Forcer le scroll en haut IMMÉDIATEMENT après ouverture
+            const modalOverlay = document.getElementById('genesis-modal-overlay');
+            if (modalOverlay) {
+                const modalContent = modalOverlay.querySelector('.genesis-modal-content');
+                if (modalContent) {
+                    // Reset instantané
+                    modalContent.scrollTop = 0;
+                    
+                    // Double sécurité : forcer aussi après 100ms
+                    setTimeout(() => {
+                        modalContent.scrollTop = 0;
+                    }, 100);
+                }
+            }
         }
         
         // Fonction pour ouvrir la modale et scroller vers la vidéo
@@ -514,23 +539,28 @@
             openModalFromNav();
             // Attendre un peu plus pour que la modale soit complètement ouverte
             setTimeout(() => {
-                if (window.genesisButton && window.genesisButton.scrollToVideo) {
-                    window.genesisButton.scrollToVideo();
-                } else {
-                    // Fallback
-                    const modal = document.querySelector('.genesis-modal');
-                    const videoSection = document.querySelector('.modal-video-section');
-                    if (modal && videoSection) {
-                        const modalRect = modal.getBoundingClientRect();
-                        const videoRect = videoSection.getBoundingClientRect();
-                        const offset = videoRect.top - modalRect.top + modal.scrollTop;
-                        modal.scrollTo({ 
-                            top: offset - 20, 
-                            behavior: 'smooth' 
+                // Chercher la modale et son contenu scrollable
+                const genesisModal = document.getElementById('genesis-modal-overlay');
+                if (genesisModal) {
+                    // Chercher la section vidéo À L'INTÉRIEUR de la modale
+                    const modalContent = genesisModal.querySelector('.genesis-modal-content');
+                    const videoSection = genesisModal.querySelector('.modal-video-section');
+                    
+                    if (modalContent && videoSection) {
+                        // Calculer la position de la vidéo RELATIVE au conteneur de la modale
+                        const videoPosition = videoSection.offsetTop;
+                        
+                        // Scroller LE CONTENEUR DE LA MODALE (pas la page)
+                        modalContent.scrollTo({
+                            top: videoPosition - 100,  // -100px pour laisser un peu d'espace en haut
+                            behavior: 'smooth'
                         });
                     }
+                } else if (window.genesisButton && window.genesisButton.scrollToVideo) {
+                    // Fallback vers la fonction existante
+                    window.genesisButton.scrollToVideo();
                 }
-            }, 350);
+            }, 300);  // Délai pour laisser la modale s'ouvrir
         }
         
         // Lien "Notre histoire" (desktop) → ouvre la modale
@@ -576,6 +606,26 @@
                     mobileNav.classList.remove('active');
                     burgerMenu.classList.remove('active');
                 }
+            });
+        }
+        
+        // ===== FOOTER - NOTRE HISTOIRE =====
+        const footerHistoire = document.getElementById('footer-histoire');
+        
+        if (footerHistoire) {
+            footerHistoire.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModalFromNav();
+            });
+        }
+        
+        // ===== FOOTER - NOTRE PHILOSOPHIE (scroll vers vidéo) =====
+        const footerPhilosophie = document.getElementById('footer-philosophie');
+        
+        if (footerPhilosophie) {
+            footerPhilosophie.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModalAndScrollToVideo();
             });
         }
     }
