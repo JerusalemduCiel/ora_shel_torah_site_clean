@@ -323,18 +323,6 @@ section {
 }
 
 /* Bouton Spotify - Style premium vert (défini dans section BOUTONS PREMIUM) */
-.btn-spotify {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-spotify svg {
-  fill: currentColor;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -2010,46 +1998,63 @@ input[type="submit"]:active {
   transition: box-shadow 0.1s ease;
 }
 
-/* ===== VARIANTE VERTE - BOUTON SPOTIFY ===== */
+/* ===== BOUTON SPOTIFY - STYLE PREMIUM VERT ===== */
 
 .btn-spotify,
-.spotify-btn,
-a[href*="spotify"],
-button[class*="spotify"] {
-  /* Reprendre le style premium mais en VERT */
-  display: inline-block;
-  border: none;
-  text-decoration: none;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+a.btn-spotify,
+a[href*="open.spotify.com"] {
+  /* Reset et structure */
+  display: inline-block !important;
+  border: none !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  position: relative !important;
+  overflow: hidden !important;
   
   /* Gradient vert Spotify */
   background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%) !important;
-  color: #ffffff !important;  /* Texte BLANC sur vert */
+  color: #ffffff !important;
   
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 1rem !important;        /* Taille normale, pas énorme */
-  padding: 14px 32px !important;      /* Padding standard */
-  max-width: 250px !important;        /* Limiter la largeur max */
-  border-radius: 50px;
-  cursor: pointer;
+  /* Typographie */
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;        /* Taille réduite */
+  
+  /* Dimensions réduites */
+  padding: 12px 24px !important;        /* Plus petit que les autres */
+  min-width: auto !important;           /* Pas de largeur minimale */
+  max-width: 220px !important;          /* Largeur maximale limitée */
+  
+  /* Forme */
+  border-radius: 50px !important;
   
   /* Glow vert permanent */
   box-shadow: 
     0 0 20px rgba(29, 185, 84, 0.4),
     0 4px 12px rgba(0, 0, 0, 0.2) !important;
   
+  /* Transitions */
   transition: box-shadow 0.4s ease, background 0.4s ease !important;
   
   /* Animation pulse verte */
-  animation: pulse-glow-green 3s ease-in-out infinite;
+  animation: pulse-glow-green 3s ease-in-out infinite !important;
   
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* Ombre texte */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  
+  cursor: pointer !important;
 }
 
-/* Animation pulse verte pour Spotify */
+/* Icône SVG Spotify dans le bouton */
+.btn-spotify svg,
+a[href*="open.spotify.com"] svg {
+  width: 18px !important;           /* Réduire l'icône aussi */
+  height: 18px !important;
+  margin-right: 6px !important;
+  vertical-align: middle !important;
+}
+
+/* Animation pulse verte */
 @keyframes pulse-glow-green {
   0%, 100% { 
     box-shadow: 
@@ -2063,11 +2068,10 @@ button[class*="spotify"] {
   }
 }
 
-/* Hover Spotify */
+/* Hover - Glow vert intense */
 .btn-spotify:hover,
-.spotify-btn:hover,
-a[href*="spotify"]:hover,
-button[class*="spotify"]:hover {
+a.btn-spotify:hover,
+a[href*="open.spotify.com"]:hover {
   color: #ffffff !important;
   
   /* Glow vert intense */
@@ -2078,18 +2082,40 @@ button[class*="spotify"]:hover {
   /* Gradient inversé */
   background: linear-gradient(135deg, #1ed760 0%, #1DB954 100%) !important;
   
+  /* Stopper le pulse */
   animation: none !important;
 }
 
-/* Active Spotify */
+/* Active (clic) */
 .btn-spotify:active,
-.spotify-btn:active,
-a[href*="spotify"]:active,
-button[class*="spotify"]:active {
+a.btn-spotify:active,
+a[href*="open.spotify.com"]:active {
   color: #ffffff !important;
   box-shadow: 
     0 0 25px rgba(29, 185, 84, 0.6),
     0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  transition: box-shadow 0.1s ease !important;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .btn-spotify,
+  a.btn-spotify,
+  a[href*="open.spotify.com"] {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+    max-width: 200px !important;
+    
+    /* Désactiver le pulse sur mobile */
+    animation: none !important;
+  }
+  
+  .btn-spotify svg,
+  a[href*="open.spotify.com"] svg {
+    width: 16px !important;
+    height: 16px !important;
+    margin-right: 5px !important;
+  }
 }
 
 /* ===== FORCER le style sur les boutons récalcitrants ===== */
@@ -2145,9 +2171,7 @@ header .cta-button:hover,
   .amazon-btn,
   .discover-btn,
   .btn-modal,
-  .btn-store,
-  .btn-spotify,
-  .spotify-btn {
+  .btn-store {
     padding: 12px 24px !important;
     font-size: 0.95rem !important;
     min-width: 200px;
@@ -2158,16 +2182,6 @@ header .cta-button:hover,
   .btn-cta,
   .btn-spotify {
     animation: none !important;
-  }
-  
-  /* Responsive mobile Spotify */
-  .btn-spotify,
-  .spotify-btn,
-  a[href*="spotify"] {
-    padding: 12px 24px !important;
-    font-size: 0.95rem !important;
-    min-width: auto !important;
-    max-width: 100% !important;
   }
 }
 
