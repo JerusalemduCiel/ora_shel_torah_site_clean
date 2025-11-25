@@ -322,32 +322,11 @@ section {
   box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4);
 }
 
-/* Bouton Spotify */
+/* Bouton Spotify - Style premium vert (défini dans section BOUTONS PREMIUM) */
 .btn-spotify {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  
-  padding: 12px 24px;
-  background: #1DB954; /* Vert Spotify officiel */
-  color: #FFFFFF;
-  
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  
-  border-radius: 25px;
-  border: none;
-  
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.btn-spotify:hover {
-  background: #1ed760; /* Vert plus clair au hover */
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
 }
 
 .btn-spotify svg {
@@ -582,26 +561,7 @@ img {
 }
 
 /* Bouton Précommander */
-.btn-precommander {
-  background: var(--color-gold);
-  color: #1a1a1a;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(237, 162, 52, 0.3);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-precommander:hover {
-  background: #d89020;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(237, 162, 52, 0.4);
-}
+/* .btn-precommander - Style premium (défini dans section BOUTONS PREMIUM) */
 
 /* Icône du panier */
 .cart-icon {
@@ -1602,27 +1562,12 @@ img {
   font-weight: 400;
 }
 
+/* .btn-discover - Style premium (défini dans section BOUTONS PREMIUM) */
 .btn-discover {
-  background: var(--color-gold);
-  color: #1a1a1a;
-  padding: 1.25rem 3rem;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.125rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
   width: fit-content;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 14px rgba(237, 162, 52, 0.3);
-}
-
-.btn-discover:hover {
-  background: #d89020;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(237, 162, 52, 0.4);
 }
 
 /* Navigation épurée */
@@ -1883,31 +1828,16 @@ img {
   display: inline-block;
 }
 
-/* Style spécifique pour les boutons dans le hero-slider */
+/* Style spécifique pour les boutons dans le hero-slider - Style premium appliqué */
 .hero-slider .btn-primary,
 #acte-1 .btn-primary,
 .slide-content .btn-primary {
-  background: var(--color-gold);
-  color: #1a1a1a;
-  padding: 16px 40px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  
   /* Limiter la largeur */
   max-width: 350px;
   width: auto;
   display: inline-block;
   margin: 0;
-}
-
-.hero-slider .btn-primary:hover,
-#acte-1 .btn-primary:hover,
-.slide-content .btn-primary:hover {
-  background: #d89020;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(237, 162, 52, 0.4);
+  /* Style premium appliqué via .btn-primary */
 }
 
 /* Mobile - encore plus compact */
@@ -1921,18 +1851,296 @@ img {
   }
 }
 
-/* Style par défaut pour les autres sections */
-.btn-primary {
-  background: var(--color-gold);
-  color: var(--color-dark-bg);
-  box-shadow: var(--shadow-lg);
+/* ========================================
+   BOUTONS PREMIUM - STYLE UNIFIÉ
+   ======================================== */
+
+/* ===== BOUTONS PRIMAIRES - DORÉS ===== */
+
+.btn-primary,
+.btn-cta,
+.btn-preorder,
+.btn-precommander,
+.btn-discover,
+.btn-decouvrir,
+.btn-commander,
+.btn-order,
+.btn-add-to-cart,
+.btn-ajouter-panier,
+.btn-checkout,
+.btn-commander-maintenant,
+.btn-submit,
+.btn-envoyer,
+.btn-subscribe,
+.btn-inscrire,
+.btn-amazon,
+.hero-cta,
+.btn-acheter,
+.cta-button,
+.amazon-btn,
+.discover-btn,
+.btn-story-cta,
+.btn-cta-acte2,
+.btn-read-more,
+button[type="submit"],
+input[type="submit"] {
+  /* Reset */
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  
+  /* Apparence premium */
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eda234 0%, #f4c86f 100%) !important;
+  color: #1a1a1a !important;  /* Texte NOIR pour meilleur contraste */
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  /* Glow doré permanent */
+  box-shadow: 
+    0 0 20px rgba(237, 162, 52, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  
+  /* Transition fluide */
+  transition: box-shadow 0.4s ease, background 0.4s ease !important;
+  
+  /* Animation de pulse subtile */
+  animation: pulse-glow 3s ease-in-out infinite;
+  
+  /* Text-shadow adapté pour texte foncé */
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
-.btn-primary:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-gold);
+/* Animation de pulse du glow */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px rgba(237, 162, 52, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(237, 162, 52, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.2);
+  }
 }
+
+/* Hover - Intensification glow UNIQUEMENT (pas de mouvement) */
+.btn-primary:hover,
+.btn-cta:hover,
+.btn-preorder:hover,
+.btn-precommander:hover,
+.btn-discover:hover,
+.btn-decouvrir:hover,
+.btn-commander:hover,
+.btn-order:hover,
+.btn-add-to-cart:hover,
+.btn-ajouter-panier:hover,
+.btn-checkout:hover,
+.btn-commander-maintenant:hover,
+.btn-submit:hover,
+.btn-envoyer:hover,
+.btn-subscribe:hover,
+.btn-inscrire:hover,
+.btn-amazon:hover,
+.hero-cta:hover,
+.btn-acheter:hover,
+.cta-button:hover,
+.amazon-btn:hover,
+.discover-btn:hover,
+.btn-story-cta:hover,
+.btn-cta-acte2:hover,
+.btn-read-more:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  /* PAS de transform - juste le glow */
+  color: #1a1a1a !important;
+  
+  /* Glow intense */
+  box-shadow: 
+    0 0 35px rgba(237, 162, 52, 0.7),
+    0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  
+  /* Gradient inversé pour effet de brillance */
+  background: linear-gradient(135deg, #f4c86f 0%, #eda234 100%) !important;
+  
+  /* Stopper l'animation de pulse */
+  animation: none !important;
+}
+
+/* Active (clic) - feedback minimal */
+.btn-primary:active,
+.btn-cta:active,
+.btn-preorder:active,
+.btn-commander:active,
+.btn-add-to-cart:active,
+.cta-button:active,
+.amazon-btn:active,
+.discover-btn:active,
+button[type="submit"]:active,
+input[type="submit"]:active {
+  color: #1a1a1a !important;
+  box-shadow: 
+    0 0 25px rgba(237, 162, 52, 0.6),
+    0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  transition: box-shadow 0.1s ease;
+}
+
+/* ===== VARIANTE VERTE - BOUTON SPOTIFY ===== */
+
+.btn-spotify,
+.spotify-btn,
+a[href*="spotify"],
+button[class*="spotify"] {
+  /* Reprendre le style premium mais en VERT */
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  /* Gradient vert Spotify */
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%) !important;
+  color: #ffffff !important;  /* Texte BLANC sur vert */
+  
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  /* Glow vert permanent */
+  box-shadow: 
+    0 0 20px rgba(29, 185, 84, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  
+  transition: box-shadow 0.4s ease, background 0.4s ease !important;
+  
+  /* Animation pulse verte */
+  animation: pulse-glow-green 3s ease-in-out infinite;
+  
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation pulse verte pour Spotify */
+@keyframes pulse-glow-green {
+  0%, 100% { 
+    box-shadow: 
+      0 0 20px rgba(29, 185, 84, 0.4),
+      0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  50% { 
+    box-shadow: 
+      0 0 30px rgba(29, 185, 84, 0.6),
+      0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Hover Spotify */
+.btn-spotify:hover,
+.spotify-btn:hover,
+a[href*="spotify"]:hover,
+button[class*="spotify"]:hover {
+  color: #ffffff !important;
+  
+  /* Glow vert intense */
+  box-shadow: 
+    0 0 35px rgba(29, 185, 84, 0.7),
+    0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  
+  /* Gradient inversé */
+  background: linear-gradient(135deg, #1ed760 0%, #1DB954 100%) !important;
+  
+  animation: none !important;
+}
+
+/* Active Spotify */
+.btn-spotify:active,
+.spotify-btn:active,
+a[href*="spotify"]:active,
+button[class*="spotify"]:active {
+  color: #ffffff !important;
+  box-shadow: 
+    0 0 25px rgba(29, 185, 84, 0.6),
+    0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ===== FORCER le style sur les boutons récalcitrants ===== */
+
+header .cta-button,
+.cta-button,
+.amazon-btn,
+#inspirations .amazon-btn,
+.discover-btn,
+#inspirations .discover-btn,
+#contact-form button[type="submit"],
+.contact-submit-btn {
+  background: linear-gradient(135deg, #eda234 0%, #f4c86f 100%) !important;
+  color: #1a1a1a !important;
+  box-shadow: 
+    0 0 20px rgba(237, 162, 52, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  padding: 14px 32px !important;
+  border-radius: 50px !important;
+  border: none !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  transition: box-shadow 0.4s ease, background 0.4s ease !important;
+  animation: pulse-glow 3s ease-in-out infinite !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3) !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+header .cta-button:hover,
+.cta-button:hover,
+.amazon-btn:hover,
+.discover-btn:hover,
+#contact-form button[type="submit"]:hover {
+  color: #1a1a1a !important;
+  box-shadow: 
+    0 0 35px rgba(237, 162, 52, 0.7),
+    0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  background: linear-gradient(135deg, #f4c86f 0%, #eda234 100%) !important;
+  animation: none !important;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-cta,
+  .btn-preorder,
+  .btn-commander,
+  .btn-add-to-cart,
+  .cta-button,
+  .amazon-btn,
+  .discover-btn,
+  .btn-spotify,
+  .spotify-btn {
+    padding: 12px 24px !important;
+    font-size: 0.95rem !important;
+    min-width: 200px;
+  }
+  
+  /* Désactiver le pulse sur mobile (économie batterie) */
+  .btn-primary,
+  .btn-cta,
+  .btn-spotify {
+    animation: none !important;
+  }
+}
+
+/* ===== BOUTONS SECONDAIRES (conservés pour compatibilité) ===== */
 
 .btn-secondary {
   background: transparent;
@@ -3727,23 +3935,12 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 /* Bouton - poussé en bas avec margin-top auto */
+/* .btn-add-to-cart - Style premium (défini dans section BOUTONS PREMIUM) */
 .btn-add-to-cart {
     width: 100%;
-    padding: 1rem;
-    background: var(--color-gold);
-    color: var(--color-dark-bg);
-    border: none;
-    border-radius: var(--radius-md);
-    font-weight: var(--font-semibold);
-    cursor: pointer;
-    transition: all var(--transition-fast);
     /* Pousser le bouton en bas */
     margin-top: auto;
-}
-
-.btn-add-to-cart:hover {
-    background: var(--color-gold-light);
-    transform: translateY(-2px);
+    /* Style premium appliqué via .btn-add-to-cart */
 }
 
 /* Pack featured */
@@ -3906,21 +4103,10 @@ html body #hero-bis-poz .hero-bis-background img {
   color: var(--color-text-dark);
 }
 
+/* .btn-add-to-cart - Style premium (défini dans section BOUTONS PREMIUM) */
 .btn-add-to-cart {
   width: 100%;
-  padding: var(--space-md) var(--space-lg);
-  background: var(--color-gold);
-  color: var(--color-dark-bg);
-  border: none;
-  border-radius: var(--radius-md);
-  font-weight: var(--font-semibold);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.btn-add-to-cart:hover {
-  background: var(--color-gold-light);
-  transform: translateY(-2px);
+  /* Style premium appliqué via .btn-add-to-cart */
 }
 
 .featured-btn {
@@ -4203,21 +4389,10 @@ html body #hero-bis-poz .hero-bis-background img {
   border-color: #000;
 }
 
+/* .btn-checkout - Style premium (défini dans section BOUTONS PREMIUM) */
 .btn-checkout {
   width: 100%;
-  background: #000;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.btn-checkout:hover {
-  background: #333;
+  /* Style premium appliqué via .btn-checkout */
 }
 
 .cart-actions {
@@ -4436,14 +4611,10 @@ html body #hero-bis-poz .hero-bis-background img {
 }
 
 .btn-back,
+/* .btn-pay - Style premium (défini dans section BOUTONS PREMIUM) */
 .btn-pay {
   flex: 1;
-  padding: 14px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  /* Style premium appliqué via .btn-pay */
 }
 
 .btn-back {
@@ -4457,16 +4628,7 @@ html body #hero-bis-poz .hero-bis-background img {
   border-color: #000;
 }
 
-.btn-pay {
-  background: #000;
-  border: none;
-  color: white;
-  font-weight: 600;
-}
-
-.btn-pay:hover {
-  background: #333;
-}
+/* .btn-pay - Style premium (défini dans section BOUTONS PREMIUM) */
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -8620,27 +8782,12 @@ footer {
 }
 
 /* Bouton petit et élégant */
+/* .btn-read-more - Style premium (défini dans section BOUTONS PREMIUM) */
 .btn-read-more {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: transparent;
-    color: #d4af37;
-    padding: 0.7rem 1.5rem;
-    border: 2px solid #d4af37;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.1);
-}
-
-.btn-read-more:hover {
-    background: #d4af37;
-    color: #000000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    /* Style premium appliqué via .btn-read-more */
 }
 
 /* Icône */
