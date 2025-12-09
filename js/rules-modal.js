@@ -13,7 +13,11 @@
                 { src: 'images/regles-jdc-recto.png', alt: 'Règles du jeu Jérusalem du Ciel - Recto' },
                 { src: 'images/regles-jdc-verso.png', alt: 'Règles du jeu Jérusalem du Ciel - Verso' }
             ],
-            layout: 'jdc' // Toujours empilé verticalement
+            layout: 'jdc', // Toujours empilé verticalement
+            pdf: {
+                url: 'pdf/regles-jerusalem-du-ciel.pdf',
+                filename: 'Regles-Jerusalem-du-Ciel-Ora-Shel-Torah.pdf'
+            }
         },
         moh: {
             title: 'Règles du jeu - Minhag ou Halakha',
@@ -21,7 +25,11 @@
                 { src: 'images/regles-moh-recto.png', alt: 'Règles du jeu Minhag ou Halakha - Recto' },
                 { src: 'images/regles-moh-verso.png', alt: 'Règles du jeu Minhag ou Halakha - Verso' }
             ],
-            layout: 'moh' // Côte à côte sur desktop, empilé sur mobile
+            layout: 'moh', // Côte à côte sur desktop, empilé sur mobile
+            pdf: {
+                url: 'pdf/regles-minhag-ou-halakha.pdf',
+                filename: 'Regles-Minhag-ou-Halakha-Ora-Shel-Torah.pdf'
+            }
         },
         poz: {
             title: 'Règles du jeu - Poz\'ta Mitsvah',
@@ -29,7 +37,11 @@
                 { src: 'images/regles-poz-recto.png', alt: 'Règles du jeu Poz\'ta Mitsvah - Recto' },
                 { src: 'images/regles-poz-verso.png', alt: 'Règles du jeu Poz\'ta Mitsvah - Verso' }
             ],
-            layout: 'poz' // Côte à côte sur desktop, empilé sur mobile
+            layout: 'poz', // Côte à côte sur desktop, empilé sur mobile
+            pdf: {
+                url: 'pdf/regles-pozta-mitsvah.pdf',
+                filename: 'Regles-Pozta-Mitsvah-Ora-Shel-Torah.pdf'
+            }
         }
     };
 
@@ -82,6 +94,9 @@
             <button class="rules-close" aria-label="Fermer" type="button">×</button>
             <div class="rules-content">
                 <h2 class="rules-title" id="rules-title">Règles du jeu</h2>
+                <div class="rules-download-container" id="rules-download-container">
+                    <!-- Le bouton de téléchargement sera injecté dynamiquement -->
+                </div>
                 <div class="rules-images-container" id="rules-images-container">
                     <!-- Les images seront injectées dynamiquement -->
                 </div>
@@ -198,6 +213,20 @@
         const titleElement = overlayElement.querySelector('#rules-title');
         if (titleElement) {
             titleElement.textContent = config.title;
+        }
+
+        // Mettre à jour le bouton de téléchargement PDF
+        const downloadContainer = overlayElement.querySelector('#rules-download-container');
+        if (downloadContainer && config.pdf) {
+            downloadContainer.innerHTML = `
+                <a href="${config.pdf.url}" 
+                   download="${config.pdf.filename}" 
+                   class="btn-download-pdf"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    📥 Télécharger les règles (PDF)
+                </a>
+            `;
         }
 
         // Mettre à jour les images

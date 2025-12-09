@@ -98,6 +98,49 @@
     text-align: center;
 }
 
+/* Container pour le bouton de téléchargement */
+.rules-download-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* Bouton de téléchargement PDF */
+.btn-download-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    border: 1px solid #d4af37;
+    border-radius: 6px;
+    color: #d4af37;
+    background: transparent;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.btn-download-pdf:hover {
+    background: #d4af37;
+    color: #1a1a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-download-pdf:active {
+    transform: translateY(0);
+}
+
+.btn-download-pdf:focus {
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
+}
+
 /* Container pour les images */
 .rules-images-container {
     display: flex;
@@ -272,28 +315,18 @@
         max-height: 95vh;
     }
     
-    .rules-lightbox-image {
-        max-width: 98vw;
-        max-height: 98vh;
-    }
-    
-    .rules-lightbox-close {
-        top: 0.5rem;
-        right: 0.5rem;
-        width: 44px;
-        height: 44px;
-        font-size: 1.75rem;
-    }
-    
-    .rules-image-container::after {
-        font-size: 1.5rem;
-        width: 50px;
-        height: 50px;
-    }
-    
     .rules-title {
         font-size: 2rem;
         margin-bottom: 1.5rem;
+    }
+    
+    .rules-download-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn-download-pdf {
+        padding: 12px 18px;
+        font-size: 0.9rem;
     }
     
     .rules-images-container {
@@ -318,6 +351,25 @@
         height: 36px;
         font-size: 1.5rem;
     }
+    
+    .rules-lightbox-image {
+        max-width: 98vw;
+        max-height: 98vh;
+    }
+    
+    .rules-lightbox-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.75rem;
+    }
+    
+    .rules-image-container::after {
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -329,6 +381,15 @@
     .rules-title {
         font-size: 1.75rem;
         margin-bottom: 1.25rem;
+    }
+    
+    .rules-download-container {
+        margin-bottom: 1.25rem;
+    }
+    
+    .btn-download-pdf {
+        padding: 10px 16px;
+        font-size: 0.85rem;
     }
     
     .rules-images-container {
@@ -360,4 +421,3 @@
 .rules-modal::-webkit-scrollbar-thumb:hover {
     background: rgba(212, 175, 55, 0.5);
 }
-
