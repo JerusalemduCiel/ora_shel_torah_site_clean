@@ -49,6 +49,9 @@
 
         // Gérer la fermeture
         setupCloseHandlers();
+        
+        // Ajouter le handler Escape (une seule fois)
+        addEscapeHandler();
 
         modalInitialized = true;
         console.log('✅ Modale règles initialisée');
@@ -152,6 +155,8 @@
     function showModal(gameId) {
         if (!overlayElement) {
             createModal();
+            // Réattacher les handlers après création
+            setupCloseHandlers();
         }
 
         const config = RULES_CONFIG[gameId];
@@ -209,33 +214,55 @@
     function setupCloseHandlers() {
         if (!overlayElement) return;
 
-        // Bouton X
-        const closeBtn = overlayElement.querySelector('.rules-close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeModal);
-        }
-
-        // Clic sur l'overlay (hors de la modale)
-        overlayElement.addEventListener('click', (e) => {
+        // Utiliser la délégation d'événements pour le bouton de fermeture
+        // Cela fonctionne même si le bouton est recréé
+        overlayElement.addEventListener('click', function(e) {
+            // Vérifier si le clic est sur le bouton de fermeture
+            if (e.target.classList.contains('rules-close') || e.target.closest('.rules-close')) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                closeModal();
+                return false;
+            }
+            
+            // Vérifier si le clic est sur l'overlay (hors de la modale)
             if (e.target === overlayElement) {
+                e.preventDefault();
+                e.stopPropagation();
                 closeModal();
+                return false;
             }
-        });
+        }, true); // Utiliser capture phase pour intercepter avant les autres handlers
 
-        // Touche Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && overlayElement && overlayElement.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
-        // Empêcher la propagation des clics dans la modale
+        // Empêcher la propagation des clics dans la modale elle-même
         const modal = overlayElement.querySelector('.rules-modal');
         if (modal) {
             modal.addEventListener('click', (e) => {
-                e.stopPropagation();
+                // Ne pas empêcher si c'est le bouton de fermeture
+                if (!e.target.classList.contains('rules-close') && !e.target.closest('.rules-close')) {
+                    e.stopPropagation();
+                }
             });
         }
+    }
+
+    // Handler Escape global (une seule fois)
+    let escapeHandlerAdded = false;
+    function addEscapeHandler() {
+        if (escapeHandlerAdded) return;
+        escapeHandlerAdded = true;
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                const activeOverlay = document.querySelector('.rules-overlay.active');
+                if (activeOverlay) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeModal();
+                }
+            }
+        });
     }
 
     /* ========================================

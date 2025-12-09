@@ -67,8 +67,9 @@
     font-size: 1.75rem;
     line-height: 1;
     transition: all 0.3s ease;
-    z-index: 1;
+    z-index: 10001;
     font-weight: 300;
+    pointer-events: auto;
 }
 
 .rules-close:hover {
