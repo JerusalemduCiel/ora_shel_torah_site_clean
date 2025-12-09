@@ -35,6 +35,7 @@
 
     let modalInitialized = false;
     let overlayElement = null;
+    let lightboxElement = null;
 
     /* ========================================
        INITIALISATION
@@ -43,6 +44,9 @@
     function init() {
         // Créer la modale dans le DOM
         createModal();
+        
+        // Créer le lightbox pour le zoom
+        createLightbox();
 
         // Intercepter les boutons "Règles du jeu"
         interceptRulesButtons();
@@ -52,6 +56,9 @@
         
         // Ajouter le handler Escape (une seule fois)
         addEscapeHandler();
+        
+        // Gérer le zoom sur les images
+        setupImageZoom();
 
         modalInitialized = true;
         console.log('✅ Modale règles initialisée');
@@ -85,6 +92,28 @@
         document.body.appendChild(overlay);
 
         overlayElement = overlay;
+    }
+    
+    /* ========================================
+       CRÉATION DU LIGHTBOX
+       ======================================== */
+    
+    function createLightbox() {
+        // Créer le lightbox
+        const lightbox = document.createElement('div');
+        lightbox.className = 'rules-lightbox';
+        lightbox.id = 'rules-lightbox';
+        
+        lightbox.innerHTML = `
+            <button class="rules-lightbox-close" aria-label="Fermer le zoom" type="button">×</button>
+            <img class="rules-lightbox-image" src="" alt="Règles du jeu - Zoom" id="rules-lightbox-image">
+        `;
+        
+        document.body.appendChild(lightbox);
+        lightboxElement = lightbox;
+        
+        // Gérer la fermeture du lightbox
+        setupLightboxHandlers();
     }
 
     /* ========================================
@@ -177,16 +206,19 @@
             // Réinitialiser la classe de layout
             imagesContainer.className = 'rules-images-container ' + config.layout + '-layout';
             
-            // Créer les images
+            // Créer les images avec container pour le zoom
             imagesContainer.innerHTML = config.images.map((img, index) => {
                 return `
-                    <img 
-                        src="${img.src}" 
-                        alt="${img.alt}" 
-                        class="rules-image"
-                        onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'rules-image-placeholder\\'>Image à venir<br><small>${img.alt}</small></div>';"
-                        loading="lazy"
-                    >
+                    <div class="rules-image-container">
+                        <img 
+                            src="${img.src}" 
+                            alt="${img.alt}" 
+                            class="rules-image"
+                            data-zoom-src="${img.src}"
+                            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'rules-image-placeholder\\'>Image à venir<br><small>${img.alt}</small></div>';"
+                            loading="lazy"
+                        >
+                    </div>
                 `;
             }).join('');
         }
@@ -255,6 +287,16 @@
         
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' || e.keyCode === 27) {
+                // Fermer le lightbox en priorité
+                const activeLightbox = document.querySelector('.rules-lightbox.active');
+                if (activeLightbox) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeLightbox();
+                    return;
+                }
+                
+                // Sinon fermer la modale
                 const activeOverlay = document.querySelector('.rules-overlay.active');
                 if (activeOverlay) {
                     e.preventDefault();
@@ -263,6 +305,126 @@
                 }
             }
         });
+    }
+    
+    /* ========================================
+       ZOOM SUR LES IMAGES
+       ======================================== */
+    
+    function setupImageZoom() {
+        // Utiliser la délégation d'événements pour gérer les clics sur les images
+        // Cela fonctionne même si les images sont recréées
+        if (overlayElement) {
+            overlayElement.addEventListener('click', function(e) {
+                const image = e.target.closest('.rules-image');
+                if (image) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const imageSrc = image.getAttribute('data-zoom-src') || image.src;
+                    openLightbox(imageSrc, image.alt);
+                }
+            }, true);
+        }
+        
+        // Observer les nouvelles images ajoutées
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType === 1) {
+                        const images = node.querySelectorAll && node.querySelectorAll('.rules-image');
+                        if (images) {
+                            images.forEach(img => {
+                                img.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    const imageSrc = this.getAttribute('data-zoom-src') || this.src;
+                                    openLightbox(imageSrc, this.alt);
+                                });
+                            });
+                        }
+                        
+                        // Vérifier si le nœud lui-même est une image
+                        if (node.classList && node.classList.contains('rules-image')) {
+                            node.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const imageSrc = this.getAttribute('data-zoom-src') || this.src;
+                                openLightbox(imageSrc, this.alt);
+                            });
+                        }
+                    }
+                });
+            });
+        });
+        
+        if (overlayElement) {
+            observer.observe(overlayElement, {
+                childList: true,
+                subtree: true
+            });
+        }
+    }
+    
+    function openLightbox(imageSrc, imageAlt) {
+        if (!lightboxElement) {
+            createLightbox();
+        }
+        
+        const lightboxImage = lightboxElement.querySelector('#rules-lightbox-image');
+        if (lightboxImage) {
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = imageAlt || 'Règles du jeu - Zoom';
+        }
+        
+        // Afficher le lightbox
+        lightboxElement.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        setTimeout(() => {
+            lightboxElement.classList.add('active');
+        }, 10);
+    }
+    
+    function closeLightbox() {
+        if (!lightboxElement) return;
+        
+        lightboxElement.classList.remove('active');
+        
+        setTimeout(() => {
+            lightboxElement.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 300);
+    }
+    
+    function setupLightboxHandlers() {
+        if (!lightboxElement) return;
+        
+        // Bouton de fermeture
+        const closeBtn = lightboxElement.querySelector('.rules-lightbox-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeLightbox();
+            });
+        }
+        
+        // Clic sur le fond (hors de l'image)
+        lightboxElement.addEventListener('click', function(e) {
+            if (e.target === lightboxElement || e.target.classList.contains('rules-lightbox')) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeLightbox();
+            }
+        });
+        
+        // Empêcher la fermeture au clic sur l'image elle-même
+        const lightboxImage = lightboxElement.querySelector('.rules-lightbox-image');
+        if (lightboxImage) {
+            lightboxImage.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
     }
 
     /* ========================================
