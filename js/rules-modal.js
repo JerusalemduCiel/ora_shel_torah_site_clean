@@ -15,7 +15,7 @@
             ],
             layout: 'jdc', // Toujours empilé verticalement
             pdf: {
-                url: 'pdf/regles-jerusalem-du-ciel.pdf',
+                url: 'images/regles-jerusalem-du-ciel.pdf',
                 filename: 'Regles-Jerusalem-du-Ciel-Ora-Shel-Torah.pdf'
             }
         },
@@ -27,7 +27,7 @@
             ],
             layout: 'moh', // Côte à côte sur desktop, empilé sur mobile
             pdf: {
-                url: 'pdf/regles-minhag-ou-halakha.pdf',
+                url: 'images/regles-minhag-ou-halakha.pdf',
                 filename: 'Regles-Minhag-ou-Halakha-Ora-Shel-Torah.pdf'
             }
         },
@@ -39,7 +39,7 @@
             ],
             layout: 'poz', // Côte à côte sur desktop, empilé sur mobile
             pdf: {
-                url: 'pdf/regles-pozta-mitsvah.pdf',
+                url: 'images/regles-pozta-mitsvah.pdf',
                 filename: 'Regles-Pozta-Mitsvah-Ora-Shel-Torah.pdf'
             }
         }
