@@ -7100,6 +7100,24 @@ footer {
     text-align: left;
 }
 
+/* Boutons alignés horizontalement comme les autres hero bis */
+.hero-bis-lumieres-text .hero-bis-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.hero-bis-lumieres-text .hero-bis-actions .btn-modal,
+.hero-bis-lumieres-text .hero-bis-actions .btn-hero {
+    width: auto;
+    max-width: none;
+    min-width: 200px;
+}
+
 /* Responsive pour hero-bis-lumieres */
 @media (max-width: 968px) {
     .hero-bis-lumieres-box {
@@ -7128,6 +7146,17 @@ footer {
     .hero-bis-lumieres-text h2,
     .hero-bis-lumieres-text .hero-bis-subtitle {
         text-align: center;
+    }
+    
+    .hero-bis-lumieres-text .hero-bis-actions {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .hero-bis-lumieres-text .hero-bis-actions .btn-modal,
+    .hero-bis-lumieres-text .hero-bis-actions .btn-hero {
+        width: 100%;
+        max-width: 300px;
     }
 }
 
