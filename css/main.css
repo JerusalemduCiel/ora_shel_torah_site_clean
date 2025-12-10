@@ -11054,3 +11054,98 @@ section.inspirations h2,
         font-size: 32px !important;
     }
 }
+
+/* ========================================
+   MODALE CONTENU LUMIÈRES - STYLES
+   ======================================== */
+.modal-subtitle {
+    font-size: 18px;
+    color: #8B7355;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.modal-section {
+    margin-bottom: 25px;
+}
+
+.modal-section h4 {
+    font-family: 'Cinzel', serif;
+    color: #8B6914;
+    font-size: 18px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #D4AF37;
+    padding-bottom: 5px;
+}
+
+.personnages-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.personnages-grid span {
+    background: linear-gradient(135deg, #FFF9E6 0%, #F5E6C8 100%);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #5D4037;
+    border: 1px solid #D4AF37;
+}
+
+.modal-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    margin: 30px 0;
+}
+
+.card-content-preview {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card-side {
+    flex: 1;
+    min-width: 200px;
+    background: #FFF9E6;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #D4AF37;
+}
+
+.card-side strong {
+    display: block;
+    font-family: 'Cinzel', serif;
+    color: #8B6914;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.card-side ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-side li {
+    padding: 5px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+    color: #5D4037;
+}
+
+.card-side li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: #D4AF37;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-content-preview {
+        flex-direction: column;
+    }
+}
