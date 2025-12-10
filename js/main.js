@@ -224,7 +224,7 @@ function initJeuxShowcase() {
         slides.forEach(slide => {
             slide.classList.add('active'); // Tous actifs sur desktop
         });
-        console.log('✅ Desktop : affichage statique des 3 jeux');
+        console.log('✅ Desktop : affichage statique des 4 jeux');
         return;
     }
     
@@ -244,7 +244,7 @@ function initJeuxShowcase() {
     const slideCount = slides.length;
 
     function updateSlider() {
-        // Chaque slide fait 33.333% de la largeur totale (100% / 3)
+        // Chaque slide fait 25% de la largeur totale (100% / slideCount)
         const translateX = -currentIndex * (100 / slideCount);
         sliderTrack.style.transform = `translateX(${translateX}%)`;
         
