@@ -1216,6 +1216,9 @@
                 <div class="hero-bis-actions" style="display: flex; flex-direction: row; gap: 15px; align-items: center;">
                     <button class="btn-modal btn-hero" style="width: auto;" onclick="openModal('modal-contenu-lumieres')">Découvrir le contenu</button>
                     <button class="btn-modal btn-hero" style="width: auto;" onclick="openModal('modal-collection')">La collection complète</button>
+                    <button class="btn-modal btn-store" data-action="store">
+                        🛒 Commander
+                    </button>
                 </div>
             </div>
         </div>
@@ -1606,6 +1609,35 @@
                         </div>
                         
                         <button class="btn-add-to-cart" onclick="addToCart('poz', 'Poztamitsvah', 19.90, 'images/produits/poz_box_3d.png')">
+                            🛒 Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Produit 4: Lumières d'Israël -->
+                <div class="product-card" data-product-id="lumieres">
+                    <div class="product-image">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="images/mockup_boite_serie1_recto.png">
+                            <source media="(min-width: 769px)" srcset="images/mockup_boite_serie1_recto.png">
+                            <img src="images/mockup_boite_serie1_recto.png" 
+                                 alt="Boîte du jeu Lumières d'Israël - Torah Écrite, 37 cartes des Patriarches et des Prophètes"
+                                 loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="product-info">
+                        <h3>Lumières d'Israël</h3>
+                        <p class="product-tagline">Torah Écrite • 37 cartes</p>
+                        
+                        <div class="product-specs">
+                            <span>📖 Les Patriarches et les Prophètes</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            <span class="price-current">9,90 €</span>
+                        </div>
+                        
+                        <button class="btn-add-to-cart" onclick="addToCart('lumieres', 'Lumières d\'Israël', 9.90, 'images/mockup_boite_serie1_recto.png')">
                             🛒 Ajouter au panier
                         </button>
                     </div>
@@ -2848,6 +2880,13 @@
             price: 19.90,
             priceId: 'price_1SBf7lL4ecjfMIxOKuRj4czs',
             image: './images/poz_picto_arrondi.png'
+        },
+        lumieres: {
+            id: 'lumieres',
+            name: 'Lumières d\'Israël',
+            price: 9.90,
+            priceId: 'price_1Scn6GL4ecjfMIxOPxaM9FMl',
+            image: './images/mockup_boite_serie1_recto.png'
         },
         pack: {
             id: 'pack',
