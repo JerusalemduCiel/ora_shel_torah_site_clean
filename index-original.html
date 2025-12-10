@@ -896,31 +896,42 @@
 
     <!-- MODALE APERÇU CARTE MOÏSE -->
     <div id="modal-carte-apercu" class="modal modal-transparent">
-        <div class="modal-carte-wrapper">
+        <div class="modal-carte-wrapper" onclick="if(event.target === this) closeModal('modal-carte-apercu')">
+            
+            <!-- CROIX FERMER -->
             <span class="modal-close-carte" onclick="closeModal('modal-carte-apercu')">&times;</span>
             
+            <!-- CARTE FLIP -->
             <div class="carte-flip-container" id="carte-flip">
                 <div class="carte-flip-inner">
-                    <!-- RECTO -->
                     <div class="carte-face carte-recto">
-                        <img src="images/11_Moshe_Rabbenou_recto.svg" alt="Carte Moïse - Recto">
+                        <img src="images/11_Moshe_Rabbenou_recto.png" alt="Carte Moïse - Recto">
                     </div>
-                    <!-- VERSO -->
                     <div class="carte-face carte-verso">
-                        <img src="images/11_Moshe_Rabbenou_verso.svg" alt="Carte Moïse - Verso">
+                        <img src="images/11_Moshe_Rabbenou_verso.png" alt="Carte Moïse - Verso">
                     </div>
+                </div>
+                
+                <!-- BOUTON FLIP - DANS le container carte -->
+                <button class="btn-flip-carte" onclick="event.stopPropagation(); flipCarte();">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 1l4 4-4 4"/>
+                        <path d="M3 11V9a4 4 0 014-4h14"/>
+                        <path d="M7 23l-4-4 4-4"/>
+                        <path d="M21 13v2a4 4 0 01-4 4H3"/>
+                    </svg>
+                </button>
+                
+                <!-- INDICATEUR ZOOM -->
+                <div class="zoom-indicator" onclick="event.stopPropagation(); toggleZoomCarte();">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                    </svg>
                 </div>
             </div>
             
-            <!-- Bouton retourner (coin bas droit) -->
-            <button class="btn-flip-carte" onclick="flipCarte()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 1l4 4-4 4"/>
-                    <path d="M3 11V9a4 4 0 014-4h14"/>
-                    <path d="M7 23l-4-4 4-4"/>
-                    <path d="M21 13v2a4 4 0 01-4 4H3"/>
-                </svg>
-            </button>
         </div>
     </div>
 

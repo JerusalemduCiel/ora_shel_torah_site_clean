@@ -1547,12 +1547,14 @@ function closeModal(modalId) {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
-    }
-    
-    // Reset le flip de la carte
-    if (modalId === 'modal-carte-apercu') {
-        const carte = document.getElementById('carte-flip');
-        if (carte) carte.classList.remove('flipped');
+        
+        if (modalId === 'modal-carte-apercu') {
+            const carte = document.getElementById('carte-flip');
+            if (carte) {
+                carte.classList.remove('flipped');
+                carte.classList.remove('zoomed');
+            }
+        }
     }
 }
 
@@ -1560,6 +1562,13 @@ function flipCarte() {
     const carte = document.getElementById('carte-flip');
     if (carte) {
         carte.classList.toggle('flipped');
+    }
+}
+
+function toggleZoomCarte() {
+    const carte = document.getElementById('carte-flip');
+    if (carte) {
+        carte.classList.toggle('zoomed');
     }
 }
 
