@@ -7073,7 +7073,7 @@ footer {
 }
 
 .hero-bis-lumieres-box img {
-    height: 550px;
+    height: 500px !important;
     width: auto;
     filter: drop-shadow(5px 10px 20px rgba(0, 0, 0, 0.4));
 }
@@ -7133,13 +7133,31 @@ footer {
 .hero-bis-lumieres .btn-hero,
 .hero-bis-lumieres .btn-modal,
 .hero-bis-lumieres-text .hero-bis-actions .btn-modal,
-.hero-bis-lumieres-text .hero-bis-actions .btn-hero {
+.hero-bis-lumieres-text .hero-bis-actions .btn-hero,
+.hero-bis-lumieres-text .hero-bis-actions button {
     width: auto !important;
     flex: 0 0 auto !important;
     max-width: none !important;
-    min-width: 150px !important;
-    padding: 10px 20px !important;
+    min-width: 250px !important;
+    padding: 15px 30px !important;
+    border-radius: 30px !important;
+    font-size: 16px !important;
+    background-color: #F5A623 !important;
+    border: none !important;
+    color: #333 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    cursor: pointer !important;
     white-space: nowrap !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.hero-bis-lumieres-text .hero-bis-actions button:hover,
+.hero-bis-lumieres-text .hero-bis-actions .btn-modal:hover,
+.hero-bis-lumieres-text .hero-bis-actions .btn-hero:hover {
+    background-color: #E6951E !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
 }
 
 /* Responsive pour hero-bis-lumieres */
