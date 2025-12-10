@@ -1376,12 +1376,23 @@ img {
   .jeu-title {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
   }
 
   .jeu-tagline {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
   }
 
   .btn-discover {
@@ -1483,12 +1494,23 @@ img {
   .jeu-title {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
   }
 
   .jeu-tagline {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
   }
 
   .btn-discover {
@@ -1813,6 +1835,12 @@ img {
 
   .jeu-tagline {
     font-size: 1rem;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding-top: 0.5rem;
   }
 
   .btn-discover {
