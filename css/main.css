@@ -10294,3 +10294,151 @@ img[src*="poz-box"],
         font-size: 12px !important;
     }
 }
+
+/* === BANDEAU TICKET D'OR === */
+.bandeau-ticket-or {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+}
+
+.bandeau-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 200px;
+    background-image: url('../images/fond_bandeau.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.bandeau-ticket {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-12deg);
+    height: 150px;
+    width: auto;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4));
+}
+
+.bandeau-content {
+    position: absolute;
+    left: 220px;
+    right: 200px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.bandeau-headline {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #7B3F00;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.bandeau-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: #5D4037;
+    line-height: 1.4;
+}
+
+.bandeau-description strong {
+    color: #B8860B;
+    font-weight: 600;
+}
+
+.bandeau-savoir-plus {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #8B7355;
+    font-style: italic;
+    margin-top: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.bandeau-savoir-plus:hover {
+    color: #B8860B;
+    text-decoration: underline;
+}
+
+.bandeau-boite {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 150px;
+    width: auto;
+    filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.35));
+}
+
+/* === RESPONSIVE BANDEAU TICKET D'OR === */
+@media (max-width: 1000px) {
+    .bandeau-container {
+        height: auto;
+        min-height: 280px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .bandeau-ticket,
+    .bandeau-boite,
+    .bandeau-content {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        transform: none;
+    }
+    
+    .bandeau-ticket {
+        height: 80px;
+        transform: rotate(-8deg);
+    }
+    
+    .bandeau-boite {
+        height: 100px;
+    }
+    
+    .bandeau-headline {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    
+    .bandeau-description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .bandeau-headline {
+        font-size: 20px;
+    }
+    
+    .bandeau-description {
+        font-size: 13px;
+    }
+    
+    .bandeau-ticket {
+        height: 60px;
+    }
+    
+    .bandeau-boite {
+        height: 80px;
+    }
+}
