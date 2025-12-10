@@ -11131,7 +11131,7 @@ section.inspirations h2,
 
 .card-side li {
     padding: 8px 0 !important;
-    padding-left: 20px;
+    padding-left: 30px !important;
     position: relative;
     font-size: 16px !important;
     color: #5D4037;
@@ -11140,7 +11140,7 @@ section.inspirations h2,
 .card-side li::before {
     content: "✦";
     position: absolute;
-    left: 0;
+    left: 5px !important;
     color: #D4AF37;
 }
 
