@@ -173,6 +173,11 @@
         const allButtons = document.querySelectorAll('button, a, [role="button"]');
         
         allButtons.forEach(element => {
+            // Ne pas intercepter les boutons "Découvrir le contenu"
+            if (element.getAttribute('data-action') === 'content') {
+                return;
+            }
+            
             const text = element.textContent.trim().toLowerCase();
             const purchaseKeywords = ['commander', 'acheter', 'précommander', 'ajouter au panier'];
             
@@ -188,7 +193,13 @@
         // Ne pas intercepter si :
         // - L'élément a déjà un handler prelaunch
         // - C'est un lien vers une ancre (#) qui n'est pas Stripe
+        // - C'est un bouton "Découvrir le contenu" (data-action="content")
         if (element.dataset.prelaunchHandled) {
+            return false;
+        }
+
+        // Ne pas intercepter les boutons "Découvrir le contenu"
+        if (element.getAttribute('data-action') === 'content') {
             return false;
         }
 
@@ -234,6 +245,11 @@
                         const allButtons = node.querySelectorAll && node.querySelectorAll('button, a, [role="button"]');
                         if (allButtons) {
                             allButtons.forEach(element => {
+                                // Ne pas intercepter les boutons "Découvrir le contenu"
+                                if (element.getAttribute('data-action') === 'content') {
+                                    return;
+                                }
+                                
                                 const text = element.textContent.trim().toLowerCase();
                                 const purchaseKeywords = ['commander', 'acheter', 'précommander', 'ajouter au panier'];
                                 
