@@ -7254,7 +7254,8 @@ footer {
 }
 
 .modal-content.modal-large {
-    max-width: 800px;
+    max-width: 900px !important;
+    padding: 50px !important;
 }
 
 .modal-close {
@@ -7279,7 +7280,7 @@ footer {
     font-family: 'Cinzel', serif;
     color: #7B3F00;
     margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-size: 32px !important;
 }
 
 .modal-content p,
@@ -11059,20 +11060,20 @@ section.inspirations h2,
    MODALE CONTENU LUMIÈRES - STYLES
    ======================================== */
 .modal-subtitle {
-    font-size: 18px;
+    font-size: 20px !important;
     color: #8B7355;
     margin-bottom: 25px;
     font-style: italic;
 }
 
 .modal-section {
-    margin-bottom: 25px;
+    margin-bottom: 35px !important;
 }
 
 .modal-section h4 {
     font-family: 'Cinzel', serif;
     color: #8B6914;
-    font-size: 18px;
+    font-size: 22px !important;
     margin-bottom: 12px;
     border-bottom: 2px solid #D4AF37;
     padding-bottom: 5px;
@@ -11086,9 +11087,9 @@ section.inspirations h2,
 
 .personnages-grid span {
     background: linear-gradient(135deg, #FFF9E6 0%, #F5E6C8 100%);
-    padding: 8px 15px;
+    padding: 10px 18px !important;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 16px !important;
     color: #5D4037;
     border: 1px solid #D4AF37;
 }
@@ -11119,7 +11120,7 @@ section.inspirations h2,
     font-family: 'Cinzel', serif;
     color: #8B6914;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 20px !important;
 }
 
 .card-side ul {
@@ -11129,10 +11130,10 @@ section.inspirations h2,
 }
 
 .card-side li {
-    padding: 5px 0;
+    padding: 8px 0 !important;
     padding-left: 20px;
     position: relative;
-    font-size: 14px;
+    font-size: 16px !important;
     color: #5D4037;
 }
 
