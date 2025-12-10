@@ -7043,68 +7043,29 @@ footer {
 }
 
 /* === HERO BIS LUMIERES D'ISRAEL === */
-.hero-bis-lumieres {
-    background-image: url('../images/hero_lumieres.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* Utilise la même structure que les autres hero bis */
+.hero-bis-lumieres .hero-bis-background img {
+    object-fit: cover;
+    object-position: left center;
 }
 
-.hero-bis-lumieres .hero-bis-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    padding: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.hero-bis-lumieres .hero-bis-box {
-    flex: 0 0 auto;
-}
-
-.hero-bis-lumieres .hero-bis-box img {
-    max-width: 400px;
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
-}
-
-.hero-bis-lumieres .hero-bis-text {
-    flex: 1;
-    max-width: 600px;
-}
-
-.hero-bis-lumieres h2 {
+/* Styles spécifiques pour le texte */
+.hero-bis-lumieres .hero-bis-content h2 {
     color: #D4AF37;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+}
+
+.hero-bis-lumieres .hero-bis-content h2 .h2-subtitle {
+    color: #F5E6C8;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero-bis-lumieres .hero-bis-subtitle {
-    color: #F5E6C8;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.hero-bis-lumieres .hero-bis-description {
     color: #FFFFFF;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
 }
 
-.hero-bis-lumieres .hero-bis-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
+/* Styles pour les boutons spécifiques */
 .hero-bis-lumieres .btn-hero {
     padding: 1rem 2rem;
     background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
@@ -7200,30 +7161,6 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Responsive pour hero-bis-lumieres */
-@media (max-width: 968px) {
-    .hero-bis-lumieres .hero-bis-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .hero-bis-lumieres .hero-bis-box img {
-        max-width: 300px;
-    }
-    
-    .hero-bis-lumieres h2 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-bis-lumieres .hero-bis-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .hero-bis-lumieres .btn-hero {
-        width: 100%;
-    }
-}
 
 /* Mobile - même comportement pour tous */
 @media (max-width: 768px) {

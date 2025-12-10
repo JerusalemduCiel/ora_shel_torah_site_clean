@@ -764,24 +764,6 @@
         </div>
     </section>
 
-    <!-- HERO BIS - Lumières d'Israël -->
-    <section id="lumieres-israel" class="hero-bis hero-bis-lumieres">
-        <div class="hero-bis-content">
-            <div class="hero-bis-box">
-                <img src="images/mockup_boite_serie1_recto.png" alt="Boîte Lumières d'Israël">
-            </div>
-            <div class="hero-bis-text">
-                <h2>Lumières d'Israël</h2>
-                <p class="hero-bis-subtitle">— Les grandes figures de l'histoire juive</p>
-                <p class="hero-bis-description">Découvrez les patriarches, prophètes et sages qui ont façonné 4000 ans d'histoire</p>
-                <div class="hero-bis-buttons">
-                    <button class="btn-hero" onclick="openModal('modal-contenu-lumieres')">📖 Découvrir le contenu</button>
-                    <button class="btn-hero" onclick="openModal('modal-collection')">📚 La collection complète</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- MODALE : Collection complète -->
     <div id="modal-collection" class="modal">
         <div class="modal-content">
@@ -1149,6 +1131,21 @@
                         <li>Transmettre les valeurs juives en famille</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO BIS - Lumières d'Israël -->
+    <section id="lumieres-israel" class="hero-bis hero-bis-lumieres">
+        <div class="hero-bis-background">
+            <img src="images/hero_lumieres.jpg" alt="Lumières d'Israël - Les grandes figures de l'histoire juive" loading="lazy">
+        </div>
+        <div class="hero-bis-content">
+            <h2>Lumières d'Israël <span class="h2-subtitle">— Les grandes figures de l'histoire juive</span></h2>
+            <p class="hero-bis-subtitle">Découvrez les patriarches, prophètes et sages qui ont façonné 4000 ans d'histoire</p>
+            <div class="hero-bis-actions">
+                <button class="btn-modal btn-hero" onclick="openModal('modal-contenu-lumieres')">📖 Découvrir le contenu</button>
+                <button class="btn-modal btn-hero" onclick="openModal('modal-collection')">📚 La collection complète</button>
             </div>
         </div>
     </section>
