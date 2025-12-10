@@ -7208,7 +7208,7 @@ footer {
     background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
     color: #FFFFFF;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px !important;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
