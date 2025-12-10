@@ -742,13 +742,52 @@
 
     <!-- BANDEAU TICKET D'OR -->
     <section class="bandeau-ticket-or">
-        <div class="bandeau-wrapper">
+        <!-- Fond dégradé -->
+        <div class="bandeau-background"></div>
+        
+        <!-- Frise de silhouettes (se déplace vers la droite au scroll) -->
+        <div class="bandeau-frise">
+            <div class="frise-content">
+                <!-- Silhouettes répétées pour effet infini -->
+                <svg class="silhouette" viewBox="0 0 100 120" fill="rgba(212,175,55,0.15)">
+                    <path d="M50,10 C55,10 60,15 60,25 C60,35 55,40 50,40 C45,40 40,35 40,25 C40,15 45,10 50,10 M30,120 L35,60 L25,55 L50,45 L75,55 L65,60 L70,120 Z"/>
+                </svg>
+                <svg class="silhouette staff" viewBox="0 0 100 120" fill="rgba(212,175,55,0.12)">
+                    <path d="M50,10 C55,10 60,15 60,25 C60,35 55,40 50,40 C45,40 40,35 40,25 C40,15 45,10 50,10 M30,120 L35,60 L25,55 L50,45 L75,55 L65,60 L70,120 Z"/>
+                    <line x1="80" y1="30" x2="85" y2="120" stroke="rgba(212,175,55,0.12)" stroke-width="3"/>
+                </svg>
+                <svg class="silhouette scroll" viewBox="0 0 100 120" fill="rgba(212,175,55,0.1)">
+                    <path d="M50,10 C55,10 60,15 60,25 C60,35 55,40 50,40 C45,40 40,35 40,25 C40,15 45,10 50,10 M30,120 L35,60 L25,55 L50,45 L75,55 L65,60 L70,120 Z"/>
+                    <rect x="15" y="50" width="25" height="35" rx="5" stroke="rgba(212,175,55,0.1)" fill="none" stroke-width="2"/>
+                </svg>
+                <svg class="silhouette crown" viewBox="0 0 100 120" fill="rgba(212,175,55,0.15)">
+                    <path d="M50,15 C55,15 60,20 60,28 C60,36 55,42 50,42 C45,42 40,36 40,28 C40,20 45,15 50,15 M30,120 L35,60 L25,55 L50,45 L75,55 L65,60 L70,120 Z"/>
+                    <path d="M35,12 L40,5 L50,10 L60,5 L65,12 L50,8 Z" fill="rgba(212,175,55,0.15)"/>
+                </svg>
+                <svg class="silhouette prophet" viewBox="0 0 100 120" fill="rgba(212,175,55,0.12)">
+                    <path d="M50,10 C55,10 60,15 60,25 C60,35 55,40 50,40 C45,40 40,35 40,25 C40,15 45,10 50,10 M25,120 L30,55 L50,45 L70,55 L75,120 Z"/>
+                    <path d="M35,25 Q30,30 30,40 L25,45" stroke="rgba(212,175,55,0.12)" fill="none" stroke-width="2"/>
+                </svg>
+                <!-- Répéter les silhouettes pour effet continu -->
+                <svg class="silhouette" viewBox="0 0 100 120" fill="rgba(212,175,55,0.15)">
+                    <path d="M50,10 C55,10 60,15 60,25 C60,35 55,40 50,40 C45,40 40,35 40,25 C40,15 45,10 50,10 M30,120 L35,60 L25,55 L50,45 L75,55 L65,60 L70,120 Z"/>
+                </svg>
+                <svg class="silhouette staff" viewBox="0 0 100 120" fill="rgba(212,175,55,0.12)">
+                    <path d="M50,10 C55,10 60,15 60,25 C60,35 55,40 50,40 C45,40 40,35 40,25 C40,15 45,10 50,10 M30,120 L35,60 L25,55 L50,45 L75,55 L65,60 L70,120 Z"/>
+                    <line x1="80" y1="30" x2="85" y2="120" stroke="rgba(212,175,55,0.12)" stroke-width="3"/>
+                </svg>
+                <svg class="silhouette crown" viewBox="0 0 100 120" fill="rgba(212,175,55,0.15)">
+                    <path d="M50,15 C55,15 60,20 60,28 C60,36 55,42 50,42 C45,42 40,36 40,28 C40,20 45,15 50,15 M30,120 L35,60 L25,55 L50,45 L75,55 L65,60 L70,120 Z"/>
+                    <path d="M35,12 L40,5 L50,10 L60,5 L65,12 L50,8 Z" fill="rgba(212,175,55,0.15)"/>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Wrapper bandeau avec parallaxe inverse -->
+        <div class="bandeau-wrapper" id="bandeau-parallax">
             <div class="bandeau-container">
-                <!-- Comète animée -->
                 <div class="comete"></div>
-                
                 <img class="bandeau-ticket" src="images/TICKETDOR_RECTO.png" alt="Ticket d'Or">
-                
                 <div class="bandeau-content">
                     <h2 class="bandeau-headline">Opération Ticket d'Or</h2>
                     <p class="bandeau-description">
@@ -758,7 +797,6 @@
                     </p>
                     <a href="#lumieres-israel" class="bandeau-savoir-plus">en savoir plus</a>
                 </div>
-                
                 <img class="bandeau-boite" src="images/mockup_boite_serie1_recto.png" alt="Lumières d'Israël">
             </div>
         </div>
@@ -3721,6 +3759,36 @@
             </div>
         </div>
     </div>
+
+    <!-- Parallaxe Bandeau Ticket d'Or -->
+    <script>
+    // Parallaxe Bandeau Ticket d'Or
+    document.addEventListener('DOMContentLoaded', function() {
+        const bandeau = document.getElementById('bandeau-parallax');
+        const frise = document.querySelector('.frise-content');
+        const section = document.querySelector('.bandeau-ticket-or');
+        
+        if (bandeau && frise && section) {
+            window.addEventListener('scroll', function() {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Vérifie si la section est visible
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    // Calcul du pourcentage de scroll dans la section
+                    const scrollPercent = (windowHeight - rect.top) / (windowHeight + rect.height);
+                    
+                    // Parallaxe prononcée : 100px de mouvement
+                    const bandeauOffset = (scrollPercent - 0.5) * -100; // Droite → Gauche
+                    const friseOffset = (scrollPercent - 0.5) * 150; // Gauche → Droite
+                    
+                    bandeau.style.transform = `translateX(${bandeauOffset}px)`;
+                    frise.style.transform = `translateX(${friseOffset}px)`;
+                }
+            });
+        }
+    });
+    </script>
 
 </body>
 </html>
