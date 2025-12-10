@@ -3232,7 +3232,10 @@ html body #hero-bis-poz .hero-bis-background img {
 .hero-bis-lumieres .hero-bis-actions,
 #lumieres-israel .hero-bis-actions,
 .hero-bis-lumieres-text .hero-bis-actions {
-  flex-direction: row !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 15px !important;
+  align-items: center !important;
 }
 
 .hero-bis-actions .btn-modal {
@@ -7116,13 +7119,11 @@ footer {
 .hero-bis-lumieres .hero-bis-buttons,
 .hero-bis-lumieres-text .hero-bis-actions {
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     gap: 15px !important;
     align-items: center !important;
     justify-content: center !important;
     margin-top: 20px !important;
-    flex-wrap: nowrap !important;
-    white-space: nowrap !important;
 }
 
 #lumieres-israel .hero-bis-actions button,
@@ -7135,10 +7136,8 @@ footer {
 .hero-bis-lumieres-text .hero-bis-actions .btn-modal,
 .hero-bis-lumieres-text .hero-bis-actions .btn-hero,
 .hero-bis-lumieres-text .hero-bis-actions button {
-    width: auto !important;
-    flex: 0 0 auto !important;
-    max-width: none !important;
-    min-width: 250px !important;
+    width: 100% !important;
+    max-width: 300px !important;
     padding: 15px 30px !important;
     border-radius: 30px !important;
     font-size: 16px !important;
@@ -10994,33 +10993,14 @@ img[src*="poz-box"],
    ======================================== */
 .hero-bis-lumieres-text .hero-bis-actions {
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    flex-direction: column !important;
     gap: 15px !important;
+    align-items: center !important;
 }
 
 .hero-bis-lumieres-text .hero-bis-actions button {
-    width: auto !important;
-    min-width: 180px !important;
-    display: inline-block !important;
-}
-
-/* Media query pour grands écrans - Force alignement horizontal */
-@media (min-width: 969px) {
-    #lumieres-israel .hero-bis-actions,
-    .hero-bis-lumieres .hero-bis-actions,
-    .hero-bis-lumieres-text .hero-bis-actions {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 15px !important;
-    }
-    
-    #lumieres-israel .hero-bis-actions button,
-    .hero-bis-lumieres .hero-bis-actions button,
-    .hero-bis-lumieres-text .hero-bis-actions button {
-        width: auto !important;
-        flex: 0 0 auto !important;
-    }
+    width: 100% !important;
+    max-width: 300px !important;
 }
 
 /* ========================================
