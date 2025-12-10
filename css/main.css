@@ -3228,6 +3228,13 @@ html body #hero-bis-poz .hero-bis-background img {
   justify-content: center;
 }
 
+/* Exception pour Lumières d'Israël - boutons horizontaux */
+.hero-bis-lumieres .hero-bis-actions,
+#lumieres-israel .hero-bis-actions,
+.hero-bis-lumieres-text .hero-bis-actions {
+  flex-direction: row !important;
+}
+
 .hero-bis-actions .btn-modal {
   padding: var(--space-md) var(--space-xl);
   background: rgba(0, 0, 0, 0.4);
@@ -7071,14 +7078,16 @@ footer {
     filter: drop-shadow(5px 10px 20px rgba(0, 0, 0, 0.4));
 }
 
-/* Texte à droite - position absolue dans le tiers droit */
+/* Texte centré - position absolue centré horizontalement et verticalement */
 .hero-bis-lumieres-text {
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: left;
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
     max-width: 500px;
+    min-width: 450px !important;
     z-index: 3;
 }
 
@@ -7086,7 +7095,7 @@ footer {
 .hero-bis-lumieres-text h2 {
     color: #D4AF37;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    text-align: left;
+    text-align: center !important;
 }
 
 .hero-bis-lumieres-text h2 .h2-subtitle {
@@ -7097,25 +7106,40 @@ footer {
 .hero-bis-lumieres-text .hero-bis-subtitle {
     color: #FFFFFF;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    text-align: left;
+    text-align: center !important;
 }
 
-/* Boutons alignés horizontalement comme les autres hero bis */
+/* Boutons alignés horizontalement comme les autres hero bis - FORCE avec !important */
+#lumieres-israel .hero-bis-actions,
+#lumieres-israel .hero-bis-buttons,
+.hero-bis-lumieres .hero-bis-actions,
+.hero-bis-lumieres .hero-bis-buttons,
 .hero-bis-lumieres-text .hero-bis-actions {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 15px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 20px !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
 }
 
+#lumieres-israel .hero-bis-actions button,
+#lumieres-israel .hero-bis-actions a,
+#lumieres-israel .hero-bis-buttons button,
+#lumieres-israel .hero-bis-buttons a,
+.hero-bis-lumieres button,
+.hero-bis-lumieres .btn-hero,
+.hero-bis-lumieres .btn-modal,
 .hero-bis-lumieres-text .hero-bis-actions .btn-modal,
 .hero-bis-lumieres-text .hero-bis-actions .btn-hero {
-    width: auto;
-    max-width: none;
-    min-width: 200px;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    max-width: none !important;
+    min-width: 150px !important;
+    padding: 10px 20px !important;
+    white-space: nowrap !important;
 }
 
 /* Responsive pour hero-bis-lumieres */
@@ -7134,18 +7158,19 @@ footer {
     }
     
     .hero-bis-lumieres-text {
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        text-align: center;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        text-align: center !important;
         max-width: 100%;
         padding: 0 2rem;
     }
     
     .hero-bis-lumieres-text h2,
     .hero-bis-lumieres-text .hero-bis-subtitle {
-        text-align: center;
+        text-align: center !important;
     }
     
     .hero-bis-lumieres-text .hero-bis-actions {
@@ -10941,5 +10966,40 @@ img[src*="poz-box"],
     
     .bandeau-boite {
         height: 120px;
+    }
+}
+
+/* ========================================
+   FORCE BOUTONS HORIZONTAUX LUMIERES
+   CSS à la fin pour priorité maximale
+   ======================================== */
+.hero-bis-lumieres-text .hero-bis-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 15px !important;
+}
+
+.hero-bis-lumieres-text .hero-bis-actions button {
+    width: auto !important;
+    min-width: 180px !important;
+    display: inline-block !important;
+}
+
+/* Media query pour grands écrans - Force alignement horizontal */
+@media (min-width: 969px) {
+    #lumieres-israel .hero-bis-actions,
+    .hero-bis-lumieres .hero-bis-actions,
+    .hero-bis-lumieres-text .hero-bis-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 15px !important;
+    }
+    
+    #lumieres-israel .hero-bis-actions button,
+    .hero-bis-lumieres .hero-bis-actions button,
+    .hero-bis-lumieres-text .hero-bis-actions button {
+        width: auto !important;
+        flex: 0 0 auto !important;
     }
 }
