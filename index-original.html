@@ -894,6 +894,36 @@
         </div>
     </div>
 
+    <!-- MODALE APERÇU CARTE MOÏSE -->
+    <div id="modal-carte-apercu" class="modal modal-transparent">
+        <div class="modal-carte-wrapper">
+            <span class="modal-close-carte" onclick="closeModal('modal-carte-apercu')">&times;</span>
+            
+            <div class="carte-flip-container" id="carte-flip">
+                <div class="carte-flip-inner">
+                    <!-- RECTO -->
+                    <div class="carte-face carte-recto">
+                        <img src="images/11_Moshe_Rabbenou_recto.svg" alt="Carte Moïse - Recto">
+                    </div>
+                    <!-- VERSO -->
+                    <div class="carte-face carte-verso">
+                        <img src="images/11_Moshe_Rabbenou_verso.svg" alt="Carte Moïse - Verso">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bouton retourner (coin bas droit) -->
+            <button class="btn-flip-carte" onclick="flipCarte()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 1l4 4-4 4"/>
+                    <path d="M3 11V9a4 4 0 014-4h14"/>
+                    <path d="M7 23l-4-4 4-4"/>
+                    <path d="M21 13v2a4 4 0 01-4 4H3"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <!-- ACTE 4: HERO BIS - Minhag ou Halakha -->
     <section id="hero-bis-moh" class="hero-bis moh-hero">
         <div class="hero-bis-background">
@@ -1254,6 +1284,7 @@
                 <div class="hero-bis-actions">
                     <button class="btn-modal btn-hero" onclick="openModal('modal-contenu-lumieres')">Découvrir le contenu</button>
                     <button class="btn-modal btn-hero" onclick="openModal('modal-collection')">La collection complète</button>
+                    <button class="btn-hero btn-modal" onclick="openModal('modal-carte-apercu')">Voir une carte</button>
                     <button class="btn-modal btn-store" data-action="store">
                         🛒 Commander
                     </button>
@@ -3788,6 +3819,12 @@
             });
         }
     });
+    </script>
+
+    <!-- JavaScript pour la modale carte -->
+    <script>
+    // La fonction flipCarte est définie dans js/main.js
+    // La fonction closeModal a été modifiée dans js/main.js pour reset le flip
     </script>
 
 </body>

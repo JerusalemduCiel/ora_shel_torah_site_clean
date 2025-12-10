@@ -1548,6 +1548,19 @@ function closeModal(modalId) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
+    
+    // Reset le flip de la carte
+    if (modalId === 'modal-carte-apercu') {
+        const carte = document.getElementById('carte-flip');
+        if (carte) carte.classList.remove('flipped');
+    }
+}
+
+function flipCarte() {
+    const carte = document.getElementById('carte-flip');
+    if (carte) {
+        carte.classList.toggle('flipped');
+    }
 }
 
 // Fermer en cliquant en dehors
