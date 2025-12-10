@@ -1530,6 +1530,34 @@ function initBurgerMenu() {
     console.log('✅ Menu burger initialisé');
 }
 
+// ========================================
+// MODALES LUMIERES D'ISRAEL
+// ========================================
+
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Fermer en cliquant en dehors
+window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
 } catch(e) {
     alert('ERREUR main.js : ' + e.message);
 }

@@ -7025,19 +7025,204 @@ footer {
 /* Override des styles existants pour uniformiser */
 .jdc-hero,
 .moh-hero,
-.poz-hero {
+.poz-hero,
+.hero-bis-lumieres {
     width: 100% !important;
     max-width: 100vw !important;
 }
 
 .jdc-hero .hero-bis-content,
 .moh-hero .hero-bis-content,
-.poz-hero .hero-bis-content {
+.poz-hero .hero-bis-content,
+.hero-bis-lumieres .hero-bis-content {
     max-width: 100% !important;
     width: 100% !important;
     margin-left: 0 !important;
     align-items: center !important;
     justify-content: center !important;
+}
+
+/* === HERO BIS LUMIERES D'ISRAEL === */
+.hero-bis-lumieres {
+    background-image: url('../images/hero_lumieres.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-bis-lumieres .hero-bis-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-bis-lumieres .hero-bis-box {
+    flex: 0 0 auto;
+}
+
+.hero-bis-lumieres .hero-bis-box img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+}
+
+.hero-bis-lumieres .hero-bis-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-bis-lumieres h2 {
+    color: #D4AF37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-bis-lumieres .hero-bis-subtitle {
+    color: #F5E6C8;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-bis-lumieres .hero-bis-description {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-bis-lumieres .hero-bis-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-bis-lumieres .btn-hero {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-bis-lumieres .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(135deg, #E5C158 0%, #D4AF37 100%);
+}
+
+/* === MODALES === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #FAF8F0 0%, #F5E6C8 100%);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 2px solid #D4AF37;
+}
+
+.modal-content.modal-large {
+    max-width: 800px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #8B7355;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.modal-close:hover {
+    color: #D4AF37;
+}
+
+.modal-content h3 {
+    font-family: 'Cinzel', serif;
+    color: #7B3F00;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.modal-content p,
+.modal-content li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #5D4037;
+    line-height: 1.6;
+}
+
+.modal-content ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+}
+
+/* Responsive pour hero-bis-lumieres */
+@media (max-width: 968px) {
+    .hero-bis-lumieres .hero-bis-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .hero-bis-lumieres .hero-bis-box img {
+        max-width: 300px;
+    }
+    
+    .hero-bis-lumieres h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-bis-lumieres .hero-bis-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-bis-lumieres .btn-hero {
+        width: 100%;
+    }
 }
 
 /* Mobile - même comportement pour tous */
