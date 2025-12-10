@@ -11021,3 +11021,36 @@ img[src*="poz-box"],
         flex: 0 0 auto !important;
     }
 }
+
+/* ========================================
+   TITRE "NOS INSPIRATIONS" - TAILLE AUGMENTÉE
+   ======================================== */
+.inspirations h2,
+#inspirations h2,
+.nos-inspirations h2,
+section.inspirations h2,
+#acte-6 h2,
+#acte-6 h3,
+.inspirations-acte h2,
+.inspirations-acte h3,
+.inspirations-section h2,
+.inspirations-section h3 {
+    font-size: 48px !important;
+    letter-spacing: 3px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .inspirations h2,
+    #inspirations h2,
+    .nos-inspirations h2,
+    section.inspirations h2,
+    #acte-6 h2,
+    #acte-6 h3,
+    .inspirations-acte h2,
+    .inspirations-acte h3,
+    .inspirations-section h2,
+    .inspirations-section h3 {
+        font-size: 32px !important;
+    }
+}
