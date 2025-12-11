@@ -825,6 +825,158 @@ img {
         z-index: 3 !important;
     }
     
+    /* === SECTION COMMUNAUTÉ GLOBALE === */
+    #acte-7,
+    .communaute {
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 2rem 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    #acte-7 .container,
+    .communaute .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* === STATS GRID === */
+    .stats-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .stat-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        padding: 1.5rem 1rem !important;
+    }
+    
+    /* === TÉMOIGNAGES === */
+    .testimonials {
+        width: 100% !important;
+        padding: 2rem 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    .testimonials h3 {
+        text-align: center !important;
+        padding: 0 1rem !important;
+    }
+    
+    .testimonials-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .testimonial-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 1.5rem !important;
+        margin: 0 !important;
+    }
+    
+    .testimonial-content p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .testimonial-author {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    .testimonial-author img {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 auto !important;
+    }
+    
+    /* === PARTENAIRES === */
+    .partners {
+        width: 100% !important;
+        padding: 2rem 0 !important;
+        text-align: center !important;
+        overflow-x: hidden !important;
+    }
+    
+    .partners h3 {
+        padding: 0 1rem !important;
+    }
+    
+    .partners-logos {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    .partner-logo {
+        width: auto !important;
+        max-width: 90% !important;
+        text-align: center !important;
+    }
+    
+    .partner-badge {
+        width: 100% !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+        font-size: 0.9rem !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* === NEWSLETTER === */
+    .newsletter-block {
+        width: 100% !important;
+        padding: 2rem 1rem !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+    }
+    
+    .newsletter-form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .newsletter-form input[type="email"] {
+        width: 100% !important;
+        padding: 0.75rem 1rem !important;
+        box-sizing: border-box !important;
+        font-size: 16px !important; /* Évite le zoom iOS */
+    }
+    
+    .newsletter-form button,
+    .newsletter-form .btn-primary {
+        width: 100% !important;
+        padding: 0.75rem 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* === ANTI-DÉBORDEMENT GLOBAL === */
+    body {
+        overflow-x: hidden !important;
+    }
+    
 }
 
 /* ============================================================
