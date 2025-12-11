@@ -1803,7 +1803,9 @@ img {
 
 @media (max-width: 768px) {
   .jeux-showcase {
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 2rem 1rem;
+    padding-bottom: 2rem !important;
+    margin-bottom: 0 !important;
   }
 
   .jeux-showcase .section-title {
@@ -1812,8 +1814,10 @@ img {
 
   .showcase-window {
     max-width: 100%;
-    min-height: 550px;
+    min-height: auto !important;
+    height: auto !important;
     padding: 0 50px;
+    margin-bottom: 0 !important;
   }
   
   .slider-arrow.prev {
@@ -2437,8 +2441,10 @@ header .cta-button:hover,
 /* MOBILE : ACTE 2 - hauteur adaptative */
 @media (max-width: 768px) {
   #acte-2 {
-    min-height: auto;
-    height: auto;
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 2rem !important;
+    margin-bottom: 0 !important;
   }
   
   #acte-2.about-section {
@@ -2448,6 +2454,12 @@ header .cta-button:hover,
   #acte-2 h2.section-title-centered {
     margin-top: 80px !important;
     padding-top: 40px !important;
+  }
+  
+  /* Supprimer l'espace blanc sous Acte 2 */
+  #acte-2 .jeux-showcase {
+    padding-bottom: 2rem !important;
+    margin-bottom: 0 !important;
   }
 }
 
@@ -3228,10 +3240,9 @@ html body #hero-bis-poz .hero-bis-background img {
   justify-content: center;
 }
 
-/* Exception pour Lumières d'Israël - boutons horizontaux */
+/* Hero-bis Lumières d'Israël - Utilise les règles génériques */
 .hero-bis-lumieres .hero-bis-actions,
-#lumieres-israel .hero-bis-actions,
-.hero-bis-lumieres-text .hero-bis-actions {
+#lumieres-israel .hero-bis-actions {
   display: flex !important;
   flex-direction: column !important;
   gap: 15px !important;
@@ -7059,148 +7070,13 @@ footer {
     object-position: center center;
 }
 
-/* Conteneur - position relative pour positionnement absolu des enfants */
-.hero-bis-lumieres-content {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
+/* Hero-bis Lumières d'Israël - Structure identique aux autres hero-bis */
+/* Les règles génériques .hero-bis s'appliquent maintenant */
 
-/* Boîte à gauche - position absolue dans le tiers gauche */
-.hero-bis-lumieres-box {
-    position: absolute;
-    left: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-}
+/* Hero-bis Lumières d'Israël - Utilise maintenant les règles génériques des hero-bis */
+/* Les boutons utilisent les styles génériques .hero-bis-actions */
 
-.hero-bis-lumieres-box img {
-    height: 750px !important;
-    width: auto;
-    filter: drop-shadow(5px 10px 20px rgba(0, 0, 0, 0.4));
-}
-
-/* Texte centré - position absolue centré horizontalement et verticalement */
-.hero-bis-lumieres-text {
-    position: absolute !important;
-    left: 50% !important;
-    right: auto !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    text-align: center !important;
-    max-width: 500px;
-    min-width: 450px !important;
-    z-index: 3;
-}
-
-/* Styles spécifiques pour le texte */
-.hero-bis-lumieres-text h2 {
-    color: #D4AF37;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    text-align: center !important;
-}
-
-.hero-bis-lumieres-text h2 .h2-subtitle {
-    color: #F5E6C8;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.hero-bis-lumieres-text .hero-bis-subtitle {
-    color: #FFFFFF;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    text-align: center !important;
-}
-
-/* Boutons alignés horizontalement comme les autres hero bis - FORCE avec !important */
-#lumieres-israel .hero-bis-actions,
-#lumieres-israel .hero-bis-buttons,
-.hero-bis-lumieres .hero-bis-actions,
-.hero-bis-lumieres .hero-bis-buttons,
-.hero-bis-lumieres-text .hero-bis-actions {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 15px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 20px !important;
-}
-
-#lumieres-israel .hero-bis-actions button,
-#lumieres-israel .hero-bis-actions a,
-#lumieres-israel .hero-bis-buttons button,
-#lumieres-israel .hero-bis-buttons a,
-.hero-bis-lumieres button,
-.hero-bis-lumieres .btn-hero,
-.hero-bis-lumieres .btn-modal,
-.hero-bis-lumieres-text .hero-bis-actions .btn-modal,
-.hero-bis-lumieres-text .hero-bis-actions .btn-hero,
-.hero-bis-lumieres-text .hero-bis-actions button {
-    width: 100% !important;
-    max-width: 300px !important;
-    padding: 15px 30px !important;
-    border-radius: 10px !important;
-    font-size: 16px !important;
-    background-color: #F5A623 !important;
-    border: none !important;
-    color: #333 !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
-    cursor: pointer !important;
-    white-space: nowrap !important;
-    font-weight: 600 !important;
-    transition: all 0.3s ease !important;
-}
-
-.hero-bis-lumieres-text .hero-bis-actions button:hover,
-.hero-bis-lumieres-text .hero-bis-actions .btn-modal:hover,
-.hero-bis-lumieres-text .hero-bis-actions .btn-hero:hover {
-    background-color: #E6951E !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
-}
-
-/* Responsive pour hero-bis-lumieres */
-@media (max-width: 968px) {
-    .hero-bis-lumieres-box {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        text-align: center;
-        margin: 2rem auto;
-    }
-    
-    .hero-bis-lumieres-box img {
-        height: 300px;
-    }
-    
-    .hero-bis-lumieres-text {
-        position: relative !important;
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        transform: none !important;
-        text-align: center !important;
-        max-width: 100%;
-        padding: 0 2rem;
-    }
-    
-    .hero-bis-lumieres-text h2,
-    .hero-bis-lumieres-text .hero-bis-subtitle {
-        text-align: center !important;
-    }
-    
-    .hero-bis-lumieres-text .hero-bis-actions {
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .hero-bis-lumieres-text .hero-bis-actions .btn-modal,
-    .hero-bis-lumieres-text .hero-bis-actions .btn-hero {
-        width: 100%;
-        max-width: 300px;
-    }
-}
+/* Hero-bis Lumières d'Israël - Utilise maintenant les règles génériques des hero-bis */
 
 /* Styles pour les boutons spécifiques */
 .hero-bis-lumieres .btn-hero {
@@ -11098,17 +10974,7 @@ img[src*="poz-box"],
    FORCE BOUTONS HORIZONTAUX LUMIERES
    CSS à la fin pour priorité maximale
    ======================================== */
-.hero-bis-lumieres-text .hero-bis-actions {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 15px !important;
-    align-items: center !important;
-}
-
-.hero-bis-lumieres-text .hero-bis-actions button {
-    width: 100% !important;
-    max-width: 300px !important;
-}
+/* Hero-bis Lumières d'Israël - Utilise les règles génériques .hero-bis-actions */
 
 /* ========================================
    TITRE "NOS INSPIRATIONS" - TAILLE AUGMENTÉE

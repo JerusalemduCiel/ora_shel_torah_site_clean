@@ -351,8 +351,11 @@ img {
        ============================================================ */
     
     .jeux-showcase {
-        padding: 40px 15px !important;
+        padding: 40px 15px 2rem 15px !important;
         min-height: auto !important;
+        height: auto !important;
+        padding-bottom: 2rem !important;
+        margin-bottom: 0 !important;
     }
     
     .showcase-container {
@@ -376,10 +379,12 @@ img {
     .showcase-window {
         width: 100% !important;
         max-width: 100% !important;
-    margin: 0 auto !important;
+        margin: 0 auto !important;
         padding: 0 !important;
         position: relative !important;
-        min-height: 500px !important;
+        min-height: auto !important;
+        height: auto !important;
+        margin-bottom: 0 !important;
         overflow: hidden !important;
     }
     
@@ -567,8 +572,9 @@ img {
         justify-content: center !important;
         align-items: center !important;
         gap: 10px !important;
-        margin-top: 30px !important;
-        padding: 10px 0 !important;
+        margin-top: 20px !important;
+        margin-bottom: 0 !important;
+        padding: 10px 0 1rem 0 !important;
     }
     
     .showcase-dots .dot {
@@ -790,6 +796,33 @@ img {
         padding: 10px 20px !important;
         font-size: 0.85rem !important;
         min-width: auto !important;
+    }
+    
+    /* Hero-bis Lumières d'Israël - MÊME STYLE QUE JDC/MOH/POZ */
+    #lumieres-israel,
+    .hero-bis-lumieres {
+        min-height: 100vh !important;
+        height: auto !important;
+    }
+    
+    #lumieres-israel .hero-bis-background img,
+    .hero-bis-lumieres .hero-bis-background img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+    
+    #lumieres-israel .hero-bis-content,
+    .hero-bis-lumieres .hero-bis-content {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        text-align: center !important;
+        width: 90% !important;
+        max-width: 400px !important;
+        z-index: 3 !important;
     }
     
 }
