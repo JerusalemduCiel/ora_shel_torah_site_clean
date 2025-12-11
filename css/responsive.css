@@ -389,9 +389,9 @@ img {
     }
     
     .slider-track {
-        width: 300% !important;
         display: flex !important;
-        transition: transform 0.4s ease !important;
+        transition: transform 0.5s ease !important;
+        /* Pas de width fixe, flex gère automatiquement la largeur totale */
     }
     
     /* Slide jeu - MOBILE : slider */
@@ -402,10 +402,12 @@ img {
         justify-content: center !important;
         padding: 30px 15px !important;
         text-align: center !important;
-        width: 33.333% !important;
-        min-width: 33.333% !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
         min-height: 500px !important;
         flex-shrink: 0 !important;
+        box-sizing: border-box !important;
         
         /* FORCER visibilité */
         opacity: 1 !important;
@@ -419,12 +421,15 @@ img {
     /* CRITIQUE : Gérer les slides actives/non-actives du showcase MOBILE */
     .jeu-slide:not(.active) {
         display: flex !important;
-        opacity: 0 !important;
+        opacity: 1 !important; /* Garder visible pour le slider */
         pointer-events: none !important;
         position: relative !important; /* Relative pour le slider-track */
-        width: 33.333% !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
         height: 100% !important;
         z-index: 0 !important;
+        box-sizing: border-box !important;
     }
     
     .jeu-slide.active {
@@ -432,7 +437,11 @@ img {
         opacity: 1 !important;
         pointer-events: auto !important;
         position: relative !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
         z-index: 1 !important;
+        box-sizing: border-box !important;
     }
     
     /* Visuel du jeu - FORCER affichage */

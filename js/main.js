@@ -282,8 +282,9 @@ function initJeuxShowcase() {
     const slideCount = slides.length;
 
     function updateSlider() {
-        // Chaque slide fait 25% de la largeur totale (100% / slideCount)
-        const translateX = -currentIndex * (100 / slideCount);
+        // Utiliser 100% par slide (plus fiable sur mobile)
+        // Chaque slide fait 100% de la largeur visible
+        const translateX = -currentIndex * 100;
         sliderTrack.style.transform = `translateX(${translateX}%)`;
         
         // Mettre à jour les indicateurs
