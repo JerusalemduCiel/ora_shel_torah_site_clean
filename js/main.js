@@ -217,6 +217,44 @@ function initDynamicHeader() {
 // ========================================
 
 function initJeuxShowcase() {
+    // Nettoyer les anciens event listeners si le slider était déjà initialisé
+    if (sliderInitialized) {
+        const prevBtn = document.querySelector('.slider-arrow.prev');
+        const nextBtn = document.querySelector('.slider-arrow.next');
+        const indicators = document.querySelectorAll('.showcase-dots .dot');
+        const sliderTrack = document.querySelector('.slider-track');
+        
+        if (nextBtn && sliderEventListeners.nextBtn) {
+            nextBtn.removeEventListener('click', sliderEventListeners.nextBtn);
+            sliderEventListeners.nextBtn = null;
+        }
+        if (prevBtn && sliderEventListeners.prevBtn) {
+            prevBtn.removeEventListener('click', sliderEventListeners.prevBtn);
+            sliderEventListeners.prevBtn = null;
+        }
+        indicators.forEach((indicator, index) => {
+            if (sliderEventListeners.indicators[index]) {
+                indicator.removeEventListener('click', sliderEventListeners.indicators[index]);
+                sliderEventListeners.indicators[index] = null;
+            }
+        });
+        if (sliderTrack) {
+            if (sliderEventListeners.touchstart) {
+                sliderTrack.removeEventListener('touchstart', sliderEventListeners.touchstart);
+                sliderEventListeners.touchstart = null;
+            }
+            if (sliderEventListeners.touchmove) {
+                sliderTrack.removeEventListener('touchmove', sliderEventListeners.touchmove);
+                sliderEventListeners.touchmove = null;
+            }
+            if (sliderEventListeners.touchend) {
+                sliderTrack.removeEventListener('touchend', sliderEventListeners.touchend);
+                sliderEventListeners.touchend = null;
+            }
+        }
+        sliderInitialized = false;
+    }
+    
     // Vérifier qu'on est sur mobile - sinon, ne pas initialiser le slider
     if (window.innerWidth > 768) {
         // Desktop : affichage statique, tous les slides visibles
@@ -259,12 +297,16 @@ function initJeuxShowcase() {
         });
     }
 
-    function nextSlide() {
+    function nextSlide(e) {
+        if (e) e.preventDefault();
+        e?.stopPropagation();
         currentIndex = (currentIndex + 1) % slideCount;
         updateSlider();
     }
 
-    function prevSlide() {
+    function prevSlide(e) {
+        if (e) e.preventDefault();
+        e?.stopPropagation();
         currentIndex = (currentIndex - 1 + slideCount) % slideCount;
         updateSlider();
     }
@@ -278,33 +320,47 @@ function initJeuxShowcase() {
 
     // Navigation avec flèches
     if (nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
+        const nextHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            nextSlide();
+        };
+        nextBtn.addEventListener('click', nextHandler);
+        sliderEventListeners.nextBtn = nextHandler;
     }
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', prevSlide);
+        const prevHandler = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            prevSlide();
+        };
+        prevBtn.addEventListener('click', prevHandler);
+        sliderEventListeners.prevBtn = prevHandler;
     }
 
     // Navigation avec dots
     indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
+        const dotHandler = () => {
             goToSlide(index);
-        });
+        };
+        indicator.addEventListener('click', dotHandler);
+        sliderEventListeners.indicators[index] = dotHandler;
     });
 
     // Support swipe tactile
     let startX = 0;
     let currentX = 0;
 
-    sliderTrack.addEventListener('touchstart', (e) => {
+    const touchStartHandler = (e) => {
         startX = e.touches[0].clientX;
-    }, { passive: true });
-
-    sliderTrack.addEventListener('touchmove', (e) => {
+    };
+    
+    const touchMoveHandler = (e) => {
         currentX = e.touches[0].clientX;
-    }, { passive: true });
-
-    sliderTrack.addEventListener('touchend', () => {
+    };
+    
+    const touchEndHandler = () => {
         const diff = startX - currentX;
         
         if (Math.abs(diff) > 50) {
@@ -316,10 +372,19 @@ function initJeuxShowcase() {
                 prevSlide();
             }
         }
-    });
+    };
+
+    sliderTrack.addEventListener('touchstart', touchStartHandler, { passive: true });
+    sliderTrack.addEventListener('touchmove', touchMoveHandler, { passive: true });
+    sliderTrack.addEventListener('touchend', touchEndHandler, { passive: true });
+    
+    sliderEventListeners.touchstart = touchStartHandler;
+    sliderEventListeners.touchmove = touchMoveHandler;
+    sliderEventListeners.touchend = touchEndHandler;
 
     // Initialisation
     updateSlider();
+    sliderInitialized = true;
     
     console.log('✅ Slider jeux initialisé (mobile uniquement)');
     
@@ -334,6 +399,15 @@ function initJeuxShowcase() {
 
 // Réinitialiser au resize pour gérer le passage mobile/desktop
 let gamesSliderHandlers = null;
+let sliderInitialized = false;
+let sliderEventListeners = {
+    nextBtn: null,
+    prevBtn: null,
+    indicators: [],
+    touchstart: null,
+    touchmove: null,
+    touchend: null
+};
 
 window.addEventListener('resize', debounce(() => {
     // Réinitialiser le slider si on change de taille d'écran
