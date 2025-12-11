@@ -48,19 +48,19 @@
                 
                 <!-- Certificat 1 : Conformité Halakhique -->
                 <div class="certificate">
-                    <h3 class="certificate-subtitle">Certificat de conformité halakhique (édition Jérusalem du Ciel)</h3>
+                    <h3 class="certificate-subtitle">Certificat de conformité halakhique</h3>
                     
                     <div class="certificate-content">
                         <p>
-                            Le présent document atteste que l'intégralité des contenus du jeu Jérusalem du Ciel — soit 1475 fiches (questions, réponses, analyses, dilemmes, énigmes et commentaires) — a été générée initialement à l'aide d'outils d'intelligence artificielle, puis relue et vérifiée systématiquement.
+                            Le présent document atteste que l'intégralité des contenus des jeux édités par Ora Shel Torah — soit plus de 2000 fiches (questions, réponses, analyses, dilemmes, énigmes et commentaires) — a été générée initialement à l'aide d'outils d'intelligence artificielle, puis relue et vérifiée systématiquement.
                         </p>
                         
                         <p><strong>Procédure appliquée :</strong></p>
                         <ul class="certificate-procedure">
                             <li>Lecture et contrôle de chaque fiche par un module de cohérence interne</li>
-                            <li>Confrontation des formulations avec les sources halakhiques de référence : Torah écrite et Torah orale, Rambam (Mishné Torah), Choul'han Aroukh et ses commentateurs (Rema, Michna Beroura), Responsa classiques et contemporaines</li>
+                            <li>Confrontation des formulations avec les sources halakhiques de référence : Torah écrite et Torah orale, Rambam (Mishné Torah), Choul'han Aroukh et ses commentateurs (Rema, Michna Beroura), Responsa classiques et contemporains</li>
                             <li>Signalement des divergences éventuelles, soumises à une nouvelle vérification</li>
-                            <li>Suppression définitive des 3 fiches jugées sujettes à controverse</li>
+                            <li>Suppression définitive des fiches jugées sujettes à controverse</li>
                         </ul>
                         
                         <p>
@@ -69,7 +69,7 @@
                     </div>
                     
                     <div class="certificate-warning">
-                        Ce jeu a une vocation pédagogique et ludique. Il ne saurait remplacer une décision halakhique. Pour toute question pratique, consultez votre Rav.
+                        ⚠️ Ces jeux ont une vocation pédagogique et ludique. Ils ne sauraient remplacer une décision halakhique. Pour toute question pratique, consultez votre Rav.
                     </div>
                 </div>
                 
