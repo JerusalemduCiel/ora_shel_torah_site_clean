@@ -977,6 +977,25 @@ img {
         overflow-x: hidden !important;
     }
     
+    /* === BANDEAU TICKET D'OR - SUPPRIMER PARALLAX SUR MOBILE === */
+    .bandeau-ticket-or,
+    #bandeau-parallax,
+    .bandeau-wrapper {
+        transform: none !important;
+        will-change: auto !important;
+    }
+    
+    .bandeau-background {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+    
+    .frise-content {
+        transform: none !important;
+        will-change: auto !important;
+    }
+    
 }
 
 /* ============================================================

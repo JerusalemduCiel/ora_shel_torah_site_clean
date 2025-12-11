@@ -1283,7 +1283,7 @@
     <!-- HERO BIS - Lumières d'Israël -->
     <section id="lumieres-israel" class="hero-bis hero-bis-lumieres">
         <div class="hero-bis-background">
-            <img src="images/hero_lumieres_mod.jpg" alt="Lumières d'Israël - Les grandes figures de l'histoire juive" loading="lazy">
+            <img src="images/hero_lumieres_mod.png" alt="Lumières d'Israël - Les grandes figures de l'histoire juive" loading="lazy">
         </div>
         <div class="hero-bis-content">
             <h2>Lumières d'Israël <span class="h2-subtitle">— Les grandes figures de l'histoire juive</span></h2>
@@ -3807,6 +3807,13 @@
         
         if (bandeau && frise && section) {
             window.addEventListener('scroll', function() {
+                // Désactiver le parallax sur mobile
+                if (window.innerWidth <= 768) {
+                    bandeau.style.transform = 'none';
+                    frise.style.transform = 'none';
+                    return;
+                }
+                
                 const rect = section.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
                 
@@ -3815,12 +3822,20 @@
                     // Calcul du pourcentage de scroll dans la section
                     const scrollPercent = (windowHeight - rect.top) / (windowHeight + rect.height);
                     
-                    // Parallaxe prononcée : 100px de mouvement
-                    const bandeauOffset = (scrollPercent - 0.5) * -100; // Droite → Gauche
-                    const friseOffset = (scrollPercent - 0.5) * 150; // Gauche → Droite
+                    // Parallaxe accentuée sur desktop : mouvement plus prononcé
+                    const bandeauOffset = (scrollPercent - 0.5) * -150; // Droite → Gauche (augmenté de -100 à -150)
+                    const friseOffset = (scrollPercent - 0.5) * 200; // Gauche → Droite (augmenté de 150 à 200)
                     
                     bandeau.style.transform = `translateX(${bandeauOffset}px)`;
                     frise.style.transform = `translateX(${friseOffset}px)`;
+                }
+            });
+            
+            // Réinitialiser au resize pour gérer le passage mobile/desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768) {
+                    bandeau.style.transform = 'none';
+                    frise.style.transform = 'none';
                 }
             });
         }

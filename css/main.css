@@ -10597,6 +10597,10 @@ img[src*="poz-box"],
         #0a121d 75%,
         #0a121d 100%
     );
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* Effet de transition verticale via masque */
@@ -10688,6 +10692,7 @@ img[src*="poz-box"],
     width: 100%;
     max-width: 1200px;
     will-change: transform;
+    transform-style: preserve-3d;
 }
 
 /* Container bandeau (parchemin) */
