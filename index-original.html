@@ -1132,7 +1132,7 @@
                 <button class="btn-modal" data-action="rules" data-game="poz">
                     📋 Règles du jeu
                 </button>
-                <button class="btn-modal" data-action="arbitrage-guide" id="btn-arbitrage-guide">
+                <button class="btn-modal" id="btn-arbitrage-guide">
                     ⚖️ Guide d'Arbitrage
                 </button>
                 <button class="btn-modal btn-store" data-action="store">
@@ -3879,6 +3879,56 @@
     <script>
     // La fonction flipCarte est définie dans js/main.js
     // La fonction closeModal a été modifiée dans js/main.js pour reset le flip
+    </script>
+
+    <!-- JavaScript pour la modale Guide d'Arbitrage -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // === MODALE GUIDE D'ARBITRAGE ===
+        const btnArbitrage = document.getElementById('btn-arbitrage-guide');
+        const arbitrageOverlay = document.getElementById('arbitrage-modal-overlay');
+        const arbitrageCloseBtn = document.querySelector('.arbitrage-modal-close');
+        
+        // Ouverture
+        if (btnArbitrage && arbitrageOverlay) {
+            btnArbitrage.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                arbitrageOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Modale arbitrage ouverte');
+            });
+        } else {
+            console.log('Bouton ou overlay non trouvé', btnArbitrage, arbitrageOverlay);
+        }
+        
+        // Fermeture bouton X
+        if (arbitrageCloseBtn) {
+            arbitrageCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                arbitrageOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Fermeture clic extérieur
+        if (arbitrageOverlay) {
+            arbitrageOverlay.addEventListener('click', function(e) {
+                if (e.target === arbitrageOverlay) {
+                    arbitrageOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Fermeture touche Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && arbitrageOverlay && arbitrageOverlay.classList.contains('active')) {
+                arbitrageOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
     </script>
 
 </body>
