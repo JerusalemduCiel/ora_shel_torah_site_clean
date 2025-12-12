@@ -133,6 +133,20 @@ function initModalButtons() {
         });
     });
     
+    // Bouton "Guide d'Arbitrage"
+    document.querySelectorAll('[data-action="arbitrage-guide"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const overlay = document.getElementById('arbitrage-modal-overlay');
+            if (overlay) {
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Empêcher le scroll
+            }
+        });
+    });
+    
     // Bouton "Store / Shop"
     document.querySelectorAll('[data-action="store"]').forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -245,6 +259,44 @@ function initCloseHandlers() {
             }
         });
     });
+    
+    // Gérer la fermeture de la modale Guide d'Arbitrage
+    const arbitrageOverlay = document.getElementById('arbitrage-modal-overlay');
+    const arbitrageCloseBtn = document.querySelector('.arbitrage-modal-close');
+    
+    if (arbitrageOverlay) {
+        // Fermeture au clic sur le bouton X
+        if (arbitrageCloseBtn) {
+            arbitrageCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeArbitrageModal();
+            });
+        }
+        
+        // Fermeture au clic sur l'overlay (mais pas sur la modale elle-même)
+        arbitrageOverlay.addEventListener('click', function(e) {
+            if (e.target === arbitrageOverlay) {
+                closeArbitrageModal();
+            }
+        });
+        
+        // Fermeture avec la touche Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && arbitrageOverlay.classList.contains('active')) {
+                closeArbitrageModal();
+            }
+        });
+    }
+}
+
+function closeArbitrageModal() {
+    const overlay = document.getElementById('arbitrage-modal-overlay');
+    if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // Réactiver le scroll
+    }
+}
 }
 
 /* ========================================

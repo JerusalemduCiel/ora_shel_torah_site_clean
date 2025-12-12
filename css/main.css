@@ -11299,3 +11299,174 @@ section.inspirations h2,
         font-size: 45px;
     }
 }
+
+/* ========================================
+   MODALE GUIDE D'ARBITRAGE
+   ======================================== */
+
+/* Overlay semi-transparent */
+.arbitrage-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+}
+
+.arbitrage-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Conteneur de la modale */
+.arbitrage-modal {
+    position: relative;
+    background: linear-gradient(135deg, #faf8f0 0%, #f5e6c8 100%);
+    border-radius: 24px;
+    padding: 2.5rem;
+    max-width: min(90vw, 1200px);
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(237, 162, 52, 0.2);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+    border: 2px solid rgba(237, 162, 52, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.arbitrage-modal-overlay.active .arbitrage-modal {
+    transform: scale(1) translateY(0);
+}
+
+/* Bouton de fermeture X */
+.arbitrage-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(237, 162, 52, 0.1);
+    color: #eda234;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+    z-index: 10001;
+    font-weight: 300;
+    pointer-events: auto;
+}
+
+.arbitrage-modal-close:hover {
+    background: rgba(237, 162, 52, 0.2);
+    transform: rotate(90deg);
+    color: #f5c16c;
+}
+
+.arbitrage-modal-close:focus {
+    outline: 2px solid #eda234;
+    outline-offset: 2px;
+}
+
+/* Header de la modale */
+.arbitrage-modal-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(237, 162, 52, 0.2);
+}
+
+.arbitrage-modal-header h2 {
+    color: #7b3f00;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+/* Contenu de la modale */
+.arbitrage-modal-content {
+    flex: 1;
+    margin-bottom: 1.5rem;
+    min-height: 0;
+}
+
+.arbitrage-modal-content iframe {
+    width: 100%;
+    height: 70vh;
+    min-height: 400px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer avec bouton télécharger */
+.arbitrage-modal-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(237, 162, 52, 0.2);
+}
+
+.btn-download-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-gold, #eda234);
+    color: var(--color-dark-bg, #0f1419);
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(237, 162, 52, 0.3);
+}
+
+.btn-download-pdf:hover {
+    background: #f5c16c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(237, 162, 52, 0.4);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .arbitrage-modal {
+        padding: 1.5rem;
+        max-width: 95vw;
+    }
+    
+    .arbitrage-modal-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .arbitrage-modal-content iframe {
+        height: 60vh;
+        min-height: 300px;
+    }
+    
+    .arbitrage-modal-close {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
