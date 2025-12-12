@@ -315,5 +315,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // =============================================
+    // BOUTON FLOTTANT TÉLÉCHARGEMENT PDF
+    // =============================================
+    const floatingBtn = document.querySelector('.floating-download-btn');
+    
+    if (floatingBtn) {
+        // Afficher après 300px de scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                floatingBtn.classList.add('visible');
+            } else {
+                floatingBtn.classList.remove('visible');
+            }
+        });
+        
+        // Vérifier au chargement
+        if (window.scrollY > 300) {
+            floatingBtn.classList.add('visible');
+        }
+    }
 });
 
