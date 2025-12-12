@@ -590,15 +590,8 @@
     font-size: 0.95rem;
     box-shadow: 0 4px 15px rgba(237, 162, 52, 0.4);
     transition: all 0.3s ease;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-}
-
-.floating-download-btn.visible {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
 }
 
 .floating-download-btn:hover {
