@@ -46,6 +46,27 @@ exports.handler = async (event) => {
       throw new Error('STRIPE_SECRET_KEY manquante dans les variables d\'environnement');
     }
 
+    // Vérifier que les produits demandés sont disponibles
+    const unavailableProducts = ['jdc', 'poz'];
+    const priceMap = {
+      'price_1SBf5wL4ecjfMIxOm0nbZ5sp': 'jdc',
+      'price_1SBf6vL4ecjfMIxOYXAbWfh8': 'moh',
+      'price_1SBf7lL4ecjfMIxOKuRj4czs': 'poz'
+    };
+    
+    const requestedProducts = items.map(item => priceMap[item.priceId]).filter(Boolean);
+    const hasUnavailable = requestedProducts.some(p => unavailableProducts.includes(p));
+
+    if (hasUnavailable) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ 
+          error: 'Certains produits ne sont pas encore disponibles. Sortie prévue : Printemps 2026.'
+        })
+      };
+    }
+
     // Mapping priceId → productId
     const priceMap = {
       'price_1SBf5wL4ecjfMIxOm0nbZ5sp': 'jdc',

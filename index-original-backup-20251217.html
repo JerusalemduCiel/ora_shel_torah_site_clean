@@ -45,118 +45,6 @@
     <link rel="stylesheet" href="css/certificates-modal.css">
     <link rel="stylesheet" href="css/rules-modal.css">
     
-    <!-- CSS pour produits en préparation -->
-    <style>
-    /* === PRODUITS EN PRÉPARATION === */
-
-    /* Overlay grisé */
-    .coming-soon {
-      position: relative;
-    }
-
-    .coming-soon::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: 5;
-      border-radius: inherit;
-      pointer-events: none;
-    }
-
-    /* Badge "Printemps 2026" */
-    .coming-soon-badge {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-12deg);
-      background: linear-gradient(135deg, #eda234 0%, #d4881a 100%);
-      color: #1a1a1a;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-family: 'Crimson Text', serif;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      z-index: 10;
-      box-shadow: 0 4px 20px rgba(237, 162, 52, 0.5);
-      white-space: nowrap;
-    }
-
-    /* Badge "Disponible" (optionnel) */
-    .available-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #72a691;
-      color: white;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      z-index: 10;
-    }
-
-    /* Bandeau section */
-    .coming-soon-banner {
-      background: linear-gradient(135deg, #4d727b 0%, #3a5660 100%);
-      color: white;
-      text-align: center;
-      padding: 14px 20px;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      border-radius: 8px 8px 0 0;
-    }
-
-    /* Bouton notification */
-    .btn-notify {
-      background: linear-gradient(135deg, #72a691 0%, #5a8a75 100%);
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      width: 100%;
-    }
-
-    .btn-notify:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(114, 166, 145, 0.4);
-    }
-
-    /* Bouton désactivé */
-    .btn-disabled, button.disabled {
-      pointer-events: none;
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
-
-    /* Header modale */
-    .modal-coming-soon-header {
-      background: linear-gradient(135deg, #eda234 0%, #d4881a 100%);
-      color: #1a1a1a;
-      text-align: center;
-      padding: 12px 20px;
-      font-weight: 600;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-radius: 12px 12px 0 0;
-    }
-
-    /* Masquer section */
-    .hidden-section {
-      display: none !important;
-    }
-    </style>
-    
     <!-- Schema.org - Organization -->
     <script type="application/ld+json">
     {
@@ -571,8 +459,7 @@
                 <div class="slider-container">
                     <div class="slider-track">
                 <!-- Slide 1 : JDC -->
-                        <div class="jeu-slide active coming-soon" data-jeu="jdc" data-slide="0">
-                    <span class="coming-soon-badge">Printemps 2026</span>
+                        <div class="jeu-slide active" data-jeu="jdc" data-slide="0">
                     <div class="jeu-visual">
                         <div class="jeu-frame">
                                     <img src="images/jeu1_3.png" alt="Jérusalem du Ciel - Jeu de société sur 3000 ans d'histoire juive" loading="lazy">
@@ -610,8 +497,7 @@
                     </div>
 
                 <!-- Slide 3 : POZ -->
-                        <div class="jeu-slide coming-soon" data-jeu="poz" data-slide="2">
-                    <span class="coming-soon-badge">Printemps 2026</span>
+                        <div class="jeu-slide" data-jeu="poz" data-slide="2">
                     <div class="jeu-visual">
                         <div class="jeu-frame">
                                     <img src="images/jeu3_3.png" alt="Poztamitsvah - Jeu des 140 mitzvot du quotidien" loading="lazy">
@@ -673,11 +559,7 @@
     </section>
 
     <!-- ACTE 3: HERO BIS - Jérusalem du Ciel -->
-    <section id="hero-bis-jdc" class="hero-bis jdc-hero coming-soon-section">
-        <div class="coming-soon-banner">
-            <span>🚀</span>
-            <span>Disponible Printemps 2026 — Découvrez le jeu en avant-première</span>
-        </div>
+    <section id="hero-bis-jdc" class="hero-bis jdc-hero">
         <div class="hero-bis-background">
             <img src="images/produits/jdc_hero_bg.png" alt="Plateau circulaire du jeu Jérusalem du Ciel montrant les 6 périodes de l'histoire juive" loading="lazy">
         </div>
@@ -697,8 +579,8 @@
                 <button class="btn-modal" data-action="rules" data-game="jdc">
                     📋 Règles du jeu
                 </button>
-                <button class="btn-modal btn-store disabled" onclick="openNotifyModal('jdc')">
-                    🔔 Me prévenir
+                <button class="btn-modal btn-store" data-action="store">
+                    🛒 Commander
                 </button>
             </div>
         </div>
@@ -860,8 +742,8 @@
         </div>
     </section>
 
-    <!-- TICKET D'OR - Réactiver quand JDC disponible -->
-    <section class="bandeau-ticket-or hidden-section" style="display: none;">
+    <!-- BANDEAU TICKET D'OR -->
+    <section class="bandeau-ticket-or">
         <!-- Fond dégradé -->
         <div class="bandeau-background"></div>
         
@@ -1230,11 +1112,7 @@
     </section>
 
     <!-- ACTE 5: HERO BIS - Poztamitsvah -->
-    <section id="hero-bis-poz" class="hero-bis poz-hero coming-soon-section">
-        <div class="coming-soon-banner">
-            <span>🚀</span>
-            <span>Disponible Printemps 2026 — Découvrez le jeu en avant-première</span>
-        </div>
+    <section id="hero-bis-poz" class="hero-bis poz-hero">
         <div class="hero-bis-background">
             <img src="images/produits/poz_hero_bg.png" alt="Cartes mitsvot du jeu Poztamitsvah illustrant des commandements de la vie quotidienne juive" loading="lazy">
         </div>
@@ -1257,8 +1135,8 @@
                 <button class="btn-modal" id="btn-arbitrage-guide">
                     ⚖️ Guide d'Arbitrage
                 </button>
-                <button class="btn-modal btn-store disabled" onclick="openNotifyModal('poz')">
-                    🔔 Me prévenir
+                <button class="btn-modal btn-store" data-action="store">
+                    🛒 Commander
                 </button>
             </div>
         </div>
@@ -1716,8 +1594,7 @@
             <!-- Produits avec PRIX -->
             <div class="products-grid">
                 <!-- Produit 1: Jérusalem du Ciel -->
-                <div class="product-card coming-soon" data-product-id="jdc">
-                    <span class="coming-soon-badge">Printemps 2026</span>
+                <div class="product-card" data-product-id="jdc">
                     <div class="product-image">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/produits/jdc-box-mobile.png">
@@ -1744,8 +1621,8 @@
                             <span class="price-save">Économisez 10 €</span>
                         </div>
                         
-                        <button class="btn-notify" onclick="openNotifyModal('jdc')">
-                            🔔 Me prévenir
+                        <button class="btn-add-to-cart" onclick="addToCart('jdc', 'Jérusalem du Ciel', 39.90, 'images/produits/jdc-box-3d.jpg')">
+                            🛒 Ajouter au panier
                         </button>
                     </div>
                 </div>
@@ -1784,8 +1661,7 @@
                 </div>
                 
                 <!-- Produit 3: Poztamitsvah -->
-                <div class="product-card coming-soon" data-product-id="poz">
-                    <span class="coming-soon-badge">Printemps 2026</span>
+                <div class="product-card" data-product-id="poz">
                     <div class="product-image">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/produits/poz-box-mobile.png">
@@ -1812,8 +1688,8 @@
                             <span class="price-save">Économisez 8 €</span>
                         </div>
                         
-                        <button class="btn-notify" onclick="openNotifyModal('poz')">
-                            🔔 Me prévenir
+                        <button class="btn-add-to-cart" onclick="addToCart('poz', 'Poztamitsvah', 19.90, 'images/produits/poz_box_3d.png')">
+                            🛒 Ajouter au panier
                         </button>
                     </div>
                 </div>
@@ -1847,8 +1723,8 @@
                     </div>
                 </div>
                 
-                <!-- PACK COMPLET (en vedette) - Masqué car JDC et POZ non disponibles -->
-                <div class="product-card featured hidden-section" data-product-id="pack" style="display: none;">
+                <!-- PACK COMPLET (en vedette) -->
+                <div class="product-card featured" data-product-id="pack">
                     <div class="featured-badge">
                         ⭐ Offre Pack Famille ⭐
                     </div>
@@ -2077,9 +1953,6 @@
 <!-- Modale JDC -->
 <div class="content-discovery-overlay" id="content-discovery-jdc">
     <div class="content-discovery-modal">
-        <div class="modal-coming-soon-header">
-            🚀 Ce jeu sera disponible au printemps 2026
-        </div>
         <button class="content-discovery-close" aria-label="Fermer">×</button>
         
         <div class="content-discovery-wrapper">
@@ -2667,9 +2540,6 @@
 <!-- Modale POZ -->
 <div class="content-discovery-overlay" id="content-discovery-poz">
     <div class="content-discovery-modal">
-        <div class="modal-coming-soon-header">
-            🚀 Ce jeu sera disponible au printemps 2026
-        </div>
         <button class="content-discovery-close" aria-label="Fermer">×</button>
         
         <div class="content-discovery-wrapper">
@@ -3075,32 +2945,28 @@
             name: 'Jérusalem du Ciel',
             price: 39.90,
             priceId: 'price_1SBf5wL4ecjfMIxOm0nbZ5sp',
-            image: './images/jdc_picto_arrondi.png',
-            available: false
+            image: './images/jdc_picto_arrondi.png'
         },
         moh: {
             id: 'moh',
             name: 'Minhag ou Halakha',
             price: 19.90,
             priceId: 'price_1SBf6vL4ecjfMIxOYXAbWfh8',
-            image: './images/moh_picto_arrondi.png',
-            available: true
+            image: './images/moh_picto_arrondi.png'
         },
         poz: {
             id: 'poz',
             name: 'Poztamitsvah',
             price: 19.90,
             priceId: 'price_1SBf7lL4ecjfMIxOKuRj4czs',
-            image: './images/poz_picto_arrondi.png',
-            available: false
+            image: './images/poz_picto_arrondi.png'
         },
         lumieres: {
             id: 'lumieres',
             name: 'Lumières d\'Israël',
             price: 9.90,
             priceId: 'price_1Scn6GL4ecjfMIxOPxaM9FMl',
-            image: './images/mockup_boite_serie1_recto.png',
-            available: true
+            image: './images/mockup_boite_serie1_recto.png'
         },
         pack: {
             id: 'pack',
@@ -3290,12 +3156,6 @@
         // Trouver le produit directement par sa clé (simplifié)
         const product = products[productId];
         const priceId = product ? product.priceId : null;
-        
-        // Vérifier si le produit est disponible
-        if (product && product.available === false) {
-            alert('Ce produit n\'est pas encore disponible. Sortie prévue : Printemps 2026.\n\nUtilisez le bouton "Me prévenir" pour être informé de sa disponibilité.');
-            return;
-        }
         
         // DEBUG: Log pour vérifier la correspondance
         console.log('Adding to cart:', { productId, product, priceId });
@@ -3891,9 +3751,9 @@
                         <p>Un an de travail acharné ont donné naissance à trois univers complémentaires :</p>
                         
                         <ul>
-                            <li><strong>Jérusalem du Ciel</strong> pour découvrir 3000 ans d'histoire <em>(bientôt)</em></li>
+                            <li><strong>Jérusalem du Ciel</strong> pour découvrir 3000 ans d'histoire</li>
                             <li><strong>Minhag ou Halakha</strong> pour comprendre la différence entre loi et coutume</li>
-                            <li><strong>Poztamitsvah</strong> pour vivre 140 mitzvot au quotidien <em>(bientôt)</em></li>
+                            <li><strong>Poztamitsvah</strong> pour vivre 140 mitzvot au quotidien</li>
                         </ul>
                         
                         <p>Aujourd'hui, quand je vois des familles — éloignées ou pratiquantes — jouer ensemble, rire, débattre, et surtout transmettre sans contrainte, je sais que ce « 770 » n'était pas un hasard.</p>
@@ -4069,21 +3929,6 @@
             }
         });
     });
-    
-    // Fonction pour le bouton "Me prévenir"
-    function openNotifyModal(gameId) {
-        const gameNames = {
-            'jdc': 'Jérusalem du Ciel',
-            'poz': 'Poztamitsvah'
-        };
-        const gameName = gameNames[gameId] || 'ce jeu';
-        
-        // Pour l'instant, on affiche une alerte. Plus tard, on pourra intégrer un formulaire ou un service d'email
-        alert(`Merci pour votre intérêt !\n\nNous vous informerons dès que "${gameName}" sera disponible au printemps 2026.\n\nVous pouvez aussi vous inscrire à notre newsletter pour être tenu au courant de toutes nos nouveautés.`);
-        
-        // TODO: Intégrer un formulaire de notification ou rediriger vers la newsletter
-        // Exemple : window.location.href = '#newsletter';
-    }
     </script>
 
 </body>
