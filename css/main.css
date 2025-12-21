@@ -7117,6 +7117,12 @@ footer {
     display: flex;
 }
 
+/* Modale collection alignée en haut */
+#modal-collection {
+    align-items: flex-start;
+    padding-top: 100px;
+}
+
 .modal-content {
     background: linear-gradient(135deg, #FAF8F0 0%, #F5E6C8 100%);
     padding: 40px;
@@ -7131,6 +7137,26 @@ footer {
 .modal-content.modal-large {
     max-width: 900px !important;
     padding: 50px !important;
+}
+
+/* Styles spécifiques pour la modale collection */
+#modal-collection .modal-content {
+    position: relative;
+    top: 0;
+    transform: none;
+    margin-top: 0;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    text-align: center;
+    max-height: calc(100vh - 120px);  /* limite la hauteur */
+    overflow-y: auto;  /* scroll si nécessaire */
+}
+
+#modal-collection h3 {
+    margin-top: 0.5rem;
 }
 
 .modal-close {
@@ -7175,6 +7201,15 @@ footer {
     margin-bottom: 10px;
 }
 
+.modal-collection-image {
+    max-width: 280px;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    margin: 1.5rem auto 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: block;
+}
 
 /* Mobile - même comportement pour tous */
 @media (max-width: 768px) {
