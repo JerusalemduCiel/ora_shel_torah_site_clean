@@ -1303,8 +1303,8 @@ img {
 
   .slider-track {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
     gap: 2rem;
     width: 100%;
     height: 100%;
@@ -1312,7 +1312,7 @@ img {
     transition: none !important;
   }
 
-  /* Slides des jeux - Tablette : grille 2×2 */
+  /* Slides des jeux - Tablette : grille 3 colonnes (3 jeux) */
   .jeu-slide {
     width: 100%;
     flex: none;
@@ -1429,9 +1429,9 @@ img {
     transition: none !important;
   }
 
-  /* Slides des jeux - Desktop : affichage horizontal statique (4 cartes) */
+  /* Slides des jeux - Desktop : affichage horizontal statique (3 cartes) */
   .jeu-slide {
-    width: calc(25% - 1.5rem); /* 4 cartes avec gap */
+    width: calc(33.333% - 1.33rem); /* 3 cartes avec gap */
     flex: 1;
     flex-shrink: 0;
     display: flex;

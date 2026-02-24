@@ -42,7 +42,7 @@
      * Détecte l'acte actuel selon la position du scroll
      */
     function detectCurrentActe() {
-        const actes = ['acte-1', 'acte-2', 'hero-bis-jdc', 'hero-bis-moh', 'hero-bis-poz'];
+        const actes = ['acte-1', 'acte-2', 'hero-bis-jdc', 'hero-bis-moh'];
         const scrollY = window.scrollY || window.pageYOffset;
         const windowHeight = window.innerHeight;
         const viewportMiddle = scrollY + windowHeight / 2;
