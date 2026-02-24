@@ -996,30 +996,6 @@ img {
         will-change: auto !important;
     }
     
-    /* Livre flip 3D - mobile : max-width réduit, seul le tap flip */
-    .book-flip-container {
-        max-width: 280px;
-    }
-    .book-flip-container:hover .book-flip-inner {
-        transform: none;
-    }
-    .book-flip-inner.flipped {
-        transform: rotateY(180deg);
-    }
-    
-    /* #lumieres-israel : 2 colonnes → 1 colonne, livre plus petit */
-    #lumieres-israel .hero-bis-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    #lumieres-israel .book-flip-container {
-        max-width: 250px;
-        min-width: auto;
-    }
-    .hero-bis-text-col {
-        text-align: center;
-    }
-    
 }
 
 /* ============================================================

@@ -667,28 +667,14 @@
             <img src="images/hero_lumieres_mod.png" alt="La Parole Transmise - Lumières d'Israël - Fond" loading="lazy">
         </div>
         <div class="hero-bis-content">
-            <!-- Colonne gauche : livre -->
-            <div class="book-flip-container">
-                <div class="book-flip-inner">
-                    <div class="book-flip-front">
-                        <img src="images/RECTO_LIVRE_DETOURE.png" alt="La Parole Transmise - Recto" loading="lazy">
-                    </div>
-                    <div class="book-flip-back">
-                        <img src="images/VERSO_LIVRE_DETOURE.png" alt="La Parole Transmise - Verso" loading="lazy">
-                    </div>
-                </div>
-            </div>
-            <!-- Colonne droite : texte + boutons -->
-            <div class="hero-bis-text-col">
-                <h2>La Parole Transmise - Lumières d'Israël <span class="h2-subtitle">— Les grandes figures de l'histoire juive — Un livre premium</span></h2>
-                <p class="hero-bis-subtitle">Un livre premium pour découvrir les patriarches, prophètes et sages qui ont façonné 4000 ans d'histoire</p>
-                <div class="hero-bis-actions">
-                    <button class="btn-modal btn-hero" onclick="openModal('modal-contenu-lumieres')">Découvrir le contenu</button>
-                    <button class="btn-hero btn-modal" onclick="openModal('modal-carte-apercu')">Feuilleter les pages</button>
-                    <button class="btn-modal btn-store" data-action="store">
-                        🛒 Commander
-                    </button>
-                </div>
+            <h2>La Parole Transmise - Lumières d'Israël <span class="h2-subtitle">— Les grandes figures de l'histoire juive — Un livre premium</span></h2>
+            <p class="hero-bis-subtitle">Un livre premium pour découvrir les patriarches, prophètes et sages qui ont façonné 4000 ans d'histoire</p>
+            <div class="hero-bis-actions">
+                <button class="btn-modal btn-hero" onclick="openModal('modal-contenu-lumieres')">Découvrir le contenu</button>
+                <button class="btn-hero btn-modal" onclick="openModal('modal-carte-apercu')">Feuilleter les pages</button>
+                <button class="btn-modal btn-store" data-action="store">
+                    🛒 Commander
+                </button>
             </div>
         </div>
     </section>
@@ -3993,21 +3979,6 @@ Merci !`;
       if (notifyGame && notifyGameNames[notifyGame]) {
         setTimeout(() => openNotifyModal(notifyGame), 500);
       }
-    });
-    </script>
-
-    <!-- Livre flip 3D : tap mobile pour retourner -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var flipContainer = document.querySelector('.book-flip-container');
-        if (flipContainer) {
-            flipContainer.addEventListener('click', function() {
-                var inner = flipContainer.querySelector('.book-flip-inner');
-                if (inner) {
-                    inner.classList.toggle('flipped');
-                }
-            });
-        }
     });
     </script>
 
