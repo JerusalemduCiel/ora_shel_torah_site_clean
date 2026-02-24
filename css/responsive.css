@@ -996,6 +996,17 @@ img {
         will-change: auto !important;
     }
     
+    /* Livre flip 3D - mobile : max-width réduit, seul le tap flip */
+    .book-flip-container {
+        max-width: 280px;
+    }
+    .book-flip-container:hover .book-flip-inner {
+        transform: none;
+    }
+    .book-flip-inner.flipped {
+        transform: rotateY(180deg);
+    }
+    
 }
 
 /* ============================================================

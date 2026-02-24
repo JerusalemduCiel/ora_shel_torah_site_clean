@@ -664,7 +664,16 @@
     <!-- HERO BIS - La Parole Transmise - Lumières d'Israël -->
     <section id="lumieres-israel" class="hero-bis hero-bis-lumieres">
         <div class="hero-bis-background">
-            <img src="images/hero_lumieres_mod.png" alt="La Parole Transmise - Lumières d'Israël - Livre premium, les grandes figures de l'histoire juive" loading="lazy">
+            <div class="book-flip-container">
+                <div class="book-flip-inner">
+                    <div class="book-flip-front">
+                        <img src="images/RECTO_LIVRE_DETOURE.png" alt="La Parole Transmise - Recto" loading="lazy">
+                    </div>
+                    <div class="book-flip-back">
+                        <img src="images/VERSO_LIVRE_DETOURE.png" alt="La Parole Transmise - Verso" loading="lazy">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="hero-bis-content">
             <h2>La Parole Transmise - Lumières d'Israël <span class="h2-subtitle">— Les grandes figures de l'histoire juive — Un livre premium</span></h2>
@@ -3979,6 +3988,21 @@ Merci !`;
       if (notifyGame && notifyGameNames[notifyGame]) {
         setTimeout(() => openNotifyModal(notifyGame), 500);
       }
+    });
+    </script>
+
+    <!-- Livre flip 3D : tap mobile pour retourner -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var flipContainer = document.querySelector('.book-flip-container');
+        if (flipContainer) {
+            flipContainer.addEventListener('click', function() {
+                var inner = flipContainer.querySelector('.book-flip-inner');
+                if (inner) {
+                    inner.classList.toggle('flipped');
+                }
+            });
+        }
     });
     </script>
 
