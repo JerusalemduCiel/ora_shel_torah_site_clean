@@ -11511,3 +11511,60 @@ section.inspirations h2,
         font-size: 1.5rem;
     }
 }
+
+/* ========================================
+   MODALES LUMIÈRES D'ISRAËL — overlay, scroll, fermeture
+   ======================================== */
+
+/* BUG 1 — Modale "Découvrir le contenu" : overlay au premier plan, scrollable, bouton fermer visible */
+#modal-contenu-lumieres.modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: none !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+}
+
+#modal-contenu-lumieres.modal.active {
+    display: block !important;
+}
+
+#modal-contenu-lumieres .modal-content {
+    position: relative !important;
+    max-width: 600px !important;
+    width: 90% !important;
+    margin: 40px auto !important;
+    padding: 2rem !important;
+    background: white !important;
+    border-radius: 12px !important;
+    max-height: none !important;
+}
+
+#modal-contenu-lumieres .modal-close {
+    position: sticky !important;
+    top: 10px !important;
+    float: right !important;
+    font-size: 2rem !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    text-align: center !important;
+    color: #333 !important;
+}
+
+/* Modale "Feuilleter les pages" : même z-index overlay */
+#modal-carte-apercu.modal {
+    z-index: 9999 !important;
+}
