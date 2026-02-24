@@ -7070,11 +7070,27 @@ footer {
     object-position: center center;
 }
 
-/* Centrer le conteneur flip livre dans la section */
-#lumieres-israel .hero-bis-background {
+/* Layout 2 colonnes : livre à gauche, texte à droite */
+#lumieres-israel .hero-bis-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 3rem;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Taille du livre (2x plus grand) */
+#lumieres-israel .book-flip-container {
+    max-width: 400px;
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+/* Colonne texte à droite */
+.hero-bis-text-col {
+    text-align: left;
+    flex: 1;
 }
 
 /* === LIVRE FLIP 3D (recto/verso au survol ou tap) === */

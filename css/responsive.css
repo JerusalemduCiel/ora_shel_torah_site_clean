@@ -1007,6 +1007,19 @@ img {
         transform: rotateY(180deg);
     }
     
+    /* #lumieres-israel : 2 colonnes → 1 colonne, livre plus petit */
+    #lumieres-israel .hero-bis-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    #lumieres-israel .book-flip-container {
+        max-width: 250px;
+        min-width: auto;
+    }
+    .hero-bis-text-col {
+        text-align: center;
+    }
+    
 }
 
 /* ============================================================
