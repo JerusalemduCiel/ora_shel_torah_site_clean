@@ -133,26 +133,27 @@ function initModalButtons() {
         });
     });
     
-    // Bouton "Store / Shop"
-    document.querySelectorAll('[data-action="store"]').forEach(btn => {
+    // Bouton "Store / Shop" - Scroll vers la boutique (modale prelaunch désactivée)
+    document.querySelectorAll('[data-action="store"], .btn-store').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             
             // Scroll vers la boutique
-            setTimeout(() => {
-                const shopSection = document.getElementById('boutique');
-                if (shopSection) {
-                    const header = document.getElementById('main-header');
-                    const headerHeight = header ? header.offsetHeight : 0;
-                    const targetPosition = shopSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 300);
+            const shopSection = document.getElementById('boutique') 
+                || document.getElementById('cta-final')
+                || document.getElementById('precommande');
+            
+            if (shopSection) {
+                const header = document.getElementById('main-header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = shopSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
     

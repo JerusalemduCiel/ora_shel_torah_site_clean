@@ -137,6 +137,7 @@
 
     function interceptPurchaseButtons() {
         // Sélecteurs CSS valides (sans :contains qui n'existe pas en CSS)
+        // NOTE: .btn-store et [data-action="store"] sont exclus - ils scrollent vers la boutique
         const validSelectors = [
             '.btn-commander',
             '.btn-acheter',
@@ -144,7 +145,7 @@
             '.btn-ajouter-panier',
             '.btn-checkout',
             '.btn-precommander',
-            '.btn-store',
+            // '.btn-store', // DÉSACTIVÉ - scroll vers boutique au lieu de modale
             '.buy-button',
             '[data-stripe]',
             '[data-price-id]',
@@ -194,12 +195,19 @@
         // - L'élément a déjà un handler prelaunch
         // - C'est un lien vers une ancre (#) qui n'est pas Stripe
         // - C'est un bouton "Découvrir le contenu" (data-action="content")
+        // - C'est un bouton "Commander" (data-action="store" ou .btn-store) - désactivé pour scroll vers boutique
         if (element.dataset.prelaunchHandled) {
             return false;
         }
 
         // Ne pas intercepter les boutons "Découvrir le contenu"
         if (element.getAttribute('data-action') === 'content') {
+            return false;
+        }
+
+        // Ne pas intercepter les boutons "Commander" (data-action="store" ou .btn-store)
+        // Ils doivent scroller vers la boutique au lieu d'afficher la modale
+        if (element.getAttribute('data-action') === 'store' || element.classList.contains('btn-store')) {
             return false;
         }
 
@@ -229,8 +237,9 @@
                         }
                         
                         // Vérifier les descendants
+                        // NOTE: .btn-store et [data-action="store"] sont exclus - ils scrollent vers la boutique
                         const purchaseButtons = node.querySelectorAll && node.querySelectorAll(
-                            '.btn-commander, .btn-acheter, .btn-add-to-cart, .btn-checkout, .btn-precommander, .btn-store, [data-stripe], [data-price-id]'
+                            '.btn-commander, .btn-acheter, .btn-add-to-cart, .btn-checkout, .btn-precommander, [data-stripe], [data-price-id]'
                         );
                         
                         if (purchaseButtons) {
