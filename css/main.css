@@ -1408,7 +1408,7 @@ img {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    min-height: 450px;
+    min-height: auto;
     padding: 0 2rem;
     box-sizing: border-box;
   }
@@ -1438,8 +1438,8 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 10px;
+    padding: 20px 15px;
     box-sizing: border-box;
     background: white;
     border-radius: 16px;
@@ -1447,6 +1447,7 @@ img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 1 !important; /* Tous visibles sur desktop */
     position: relative !important; /* Pas d'absolute sur desktop */
+    max-height: 450px;
   }
 
   .jeu-slide:hover {
@@ -1467,6 +1468,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5px;
   }
 
   .jeu-frame {
@@ -1476,46 +1478,220 @@ img {
   }
 
   .jeu-frame img {
-    width: 100%;
-    height: 100%;
+    max-height: 180px;
+    max-width: 160px;
+    width: auto;
+    height: auto;
     object-fit: contain;
   }
 
   .jeu-info {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
+    flex: 1 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .jeu-title {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 1.2;
+    font-size: 1.1rem !important;
+    margin-bottom: 5px !important;
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-weight: 600 !important;
+    color: #333 !important;
   }
 
   .jeu-tagline {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    min-height: 60px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    text-align: center;
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+    min-height: auto !important;
+    display: block !important;
+    text-align: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #666 !important;
   }
 
   .btn-discover {
-    margin-top: auto;
-    width: auto;
+    margin-top: auto !important;
+    width: auto !important;
+    padding: 8px 20px !important;
+    font-size: 0.9rem !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* ===== DESKTOP - OPTIMISATION POUR VISIBILITÉ COMPLÈTE SANS SCROLL (min-width: 769px) ===== */
+@media (min-width: 769px) {
+  /* Section entière */
+  .showcase-section,
+  section#nos-jeux,
+  .jeux-showcase,
+  #acte-2.jeux-showcase,
+  section[id*="jeux"].jeux-showcase {
+    padding: 30px 0 40px !important;
+    min-height: unset !important;
+    height: auto !important;
+    display: block !important;
+    align-items: normal !important;
+  }
+
+  /* Titre de section */
+  h2.section-title,
+  .jeux-showcase .section-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 20px !important;
+    text-align: center;
+  }
+
+  /* Réduire le margin-bottom du header */
+  .showcase-header {
+    margin-bottom: 20px;
+  }
+
+  /* Conteneur des 3 cartes */
+  .showcase-container,
+  .jeux-grid,
+  .jeux-container {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 20px !important;
+    padding: 0 40px !important;
+    align-items: stretch !important;
+  }
+
+  /* Chaque carte */
+  .jeu-slide,
+  .jeu-card {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 20px 15px !important;
+    gap: 8px !important;
+    background: white !important;
+    border-radius: 12px !important;
+    opacity: 1 !important;
+    position: relative !important;
+    max-height: none !important;
+  }
+
+  /* Image compacte */
+  .jeu-slide img,
+  .jeu-card img,
+  .jeu-frame img,
+  .jeu-visual img {
+    max-height: 160px !important;
+    max-width: 180px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  /* Conteneur jeu-visual */
+  .jeu-visual {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 5px !important;
+  }
+
+  /* Conteneur jeu-info - FORCER LA VISIBILITÉ */
+  .jeu-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    flex: 1 !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Titre du jeu - VISIBLE */
+  .jeu-slide h3,
+  .jeu-card h3,
+  .jeu-slide .jeu-title,
+  .jeu-card .jeu-title,
+  .jeu-info .jeu-title {
+    display: block !important;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+    margin: 5px 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+  }
+
+  /* Description - VISIBLE */
+  .jeu-slide p,
+  .jeu-card p,
+  .jeu-slide .jeu-desc,
+  .jeu-card .jeu-desc,
+  .jeu-slide .jeu-tagline,
+  .jeu-card .jeu-tagline,
+  .jeu-info .jeu-tagline {
+    display: block !important;
+    font-size: 0.85rem !important;
+    text-align: center !important;
+    margin: 4px 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    line-height: 1.4 !important;
+    color: #666 !important;
+  }
+
+  /* Bouton Découvrir - VISIBLE */
+  .jeu-slide .btn,
+  .jeu-card .btn,
+  .jeu-slide a[href],
+  .jeu-card a[href],
+  .jeu-slide button,
+  .jeu-card button,
+  .jeu-slide .btn-discover,
+  .jeu-card .btn-discover,
+  .jeu-info .btn-discover,
+  a[href*="hero-bis"],
+  button[data-scroll-to] {
+    display: inline-block !important;
+    margin-top: auto !important;
+    padding: 8px 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+  }
+
+  /* Réduire la hauteur minimale du showcase-window */
+  .showcase-window {
+    min-height: auto !important;
+  }
+
+  /* Slider track - affichage horizontal */
+  .slider-track {
+    display: flex !important;
+    gap: 20px !important;
   }
 }
 

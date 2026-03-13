@@ -477,6 +477,48 @@ function initSmoothScrolling() {
             }
         });
     });
+    
+    // Event listener pour les titres de jeux (h3.jeu-title) dans le showcase
+    document.querySelectorAll('.jeu-title').forEach(title => {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', function(e) {
+            // Trouver le jeu-slide parent pour obtenir data-jeu
+            const jeuSlide = this.closest('.jeu-slide');
+            if (!jeuSlide) return;
+            
+            const jeuId = jeuSlide.getAttribute('data-jeu');
+            if (!jeuId) return;
+            
+            // Mapper les IDs de jeux aux IDs de sections hero-bis
+            const targetIdMap = {
+                'lumieres': 'lumieres-israel',
+                'moh': 'hero-bis-moh',
+                'jdc': 'hero-bis-jdc'
+            };
+            
+            const targetId = targetIdMap[jeuId];
+            if (!targetId) return;
+            
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                
+                const header = document.getElementById('main-header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Mettre à jour l'URL sans recharger la page
+                if (history.replaceState) {
+                    history.replaceState(null, '', '#' + targetId);
+                }
+            }
+        });
+    });
 }
 
 function initHeaderScroll() {
