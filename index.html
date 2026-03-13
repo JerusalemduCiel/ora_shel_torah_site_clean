@@ -699,9 +699,10 @@
                 <button class="btn-modal" data-action="rules" data-game="moh">
                     📋 Règles du jeu
                 </button>
-                <button class="btn-modal btn-store" data-action="store">
-                    🛒 Commander
-                </button>
+                <a href="#contact" class="btn-modal btn-store btn-notify" data-game="moh">
+                    <span>🔔</span>
+                    <span>Me prévenir de la sortie</span>
+                </a>
             </div>
         </div>
         
@@ -1610,9 +1611,10 @@
                             <span class="price-save">Économisez 8 €</span>
                         </div>
                         
-                        <button class="btn-add-to-cart btn-moh-soon" disabled style="opacity: 0.5; cursor: not-allowed; pointer-events: none;">
-                            Disponible été 2026
-                        </button>
+                        <a href="#contact" class="btn-notify" data-game="moh">
+                            <span>🔔</span>
+                            <span>Me prévenir de la sortie</span>
+                        </a>
                     </div>
                 </div>
                 
@@ -3939,11 +3941,13 @@
     // ============================================
 
     const notifyGameNames = {
-      'jdc': 'Jérusalem du Ciel'
+      'jdc': 'Jérusalem du Ciel',
+      'moh': 'Minhag ou Halakha'
     };
 
     const notifyGameDescriptions = {
-      'jdc': 'le jeu de plateau qui permet de traverser 3000 ans d\'histoire juive en famille'
+      'jdc': 'le jeu de plateau qui permet de traverser 3000 ans d\'histoire juive en famille',
+      'moh': 'le jeu qui permet de distinguer la loi religieuse de la coutume'
     };
 
     function openNotifyModal(gameId) {
@@ -3972,9 +3976,17 @@
       const messageField = document.querySelector('textarea[name="message"], textarea#message, .contact-form textarea, form textarea, #contact textarea');
       
       if (messageField) {
-        const prefilledMessage = `Bonjour,
+        // Déterminer la date de sortie selon le jeu
+        const releaseDate = gameId === 'moh' ? 'été 2026' : 'printemps 2026';
+        const prefilledMessage = gameId === 'moh' 
+          ? `Je souhaite être informé(e) de la sortie du jeu "${gameName}" (${gameDesc}), prévu à l'été 2026.
 
-Je souhaite être informé(e) de la sortie du jeu "${gameName}" (${gameDesc}), prévue au printemps 2026.
+[Vous pouvez ajouter votre commentaire ou question ici]
+
+Merci !`
+          : `Bonjour,
+
+Je souhaite être informé(e) de la sortie du jeu "${gameName}" (${gameDesc}), prévue au ${releaseDate}.
 
 [Vous pouvez ajouter votre commentaire ou question ici]
 
@@ -4003,6 +4015,18 @@ Merci !`;
           form.appendChild(hiddenField);
         }
         hiddenField.value = gameName;
+        
+        // Ajouter champ sujet pour Formspree (_subject)
+        let subjectField = form.querySelector('input[name="_subject"]');
+        if (!subjectField) {
+          subjectField = document.createElement('input');
+          subjectField.type = 'hidden';
+          subjectField.name = '_subject';
+          form.appendChild(subjectField);
+        }
+        subjectField.value = gameId === 'moh' 
+          ? 'Demande d\'information pour Minhag ou Halakha'
+          : `Demande d'information pour ${gameName}`;
         
         // Afficher bannière de confirmation
         let confirmBanner = form.querySelector('.notify-confirm-banner');
