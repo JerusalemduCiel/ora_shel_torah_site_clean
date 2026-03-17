@@ -82,6 +82,9 @@ exports.handler = async (event) => {
           <tr><td><strong>Montant :</strong></td><td>${amount} €</td></tr>
           <tr><td><strong>Référence :</strong></td><td>${sessionId}</td></tr>
         </table>
+        <div style="margin-top:20px; text-align:center;">
+          <a href="https://orasheltorah.fr/admin.html" style="background:#eda234; color:#0f1419; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:16px;">📦 Accéder au dashboard commandes</a>
+        </div>
       </div>
       `
     );
