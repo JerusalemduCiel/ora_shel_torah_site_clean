@@ -54,20 +54,20 @@ exports.handler = async (event) => {
     const clientResult = await sendEmail(
       customerEmail,
       '✅ Votre commande Ora Shel Torah est confirmée !',
-      `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #eda234;">Merci pour votre commande, ${customerName} !</h2>
-        <p>Votre paiement de <strong>${amount} €</strong> a bien été reçu.</p>
-        <p>📦 <strong>Livraison prévue :</strong> 2 à 3 jours ouvrés après expédition (Colissimo)</p>
-        <p>📍 <strong>Adresse de livraison :</strong> ${adresse}</p>
-        <p>📧 Vous recevrez un second email avec votre numéro de suivi Colissimo dès l'expédition.</p>
-        <hr/>
-        <p style="color: #666; font-size: 12px;">
-          Ora Shel Torah — orasheltorah.fr<br/>
-          Référence commande : ${sessionId}
-        </p>
-      </div>
-      `
+      '<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">' +
+        '<h2 style="color: #eda234;">✨ ' + customerName + ', merci d\'illuminer ce projet !</h2>' +
+        '<p>En passant commande, vous ne faites pas qu\'acheter un livre — vous participez à une aventure : celle de transmettre la beauté et la richesse du judaïsme à travers le jeu et le partage.</p>' +
+        '<p><strong>Votre commande de ' + amount + ' € a bien été confirmée.</strong></p>' +
+        '<p>📦 <strong>Livraison :</strong> Expédition sous 48h, livraison Colissimo en 2 à 3 jours ouvrés</p>' +
+        '<p>📍 <strong>Adresse :</strong> ' + adresse + '</p>' +
+        '<p>📧 Vous recevrez un email avec votre numéro de suivi dès l\'expédition.</p>' +
+        '<p style="margin-top:20px;">Merci de faire partie des premiers soutiens d\'Ora Shel Torah. 🙏</p>' +
+        '<hr/>' +
+        '<p style="color: #666; font-size: 12px;">' +
+          'Ora Shel Torah — <a href="https://orasheltorah.fr">orasheltorah.fr</a><br/>' +
+          'Référence : ' + sessionId +
+        '</p>' +
+      '</div>'
     );
     console.log('Résultat email client:', JSON.stringify(clientResult));
 
