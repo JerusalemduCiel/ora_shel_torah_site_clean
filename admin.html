@@ -259,7 +259,7 @@
           <a id="tracking-link" href="" target="_blank" style="color:#eda234;">🔗 Voir le suivi sur laposte.fr</a>
         </div>
       </div>
-      <button type="submit" class="btn-send" id="btn-send">Envoyer email de suivi</button>
+      <button type="submit" class="btn-send" id="btn-send" onclick="sendTracking()">Envoyer email de suivi</button>
       <button type="button" class="btn-send" id="btn-generate-label" style="margin-left: 8px;">Générer étiquette colis</button>
     </form>
 
@@ -415,6 +415,34 @@
         alert('Erreur lors de la génération de l\'étiquette.');
       }
     });
+
+    async function sendTracking() {
+      const params = new URLSearchParams(window.location.search);
+      const email = document.querySelector('[name="email"]')?.value || params.get('email');
+      const name = document.querySelector('[name="name"]')?.value || params.get('name');
+      const tracking = document.getElementById('tracking-number')?.value || document.querySelector('[placeholder*="Colissimo"]')?.value;
+
+      if (!tracking) {
+        alert('Veuillez entrer un numéro de suivi Colissimo');
+        return;
+      }
+
+      try {
+        const res = await fetch('/.netlify/functions/send-tracking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: decodeURIComponent(email), name: decodeURIComponent(name), tracking })
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert('Email de suivi envoyé à ' + decodeURIComponent(email));
+        } else {
+          alert('Erreur: ' + (data.error || 'Inconnue'));
+        }
+      } catch (err) {
+        alert('Erreur envoi: ' + err.message);
+      }
+    }
 
     // Déconnexion
     btnLogout.addEventListener('click', function() {
