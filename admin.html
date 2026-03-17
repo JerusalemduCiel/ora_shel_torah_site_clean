@@ -361,20 +361,36 @@
       doc.text('27 Boulevard des Belges', 10, 28);
       doc.text('69006 LYON — France', 10, 33);
 
-      // --- BLOC DESTINATAIRE (centre droit, plus grand) ---
+      // --- BLOC DESTINATAIRE ---
       doc.setLineWidth(0.6);
       doc.rect(8, 48, 195, 45);
       doc.setFontSize(7);
       doc.setFont(undefined, 'normal');
       doc.text('DESTINATAIRE', 10, 53);
+      
+      // Récupérer chaque champ séparément depuis les paramètres URL
+      const destName = decodeURIComponent(params.get('name') || '');
+      const destAddress = decodeURIComponent(params.get('address') || '');
+      
+      // Nettoyer l'adresse : séparer par virgule ou retour à la ligne
+      const parts = destAddress.split(/[,\n]+/).map(s => s.trim()).filter(s => s.length > 0);
+      
       doc.setFontSize(14);
       doc.setFont(undefined, 'bold');
-      doc.text(name.toUpperCase(), 12, 62);
+      doc.text(destName.toUpperCase(), 12, 62);
+      
       doc.setFont(undefined, 'normal');
       doc.setFontSize(11);
-      doc.text(rue, 12, 70);
-      doc.text(villeCP, 12, 77);
-      doc.text('FRANCE', 12, 84);
+      let destY = 70;
+      for (let i = 0; i < parts.length; i++) {
+        doc.text(parts[i].toUpperCase(), 12, destY);
+        destY += 7;
+      }
+      // Ajouter FRANCE à la fin seulement si pas déjà dans l'adresse
+      const fullAddr = destAddress.toUpperCase();
+      if (!fullAddr.includes('FRANCE')) {
+        doc.text('FRANCE', 12, destY);
+      }
 
       // --- PIED ---
       doc.setFontSize(8);
