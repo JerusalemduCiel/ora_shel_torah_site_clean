@@ -209,6 +209,11 @@
       <button type="button" class="btn-logout" id="btn-logout">Déconnexion</button>
     </div>
 
+    <div style="display:flex; gap:12px; margin-bottom:24px;">
+      <a href="https://www.laposte.fr/colissimo/vos-envois" target="_blank" style="background:#eda234; color:#0f1419; padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:bold;">📮 Créer un bordereau Colissimo</a>
+      <a href="https://www.laposte.fr/outils/track-a-parcel" target="_blank" style="background:#0f1419; color:#eda234; padding:10px 16px; border-radius:6px; text-decoration:none; font-weight:bold;">🔍 Suivre un colis</a>
+    </div>
+
     <form id="tracking-form">
       <div class="form-group">
         <label for="ref">Référence commande (session_id Stripe)</label>
@@ -224,11 +229,20 @@
       </div>
       <div class="form-group">
         <label for="product">Produit commandé</label>
-        <input type="text" id="product" name="product" placeholder="La Parole Transmise, Pack..." required>
+        <select id="product" name="product" required style="width:100%; padding:10px 12px; border:1px solid #ccc; border-radius:8px; font-size:1rem;">
+          <option value="">— Choisir un produit —</option>
+          <option value="La Parole Transmise - Lumières d'Israël">La Parole Transmise - Lumières d'Israël</option>
+          <option value="Minhag ou Halakha">Minhag ou Halakha</option>
+          <option value="Jérusalem du Ciel">Jérusalem du Ciel</option>
+          <option value="Pack Famille">Pack Famille</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="tracking">Numéro de suivi Colissimo</label>
         <input type="text" id="tracking" name="tracking" placeholder="8X12345678901" required>
+        <div id="tracking-link-preview" style="margin-top:8px; display:none;">
+          <a id="tracking-link" href="" target="_blank" style="color:#eda234;">🔗 Voir le suivi sur laposte.fr</a>
+        </div>
       </div>
       <button type="submit" class="btn-send" id="btn-send">Envoyer email de suivi</button>
     </form>
@@ -265,6 +279,20 @@
     btnLogin.addEventListener('click', doLogin);
     passwordInput.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') doLogin();
+    });
+
+    // Lien suivi Colissimo dynamique
+    const trackingInput = document.getElementById('tracking');
+    trackingInput.addEventListener('input', function() {
+      const num = this.value.trim();
+      const preview = document.getElementById('tracking-link-preview');
+      const link = document.getElementById('tracking-link');
+      if (num.length > 5) {
+        link.href = 'https://www.laposte.fr/outils/track-a-parcel?code=' + num;
+        preview.style.display = 'block';
+      } else {
+        preview.style.display = 'none';
+      }
     });
 
     // Déconnexion
