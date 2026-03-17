@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Ora Shel Torah</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0f1419;
+      min-height: 100vh;
+      color: #333;
+    }
+    body.dashboard-visible {
+      background: #fff;
+    }
+
+    /* ========== PAGE CONNEXION ========== */
+    #login-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #0f1419;
+    }
+    #login-page.hidden { display: none; }
+
+    .login-logo {
+      color: #eda234;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .login-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(237, 162, 52, 0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 360px;
+    }
+    .login-box label {
+      display: block;
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      background: rgba(0,0,0,0.2);
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .login-box input::placeholder {
+      color: #888;
+    }
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background: #eda234;
+      color: #0f1419;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-login:hover {
+      background: #d4922a;
+    }
+    .login-error {
+      color: #e74c3c;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      text-align: center;
+      display: none;
+    }
+    .login-error.visible { display: block; }
+
+    /* ========== DASHBOARD ========== */
+    #dashboard {
+      display: none;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #fff;
+      min-height: 100vh;
+    }
+    #dashboard.visible { display: block; }
+
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #eda234;
+    }
+    .dashboard-title {
+      font-size: 1.5rem;
+      color: #0f1419;
+      margin: 0;
+    }
+    .btn-logout {
+      padding: 8px 16px;
+      background: #0f1419;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-logout:hover { opacity: 0.9; }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: Arial, sans-serif;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #eda234;
+      box-shadow: 0 0 0 2px rgba(237, 162, 52, 0.2);
+    }
+
+    .btn-send {
+      padding: 12px 24px;
+      background: #eda234;
+      color: #0f1419;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .btn-send:hover {
+      background: #d4922a;
+    }
+    .btn-send:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .msg-success {
+      color: #27ae60;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      padding: 10px;
+      background: #e8f8f0;
+      border-radius: 8px;
+      display: none;
+    }
+    .msg-success.visible { display: block; }
+    .msg-error {
+      color: #e74c3c;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      padding: 10px;
+      background: #fdeaea;
+      border-radius: 8px;
+      display: none;
+    }
+    .msg-error.visible { display: block; }
+  </style>
+</head>
+<body>
+  <!-- 1. PAGE DE CONNEXION -->
+  <div id="login-page">
+    <div class="login-logo">Ora Shel Torah</div>
+    <div class="login-box">
+      <label for="admin-password">Mot de passe</label>
+      <input type="password" id="admin-password" placeholder="Mot de passe admin" autocomplete="current-password">
+      <button type="button" class="btn-login" id="btn-login">Connexion</button>
+      <p class="login-error" id="login-error">Mot de passe incorrect.</p>
+    </div>
+  </div>
+
+  <!-- 2. DASHBOARD -->
+  <div id="dashboard">
+    <div class="dashboard-header">
+      <h1 class="dashboard-title">📦 Gestion des commandes</h1>
+      <button type="button" class="btn-logout" id="btn-logout">Déconnexion</button>
+    </div>
+
+    <form id="tracking-form">
+      <div class="form-group">
+        <label for="ref">Référence commande (session_id Stripe)</label>
+        <input type="text" id="ref" name="ref" placeholder="cs_xxx..." required>
+      </div>
+      <div class="form-group">
+        <label for="client-name">Nom du client</label>
+        <input type="text" id="client-name" name="clientName" placeholder="Jean Dupont" required>
+      </div>
+      <div class="form-group">
+        <label for="client-email">Email du client</label>
+        <input type="email" id="client-email" name="clientEmail" placeholder="jean@exemple.fr" required>
+      </div>
+      <div class="form-group">
+        <label for="product">Produit commandé</label>
+        <input type="text" id="product" name="product" placeholder="La Parole Transmise, Pack..." required>
+      </div>
+      <div class="form-group">
+        <label for="tracking">Numéro de suivi Colissimo</label>
+        <input type="text" id="tracking" name="tracking" placeholder="8X12345678901" required>
+      </div>
+      <button type="submit" class="btn-send" id="btn-send">Envoyer email de suivi</button>
+    </form>
+
+    <p class="msg-success" id="msg-success">Email de suivi envoyé avec succès.</p>
+    <p class="msg-error" id="msg-error"></p>
+  </div>
+
+  <script>
+    const ADMIN_PASSWORD = 'OraShel2026';
+    const loginPage = document.getElementById('login-page');
+    const dashboard = document.getElementById('dashboard');
+    const passwordInput = document.getElementById('admin-password');
+    const btnLogin = document.getElementById('btn-login');
+    const loginError = document.getElementById('login-error');
+    const btnLogout = document.getElementById('btn-logout');
+    const trackingForm = document.getElementById('tracking-form');
+    const btnSend = document.getElementById('btn-send');
+    const msgSuccess = document.getElementById('msg-success');
+    const msgError = document.getElementById('msg-error');
+
+    // Connexion
+    function doLogin() {
+      loginError.classList.remove('visible');
+      if (passwordInput.value === ADMIN_PASSWORD) {
+        loginPage.classList.add('hidden');
+        dashboard.classList.add('visible');
+        document.body.classList.add('dashboard-visible');
+        passwordInput.value = '';
+      } else {
+        loginError.classList.add('visible');
+      }
+    }
+    btnLogin.addEventListener('click', doLogin);
+    passwordInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') doLogin();
+    });
+
+    // Déconnexion
+    btnLogout.addEventListener('click', function() {
+      dashboard.classList.remove('visible');
+      loginPage.classList.remove('hidden');
+      document.body.classList.remove('dashboard-visible');
+      msgSuccess.classList.remove('visible');
+      msgError.classList.remove('visible');
+    });
+
+    // Envoi email de suivi
+    trackingForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      msgSuccess.classList.remove('visible');
+      msgError.classList.remove('visible');
+      btnSend.disabled = true;
+
+      const payload = {
+        ref: document.getElementById('ref').value.trim(),
+        clientName: document.getElementById('client-name').value.trim(),
+        clientEmail: document.getElementById('client-email').value.trim(),
+        product: document.getElementById('product').value.trim(),
+        tracking: document.getElementById('tracking').value.trim()
+      };
+
+      try {
+        const res = await fetch('/.netlify/functions/send-tracking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && !data.error) {
+          msgSuccess.classList.add('visible');
+          trackingForm.reset();
+        } else {
+          msgError.textContent = data.error || data.message || 'Erreur lors de l\'envoi.';
+          msgError.classList.add('visible');
+        }
+      } catch (err) {
+        msgError.textContent = 'Erreur réseau : ' + err.message;
+        msgError.classList.add('visible');
+      }
+      btnSend.disabled = false;
+    });
+  </script>
+</body>
+</html>
