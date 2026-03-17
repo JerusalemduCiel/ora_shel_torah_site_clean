@@ -332,66 +332,68 @@
     });
 
     // Génération étiquette colis (PDF A5 paysage) avec jsPDF
+    function generateLabel() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a5' });
+
+      // Récupérer les paramètres URL
+      const params = new URLSearchParams(window.location.search);
+      const name = decodeURIComponent(params.get('name') || '');
+      const address = decodeURIComponent(params.get('address') || '');
+      const email = decodeURIComponent(params.get('email') || '');
+
+      // Extraire code postal et ville depuis l'adresse
+      // Format attendu : "rue, ville code_postal" ou similaire
+      const addressParts = address.split(',').map(s => s.trim());
+      const rue = addressParts[0] || '';
+      const villeCP = addressParts.slice(1).join(', ') || '';
+
+      // --- BLOC EXPÉDITEUR (haut gauche) ---
+      doc.setDrawColor(0);
+      doc.setLineWidth(0.3);
+      doc.rect(8, 8, 90, 32);
+      doc.setFontSize(7);
+      doc.setFont(undefined, 'normal');
+      doc.text('EXP.', 10, 13);
+      doc.setFontSize(9);
+      doc.text('Ora Shel Torah', 10, 18);
+      doc.text('Michael Lumbroso', 10, 23);
+      doc.text('27 Boulevard des Belges', 10, 28);
+      doc.text('69006 LYON — France', 10, 33);
+
+      // --- BLOC DESTINATAIRE (centre droit, plus grand) ---
+      doc.setLineWidth(0.6);
+      doc.rect(8, 48, 195, 45);
+      doc.setFontSize(7);
+      doc.setFont(undefined, 'normal');
+      doc.text('DESTINATAIRE', 10, 53);
+      doc.setFontSize(14);
+      doc.setFont(undefined, 'bold');
+      doc.text(name.toUpperCase(), 12, 62);
+      doc.setFont(undefined, 'normal');
+      doc.setFontSize(11);
+      doc.text(rue, 12, 70);
+      doc.text(villeCP, 12, 77);
+      doc.text('FRANCE', 12, 84);
+
+      // --- PIED ---
+      doc.setFontSize(8);
+      doc.setFont(undefined, 'normal');
+      doc.text('La Parole Transmise — Lumières d\'Israël | 0,5 kg | LIVRAISON EN BOÎTE AUX LETTRES', 105, 102, { align: 'center' });
+
+      // Sauvegarder
+      const fileName = 'etiquette_' + name.replace(/\s+/g, '_') + '.pdf';
+      doc.save(fileName);
+    }
+
     const btnGenerateLabel = document.getElementById('btn-generate-label');
     btnGenerateLabel.addEventListener('click', function() {
       try {
-        const params = new URLSearchParams(window.location.search);
-        const urlName = params.get('name') || '';
-        const urlAddress = params.get('address') || '';
-        const urlPostal = params.get('postal') || '';
-        const urlCity = params.get('city') || '';
-
-        const destName = urlName || document.getElementById('client-name').value.trim();
-        const destAddress = urlAddress || '';
-        const destPostal = urlPostal || '';
-        const destCity = urlCity || '';
-
-        const { jsPDF } = window.jspdf || {};
-        if (!jsPDF) {
+        if (!window.jspdf) {
           alert('Erreur : jsPDF non chargé.');
           return;
         }
-
-        const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a5' });
-
-        // BLOC GAUCHE (expéditeur) — x=10, y=15, largeur 85mm
-        doc.setFontSize(8);
-        doc.text('EXPÉDITEUR', 10, 15);
-        doc.rect(10, 18, 85, 35);
-        doc.setFontSize(9);
-        doc.text('Ora Shel Torah', 13, 25);
-        doc.text('Michael Lumbroso', 13, 30);
-        doc.text('27 Boulevard des Belges', 13, 35);
-        doc.text('69006 LYON', 13, 40);
-        doc.text('France', 13, 45);
-
-        // BLOC DROIT (destinataire) — x=115, y=15, largeur 85mm
-        const name = destName || 'Destinataire';
-        const address = destAddress || '';
-        const postal = destPostal || '';
-        const city = destCity || '';
-
-        doc.setFontSize(8);
-        doc.text('DESTINATAIRE', 115, 15);
-        doc.setLineWidth(0.5);
-        doc.rect(115, 18, 85, 50);
-        doc.setFontSize(12);
-        doc.setFont(undefined, 'bold');
-        doc.text(name, 118, 28);
-        doc.setFont(undefined, 'normal');
-        doc.setFontSize(10);
-        doc.text(address, 118, 36);
-        doc.text(postal + ' ' + city, 118, 43);
-        doc.text('France', 118, 50);
-
-        // BAS DE PAGE — centré
-        doc.setFontSize(9);
-        doc.text('Produit : La Parole Transmise — Lumières d\'Israël | Poids : 0,5 kg', 105, 85, { align: 'center' });
-        doc.setFontSize(10);
-        doc.setFont(undefined, 'bold');
-        doc.text('LIVRAISON EN BOÎTE AUX LETTRES', 105, 95, { align: 'center' });
-
-        doc.save('etiquette-colis-laposte.pdf');
+        generateLabel();
       } catch (e) {
         console.error('Erreur génération étiquette:', e);
         alert('Erreur lors de la génération de l\'étiquette.');
