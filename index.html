@@ -1773,13 +1773,13 @@
             <form id="checkout-form">
                 <h3>Informations de livraison</h3>
                 
-                <input type="text" name="name" id="customer-name" placeholder="Nom complet *" required>
-                <input type="email" name="email" id="customer-email" placeholder="Email *" required>
-                <input type="tel" name="phone" id="customer-phone" placeholder="Téléphone *" required>
-                <input type="text" name="address" id="customer-address" placeholder="Adresse *" required>
-                <input type="text" name="city" id="customer-city" placeholder="Ville *" required>
-                <input type="text" name="postal" id="customer-zip" placeholder="Code postal *" required>
-                <select name="country" required>
+                <input type="text" name="name" id="customer-name" placeholder="Nom complet *" autocomplete="name" required>
+                <input type="email" name="email" id="customer-email" placeholder="Email *" autocomplete="email" required>
+                <input type="tel" name="phone" id="customer-phone" placeholder="Téléphone *" autocomplete="tel" required>
+                <input type="text" name="address" id="customer-address" placeholder="Adresse *" autocomplete="street-address" required>
+                <input type="text" name="city" id="customer-city" placeholder="Ville *" autocomplete="address-level2" required>
+                <input type="text" name="postal" id="customer-zip" placeholder="Code postal *" autocomplete="postal-code" required>
+                <select name="country" autocomplete="country" required>
                     <option value="">Pays *</option>
                     <option value="FR">France</option>
                     <option value="BE">Belgique</option>
