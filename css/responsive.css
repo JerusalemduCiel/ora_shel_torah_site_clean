@@ -408,6 +408,7 @@ img {
     
     .slider-track {
         display: flex !important;
+        width: 300% !important;
         transition: transform 0.5s ease !important;
         /* Pas de width fixe, flex gère automatiquement la largeur totale */
     }
@@ -420,8 +421,8 @@ img {
         justify-content: center !important;
         padding: 30px 15px !important;
         text-align: center !important;
-        width: 100% !important;
-        min-width: 100% !important;
+        width: calc(100vw - 100px) !important;
+        min-width: calc(100vw - 100px) !important;
         max-width: 100% !important;
         min-height: 500px !important;
         flex-shrink: 0 !important;
