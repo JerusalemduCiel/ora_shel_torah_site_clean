@@ -499,26 +499,6 @@ img {
         visibility: visible !important;
     }
     
-    #acte-2 .jeu-frame img {
-        width: 100% !important;
-        height: 280px !important;
-        max-width: 100% !important;
-        object-fit: cover !important;
-        object-position: center center !important;
-    }
-    
-    #acte-2 .jeu-frame {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 280px !important;
-    }
-    
-    #acte-2 .jeu-visual {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 280px !important;
-    }
-    
     /* Infos jeu - FORCER affichage */
     .jeu-info {
         width: 100% !important;
@@ -1027,43 +1007,6 @@ img {
     .frise-content {
         transform: none !important;
         will-change: auto !important;
-    }
-
-    /* ACTE 2 - Correction Fold */
-    #acte-2 .jeu-visual,
-    #acte-2 .jeu-frame {
-        width: 60% !important;
-        max-width: 180px !important;
-        height: auto !important;
-        margin: 0 auto 20px !important;
-    }
-
-    #acte-2 .jeu-visual img,
-    #acte-2 .jeu-frame img {
-        width: 100% !important;
-        height: auto !important;
-        max-height: 220px !important;
-        object-fit: contain !important;
-    }
-
-    #acte-2 .jeu-info {
-        width: 100% !important;
-        padding: 0 10px !important;
-        text-align: center !important;
-    }
-
-    #acte-2 .jeu-title {
-        font-size: 1.3rem !important;
-        text-align: center !important;
-        margin: 0 auto 10px !important;
-        width: 100% !important;
-    }
-
-    #acte-2 .jeu-tagline {
-        font-size: 0.85rem !important;
-        text-align: center !important;
-        margin: 0 auto 15px !important;
-        width: 100% !important;
     }
 
     .jeu-slide {
