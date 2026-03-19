@@ -3328,7 +3328,7 @@
                     }
                     
                     // Redirection Stripe
-                    const stripe = Stripe('pk_test_51SBezAL4ecjfMIxOe42ZigNi2LZugBvQSQsm0rBLWAacJ151lKfQShCFDquSUT0aP9vjhe06MH6EcTHp9u5YgZGV00F8agmWxP');
+                    const stripe = Stripe('pk_live_51SBeyrLLfYKjr3rUDC9XHZw0mEQPPnQnR7bWnhkec0MqOGh6BfNKm1z9PAHmoT5ozk21RiZI2g4CZYBPb8DP8PZ000gcXNmXeL');
                     await stripe.redirectToCheckout({ sessionId: data.sessionId });
                     
                 } catch (error) {
