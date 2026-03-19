@@ -84,6 +84,37 @@ exports.handler = async (event) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
+      shipping_address_collection: { allowed_countries: ['FR'] },
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {
+              amount: 490,
+              currency: 'eur'
+            },
+            display_name: 'Mondial Relay (Point Relais)',
+            delivery_estimate: {
+              minimum: { unit: 'business_day', value: 3 },
+              maximum: { unit: 'business_day', value: 5 }
+            }
+          }
+        },
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {
+              amount: 790,
+              currency: 'eur'
+            },
+            display_name: 'Colissimo (Domicile)',
+            delivery_estimate: {
+              minimum: { unit: 'business_day', value: 2 },
+              maximum: { unit: 'business_day', value: 3 }
+            }
+          }
+        }
+      ],
       success_url: `${process.env.URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.URL}/#boutique`,
       customer_email: customerInfo.email,
