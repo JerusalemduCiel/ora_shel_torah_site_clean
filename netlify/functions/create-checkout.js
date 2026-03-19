@@ -64,19 +64,29 @@ exports.handler = async (event) => {
     const shippingCost = 7.59;
 
     // Line items Stripe
-    const lineItems = items.map(item => ({
-      price: item.priceId,
-      quantity: item.quantity || 1
-    }));
+    const lineItems = items.map(item => {
+      if (
+        item.priceId === 'price_1Scn6GL4ecjfMIxOPxaM9FMl' ||
+        item.id === 'lumieres' ||
+        item.productId === 'lumieres' ||
+        item.name === 'La Parole Transmise - Lumières d\'Israël'
+      ) {
+        return {
+          price_data: {
+            currency: 'eur',
+            product_data: {
+              name: item.name || 'La Parole Transmise - Lumières d\'Israël'
+            },
+            unit_amount: 3990
+          },
+          quantity: item.quantity || 1
+        };
+      }
 
-    // Ajouter systématiquement les frais de port
-    lineItems.push({
-      price_data: {
-        currency: 'eur',
-        product_data: { name: 'Livraison Colissimo' },
-        unit_amount: 759
-      },
-      quantity: 1
+      return {
+        price: item.priceId,
+        quantity: item.quantity || 1
+      };
     });
 
     // Créer session Stripe
