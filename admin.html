@@ -670,55 +670,70 @@
 <div class="toast" id="toast">✅ Copié !</div>
 
 <script>
-  function switchTab(tab) {
-    document.getElementById('panel-colissimo').classList.remove('active');
-    document.getElementById('panel-mr').classList.remove('active');
-    document.getElementById('tab-colissimo').className = 'tab-btn';
-    document.getElementById('tab-mr').className = 'tab-btn disabled-tab';
-    document.getElementById('tab-' + tab).className =
-      'tab-btn active-' + tab;
-    document.getElementById('tab-' + (tab === 'colissimo' ? 'mr' : 'colissimo'))
-      .className = 'tab-btn disabled-tab';
-    document.getElementById('panel-' + tab).classList.add('active');
+function switchTab(tab) {
+  var panels = ['colissimo', 'mr'];
+  panels.forEach(function(p) {
+    var panel = document.getElementById('panel-' + p);
+    var btn = document.getElementById('tab-' + p);
+    if (panel) panel.classList.remove('active');
+    if (btn) {
+      btn.className = 'tab-btn';
+      if (p !== tab) btn.style.opacity = '0.4';
+      else btn.style.opacity = '1';
+    }
+  });
+  var activePanel = document.getElementById('panel-' + tab);
+  var activeBtn = document.getElementById('tab-' + tab);
+  if (activePanel) activePanel.classList.add('active');
+  if (activeBtn) {
+    if (tab === 'colissimo') activeBtn.className = 'tab-btn active-colissimo';
+    else activeBtn.className = 'tab-btn active-mr';
+  }
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  var params = new URLSearchParams(window.location.search);
+  
+  function getP(key) {
+    var val = params.get(key);
+    return val ? decodeURIComponent(val) : '';
   }
 
-  // Lecture des paramètres URL
-  const params = new URLSearchParams(window.location.search);
-  const name    = decodeURIComponent(params.get('name')    || '');
-  const email   = decodeURIComponent(params.get('email')   || '');
-  const phone   = decodeURIComponent(params.get('phone')   || '');
-  const address = decodeURIComponent(params.get('address') || '');
-  const amount  = decodeURIComponent(params.get('amount')  || '');
-  const session = decodeURIComponent(params.get('session') || '');
-  const shipping = decodeURIComponent(params.get('shipping') || 'colissimo');
-  const product = params.get('product') || "La Parole Transmise — Lumières d'Israël";
+  var name     = getP('name');
+  var email    = getP('email');
+  var phone    = getP('phone');
+  var address  = getP('address');
+  var amount   = getP('amount');
+  var session  = getP('session');
+  var shipping = getP('shipping');
+  var product  = getP('product') || "La Parole Transmise — Lumières d'Israël";
 
-  // Décomposer le nom en prénom / nom
-  const nameParts = name.trim().split(' ');
-  const firstname = nameParts[0] || '';
-  const lastname  = nameParts.slice(1).join(' ') || '';
+  var nameParts  = name.trim().split(' ');
+  var firstname  = nameParts[0] || '';
+  var lastname   = nameParts.slice(1).join(' ') || '';
 
-  // Décomposer l'adresse : "27 boulevard des belges, LYON 69006"
-  // Format attendu: "rue, VILLE CP" ou "rue, VILLE, CP"
-  let addr1 = '', city = '', zip = '';
-  const addrParts = address.split(',');
+  var addr1 = '', city = '', zip = '';
+  var addrParts = address.split(',');
   if (addrParts.length >= 2) {
     addr1 = addrParts[0].trim();
-    const cityZipPart = addrParts.slice(1).join(',').trim();
-    // Cherche le code postal (5 chiffres)
-    const zipMatch = cityZipPart.match(/\b(\d{5})\b/);
+    var cityZip = addrParts.slice(1).join(',').trim();
+    var zipMatch = cityZip.match(/\b(\d{5})\b/);
     if (zipMatch) {
       zip  = zipMatch[1];
-      city = cityZipPart.replace(zip, '').trim().replace(/^[\s,]+|[\s,]+$/g, '');
+      city = cityZip.replace(zip, '').trim().replace(/^[\s,]+|[\s,]+$/g, '');
     } else {
-      city = cityZipPart;
+      city = cityZip;
     }
   } else {
     addr1 = address;
   }
 
-  // Remplir les champs
-  setText('display-amount', amount ? amount + ' €' : '44,80 €');
+  function setText(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = val || '—';
+  }
+
+  setText('display-amount', amount ? amount + ' €' : '—');
   setText('display-ref', session);
   setText('val-name', name);
   setText('val-email', email);
@@ -734,79 +749,73 @@
   setText('col-phone', phone);
   setText('col-email', email);
 
-  function setText(id, val) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = val || '—';
-  }
-
-  function copyField(id, btn) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    copyText(el.textContent, btn);
-  }
-
-  function copyText(text, btn) {
-    if (text === '—') return;
-    navigator.clipboard.writeText(text).then(() => {
-      if (btn) {
-        btn.textContent = '✅';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = '📋';
-          btn.classList.remove('copied');
-        }, 1800);
-      }
-      showToast();
-    });
-  }
-
   setText('mr-firstname', firstname);
   setText('mr-lastname', lastname);
   setText('mr-phone', phone);
   setText('mr-email', email);
   setText('mr-zip', zip);
-  if (shipping.toLowerCase().includes('relay') || 
-      shipping.toLowerCase().includes('mondial')) {
-    switchTab('mr');
-  } else {
-    switchTab('colissimo');
-  }
 
-  function copyAllMR() {
-    const relayId = document.getElementById('relay-id').value || '(à compléter)';
-    const lines = [
-      `Prénom : ${document.getElementById('mr-firstname').textContent}`,
-      `Nom : ${document.getElementById('mr-lastname').textContent}`,
-      `Téléphone : ${document.getElementById('mr-phone').textContent}`,
-      `Email : ${document.getElementById('mr-email').textContent}`,
-      `Code postal : ${document.getElementById('mr-zip').textContent}`,
-      `Point Relais ID : ${relayId}`,
-      `Poids : 1 kg`,
-    ].join('\n');
-    navigator.clipboard.writeText(lines).then(() => showToast('✅ Récapitulatif MR copié !'));
-  }
+  var isMR = shipping.toLowerCase().includes('relay') || 
+             shipping.toLowerCase().includes('mondial');
+  switchTab(isMR ? 'mr' : 'colissimo');
+});
 
+function copyField(id, btn) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  copyText(el.textContent, btn);
+}
 
-    const lines = [
-      `Prénom : ${document.getElementById('col-firstname').textContent}`,
-      `Nom : ${document.getElementById('col-lastname').textContent}`,
-      `Adresse : ${document.getElementById('col-addr1').textContent}`,
-      `Code postal : ${document.getElementById('col-zip').textContent}`,
-      `Ville : ${document.getElementById('col-city').textContent}`,
-      `Téléphone : ${document.getElementById('col-phone').textContent}`,
-      `Email : ${document.getElementById('col-email').textContent}`,
-      `Poids : 1 kg`,
-      `Pays : France`,
-    ].join('\n');
-    navigator.clipboard.writeText(lines).then(() => showToast('✅ Récapitulatif copié !'));
-  }
+function copyText(text, btn) {
+  if (!text || text === '—') return;
+  navigator.clipboard.writeText(text).then(function() {
+    if (btn) {
+      btn.textContent = '✅';
+      setTimeout(function() { btn.textContent = '📋'; }, 1800);
+    }
+    showToast();
+  });
+}
 
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg || '✅ Copié !';
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2000);
-  }
+function copyAll() {
+  var lines = [
+    'Prénom : ' + (document.getElementById('col-firstname').textContent),
+    'Nom : ' + (document.getElementById('col-lastname').textContent),
+    'Adresse : ' + (document.getElementById('col-addr1').textContent),
+    'Code postal : ' + (document.getElementById('col-zip').textContent),
+    'Ville : ' + (document.getElementById('col-city').textContent),
+    'Téléphone : ' + (document.getElementById('col-phone').textContent),
+    'Email : ' + (document.getElementById('col-email').textContent),
+    'Poids : 1 kg',
+    'Pays : France'
+  ].join('\n');
+  navigator.clipboard.writeText(lines).then(function() {
+    showToast('✅ Récapitulatif copié !');
+  });
+}
+
+function copyAllMR() {
+  var relayId = document.getElementById('relay-id').value || '(à compléter)';
+  var lines = [
+    'Prénom : ' + (document.getElementById('mr-firstname').textContent),
+    'Nom : ' + (document.getElementById('mr-lastname').textContent),
+    'Téléphone : ' + (document.getElementById('mr-phone').textContent),
+    'Email : ' + (document.getElementById('mr-email').textContent),
+    'Code postal : ' + (document.getElementById('mr-zip').textContent),
+    'Point Relais ID : ' + relayId,
+    'Poids : 1 kg'
+  ].join('\n');
+  navigator.clipboard.writeText(lines).then(function() {
+    showToast('✅ Récapitulatif MR copié !');
+  });
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg || '✅ Copié !';
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2000);
+}
 </script>
 </body>
 </html>
