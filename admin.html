@@ -706,6 +706,10 @@ window.addEventListener('DOMContentLoaded', function() {
   var amount   = getP('amount');
   var session  = getP('session');
   var shipping = getP('shipping');
+  var relayId      = getP('relay_id');
+  var relayName    = getP('relay_name');
+  var relayAddress = getP('relay_address');
+  var relayCity    = getP('relay_city');
   var product  = getP('product') || "La Parole Transmise — Lumières d'Israël";
 
   var nameParts  = name.trim().split(' ');
@@ -754,6 +758,17 @@ window.addEventListener('DOMContentLoaded', function() {
   setText('mr-phone', phone);
   setText('mr-email', email);
   setText('mr-zip', zip);
+  var relayInput = document.getElementById('relay-id');
+  if (relayInput && relayId) {
+    relayInput.value = relayId;
+    relayInput.style.borderColor = '#4caf7d';
+  }
+  if (relayId) {
+    var mrNote = document.querySelector('.mr-note');
+    if (mrNote) mrNote.innerHTML = '✅ <strong>Point relais confirmé par le client :</strong> '
+      + relayName + ' — ' + relayAddress + ', ' + relayCity
+      + ' (ID : ' + relayId + ')';
+  }
 
   var isMR = shipping.toLowerCase().includes('relay') || 
              shipping.toLowerCase().includes('mondial');

@@ -91,6 +91,10 @@ exports.handler = async (event) => {
         `shipping=${encodeURIComponent(
           session.metadata?.shipping_method || 'colissimo'
         )}&` +
+        `relay_id=${encodeURIComponent(session.metadata?.relay_id || '')}&` +
+        `relay_name=${encodeURIComponent(session.metadata?.relay_name || '')}&` +
+        `relay_address=${encodeURIComponent(session.metadata?.relay_address || '')}&` +
+        `relay_city=${encodeURIComponent(session.metadata?.relay_city || '')}&` +
         `product=${encodeURIComponent(session.metadata?.product_name || 'La Parole Transmise')}&` +
         `session=${encodeURIComponent(sessionId)}`;
       console.log('Envoi email admin à: mlumbroso68@gmail.com');
