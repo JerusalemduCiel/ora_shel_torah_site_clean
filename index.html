@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="css/certificates-modal.css">
     <link rel="stylesheet" href="css/rules-modal.css">
     <link rel="stylesheet" href="https://widget.mondialrelay.com/parcelshop-picker/v4_0/styles/mondialrelay-widget.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://widget.mondialrelay.com/parcelshop-picker/v4_0/scripts/mondialrelay-widget.min.js"></script>
     
     <!-- CSS pour produits en préparation -->
@@ -1784,6 +1785,16 @@
                     <option value="CH">Suisse</option>
                     <option value="LU">Luxembourg</option>
                 </select>
+                <div style="margin: 16px 0; display:flex; gap:12px;">
+                  <label style="flex:1; cursor:pointer;">
+                    <input type="radio" name="shipping-method" value="colissimo" checked>
+                    📦 Colissimo Domicile — 7,90 €
+                  </label>
+                  <label style="flex:1; cursor:pointer;">
+                    <input type="radio" name="shipping-method" value="mondial-relay">
+                    📍 Mondial Relay — 4,90 €
+                  </label>
+                </div>
                 <div id="mr-widget-container" style="display:none; margin-top:20px;">
                   <p style="font-weight:600; margin-bottom:10px;">
                     📍 Choisissez votre point relais :
