@@ -46,6 +46,11 @@ exports.handler = async (event) => {
       const sessionId = session.id;
       const customerCity = session.metadata?.customer_city || '';
       const customerPostal = session.metadata?.customer_zip || '';
+      const shippingMethod = session.metadata?.shipping_method || 'colissimo';
+      const shippingText = shippingMethod.includes('relay') ||
+        shippingMethod.includes('mondial')
+        ? 'Mondial Relay (Point Relais) — 3 à 5 jours ouvrés'
+        : 'Colissimo (Domicile) — 2 à 3 jours ouvrés';
 
       if (session.metadata && typeof session.metadata.estimated_delivery === 'string' &&
         session.metadata.estimated_delivery.toLowerCase().includes('avril-mai-2026')) {
@@ -61,7 +66,7 @@ exports.handler = async (event) => {
           '<h2 style="color: #eda234;">✨ ' + customerName + ', merci d\'illuminer ce projet !</h2>' +
           '<p>En passant commande, vous ne faites pas qu\'acheter un livre — vous participez à une aventure : celle de transmettre la beauté et la richesse du judaïsme à travers le jeu et le partage.</p>' +
           '<p><strong>Votre commande de ' + amount + ' € a bien été confirmée.</strong></p>' +
-          '<p>📦 <strong>Livraison :</strong> Expédition sous 48h, livraison Colissimo en 2 à 3 jours ouvrés</p>' +
+          '<p>📦 <strong>Livraison :</strong> ' + shippingText + '</p>' +
           '<p>📍 <strong>Adresse :</strong> ' + adresse + '</p>' +
           '<p>📧 Vous recevrez un email avec votre numéro de suivi dès l\'expédition.</p>' +
           '<p style="margin-top:20px;">Merci de faire partie des premiers soutiens d\'Ora Shel Torah. 🙏</p>' +

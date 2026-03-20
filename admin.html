@@ -225,6 +225,12 @@
     border-color: transparent;
   }
 
+  .disabled-tab {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
@@ -664,15 +670,28 @@
 <div class="toast" id="toast">✅ Copié !</div>
 
 <script>
+  function switchTab(tab) {
+    document.getElementById('panel-colissimo').classList.remove('active');
+    document.getElementById('panel-mr').classList.remove('active');
+    document.getElementById('tab-colissimo').className = 'tab-btn';
+    document.getElementById('tab-mr').className = 'tab-btn disabled-tab';
+    document.getElementById('tab-' + tab).className =
+      'tab-btn active-' + tab;
+    document.getElementById('tab-' + (tab === 'colissimo' ? 'mr' : 'colissimo'))
+      .className = 'tab-btn disabled-tab';
+    document.getElementById('panel-' + tab).classList.add('active');
+  }
+
   // Lecture des paramètres URL
   const params = new URLSearchParams(window.location.search);
-  const name    = decodeURIComponent(params.get('name') || '');
-  const email   = decodeURIComponent(params.get('email') || '');
-  const phone   = decodeURIComponent(params.get('phone') || '');
+  const name    = decodeURIComponent(params.get('name')    || '');
+  const email   = decodeURIComponent(params.get('email')   || '');
+  const phone   = decodeURIComponent(params.get('phone')   || '');
   const address = decodeURIComponent(params.get('address') || '');
-  const product = params.get('product') || "La Parole Transmise — Lumières d'Israël";
+  const amount  = decodeURIComponent(params.get('amount')  || '');
   const session = decodeURIComponent(params.get('session') || '');
-  const amount  = decodeURIComponent(params.get('amount') || '');
+  const shipping = decodeURIComponent(params.get('shipping') || 'colissimo');
+  const product = params.get('product') || "La Parole Transmise — Lumières d'Israël";
 
   // Décomposer le nom en prénom / nom
   const nameParts = name.trim().split(' ');
@@ -714,13 +733,6 @@
   setText('col-city', city);
   setText('col-phone', phone);
   setText('col-email', email);
-  const shipping = decodeURIComponent(params.get('shipping') || '');
-  if (shipping.toLowerCase().includes('relay') || 
-      shipping.toLowerCase().includes('mondial')) {
-    switchTab('mr');
-  } else {
-    switchTab('colissimo');
-  }
 
   function setText(id, val) {
     const el = document.getElementById(id);
@@ -753,19 +765,11 @@
   setText('mr-phone', phone);
   setText('mr-email', email);
   setText('mr-zip', zip);
-
-  function switchTab(tab) {
-    document.getElementById('panel-colissimo').classList.remove('active');
-    document.getElementById('panel-mr').classList.remove('active');
-    document.getElementById('tab-colissimo').className = 'tab-btn';
-    document.getElementById('tab-mr').className = 'tab-btn';
-
-    document.getElementById('panel-' + tab).classList.add('active');
-    if (tab === 'colissimo') {
-      document.getElementById('tab-colissimo').className = 'tab-btn active-colissimo';
-    } else {
-      document.getElementById('tab-mr').className = 'tab-btn active-mr';
-    }
+  if (shipping.toLowerCase().includes('relay') || 
+      shipping.toLowerCase().includes('mondial')) {
+    switchTab('mr');
+  } else {
+    switchTab('colissimo');
   }
 
   function copyAllMR() {
