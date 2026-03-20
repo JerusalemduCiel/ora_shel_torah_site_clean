@@ -3216,9 +3216,10 @@
         
         if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
         if (shippingEl) {
-            shippingEl.textContent = 'Frais de port : à partir de 4,90 € (choix à l\'étape suivante)';
+            shippingEl.textContent = 'Frais de port : selon le mode de livraison choisi ci-dessous';
         }
         if (totalEl) totalEl.textContent = formatPrice(total);
+        setTimeout(updateMRWidgetVisibility, 300);
     }
 
     function initMRWidget(codePostal) {
@@ -3308,6 +3309,9 @@
             }
             document.querySelectorAll('input[name="shipping-method"], input[name="delivery-method"], select[name="shipping-method"], select[name="delivery-method"]').forEach((el) => {
                 el.addEventListener('change', updateMRWidgetVisibility);
+            });
+            document.querySelectorAll('input[name="shipping-method"]').forEach((el) => {
+                el.addEventListener('change', () => updateMRWidgetVisibility());
             });
 
             // Pré-remplissage automatique en dev uniquement
