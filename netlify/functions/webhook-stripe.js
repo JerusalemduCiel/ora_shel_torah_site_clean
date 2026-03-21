@@ -56,7 +56,7 @@ exports.handler = async (event) => {
       const clientShippingHtml = smLower.includes('collect')
         ? '<div style="margin:20px 0; padding:16px; background:#f9f5f0; border-radius:8px; border-left:3px solid #eda234;">' +
           '<p style="margin:0 0 8px 0;">📍 <strong>Retrait en boutique</strong></p>' +
-          '<img src="https://orasheltorah.fr/images/blush-logo.jpg" alt="Blush Général Store" style="height:50px; margin:8px 0;"/>' +
+          '<img src="https://orasheltorah.fr/images/logo_blush.png" alt="Blush Général Store" style="height:50px; margin:8px 0;"/>' +
           '<p style="margin:4px 0; font-size:14px;">' +
           '<strong>Blush Général Store</strong><br/>' +
           '7 Rue de Sèze, 69006 Lyon<br/>' +
