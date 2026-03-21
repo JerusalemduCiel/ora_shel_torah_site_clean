@@ -47,10 +47,26 @@ exports.handler = async (event) => {
       const customerCity = session.metadata?.customer_city || '';
       const customerPostal = session.metadata?.customer_zip || '';
       const shippingMethod = session.metadata?.shipping_method || 'colissimo';
+      const smLower = shippingMethod.toLowerCase();
+      const isClickCollect = smLower.includes('collect') || smLower.includes('pickup');
       const shippingText = shippingMethod.includes('relay') ||
         shippingMethod.includes('mondial')
         ? 'Mondial Relay (Point Relais) — 3 à 5 jours ouvrés'
         : 'Colissimo (Domicile) — 2 à 3 jours ouvrés';
+      const clientShippingHtml = smLower.includes('collect')
+        ? '<div style="margin:20px 0; padding:16px; background:#f9f5f0; border-radius:8px; border-left:3px solid #eda234;">' +
+          '<p style="margin:0 0 8px 0;">📍 <strong>Retrait en boutique</strong></p>' +
+          '<img src="https://orasheltorah.fr/images/blush-logo.jpg" alt="Blush Général Store" style="height:50px; margin:8px 0;"/>' +
+          '<p style="margin:4px 0; font-size:14px;">' +
+          '<strong>Blush Général Store</strong><br/>' +
+          '7 Rue de Sèze, 69006 Lyon<br/>' +
+          'Votre commande est disponible dans la journée.<br/>' +
+          'Nous vous confirmons par email dès qu\'elle est prête.' +
+          '</p>' +
+          '</div>'
+        : (isClickCollect
+          ? '<p>📍 Votre commande sera disponible dans la journée au Blush Général Store — 7 Rue de Sèze, 69006 Lyon. Vous recevrez un email de confirmation dès qu\'elle est prête à retirer.</p>'
+          : '<p>📦 <strong>Livraison :</strong> ' + shippingText + '</p>');
 
       if (session.metadata && typeof session.metadata.estimated_delivery === 'string' &&
         session.metadata.estimated_delivery.toLowerCase().includes('avril-mai-2026')) {
@@ -66,7 +82,7 @@ exports.handler = async (event) => {
           '<h2 style="color: #eda234;">✨ ' + customerName + ', merci d\'illuminer ce projet !</h2>' +
           '<p>En passant commande, vous ne faites pas qu\'acheter un livre — vous participez à une aventure : celle de transmettre la beauté et la richesse du judaïsme à travers le jeu et le partage.</p>' +
           '<p><strong>Votre commande de ' + amount + ' € a bien été confirmée.</strong></p>' +
-          '<p>📦 <strong>Livraison :</strong> ' + shippingText + '</p>' +
+          clientShippingHtml +
           '<p>📍 <strong>Adresse :</strong> ' + adresse + '</p>' +
           '<p>📧 Vous recevrez un email avec votre numéro de suivi dès l\'expédition.</p>' +
           '<p style="margin-top:20px;">Merci de faire partie des premiers soutiens d\'Ora Shel Torah. 🙏</p>' +
@@ -111,6 +127,7 @@ exports.handler = async (event) => {
             <tr><td><strong>Adresse :</strong></td><td>${adresse}</td></tr>
             <tr><td><strong>Montant :</strong></td><td>${amount} €</td></tr>
             <tr><td><strong>Référence :</strong></td><td>${sessionId}</td></tr>
+            ${isClickCollect ? '<tr><td colspan="2">📍 Retrait en boutique : Blush Général Store<br/>7 Rue de Sèze, 69006 Lyon</td></tr>' : ''}
           </table>
           <div style="margin-top:20px; text-align:center;">
             <a href="${dashboardUrl}" style="background:#eda234; color:#0f1419; padding:12px 24px; border-radius:6px; text-decoration:none; font-weight:bold; font-size:16px;">📦 Accéder au dashboard commandes</a>

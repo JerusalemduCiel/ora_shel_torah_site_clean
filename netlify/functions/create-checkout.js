@@ -28,7 +28,7 @@ exports.handler = async (event) => {
 
   try {
     const body = JSON.parse(event.body);
-    const { items, customerInfo } = body;
+    const { items, customerInfo, relay_name, relay_address, relay_city, relay_id, shipping_method, pickup_store } = body;
 
     // Vérifier que la clé secrète Stripe est configurée
     if (!process.env.STRIPE_SECRET_KEY) {
@@ -124,6 +124,20 @@ exports.handler = async (event) => {
               maximum: { unit: 'business_day', value: 3 }
             }
           }
+        },
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {
+              amount: 0,
+              currency: 'eur'
+            },
+            display_name: 'Click & Collect — Blush Général Store (Lyon 6e)',
+            delivery_estimate: {
+              minimum: { unit: 'hour', value: 2 },
+              maximum: { unit: 'hour', value: 4 }
+            }
+          }
         }
       ],
       success_url: `${process.env.URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
@@ -136,11 +150,12 @@ exports.handler = async (event) => {
         customer_address: customerInfo.address || '',
         customer_city: customerInfo.city || '',
         customer_zip: customerInfo.postal || customerInfo.zip || '',
-        relay_name: body.relay_name || '',
-        relay_address: body.relay_address || '',
-        relay_city: body.relay_city || '',
-        relay_id: body.relay_id || '',
-        shipping_method: body.shipping_method || 'colissimo',
+        relay_name: relay_name || '',
+        relay_address: relay_address || '',
+        relay_city: relay_city || '',
+        relay_id: relay_id || '',
+        shipping_method: shipping_method || 'colissimo',
+        pickup_store: pickup_store || '',
         total_weight: totalWeight.toFixed(2),
         shipping_cost: shippingCost.toFixed(2)
       }
