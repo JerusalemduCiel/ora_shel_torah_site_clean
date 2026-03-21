@@ -63,6 +63,15 @@ exports.handler = async (event) => {
           'Votre commande est disponible dans la journée.<br/>' +
           'Nous vous confirmons par email dès qu\'elle est prête.' +
           '</p>' +
+          '<div style="text-align:center;margin-top:20px;">' +
+          '<a href="https://orasheltorah.fr/.netlify/functions/confirm-pickup?token=' +
+          sessionId +
+          '" style="display:inline-block;background:#eda234;color:#0f1419;' +
+          'padding:14px 28px;border-radius:8px;text-decoration:none;' +
+          'font-weight:bold;font-size:16px;">✅ Marquer comme retiré</a>' +
+          '<p style="color:#999;font-size:11px;margin-top:8px;">' +
+          'La vendeuse clique sur ce bouton lors de la remise du livre.</p>' +
+          '</div>' +
           '</div>'
         : (isClickCollect
           ? '<p>📍 Votre commande sera disponible dans la journée au Blush Général Store — 7 Rue de Sèze, 69006 Lyon. Vous recevrez un email de confirmation dès qu\'elle est prête à retirer.</p>'
