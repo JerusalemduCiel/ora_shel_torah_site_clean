@@ -685,6 +685,49 @@
 
 
 
+<div id="section-suivi" style="margin-top: 28px; 
+  background: #fff; border: 2px solid #eda234; 
+  border-radius: 10px; padding: 24px;">
+
+  <h3 style="color: #0f1419; margin-bottom: 16px;">
+    📧 Envoyer le suivi au client
+  </h3>
+
+  <label style="font-size:13px; color:#555;">
+    Numéro de suivi Colissimo ou Mondial Relay
+  </label>
+  <input type="text" id="tracking-number" 
+    placeholder="Ex: 6V12345678901"
+    style="width:100%; padding:10px; margin:8px 0 6px; 
+    border:1px solid #ccc; border-radius:6px; font-size:15px;"/>
+
+  <div id="tracking-link-preview" style="display:none; 
+    margin-bottom:12px;">
+    <a id="tracking-link-url" href="" target="_blank" 
+      style="color:#eda234; font-size:13px;">
+      🔗 Vérifier le suivi sur laposte.fr
+    </a>
+  </div>
+
+  <button onclick="sendTrackingEmail()" 
+    style="background:#eda234; color:#0f1419; border:none; 
+    padding:12px 24px; border-radius:8px; font-weight:bold; 
+    font-size:15px; cursor:pointer; width:100%;">
+    📧 Envoyer l'email de suivi au client
+  </button>
+
+  <div id="tracking-success" style="display:none; 
+    margin-top:12px; background:#d4edda; color:#155724; 
+    padding:12px; border-radius:6px; text-align:center;">
+    ✅ Email de suivi envoyé avec succès !
+  </div>
+  <div id="tracking-error" style="display:none; 
+    margin-top:12px; background:#f8d7da; color:#721c24; 
+    padding:12px; border-radius:6px; text-align:center;">
+    ❌ Erreur lors de l'envoi. Vérifiez la console.
+  </div>
+</div>
+
 <div class="toast" id="toast">✅ Copié !</div>
 
 <script>
@@ -849,6 +892,61 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(function() { t.classList.remove('show'); }, 2000);
 }
+document.getElementById('tracking-number')
+  .addEventListener('input', function() {
+    var num = this.value.trim();
+    var preview = document.getElementById('tracking-link-preview');
+    var link = document.getElementById('tracking-link-url');
+    if (num.length > 5) {
+      link.href = 'https://www.laposte.fr/outils/' +
+        'suivre-vos-envois?code=' + num;
+      preview.style.display = 'block';
+    } else {
+      preview.style.display = 'none';
+    }
+  });
+
+function sendTrackingEmail() {
+  var tracking = document.getElementById('tracking-number')
+    .value.trim();
+  var params = new URLSearchParams(window.location.search);
+  var name = params.get('name') || '';
+  var email = params.get('email') || '';
+  
+  if (!tracking) {
+    alert('Veuillez saisir un numéro de suivi.');
+    return;
+  }
+  if (!email) {
+    alert('Email client introuvable. Vérifiez les paramètres URL.');
+    return;
+  }
+
+  fetch('/.netlify/functions/send-tracking', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, name, tracking })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.success) {
+      document.getElementById('tracking-success')
+        .style.display = 'block';
+      document.getElementById('tracking-error')
+        .style.display = 'none';
+    } else {
+      throw new Error(data.error || 'Erreur inconnue');
+    }
+  })
+  .catch(function(err) {
+    document.getElementById('tracking-error')
+      .style.display = 'block';
+    document.getElementById('tracking-success')
+      .style.display = 'none';
+    console.error(err);
+  });
+}
+
 </script>
 </body>
 </html>
