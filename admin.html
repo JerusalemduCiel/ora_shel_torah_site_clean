@@ -709,12 +709,15 @@
     </a>
   </div>
 
+  <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:stretch;">
   <button onclick="sendTrackingEmail()" 
     style="background:#eda234; color:#0f1419; border:none; 
     padding:12px 24px; border-radius:8px; font-weight:bold; 
-    font-size:15px; cursor:pointer; width:100%;">
+    font-size:15px; cursor:pointer; flex:1 1 220px;">
     📧 Envoyer l'email de suivi au client
   </button>
+  <button onclick="sendPickupEmail()" style="background: #27ae60; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-weight: bold; font-size: 14px; cursor: pointer;">🏪 Email Click & Collect</button>
+  </div>
 
   <div id="tracking-success" style="display:none; 
     margin-top:12px; background:#d4edda; color:#155724; 
@@ -905,6 +908,33 @@ document.getElementById('tracking-number')
       preview.style.display = 'none';
     }
   });
+
+async function sendPickupEmail() {
+    const params = new URLSearchParams(window.location.search);
+    const email = decodeURIComponent(params.get('email') || '');
+    const name = decodeURIComponent(params.get('name') || '');
+
+    if (!email) {
+        alert('Pas d\'email client trouvé');
+        return;
+    }
+
+    try {
+        const res = await fetch('/.netlify/functions/send-pickup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, name })
+        });
+        const data = await res.json();
+        if (data.success) {
+            alert('Email Click & Collect envoyé à ' + email + '\nDisponible : ' + data.nextSlot);
+        } else {
+            alert('Erreur: ' + (data.error || 'Inconnue'));
+        }
+    } catch (err) {
+        alert('Erreur envoi: ' + err.message);
+    }
+}
 
 function sendTrackingEmail() {
   var tracking = document.getElementById('tracking-number')
