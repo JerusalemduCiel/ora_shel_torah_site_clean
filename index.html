@@ -1586,37 +1586,32 @@
                 </div>
                 
                 <!-- Produit 2: Minhag ou Halakha -->
-                <div class="product-card coming-soon" data-product-id="moh">
-                    <span class="coming-soon-badge badge-ete" style="background-color: #FF6B00; color: #fff;">ÉTÉ 2026</span>
-                    <div class="product-image">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="images/produits/moh-box-mobile.png">
-                            <source media="(min-width: 769px)" srcset="images/produits/moh_box_3d.png">
-                            <img src="images/produits/moh_box_3d.png" 
-                                 alt="Boîte du jeu Minhag ou Halakha - Jeu de débat pour distinguer lois et coutumes juives"
-                                 loading="lazy">
-                        </picture>
+                <div class="product-card" data-product-id="moh">
+                    <div class="product-image" style="height: 220px; overflow: hidden;">
+                        <img src="images/moh_livre_face.png"
+                             alt="Minhag ou Halakha - Lumières d'Israël"
+                             loading="lazy"
+                             style="height: 220px; width: 100%; object-fit: cover; 
+                                    object-position: center; display: block;">
                     </div>
                     <div class="product-info">
                         <h3>Minhag ou Halakha</h3>
-                        <p class="product-tagline">Loi ou coutume ?</p>
+                        <p style="font-size:0.85rem; color:#9A9080; font-style:italic; margin-top:-0.3rem; margin-bottom:0.8rem;">
+                            Lumières d'Israël
+                        </p>
+                        <p class="product-tagline">Livre premium • 18 chapitres • 150 lois et usages sur 344 pages</p>
                         
                         <div class="product-specs">
-                            <span>👥 2-8 joueurs</span>
-                            <span>⏱️ 30-45 min</span>
-                            <span>🎯 8 ans+</span>
+                            <span>Ouvrage • Distinguer la loi religieuse de la coutume et comprendre leurs sources</span>
                         </div>
                         
                         <div class="product-price">
-                            <span class="price-original">27,90 €</span>
-                            <span class="price-current">19,90 €</span>
-                            <span class="price-save">Économisez 8 €</span>
+                            <span class="price-current">39,90 €</span>
                         </div>
                         
-                        <a href="#contact" class="btn-notify" data-game="moh">
-                            <span>🔔</span>
-                            <span>Me prévenir de la sortie</span>
-                        </a>
+                        <button class="btn-add-to-cart" onclick="addToCart('moh', 'Minhag ou Halakha', 39.90, 'images/moh_livre_face.png')">
+                            🛒 Ajouter au panier
+                        </button>
                     </div>
                 </div>
                 
@@ -2928,8 +2923,8 @@ margin-top:10px; width:100%;">
         moh: {
             id: 'moh',
             name: 'Minhag ou Halakha',
-            price: 19.90,
-            priceId: 'price_1SBf6vL4ecjfMIxOYXAbWfh8',
+            price: 39.90,
+            priceId: 'price_1TBx0G1LfYKp3rUqsV4WG2Z',
             image: './images/moh_picto_arrondi.png',
             available: true
         },
