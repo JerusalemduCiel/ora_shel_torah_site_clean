@@ -504,11 +504,7 @@ img {
     }
     
     #acte-2 .jeu-frame img {
-        width: 100% !important;
-        height: 280px !important;
-        max-width: 100% !important;
         object-fit: cover !important;
-        object-position: center center !important;
     }
     
     #acte-2 .jeu-frame {
@@ -1123,3 +1119,4 @@ img {
 /* ============================================================
    FIN DU FICHIER
    ============================================================ */
+

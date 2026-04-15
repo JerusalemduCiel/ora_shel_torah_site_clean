@@ -1878,11 +1878,7 @@ img {
 }
 
 #acte-2 .jeu-frame img {
-  width: 100% !important;
-  height: 280px !important;
   object-fit: cover !important;
-  object-position: center center !important;
-  display: block !important;
 }
 
 /* Info - Texte à droite ÉPURÉ */
