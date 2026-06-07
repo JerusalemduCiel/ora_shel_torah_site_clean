@@ -1460,22 +1460,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p>
-                                "Un outil pédagogique exceptionnel pour nos cours de Talmud Torah. 
-                                Les enfants adorent !"
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/backgrounds-descriptif/famille/poz_famille.png" alt="Enfants découvrant les mitsvot avec le jeu Poztamitsvah en préparation bar mitzvah" loading="lazy">
-                            <div class="author-info">
-                                <strong>Rav Yossef Cohen</strong>
-                                <span>Enseignant, Ozar Hatorah Marseille</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             
@@ -1634,8 +1618,7 @@
                 </div>
                 
                 <!-- Produit 2: Minhag ou Halakha -->
-                <div class="product-card coming-soon" data-product-id="moh">
-                    <span class="coming-soon-badge badge-hiver" style="background-color: #D4A537; color: #fff;">BIENTÔT DISPONIBLE</span>
+                <div class="product-card" data-product-id="moh">
                     <div class="product-image" style="height: 220px; overflow: hidden;">
                         <img src="images/moh_livre_face.png"
                              alt="Minhag ou Halakha - Lumières d'Israël"
@@ -1658,10 +1641,9 @@
                             <span class="price-current">44,90 €</span>
                         </div>
                         
-                        <a href="#contact" class="btn-notify" data-game="moh">
-                            <span>🔔</span>
-                            <span>Me prévenir de la sortie</span>
-                        </a>
+                        <button class="btn-add-to-cart" onclick="addToCart('moh', 'Minhag ou Halakha', 44.90, 'images/moh_livre_face.png')">
+                            🛒 Ajouter au panier
+                        </button>
                     </div>
                 </div>
                 
@@ -1698,43 +1680,6 @@
                             <span>🔔</span>
                             <span>Me prévenir de la sortie</span>
                         </a>
-                    </div>
-                </div>
-                
-                <!-- PACK COMPLET (en vedette) - Masqué car JDC et POZ non disponibles -->
-                <div class="product-card featured hidden-section" data-product-id="pack" style="display: none;">
-                    <div class="featured-badge">
-                        ⭐ Offre Pack Famille ⭐
-                    </div>
-                    <div class="product-image">
-                        <img src="images/pack-3d.png" alt="Pack Ora Shel Torah : Jérusalem du Ciel, Minhag ou Halakha" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Pack Complet Ora Shel Torah</h3>
-                        <p class="product-tagline">Les 3 jeux + contenus exclusifs</p>
-                        
-                        <div class="pack-includes">
-                            <p><strong>Inclus dans le pack:</strong></p>
-                            <ul>
-                                <li>✓ Jérusalem du Ciel</li>
-                                <li>✓ Minhag ou Halakha</li>
-                                <li>✓ Guide pédagogique familial (PDF)</li>
-                                <li>✓ Accès aux extensions futures</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-price pack-price">
-                            <span class="price-original">105,50 €</span>
-                            <span class="price-current">79,90 €</span>
-                            <span class="price-save">
-                                Économisez 25,60 € !<br>
-                                <small>Soit 26,63 € par jeu</small>
-                            </span>
-                        </div>
-                        
-                        <button class="btn-add-to-cart featured-btn" onclick="addToCart('pack', 'Pack Complet Ora Shel Torah', 79.90, 'images/pack-3d.png')">
-                            🎁 J'offre le Pack Famille
-                        </button>
                     </div>
                 </div>
             </div>
@@ -2556,365 +2501,6 @@ margin-top:10px; width:100%;">
     </div>
 </div>
 
-<!-- Modale POZ -->
-<div class="content-discovery-overlay" id="content-discovery-poz">
-    <div class="content-discovery-modal">
-        <div class="modal-coming-soon-header">
-            🚀 Ce jeu sera disponible au printemps 2026
-        </div>
-        <button class="content-discovery-close" aria-label="Fermer">×</button>
-        
-        <div class="content-discovery-wrapper">
-            <!-- Colonne gauche : Contenu (2/3) -->
-            <div class="content-discovery-left">
-                <div class="content-discovery-header">
-                    <h2>Poztamitsvah</h2>
-                    <p class="content-discovery-subtitle">Reconnaître les mitsvot dans chaque instant de votre vie quotidienne</p>
-                </div>
-                
-                <div class="content-discovery-body">
-                    <!-- Texte principal -->
-                    <div class="content-discovery-section">
-                        <p>
-                            Conçu spécialement pour accompagner les jeunes vers leur majorité religieuse, 
-                            ce jeu transforme la découverte des mitzvot en aventure ludique et familiale. 
-                            Avec 185 cartes mitsvot/minhagim/averot et 35 situations de vie quotidienne, 
-                            Poztamitsvah vous entraîne à reconnaître instantanément quelle mitsva ou mida 
-                            (qualité morale) s'applique à chaque moment et chaque lieu de votre journée. 
-                            L'objectif ? Développer des réflexes qui font de vous une meilleure personne 
-                            et un juif plus appliqué, naturellement.
-                        </p>
-                        <p>
-                            Le principe ? Un lieu est annoncé (table de Shabbat, synagogue, rue, 
-                            maison...), et chaque joueur doit rapidement identifier dans sa main les 
-                            mitsvot qui s'y appliquent. "Table de Shabbat !" → Je pose ma carte 
-                            "Allumer les bougies" et "Havdala" ! Après quelques secondes, on change 
-                            de lieu. C'est un jeu de rapidité ET de connaissance : il faut non seulement 
-                            connaître les mitsvot, mais savoir où elles s'appliquent dans la vie 
-                            quotidienne. Mais pas d'inquiétude : comme pour tous nos jeux, Poztamitsvah 
-                            peut aussi se jouer en mode découverte libre, sans chrono ni compétition, 
-                            juste pour apprendre en famille.
-                        </p>
-                    </div>
-                    
-                    <!-- Section 1 : Pour qui est ce jeu ? -->
-                    <div class="content-discovery-section">
-                        <h3>Pour qui est ce jeu ?</h3>
-                        <p><strong>Poztamitsvah est fait pour vous si :</strong></p>
-                        <ul>
-                            <li><strong>Vous préparez un bar ou bat mitzvah</strong> et cherchez un support interactif pour 
-                                découvrir les 613 mitzvot de la Torah de façon ludique et mémorable (recommandé dès 11 ans)</li>
-                            <li><strong>Vous êtes parent</strong> et souhaitez transmettre les valeurs et pratiques juives à vos 
-                                enfants en passant de bons moments ensemble, sans pression ni stress</li>
-                            <li><strong>Vous êtes éducateur en Talmud Torah</strong> ou école juive et cherchez un outil pédagogique 
-                                qui fait passer de la théorie à la pratique quotidienne</li>
-                            <li><strong>Vous êtes adulte en techouva</strong> et voulez découvrir ou redécouvrir les mitzvot 
-                                essentielles de façon structurée et accessible</li>
-                            <li><strong>Vous êtes une famille éloignée de la pratique</strong> et souhaitez initier vos enfants 
-                                aux mitzvot sans que ce soit rébarbatif ou intimidant</li>
-                            <li><strong>Vous voulez mémoriser les mitzvot</strong> mais trouver les listes classiques trop 
-                                théoriques ou déconnectées de la réalité quotidienne</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Section 2 : Situation typique -->
-                    <div class="content-discovery-section highlight-box">
-                        <h3>🎮 Une partie type avec Poztamitsvah</h3>
-                        <p style="font-style: italic; line-height: 1.8;">
-                            Nathan, 12 ans, prépare son bar mitzvah dans 6 mois. Chaque mercredi soir, 
-                            il joue à Poztamitsvah avec son père David et sa sœur Léa (9 ans). Chacun 
-                            a 7 cartes mitsvot en main. Le père annonce : "Premier lieu : LA TABLE DE 
-                            SHABBAT !" Nathan se dépêche de regarder ses cartes — il en a deux qui 
-                            correspondent : "Allumer les bougies" et "Kiddoush" ! Il les pose rapidement. 
-                            Léa pose "Havdala" et "Motsi". Le père compte : "5... 4... 3... 2... 1... 
-                            STOP ! Deuxième lieu : LA RUE !" Cette fois Nathan pose "Tsedaka" (donner 
-                            aux pauvres) et "Ne pas médire". Le jeu continue ainsi pendant 15-20 minutes, 
-                            changeant de lieux (synagogue, chambre, cuisine, marché...). À la fin, 
-                            on compte les points, mais l'essentiel n'est pas là : Nathan a compris que 
-                            les mitzvot ne sont pas des concepts abstraits, elles habitent chaque espace 
-                            de notre vie quotidienne. Et David, baal techouva qui découvre le judaïsme 
-                            en même temps que son fils, a appris autant que lui ! <strong>Alternative :</strong> 
-                            Certains soirs, la famille joue en mode "découverte calme" : on étale toutes 
-                            les 185 cartes sur la table, on choisit un lieu, et on cherche ensemble 
-                            tranquillement toutes les mitzvot qui s'appliquent. Pas de chrono, pas de 
-                            compétition, juste la joie d'apprendre ensemble.
-                        </p>
-                    </div>
-                    
-                    <!-- Section 3 : Découverte détaillée des 185 fiches + 35 lieux -->
-                    <div class="content-discovery-section">
-                        <h3>Ce que vous allez concrètement découvrir : 185 fiches mitsvot + 35 situations de vie quotidienne</h3>
-                        
-                        <p style="margin-bottom: 1.5rem;"><em>Les 185 fiches sont organisées en 2 catégories principales, 
-                        complétées par 35 situations de vie quotidienne qui forment le cœur pédagogique du jeu :</em></p>
-                        
-                        <!-- Catégorie 1 : Mitsvot/Minhagim -->
-                        <div class="category-block category-mitzvot">
-                            <h4>📜 145 Fiches - Mitsvot et Minhagim essentiels</h4>
-                            <p>Les pratiques fondamentales de la vie juive quotidienne, organisées par thèmes :</p>
-                            <ul>
-                                <li><strong>Mitsvot entre l'homme et D.ieu</strong> : Prière (tefila), bénédictions (brakhot), 
-                                    étude de la Torah, respect du Shabbat et des fêtes, kashrout</li>
-                                <li><strong>Mitsvot entre l'homme et son prochain</strong> : Tsedaka (charité), visite aux malades 
-                                    (bikour holim), honneur aux parents, respect de l'autre</li>
-                                <li><strong>Mitsvot de pureté et sainteté</strong> : Mikvé, nidda, brit mila</li>
-                                <li><strong>Mitsvot du cycle de vie</strong> : Mariage, deuil, bar/bat mitzvah</li>
-                                <li><strong>Minhagim communautaires</strong> : Coutumes spécifiques selon les communautés</li>
-                            </ul>
-                            <p><em>Chaque fiche explique : la source (Torah, Talmud, Shoulhan Aroukh), le contexte, 
-                            l'application pratique dans la vie quotidienne, et pourquoi cette mitzva est importante.</em></p>
-                        </div>
-                        
-                        <!-- Catégorie 2 : Averot -->
-                        <div class="category-block category-averot">
-                            <h4>⚠️ 40 Fiches - Averot (transgressions) à connaître et éviter</h4>
-                            <p>Les interdits fondamentaux que tout jeune juif doit connaître avant sa bar/bat mitzvah :</p>
-                            <ul>
-                                <li><strong>Interdits alimentaires</strong> : Mélange viande/lait, consommation d'animaux interdits, 
-                                    mélange de plantes (kilayim)</li>
-                                <li><strong>Interdits de Shabbat</strong> : Les 39 travaux interdits et leurs dérivés</li>
-                                <li><strong>Interdits éthiques</strong> : Mensonge, médisance (lashon hara), vol, usure</li>
-                                <li><strong>Interdits spirituels</strong> : Idolâtrie, blasphème, violation du serment</li>
-                            </ul>
-                            <p><em>Chaque fiche explique : ce qui est interdit exactement, pourquoi (source et raison), 
-                            les nuances selon les autorités, et comment éviter la transgression dans la pratique.</em></p>
-                        </div>
-                        
-                        <!-- Catégorie 3 : Situations de Vie (en or) -->
-                        <div class="category-block category-lieux category-gold">
-                            <h4>📍 CŒUR DU JEU : 35 Situations de Vie Quotidienne</h4>
-                            <p><strong>C'est ici que la magie opère !</strong> Poztamitsvah vous apprend 
-                            à reconnaître les mitzvot non pas comme des concepts abstraits dans un livre, 
-                            mais comme des actes concrets liés à des moments et des lieux précis de votre 
-                            vie de tous les jours.</p>
-                            
-                            <p style="margin-top: 1rem;"><strong>Exemples de situations incluses dans le jeu :</strong></p>
-                            <ul class="mitsvot-list">
-                                <li><strong>Table de Shabbat</strong> → Allumer les bougies, Kiddoush, Motsi, Havdala, Birkat Hamazon</li>
-                                <li><strong>Dans la rue</strong> → Tsedaka (donner aux pauvres), Ne pas médire, Saluer les gens</li>
-                                <li><strong>Au marché</strong> → Honnêteté commerciale, Ne pas voler, Poids et mesures justes</li>
-                                <li><strong>À la synagogue</strong> → Répondre Amen, Prier avec kavana, Respecter le lieu saint</li>
-                                <li><strong>À la maison (chambre)</strong> → Mezouza, Modestie, Ordre et propreté</li>
-                                <li><strong>À la cuisine</strong> → Cacherout, Séparation viande/lait, Bénédictions avant/après manger</li>
-                                <li><strong>Au travail/bureau</strong> → Honnêteté professionnelle, Ne pas voler le temps de l'employeur, Parler avec respect</li>
-                                <li><strong>À l'école</strong> → Étudier avec assiduité, Respecter les enseignants, Ne pas tricher</li>
-                                <li><strong>Avec des amis</strong> → Ne pas médire, Juger favorablement, Faire la paix</li>
-                                <li><strong>Face à un conflit</strong> → Rodef shalom (poursuivre la paix), Ne pas se venger, Pardonner</li>
-                                <li><strong>En voyant quelqu'un dans le besoin</strong> → Tsedaka, Gemilout hassadim (actes de bonté)</li>
-                                <li><strong>Le matin au réveil</strong> → Modé Ani, Netilat Yadaïm, S'habiller avec pudeur</li>
-                            </ul>
-                            <p style="margin-top: 0.5rem;"><em>... et 23 autres situations couvrant TOUS 
-                            les moments de votre journée</em></p>
-                            
-                            <p style="margin-top: 1.5rem; padding: 1rem; background: rgba(212, 175, 55, 0.15); 
-                               border-radius: 8px; border-left: 4px solid #d4af37;">
-                                <strong>💡 La puissance pédagogique de Poztamitsvah :</strong><br>
-                                En jouant régulièrement, vous développez des <strong>réflexes spirituels</strong>. 
-                                Quand vous vous retrouvez dans la rue, votre cerveau active automatiquement : 
-                                "Tsedaka ? Lachon hara à éviter ?". À table : "Bénédiction avant de manger ? 
-                                Birkat Hamazon après ?". Au travail : "Honnêteté ? Respect du temps ?". 
-                                Les mitzvot cessent d'être des obligations théoriques pour devenir des 
-                                <strong>gestes naturels, intégrés à chaque instant de vie</strong>. C'est 
-                                ainsi qu'on devient une meilleure personne et un juif plus appliqué : 
-                                pas par contrainte, mais par conscience et réflexe.
-                            </p>
-                        </div>
-                        
-                        <p style="margin-top: 1.5rem;"><strong>Total : 185 cartes mitsvot/averot + 35 cartes situations = 220 cartes</strong> 
-                        qui couvrent tout ce qu'un jeune doit connaître pour sa bar/bat mitzvah et au-delà. Le jeu développe des 
-                        réflexes spirituels et éthiques qui transforment les mitzvot en gestes naturels intégrés à chaque instant de vie.</p>
-                    </div>
-                    
-                    <!-- Contenu complet -->
-                    <div class="content-discovery-section">
-                        <h3>Contenu complet</h3>
-                        <ul>
-                            <li><strong>185 cartes mitsvot/minhagim/averot illustrées</strong>
-                                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                                    <li>90 mitsvot positives (commandements à accomplir)</li>
-                                    <li>55 minhagim (coutumes importantes)</li>
-                                    <li>40 averot (transgressions à éviter)</li>
-                                </ul>
-                            </li>
-                            <li><strong>35 cartes SITUATIONS</strong> (table de Shabbat, rue, marché, 
-                                maison, synagogue, etc.) — C'est le cœur du jeu !</li>
-                            <li>1 livret de règles avec variantes de jeu</li>
-                            <li>Guide pédagogique pour parents et éducateurs</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Section 4 : FAQ -->
-                    <div class="content-discovery-section">
-                        <h3>Questions fréquentes</h3>
-                        
-                        <div class="faq-item">
-                            <h4>❓ Pourquoi 185 fiches de mitzvot/averot alors qu'il y a 613 mitzvot dans la Torah ?</h4>
-                            <p>Les 185 fiches couvrent les mitzvot et averot les plus pertinentes pour la vie quotidienne et la 
-                            préparation bar/bat mitzvah. Les 613 mitzvot de la Torah incluent beaucoup de commandements qui ne 
-                            s'appliquent que dans des contextes spécifiques (Temple, terre d'Israël à l'époque biblique, etc.). 
-                            Poztamitsvah se concentre sur ce que chaque jeune peut réellement pratiquer ou éviter aujourd'hui. 
-                            C'est un socle solide qui permet ensuite d'approfondir selon ses intérêts et son parcours.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h4>❓ Pourquoi les "35 situations" sont-elles le cœur du jeu ?</h4>
-                            <p>Parce qu'elles transforment les mitzvot d'obligations abstraites en 
-                            <strong>réflexes de vie</strong>. La plupart des jeux éducatifs juifs 
-                            enseignent les mitzvot comme une liste à mémoriser. Poztamitsvah fait 
-                            l'inverse : il vous entraîne à les <strong>reconnaître dans votre quotidien</strong>. 
-                            Quand un joueur entend "Dans la rue !", son cerveau doit activer : 
-                            "Tsedaka ? Lachon hara ? Saluer les gens ?". Après plusieurs parties, 
-                            ces associations deviennent automatiques. Résultat : dans la VRAIE rue, 
-                            vous pensez naturellement à donner de la tsedaka en voyant quelqu'un dans 
-                            le besoin, ou à éviter la médisance en parlant d'autrui. Les 35 situations 
-                            couvrent tous les moments de la journée : du réveil au coucher, de la maison 
-                            au travail, des relations familiales aux interactions sociales. C'est un 
-                            entraînement à la <strong>conscience halakhique et éthique permanente</strong>.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h4>❓ Le jeu est-il adapté aux enfants qui ne connaissent rien au judaïsme ?</h4>
-                            <p>Oui, absolument ! Poztamitsvah est conçu pour être progressif. Les fiches sont classées par niveau 
-                            de complexité. On commence par les mitzvot les plus simples et visibles (allumer les bougies de Shabbat, 
-                            dire une brakha avant de manger), puis on progresse vers des concepts plus subtils. Les situations 
-                            concrètes aident ceux qui n'ont pas de bagage religieux à comprendre de quoi on parle. Plusieurs familles 
-                            laïques utilisent le jeu comme première introduction au judaïsme pour leurs enfants.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h4>❓ Peut-on utiliser Poztamitsvah comme support de préparation bar/bat mitzvah ?</h4>
-                            <p>Oui, c'est même l'un de ses usages principaux ! Les 185 fiches couvrent l'essentiel de ce qu'un 
-                            jeune doit connaître avant sa majorité religieuse. Certains rabbins et enseignants utilisent Poztamitsvah 
-                            comme base structurée : chaque semaine, l'enfant apprend 10-15 mitzvot via le jeu, puis approfondit 
-                            avec son enseignant. Le format ludique facilite la mémorisation et rend l'apprentissage moins stressant. 
-                            Le jeune arrive à sa bar/bat mitzvah avec une base solide et organisée.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h4>❓ Quelle est la différence avec simplement réciter une liste de mitzvot ?</h4>
-                            <p>Trois différences majeures : 1) Les situations concrètes créent des ancres mémorielles. Au lieu de 
-                            mémoriser "lo tignov" (tu ne voleras pas), l'enfant associe la mitzva à "Que fais-tu si tu trouves un 
-                            portefeuille par terre ?" 2) Les sources et explications permettent de comprendre le pourquoi, pas juste 
-                            le quoi. 3) Le format jeu crée de la motivation et de l'engagement. Un enfant qui "joue" aux mitzvot 
-                            retient mieux qu'un enfant qui les "étudie" sous forme de devoir. C'est l'apprentissage actif vs passif.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h4>❓ Comment se déroule concrètement une partie ?</h4>
-                            <p><strong>Mode compétitif (le plus courant) :</strong> Chaque joueur reçoit 
-                            7-10 cartes mitsvot. Un meneur annonce un lieu ("Table de Shabbat", "Rue", 
-                            "Synagogue"...). Les joueurs ont 5 secondes pour poser les cartes qui 
-                            correspondent. On compte les points, puis on change de lieu. Le premier à 
-                            poser toutes ses cartes (ou celui qui a le plus de points après 10 lieux) gagne. 
-                            C'est rapide, dynamique, et ça fait appel à la fois à la mémoire et à la 
-                            rapidité. <strong>Mode découverte libre :</strong> On peut aussi jouer sans 
-                            chrono ni compétition. On étale les 185 cartes, on choisit un lieu, et on 
-                            cherche ensemble tranquillement toutes les mitzvot applicables. Idéal pour 
-                            les plus jeunes ou pour des familles qui préfèrent apprendre sans pression. 
-                            Comme pour Jérusalem du Ciel et Minhag ou Halakha, nos trois jeux peuvent 
-                            se jouer en mode coopératif/découverte.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h4>❓ Le jeu est-il compatible Shabbat ?</h4>
-                            <p>Oui, entièrement. Pas d'écriture, pas d'électronique, pas de muktzé. Les cartes peuvent être manipulées, 
-                            les situations peuvent être discutées oralement. C'est d'ailleurs un usage fréquent : certaines familles 
-                            tirent 3-5 cartes chaque Shabbat après-midi pour apprendre ensemble de nouvelles mitzvot de façon conviviale. 
-                            Le Shabbat devient un moment privilégié de transmission et d'apprentissage en famille.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Section 5 : Témoignages -->
-                    <div class="content-discovery-section testimonials-mini">
-                        <h3>💬 Ce qu'en disent les familles et éducateurs</h3>
-                        
-                        <div class="testimonial-compact">
-                            <p><strong>Myriam & Jonathan D., Paris — Préparation bat mitzvah</strong></p>
-                            <p>"Notre fille Sarah a 12 ans et sa bat mitzvah est dans 6 mois. Le problème ? Elle détestait les 
-                            'cours de religion' et rechignait à apprendre les mitzvot. Avec Poztamitsvah, tout a changé ! Elle 
-                            réclame une partie tous les dimanches. En 3 mois, elle a déjà couvert 80 fiches sans s'en rendre compte. 
-                            Ce qui marche ? Les situations concrètes. Quand elle tire 'Tu prépares Shabbat et tu dois allumer les 
-                            bougies', elle se sent concernée. C'est SA vie, pas une liste abstraite. Son rabbin est impressionné 
-                            par sa progression. On recommande à 100% !"</p>
-                            <p style="font-size: 0.9em; color: #999;"><em>Profil : Famille pratiquante, préparation bat mitzvah 
-                            • Fréquence : 1x/semaine depuis 3 mois • Progression : 80/185 fiches couvertes</em></p>
-                        </div>
-                        
-                        <div class="testimonial-compact">
-                            <p><strong>Rav Michaël A., Marseille — Enseignant Talmud Torah</strong></p>
-                            <p>"J'enseigne à des enfants de 10-13 ans depuis 15 ans. J'ai toujours cherché un outil qui rende 
-                            l'apprentissage des mitzvot vivant. Poztamitsvah est LA solution. J'utilise les fiches comme base de 
-                            mes cours. Je tire 5 cartes, les enfants identifient les mitzvot, on discute des situations, puis on 
-                            approfondit. Ils retiennent 5 fois mieux qu'avec des cours magistraux. Et surtout : ils posent des 
-                            questions ! 'Pourquoi cette mitzva ?', 'Et si je vis cette situation ?'. Les 185 fiches me donnent 
-                            assez de contenu pour 2 ans d'enseignement. Les 35 cartes situations sont géniales pour créer des jeux de rôle : 
-                            on simule une situation ('vous êtes dans la rue'), les enfants doivent trouver 
-                            toutes les mitzvot applicables."</p>
-                            <p style="font-size: 0.9em; color: #999;"><em>Utilisé avec : 18 élèves, 10-13 ans • Établissement : 
-                            Talmud Torah Marseille • Fréquence : 2x/semaine depuis 1 an</em></p>
-                        </div>
-                        
-                        <div class="testimonial-compact">
-                            <p><strong>Sophie B., Lyon — Famille laïque, découverte progressive</strong></p>
-                            <p>"Nous sommes une famille juive mais très laïque. Nos enfants allaient à l'école publique et ne 
-                            connaissaient presque rien au judaïsme. J'ai acheté Poztamitsvah 'au cas où'. Résultat : c'est devenu 
-                            notre rituel du vendredi soir ! Les enfants (9, 12 et 14 ans) adorent. Ce qui est génial ? Les fiches 
-                            expliquent tout depuis le début. Pas besoin de connaissances préalables. Chaque carte est une mini-leçon 
-                            complète. En 6 mois, mes enfants connaissent maintenant les mitzvot principales, savent ce qui est 
-                            interdit et pourquoi, et surtout ils ont développé des réflexes : quand on est à table, ils pensent 
-                            automatiquement aux bénédictions ; dans la rue, ils pensent à la tsedaka. Les 35 situations leur ont 
-                            appris à reconnaître les mitzvot dans leur vie quotidienne. C'est notre pont vers notre héritage, 
-                            sans pression ni jugement."</p>
-                            <p style="font-size: 0.9em; color: #999;"><em>Profil : Famille laïque, 3 enfants • Fréquence : 
-                            1x/semaine depuis 6 mois • Objectif : Découverte culturelle</em></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Spécifications -->
-                    <div class="content-discovery-specs">
-                        <div class="spec-item-compact">
-                            <strong>👥 Joueurs</strong>
-                            <span>2-6 joueurs</span>
-                        </div>
-                        <div class="spec-item-compact">
-                            <strong>⏱️ Durée</strong>
-                            <span>30-45 minutes</span>
-                        </div>
-                        <div class="spec-item-compact">
-                            <strong>🎯 Âge</strong>
-                            <span>11 ans+</span>
-                        </div>
-                        <div class="spec-item-compact">
-                            <strong>✅ Shabbat</strong>
-                            <span>Compatible</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Colonne droite : Carrousel vertical (1/3) -->
-            <div class="content-discovery-right">
-                <div class="vertical-carousel">
-                    <div class="vertical-carousel-viewport">
-                        <!-- Généré dynamiquement par JS -->
-                    </div>
-                    
-                    <!-- Navigation verticale -->
-                    <button class="vertical-carousel-nav prev" aria-label="Image précédente">↑</button>
-                    <button class="vertical-carousel-nav next" aria-label="Image suivante">↓</button>
-                    
-                    <!-- Indicateurs -->
-                    <div class="vertical-carousel-indicators">
-                        <button class="vertical-carousel-indicator active" data-index="0" aria-label="Afficher l'image 1"></button>
-                        <button class="vertical-carousel-indicator" data-index="1" aria-label="Afficher l'image 2"></button>
-                        <button class="vertical-carousel-indicator" data-index="2" aria-label="Afficher l'image 3"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
     <!-- OVERLAY PLEIN ÉCRAN POUR CAROUSEL -->
     <div class="fullscreen-overlay" id="fullscreen-overlay" style="display: none;">
         <button class="fullscreen-close" id="fullscreen-close">
@@ -2974,17 +2560,9 @@ margin-top:10px; width:100%;">
             id: 'moh',
             name: 'Minhag ou Halakha',
             price: 44.90,
-            priceId: 'price_1TBx0G1LfYKp3rUqsV4WG2Z',
+            priceId: 'price_1TBx06LLfYKjr3rUqsV4WG2Z',
             image: './images/moh_picto_arrondi.png',
-            available: false
-        },
-        poz: {
-            id: 'poz',
-            name: 'Poztamitsvah',
-            price: 19.90,
-            priceId: 'price_1SBf7lL4ecjfMIxOKuRj4czs',
-            image: './images/poz_picto_arrondi.png',
-            available: false
+            available: true
         },
         lumieres: {
             id: 'lumieres',
@@ -2993,22 +2571,13 @@ margin-top:10px; width:100%;">
             priceId: 'price_1Scn6GL4ecjfMIxOPxaM9FMl', // TODO: mettre à jour le priceId Stripe pour 39.90€
             image: './images/mockup_boite_serie1_recto.png',
             available: true
-        },
-        pack: {
-            id: 'pack',
-            name: 'Pack Complet Ora Shel Torah',
-            price: 79.90,
-            priceId: null, // TODO: Ajouter le priceId Stripe pour le pack
-            image: './images/pack-3d.png'
         }
     };
     
     // Poids des produits (en kg) - À AJUSTER selon pesée réelle
     const productWeights = {
         'jdc': 2.8,    // Jérusalem du Ciel : 850 cartes + plateau circulaire
-        'moh': 0.7,    // Minhag ou Halakha : 330 cartes
-        'poz': 0.6,    // Poztamitsvah : 220 cartes
-        'pack': 4.0    // Pack complet
+        'moh': 0.7     // Minhag ou Halakha : 330 cartes
     };
     
     function calculateShipping(cart) {
@@ -3183,16 +2752,10 @@ margin-top:10px; width:100%;">
         // DEBUG: Log pour vérifier la correspondance
         console.log('Adding to cart:', { productId, product, priceId });
         
-        // Vérifier que le priceId existe (sauf pour le pack qui peut être géré différemment)
-        if (!priceId && productId !== 'pack') {
+        if (!priceId) {
             alert('Erreur: priceId manquant pour ' + productName + '\n\nLe produit n\'a pas été ajouté au panier.');
             console.error('Produit sans priceId:', { productId, productName, product });
             return;
-        }
-        
-        // Avertir pour le pack (mais permettre l'ajout)
-        if (!priceId && productId === 'pack') {
-            console.warn('Pack ajouté sans priceId Stripe - Le checkout ne fonctionnera pas pour le pack');
         }
         
         const existingItem = cart.find(item => item.id === productId);
@@ -4025,89 +3588,13 @@ margin-top:10px; width:100%;">
     });
     </script>
 
-    <!-- MODALE GUIDE D'ARBITRAGE -->
-    <div class="arbitrage-modal-overlay" id="arbitrage-modal-overlay">
-        <div class="arbitrage-modal">
-            <button class="arbitrage-modal-close" aria-label="Fermer">×</button>
-            <div class="arbitrage-modal-header">
-                <h2>⚖️ Guide d'Arbitrage - Pozta Mitzvah</h2>
-            </div>
-            <div class="arbitrage-modal-content">
-                <iframe 
-                    src="assets/PDF/tableau_correspondance_pozta_mitzvah.pdf#view=FitH" 
-                    width="100%" 
-                    height="100%"
-                    style="border: none; border-radius: 8px;"
-                    title="Guide d'Arbitrage Pozta Mitzvah">
-                    <p>Votre navigateur ne peut pas afficher les PDF. 
-                    <a href="assets/PDF/tableau_correspondance_pozta_mitzvah.pdf" download>Télécharger le PDF</a></p>
-                </iframe>
-            </div>
-            <div class="arbitrage-modal-footer">
-                <a href="assets/PDF/tableau_correspondance_pozta_mitzvah.pdf" 
-                   download="Guide-Arbitrage-Pozta-Mitzvah.pdf" 
-                   class="btn-download-pdf">
-                    📥 Télécharger le PDF
-                </a>
-            </div>
-        </div>
-    </div>
-
     <!-- JavaScript pour la modale carte -->
     <script>
     // La fonction flipCarte est définie dans js/main.js
     // La fonction closeModal a été modifiée dans js/main.js pour reset le flip
     </script>
 
-    <!-- JavaScript pour la modale Guide d'Arbitrage -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // === MODALE GUIDE D'ARBITRAGE ===
-        const btnArbitrage = document.getElementById('btn-arbitrage-guide');
-        const arbitrageOverlay = document.getElementById('arbitrage-modal-overlay');
-        const arbitrageCloseBtn = document.querySelector('.arbitrage-modal-close');
-        
-        // Ouverture
-        if (btnArbitrage && arbitrageOverlay) {
-            btnArbitrage.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                arbitrageOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                console.log('Modale arbitrage ouverte');
-            });
-        } else {
-            console.log('Bouton ou overlay non trouvé', btnArbitrage, arbitrageOverlay);
-        }
-        
-        // Fermeture bouton X
-        if (arbitrageCloseBtn) {
-            arbitrageCloseBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                arbitrageOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        }
-        
-        // Fermeture clic extérieur
-        if (arbitrageOverlay) {
-            arbitrageOverlay.addEventListener('click', function(e) {
-                if (e.target === arbitrageOverlay) {
-                    arbitrageOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-        
-        // Fermeture touche Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && arbitrageOverlay && arbitrageOverlay.classList.contains('active')) {
-                arbitrageOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    });
-    
     // ============================================
     // GESTION "ME PRÉVENIR" - SORTIE JEUX
     // ============================================
