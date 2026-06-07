@@ -1182,3 +1182,9 @@ img {
 #boutique .product-card[data-product-id="jdc"] {
     display: none !important;
 }
+
+.hero-bis-content h2 .collection-label {
+    font-size: 0.4em;
+    font-weight: 400;
+    opacity: 0.85;
+}
