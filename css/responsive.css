@@ -1177,3 +1177,8 @@ img {
   }
 }
 
+/* === ARCHIVE Jérusalem du Ciel : masquage des blocs visibles (réversible) === */
+#hero-bis-jdc,
+#boutique .product-card[data-product-id="jdc"] {
+    display: none !important;
+}
