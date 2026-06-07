@@ -1221,6 +1221,76 @@
         </div>
     </div>
 
+    <!-- MODALE : Contenu du livre L'Année - Lumières d'Israël -->
+    <div id="modal-contenu-lannee" class="modal">
+        <div class="modal-content modal-large">
+            <span class="modal-close" onclick="closeModal('modal-contenu-lannee')">&times;</span>
+            <h3 style="text-align:center; margin-bottom:0.5rem; color:#4A4540; font-family:Georgia,serif; font-size:1.4rem;">Découvrir le contenu</h3>
+            <p style="text-align:center; color:#8A8070; margin-bottom:1.5rem; font-style:italic; font-size:0.9rem;">L'Année en un regard, et ses quatre chemins de lecture</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:2rem; padding:1rem 0;">
+                <img src="images/lannee_feuilleter_3_essentiel.png" alt="L'Année — L'Essentiel" onclick="openBookLightbox(this.src, this.alt)" style="max-width:100%; max-height:75vh; object-fit:contain; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15); cursor:zoom-in;">
+                <img src="images/lannee_feuilleter_4_approfondissement.png" alt="L'Année — L'Approfondissement, les quatre chemins" onclick="openBookLightbox(this.src, this.alt)" style="max-width:100%; max-height:75vh; object-fit:contain; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.15); cursor:zoom-in;">
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALE : Feuilleter les pages (L'Année - Lumières d'Israël) -->
+    <div id="modal-carte-apercu-lannee" class="modal">
+        <div class="modal-content" style="max-width:850px; width:92%; margin:30px auto; padding:1.5rem; background:white; border-radius:12px; position:relative;">
+            <span class="modal-close" onclick="closeModal('modal-carte-apercu-lannee')" style="position:absolute; top:10px; right:15px; font-size:2rem; cursor:pointer; z-index:10; color:#666;">&times;</span>
+            <h3 style="text-align:center; margin-bottom:0.5rem; color:#4A4540; font-family:Georgia,serif;">Feuilleter les pages</h3>
+            <p style="text-align:center; color:#8A8070; margin-bottom:1.5rem; font-style:italic; font-size:0.9rem;">Quelques pages du livre L'Année - Lumières d'Israël</p>
+            <div id="lannee-carousel" style="position:relative; width:100%; text-align:center;">
+                <div class="lannee-slide" style="display:block;">
+                    <img src="images/lannee_feuilleter_1_couverture.png" alt="Roch Hachana — ouverture du chapitre" onclick="openBookLightbox(this.src, this.alt)" style="max-width:100%; max-height:70vh; object-fit:contain; border-radius:6px; box-shadow:0 4px 15px rgba(0,0,0,0.2); cursor:zoom-in;">
+                    <p style="margin-top:0.6rem; color:#8A8070; font-size:0.85rem;">Roch Hachana — ouverture du chapitre</p>
+                </div>
+                <div class="lannee-slide" style="display:none;">
+                    <img src="images/lannee_feuilleter_2_chofar_jerusalem.png" alt="Grenade, chofar et Jérusalem" onclick="openBookLightbox(this.src, this.alt)" style="max-width:100%; max-height:70vh; object-fit:contain; border-radius:6px; box-shadow:0 4px 15px rgba(0,0,0,0.2); cursor:zoom-in;">
+                    <p style="margin-top:0.6rem; color:#8A8070; font-size:0.85rem;">Grenade, chofar et Jérusalem</p>
+                </div>
+                <div class="lannee-slide" style="display:none;">
+                    <img src="images/lannee_feuilleter_5_table_simanim.png" alt="Le seder des simanim" onclick="openBookLightbox(this.src, this.alt)" style="max-width:100%; max-height:70vh; object-fit:contain; border-radius:6px; box-shadow:0 4px 15px rgba(0,0,0,0.2); cursor:zoom-in;">
+                    <p style="margin-top:0.6rem; color:#8A8070; font-size:0.85rem;">Le seder des simanim — la table de fête</p>
+                </div>
+                <div class="lannee-slide" style="display:none;">
+                    <img src="images/lannee_feuilleter_6_liturgie.png" alt="Le chemin Drash — la liturgie" onclick="openBookLightbox(this.src, this.alt)" style="max-width:100%; max-height:70vh; object-fit:contain; border-radius:6px; box-shadow:0 4px 15px rgba(0,0,0,0.2); cursor:zoom-in;">
+                    <p style="margin-top:0.6rem; color:#8A8070; font-size:0.85rem;">Le chemin Drash — ce qui change à la synagogue</p>
+                </div>
+                <div class="lannee-slide" style="display:none;">
+                    <img src="images/lannee_feuilleter_7_chofar_final.png" alt="Le souffle qui rassemble" onclick="openBookLightbox(this.src, this.alt)" style="max-width:100%; max-height:70vh; object-fit:contain; border-radius:6px; box-shadow:0 4px 15px rgba(0,0,0,0.2); cursor:zoom-in;">
+                    <p style="margin-top:0.6rem; color:#8A8070; font-size:0.85rem;">Le souffle qui rassemble — clôture</p>
+                </div>
+                <button type="button" onclick="changeLanneeSlide(-1)" style="position:absolute; left:5px; top:45%; transform:translateY(-50%); background:rgba(212,169,74,0.85); color:white; border:none; border-radius:50%; width:40px; height:40px; font-size:1.4rem; cursor:pointer; z-index:5;">‹</button>
+                <button type="button" onclick="changeLanneeSlide(1)" style="position:absolute; right:5px; top:45%; transform:translateY(-50%); background:rgba(212,169,74,0.85); color:white; border:none; border-radius:50%; width:40px; height:40px; font-size:1.4rem; cursor:pointer; z-index:5;">›</button>
+            </div>
+            <div style="display:flex; justify-content:center; gap:8px; margin-top:1rem;">
+                <span class="lannee-dot" onclick="goToLanneeSlide(0)" style="width:10px; height:10px; border-radius:50%; background:#D4A94A; cursor:pointer;"></span>
+                <span class="lannee-dot" onclick="goToLanneeSlide(1)" style="width:10px; height:10px; border-radius:50%; background:#ccc; cursor:pointer;"></span>
+                <span class="lannee-dot" onclick="goToLanneeSlide(2)" style="width:10px; height:10px; border-radius:50%; background:#ccc; cursor:pointer;"></span>
+                <span class="lannee-dot" onclick="goToLanneeSlide(3)" style="width:10px; height:10px; border-radius:50%; background:#ccc; cursor:pointer;"></span>
+                <span class="lannee-dot" onclick="goToLanneeSlide(4)" style="width:10px; height:10px; border-radius:50%; background:#ccc; cursor:pointer;"></span>
+            </div>
+            <p id="lannee-counter" style="text-align:center; margin-top:0.5rem; color:#B0A590; font-size:0.8rem;">1 / 5</p>
+        </div>
+    </div>
+    <script>
+    (function(){
+      var idx=0;
+      function slides(){return document.querySelectorAll('#lannee-carousel .lannee-slide');}
+      function dots(){return document.querySelectorAll('.lannee-dot');}
+      function render(){
+        var s=slides(), d=dots();
+        s.forEach(function(el,i){el.style.display=(i===idx?'block':'none');});
+        d.forEach(function(el,i){el.style.background=(i===idx?'#D4A94A':'#ccc');});
+        var c=document.getElementById('lannee-counter'); if(c){c.textContent=(idx+1)+' / '+s.length;}
+      }
+      window.changeLanneeSlide=function(dir){var n=slides().length; idx=(idx+dir+n)%n; render();};
+      window.goToLanneeSlide=function(i){idx=i; render();};
+      render();
+    })();
+    </script>
+
     <!-- MODALE : Feuilleter les pages (La Parole Transmise - Lumières d'Israël) -->
     <div id="modal-carte-apercu" class="modal">
         <div class="modal-content" style="max-width:850px; width:92%; margin:30px auto; padding:1.5rem; background:white; border-radius:12px; position:relative;">

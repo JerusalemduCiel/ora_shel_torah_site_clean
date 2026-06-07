@@ -1120,3 +1120,18 @@ img {
    FIN DU FICHIER
    ============================================================ */
 
+/* === L'Année : titre + boutons alignés à droite (desktop) === */
+@media (min-width: 769px) {
+  #lannee .hero-bis-content {
+    align-items: flex-end !important;
+    text-align: right !important;
+    padding-right: 6vw !important;
+  }
+  #lannee .hero-bis-content h2 {
+    text-align: right !important;
+  }
+  #lannee .hero-bis-actions {
+    align-items: flex-end !important;
+  }
+}
+
