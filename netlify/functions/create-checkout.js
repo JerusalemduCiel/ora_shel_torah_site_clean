@@ -38,9 +38,8 @@ exports.handler = async (event) => {
     // Vérifier que les produits demandés sont disponibles
     const unavailableProducts = [];
     const priceMap = {
-      'price_1SBf5wL4ecjfMIxOm0nbZ5sp': 'jdc',
-      'price_1TBx06LLfYKjr3rUqsV4WG2Z': 'moh',
-      'price_1SBf7lL4ecjfMIxOKuRj4czs': 'poz'
+      'price_1TBx06LLfYKjr3rUsr9pM5WE': 'jdc',
+      'price_1TBx06LLfYKjr3rUqsV4WG2Z': 'moh'
     };
     
     const requestedProducts = items.map(item => priceMap[item.priceId]).filter(Boolean);

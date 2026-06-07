@@ -28,7 +28,6 @@
       --secondary: #eda234;
       --accent-jdc: #eda234;
       --accent-moh: #4d727b;
-      --accent-poz: #e85d75;
       --text-dark: #2c3e50;
       --text-light: #ffffff;
       --bg-light: #faf9f6;
@@ -134,7 +133,6 @@
 
     .filter-btn.jdc.active { background: var(--accent-jdc); border-color: var(--accent-jdc); }
     .filter-btn.moh.active { background: var(--accent-moh); border-color: var(--accent-moh); }
-    .filter-btn.poz.active { background: var(--accent-poz); border-color: var(--accent-poz); }
 
     /* === CONTAINER === */
     .container {
@@ -247,7 +245,6 @@
     .tag-ost { background: #e8f5e9; color: #2e7d32; }
     .tag-jdc { background: #fff3e0; color: #e65100; }
     .tag-moh { background: #e0f2f1; color: #00695c; }
-    .tag-poz { background: #fce4ec; color: #c2185b; }
     .tag-general { background: #e3f2fd; color: #1565c0; }
 
     /* === NO RESULTS === */
@@ -418,7 +415,6 @@
     <button class="filter-btn" data-filter="ost">Ora Shel Torah</button>
     <button class="filter-btn jdc" data-filter="jdc">Jérusalem du Ciel</button>
     <button class="filter-btn moh" data-filter="moh">Minhag ou Halakha</button>
-    <button class="filter-btn poz" data-filter="poz">Poztamitsvah</button>
     <button class="filter-btn" data-filter="general">Questions générales</button>
   </div>
 
@@ -484,7 +480,7 @@
         <p><strong>Esprit d'entraide :</strong> Le jeu se vit en havruta (partenariat), avec des cartes Hessed</p>
         <p><strong>Durée idéale :</strong> environ 90 minutes</p>
         
-        <p><strong>Prix :</strong> 89,90 € | <strong>Âge :</strong> 10 ans+ | <strong>Joueurs :</strong> 2-6 (ou équipes)</p>`
+        <p><strong>Prix :</strong> 39,90 € | <strong>Âge :</strong> 10 ans+ | <strong>Joueurs :</strong> 2-6 (ou équipes)</p>`
       },
       {
         category: 'jdc',
@@ -637,124 +633,11 @@
         <p>Cette approche permet à des familles de toutes origines de découvrir la richesse de la tradition juive, tout en aidant les pratiquants à mieux comprendre les fondements de leurs propres habitudes.</p>`
       },
 
-      // === POZTAMITSVAH ===
-      {
-        category: 'poz',
-        question: 'Qu\'est-ce que Poztamitsvah ?',
-        answer: `<p><strong>Poztamitsvah</strong> (contraction de "Pose ta Mitsvah") est un jeu de cartes dynamique et pédagogique qui entraîne à reconnaître rapidement les <strong>mitzvot du quotidien</strong>.</p>
-        
-        <p><strong>Principe :</strong> Être le premier joueur à se débarrasser de toutes ses cartes en les posant dans des <em>situations de vie réelles</em> (synagogue, repas, fête, rue, deuil, etc.).</p>
-        
-        <p><strong>Objectifs pédagogiques :</strong></p>
-        <ul>
-          <li>Identifier spontanément la Mitsvah ou l'Avera qui s'applique</li>
-          <li>Connaître les comportements éthiques et les valeurs juives</li>
-          <li>Associer correctement Lieux et Actions</li>
-        </ul>
-        
-        <p><strong>Prix :</strong> 24,90 € | <strong>Âge :</strong> 11 ans+ | <strong>Joueurs :</strong> 2-6 | <strong>Durée :</strong> 30-45 min</p>`
-      },
-      {
-        category: 'poz',
-        question: 'Comment jouer à Poztamitsvah ?',
-        answer: `<p><strong>MISE EN PLACE :</strong></p>
-        <ol>
-          <li>Mélangez les cartes <strong>LIEUX</strong> et placez-les en pile face cachée au centre</li>
-          <li>Mélangez toutes les cartes <strong>ACTIONS</strong> (Mitsvot + Midot + Minhagim + Averot)</li>
-          <li>Distribuez <strong>7 cartes à chaque joueur</strong></li>
-          <li>Placez le reste en pioche à côté</li>
-        </ol>
-        
-        <p><strong>DÉROULEMENT - MODE SPEED :</strong></p>
-        <ol>
-          <li><strong>Retourner un LIEU</strong> : Le joueur actif retourne la première carte Lieu/Situation</li>
-          <li><strong>SPEED ! Posez vos cartes rapidement !</strong>
-            <ul>
-              <li>🏃 Tous les joueurs jouent <strong>EN MÊME TEMPS</strong></li>
-              <li>🎯 Objectif : être le plus rapide à poser les cartes valides</li>
-              <li>🛑 STOP à 5 cartes posées sur le lieu</li>
-            </ul>
-          </li>
-          <li><strong>Vérification :</strong>
-            <ul>
-              <li>✅ Cartes valides = défaussées</li>
-              <li>❌ Cartes invalides = reprises + piocher 1 carte</li>
-            </ul>
-          </li>
-          <li><strong>Nouveau lieu</strong> : Une fois les 5 cartes vérifiées → retourner le lieu suivant</li>
-        </ol>
-        
-        <p><strong>FIN DE PARTIE :</strong> Le premier à vider sa main gagne. Si les lieux sont épuisés : celui avec le moins de cartes restantes l'emporte.</p>`
-      },
-      {
-        category: 'poz',
-        question: 'Quels sont les différents types de cartes dans Poztamitsvah ?',
-        answer: `<p><strong>1. 📜 MITSVOT (Torah ou Rabbanan)</strong></p>
-        <ul>
-          <li>Valides <strong>uniquement</strong> si elles correspondent au lieu</li>
-          <li><em>Exemple :</em> Lieu = "Synagogue" → ✅ Tefillin, Lecture Torah, Répondre Amen</li>
-        </ul>
-        
-        <p><strong>2. 💛 MIDOT (Valeurs éthiques)</strong></p>
-        <ul>
-          <li>🃏 <strong>Cartes joker</strong> : utilisables presque partout</li>
-          <li>Peuvent être associées à une carte rare 🌟 pour s'en débarrasser</li>
-          <li>⚠️ Quand on joue un couple <strong>Mida + Rare</strong>, on doit <strong>piocher 1 carte</strong> (petit coût pédagogique)</li>
-        </ul>
-        
-        <p><strong>3. 🔗 MINHAGIM (Coutumes)</strong></p>
-        <ul>
-          <li>Plus souples que les Mitsvot : souvent jouables sur plusieurs lieux</li>
-          <li>Ne donnent ni bonus ni malus particuliers</li>
-        </ul>
-        
-        <p><strong>4. ⚠️ AVEROT (Fautes)</strong></p>
-        <ul>
-          <li>Jouables comme les Mitsvot si elles correspondent au lieu</li>
-          <li><em>Exemple :</em> Lieu = "Conflit" → carte "Lachon Hara" (Avera)</li>
-          <li>⚠️ Plus difficiles à placer → ce sont des cartes "lentes" qui bloquent la main</li>
-        </ul>
-        
-        <p><strong>5. 🌟 CARTES RARES</strong></p>
-        <ul>
-          <li>Difficiles à utiliser car elles ne s'appliquent qu'à 1 ou 2 lieux précis</li>
-          <li>Trois façons de s'en débarrasser :
-            <ul>
-              <li>Jouées au bon lieu → validées normalement</li>
-              <li>Associée à une MIDA → mais piocher +1 carte</li>
-              <li>Échangeables contre 2 cartes (si accord entre joueurs)</li>
-            </ul>
-          </li>
-        </ul>
-        
-        <p><strong>6. 🔗 CARTES COMBOS</strong></p>
-        <ul>
-          <li>2 cartes thématiques posées d'un coup (ex. Tallit + Tefillin)</li>
-          <li>Bonus : défausser 2 cartes en un seul tour !</li>
-        </ul>`
-      },
-      {
-        category: 'poz',
-        question: 'Qu\'y a-t-il dans la boîte de Poztamitsvah ?',
-        answer: `<p><strong>Contenu complet (290 cartes) :</strong></p>
-        
-        <ul>
-          <li>40 cartes <strong>Situations/Lieux</strong> (synagogue, repas, fête, rue, deuil, etc.)</li>
-          <li>200 cartes <strong>Mitsvot midot</strong> (Torah & Rabbanan, essentielles et pratiques)</li>
-          <li>30 cartes <strong>Midot</strong> (valeurs universelles : honnêteté, respect, bonté...)</li>
-          <li>40 cartes <strong>Averôt</strong> (erreurs, fautes et comportements négatifs)</li>
-          <li>Cartes spéciales : 🌟 <strong>Rares</strong> + 🔗 <strong>Combos</strong></li>
-          <li>1 règle du jeu</li>
-        </ul>
-        
-        <p><strong>Focus sur les 48 mitzvot essentielles</strong> du jeu, idéales pour la préparation à la bar/bat mitzvah !</p>`
-      },
-
       // === QUESTIONS GÉNÉRALES ===
       {
         category: 'general',
         question: 'Les jeux sont-ils compatibles Shabbat ?',
-        answer: `<p><strong>OUI ! Les 3 jeux sont 100% Shabbat compatibles :</strong></p>
+        answer: `<p><strong>OUI ! Nos jeux comme nos livres sont 100% compatibles Shabbat :</strong></p>
         
         <ul>
           <li>✅ Aucune mécanique transgressant les melakhot</li>
@@ -766,7 +649,6 @@
         <ul>
           <li><strong>Jérusalem du Ciel :</strong> Jouable si les éléments sont séparés avant Shabbat</li>
           <li><strong>Minhag ou Halakha :</strong> Mode Duel utilise le principe "Ma'avir velo mone" (compatible Shabbat). Le mode Groupe avec écriture est réservé à la semaine</li>
-          <li><strong>Poztamitsvah :</strong> Mode Speed sans comptage écrit, totalement compatible</li>
         </ul>
         
         <div class="info-box important">
@@ -823,23 +705,6 @@
           <li>France métropolitaine : Frais de port fixes 7,59 € (Livraison Colissimo)</li>
           <li>Pour Israël, USA ou autres destinations : contactez-nous à <strong>contact@orasheltorah.com</strong></li>
         </ul>`
-      },
-      {
-        category: 'general',
-        question: 'Y a-t-il une offre pour l\'achat des 3 jeux ?',
-        answer: `<p><strong>Oui ! Pack 3 jeux avec tarif avantageux :</strong></p>
-        
-        <p><strong>Prix pack :</strong> 125,00 € au lieu de 139,70 €</p>
-        <p><strong>Économie :</strong> 14,70 €</p>
-        
-        <p><strong>Le pack comprend :</strong></p>
-        <ul>
-          <li>Jérusalem du Ciel (89,90 €)</li>
-          <li>Minhag ou Halakha (44,90 €)</li>
-          <li>Poztamitsvah (24,90 €)</li>
-        </ul>
-        
-        <p>C'est l'option idéale pour découvrir toute la gamme Ora Shel Torah et avoir une variété d'expériences pédagogiques !</p>`
       },
       {
         category: 'general',
@@ -1093,7 +958,6 @@
         'ost': 'Ora Shel Torah',
         'jdc': 'Jérusalem du Ciel',
         'moh': 'Minhag ou Halakha',
-        'poz': 'Poztamitsvah',
         'general': 'Général'
       };
       return names[category] || category;

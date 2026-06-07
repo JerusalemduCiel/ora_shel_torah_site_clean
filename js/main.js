@@ -1020,7 +1020,7 @@ function initAboutVideo() {
 function initContentCarousels() {
     console.log('🎬 Initialisation des carousels');
     
-    // ⭐ NETTOYER tous les event listeners problématiques sur TOUTES les images (JDC, MOH, POZ)
+    // ⭐ NETTOYER tous les event listeners problématiques sur TOUTES les images (JDC, MOH)
     document.querySelectorAll('.carousel-item img, .carousel-item video').forEach(media => {
         const newMedia = media.cloneNode(true);
         if (media.parentNode) {

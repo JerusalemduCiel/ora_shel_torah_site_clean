@@ -226,7 +226,6 @@ function initModalButtons() {
             let url = '';
             if (sectionId === 'hero-bis-jdc') url = 'https://jerusalemduciel.netlify.app';
             if (sectionId === 'hero-bis-moh') url = 'https://minhagouhalakha.netlify.app';
-            if (sectionId === 'hero-bis-poz') url = 'https://poztamitzvah.netlify.app';
             
             if (url) {
                 window.open(url, '_blank');
@@ -250,8 +249,6 @@ function initModalButtons() {
                 gameId = 'jdc';
             } else if (modalId === 'modal-moh' || (heroSection && heroSection.id === 'hero-bis-moh')) {
                 gameId = 'moh';
-            } else if (modalId === 'modal-poz' || (heroSection && heroSection.id === 'hero-bis-poz')) {
-                gameId = 'poz';
             }
             
             if (gameId) {
