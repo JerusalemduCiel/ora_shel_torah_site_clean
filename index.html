@@ -47,6 +47,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="//unpkg.com/leaflet/dist/leaflet.js"></script>
     <link rel="stylesheet" type="text/css" href="//unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/gabarit.css">
     <script type="text/javascript" src="//widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js"></script>
     
     <!-- CSS pour produits en préparation -->
@@ -662,20 +663,42 @@
     </section>
 
     <!-- HERO BIS - La Parole Transmise - Lumières d'Israël -->
-    <section id="lumieres-israel" class="hero-bis hero-bis-lumieres">
-        <div class="hero-bis-background">
-            <img src="images/hero_lumieres_mod.png" alt="La Parole Transmise - Lumières d'Israël - Fond" loading="lazy">
+    <section id="lumieres-israel" class="gabarit gabarit-pt">
+      <div class="gabarit-bg"></div>
+      <div class="gabarit-watermark">לְדוֹר וָדוֹר</div>
+      <div class="gabarit-inner">
+        <div class="gabarit-visuel">
+          <div class="cover-stage">
+            <img class="gabarit-cover" src="images/gabarit/pt_recto.jpg" alt="La Parole Transmise — couverture">
+            <div class="loupe"></div>
+            <span class="zoom-hint">🔍 Survol / clic</span>
+          </div>
+          <div class="thumbs">
+            <button class="thumb active" data-src="images/gabarit/pt_recto.jpg"><img src="images/gabarit/pt_recto.jpg" alt="Recto"></button>
+            <button class="thumb" data-src="images/gabarit/pt_verso.jpg"><img src="images/gabarit/pt_verso.jpg" alt="Verso"></button>
+            <button class="thumb" data-src="images/gabarit/pt_p_avraham.jpg"><img src="images/gabarit/pt_p_avraham.jpg" alt="Page intérieure — Avraham Avinou"></button>
+            <button class="thumb" data-src="images/gabarit/pt_p_moche.jpg"><img src="images/gabarit/pt_p_moche.jpg" alt="Page intérieure — Moché Rabbénou"></button>
+          </div>
         </div>
-        <div class="hero-bis-content">
-            <h2>La Parole Transmise<span class="collection-label"> - Lumières d'Israël</span> <span class="h2-subtitle">— Les grandes figures de l'histoire juive</span></h2>
-            <div class="hero-bis-actions">
-                <button class="btn-modal btn-hero" onclick="openModal('modal-contenu-lumieres')">Découvrir le contenu</button>
-                <button class="btn-hero btn-modal" onclick="openModal('modal-carte-apercu')">Feuilleter les pages</button>
-                <button class="btn-modal btn-store" data-action="store">
-                    🛒 Commander
-                </button>
-            </div>
+        <div class="gabarit-editorial">
+          <p class="collection-label">Lumières d'Israël · Tome I</p>
+          <h2 class="gabarit-title">La Parole Transmise</h2>
+          <p class="gabarit-subtitle">Les grandes figures de l'histoire juive</p>
+          <p class="desc">Cent dix-huit visages qui ont porté la tradition, de la Bible à nos jours. Patriarches, prophètes, sages du Talmud, maîtres du Moyen Âge et penseurs contemporains : chaque notice retrace une vie, une œuvre et l'empreinte laissée dans la mémoire d'Israël.</p>
+          <p class="desc">Un volume relié, écrit pour être lu, offert et transmis — de génération en génération.</p>
+          <dl class="specs">
+            <div><dt>Figures</dt><dd>118</dd></div>
+            <div><dt>Pages</dt><dd>296</dd></div>
+            <div><dt>Format</dt><dd>Relié</dd></div>
+            <div><dt>Langue</dt><dd>Français</dd></div>
+          </dl>
+          <div class="cta-row">
+            <span class="prix">39,90 €</span>
+            <button type="button" class="btn-commander" data-action="store">Commander</button>
+          </div>
+          <p class="reassurance">Paiement sécurisé · Collection Lumières d'Israël</p>
         </div>
+      </div>
     </section>
 
     <section id="lannee" class="hero-bis hero-bis-lumieres hero-bis-lannee">
@@ -4284,5 +4307,6 @@ Merci !`;
         ">
     </div>
 
+    <script defer src="js/gabarit.js"></script>
 </body>
 </html>
