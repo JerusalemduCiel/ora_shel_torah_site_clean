@@ -1188,3 +1188,58 @@ img {
     font-weight: 400;
     opacity: 0.85;
 }
+
+/* === ACTE 2 — test réversible : backdrops médaillons + titre or (2026-06) === */
+/* (B) Titre — remplace #eda234 par l'accent or site (--color-gold) */
+/* Alternative si contraste faible sur overlay blanc : color: #3a2b1c; */
+#acte-2 h2.section-title,
+.jeux-showcase .section-title {
+    color: var(--color-gold, #eda234) !important;
+}
+
+/* (A) Backdrop médaillon — dégradé hero-bis sur .jeu-frame (pas l'img) */
+#acte-2 .jeu-slide[data-jeu="lumieres"] .jeu-frame {
+    background:
+        radial-gradient(120% 90% at 28% 34%, rgba(217, 178, 90, 0.15) 0%, rgba(217, 178, 90, 0) 55%),
+        linear-gradient(140deg, #3a2b1c 0%, #221a12 60%, #100b07 100%) !important;
+    box-shadow:
+        0 10px 32px rgba(0, 0, 0, 0.22),
+        0 4px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+#acte-2 .jeu-slide[data-jeu="moh"] .jeu-frame {
+    background:
+        radial-gradient(120% 90% at 28% 34%, rgba(217, 178, 90, 0.15) 0%, rgba(217, 178, 90, 0) 55%),
+        linear-gradient(140deg, #3a161a 0%, #250d10 60%, #100b07 100%) !important;
+    box-shadow:
+        0 10px 32px rgba(0, 0, 0, 0.22),
+        0 4px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+#acte-2 .jeu-slide[data-jeu="lannee"] .jeu-frame {
+    background:
+        radial-gradient(120% 90% at 28% 34%, rgba(217, 178, 90, 0.15) 0%, rgba(217, 178, 90, 0) 55%),
+        linear-gradient(140deg, #163029 0%, #0d201b 60%, #100b07 100%) !important;
+    box-shadow:
+        0 10px 32px rgba(0, 0, 0, 0.22),
+        0 4px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Voile léger derrière la couverture (socle, pas sur l'img) */
+#acte-2 .jeu-slide .jeu-frame::before {
+    content: "";
+    position: absolute;
+    inset: 1.5rem;
+    border-radius: 8px;
+    background: radial-gradient(ellipse at 50% 45%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 68%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#acte-2 .jeu-slide .jeu-frame img {
+    position: relative;
+    z-index: 1;
+}
