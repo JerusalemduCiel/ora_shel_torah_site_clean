@@ -3716,6 +3716,6 @@ Merci !`;
         <p class="roue-modal__legend">Les fêtes de l'année juive, de Roch Hachana à Tou BeAv, selon les quatre voies PaRDeS.</p>
       </div>
     </div>
-    <script>(function(){var m=document.getElementById('roue-modal');if(!m)return;function o(){m.hidden=false;document.body.style.overflow='hidden';}function c(){m.hidden=true;document.body.style.overflow='';}document.querySelectorAll('[data-modal-open="roue-modal"]').forEach(function(b){b.addEventListener('click',o);});m.querySelectorAll('[data-modal-close]').forEach(function(b){b.addEventListener('click',c);});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)c();});})();</script>
+    <script>(function(){var m=document.getElementById('roue-modal');if(!m)return;var w=m.querySelector('.roue-modal__wheel');function o(){m.hidden=false;document.body.style.overflow='hidden';}function c(){m.hidden=true;document.body.style.overflow='';if(w)w.classList.remove('is-zoomed');}document.querySelectorAll('[data-modal-open="roue-modal"]').forEach(function(b){b.addEventListener('click',o);});m.querySelectorAll('[data-modal-close]').forEach(function(b){b.addEventListener('click',c);});if(w)w.addEventListener('click',function(){w.classList.toggle('is-zoomed');});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)c();});})();</script>
 </body>
 </html>
