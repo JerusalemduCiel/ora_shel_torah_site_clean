@@ -11809,8 +11809,10 @@ section.inspirations h2,
 .roue-modal__overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, .7); }
 .roue-modal__content { position: relative; background: #fdfaf3; border-radius: 8px; max-width: 1200px; width: 100%; max-height: 90vh; overflow: auto; padding: 32px; text-align: center; }
 .roue-modal__close { position: absolute; top: 12px; right: 16px; border: none; background: none; font-size: 28px; line-height: 1; cursor: pointer; color: #333; }
-.roue-modal__wheel { display: block; width: 100%; max-width: 1100px; height: auto; margin: 0 auto 16px; cursor: zoom-in; transition: width .2s ease, max-width .2s ease; }
-.roue-modal__wheel.is-zoomed { max-width: none; width: 200%; margin: 0; cursor: zoom-out; }
+.roue-modal__wheel { display: block; width: 100%; height: auto; transition: transform .15s ease; transform-origin: center center; }
+.roue-modal__viewport { position: relative; overflow: hidden; width: 100%; max-width: 1100px; margin: 0 auto 16px; cursor: zoom-in; }
+.roue-modal__viewport.zoom-on { cursor: zoom-out; }
+.roue-modal__viewport.zoom-on .roue-modal__wheel { transform: scale(2); }
 .roue-modal__legend { font-style: italic; color: #555; margin: 0 auto 24px; max-width: 600px; }
 
 /* Bouton secondaire discret — aligné sur .gabarit .btn-secondary */
