@@ -47,7 +47,7 @@ function lanneePickupAddress(pickupStore) {
   if (pickupStore === 'blush-chapeaux') {
     return 'Blush Concept Store, 3 rue des Quatre Chapeaux, 69002 Lyon';
   }
-  return 'Blush Général Store, 7 Rue Ney, 69006 Lyon';
+  return 'Blush Général Store, 7 Rue de Sèze, 69006 Lyon';
 }
 
 function buildLanneeClientShippingHtml(sessionId, smLower, session) {
@@ -63,7 +63,7 @@ function buildLanneeClientShippingHtml(sessionId, smLower, session) {
       '<p style="margin:0 0 8px 0;">📍 <strong>Click & Collect — gratuit</strong></p>' +
       '<p style="margin:4px 0; font-size:14px;">' +
       '<strong>' + boutique + '</strong><br/>' +
-      'Nous vous confirmons par email dès que votre commande est prête à retirer.' +
+      'Votre commande sera disponible en boutique à l\'été 2026.' +
       '</p>' +
       '<div style="text-align:center;margin-top:20px;">' +
       '<a href="https://orasheltorah.fr/.netlify/functions/confirm-pickup?token=' +
