@@ -1,4 +1,4 @@
-/* js/video-modal.js — "Un voyage sacré" : bouton flottant + modale vidéo, OST.
+/* js/video-modal.js — "Un voyage sacré" : bouton flottant (mini-pellicule) + modale vidéo, OST.
    Frère du bouton génèse (en bas à gauche). Ouvre la vidéo en modale, met le
    thème musical en pause pendant la lecture et le reprend à la fermeture.
    Drop-in autonome. Rollback = retirer la balise <script>. */
@@ -6,8 +6,8 @@
   'use strict';
 
   var VIDEO_SRC  = 'videos/transmission-web.mp4';
-  var POSTER_SRC = 'images/transmission-poster.jpg'; // frame 16:9 ; si absente, ignorée
-  var GOLD = '#eda234';            // or du bouton génèse
+  var POSTER_SRC = 'images/transmission-poster.jpg';
+  var GOLD = '#eda234';
   var TOOLTIP = 'Un voyage sacré';
 
   function init() {
@@ -15,14 +15,18 @@
 
     var style = document.createElement('style');
     style.textContent =
-      '.ost-video-btn{position:fixed;left:24px;bottom:28px;z-index:9990;width:60px;height:60px;'+
-      'border-radius:50%;border:2px solid '+GOLD+';background:rgba(20,16,12,.55);color:'+GOLD+';'+
-      'cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);'+
-      'transition:transform .25s,box-shadow .25s,opacity .3s;box-shadow:0 4px 18px rgba(0,0,0,.35);}'+
-      '.ost-video-btn:hover{transform:scale(1.08);box-shadow:0 0 0 6px rgba(237,162,52,.18),0 4px 18px rgba(0,0,0,.35);}'+
-      '.ost-video-btn svg{width:24px;height:24px;margin-left:3px;}'+
-      '.ost-video-btn__tip{position:absolute;left:72px;top:50%;transform:translateY(-50%);white-space:nowrap;'+
-      'background:rgba(20,16,12,.9);color:#f4ecd8;font-size:.8rem;padding:6px 10px;border-radius:6px;'+
+      '.ost-video-btn{position:fixed;left:24px;bottom:28px;z-index:9990;width:120px;height:78px;padding:0;'+
+      'cursor:pointer;background:#1a140e;border:1px solid rgba(237,162,52,.55);border-radius:2px;'+
+      'display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.45);'+
+      'transition:transform .25s,box-shadow .25s,opacity .3s;}'+
+      '.ost-video-btn:hover{transform:scale(1.06);box-shadow:0 0 0 5px rgba(237,162,52,.16),0 6px 22px rgba(0,0,0,.45);}'+
+      '.ost-video-btn::before,.ost-video-btn::after{content:"";position:absolute;left:0;right:0;height:14px;'+
+      'background-color:#0e0b08;background-image:linear-gradient(90deg,transparent 0 3px,#e8dcc0 3px 8px,transparent 8px 11px);'+
+      'background-size:11px 6px;background-repeat:repeat-x;background-position:center;}'+
+      '.ost-video-btn::before{top:0;}.ost-video-btn::after{bottom:0;}'+
+      '.ost-video-btn svg{width:26px;height:26px;color:'+GOLD+';margin-left:3px;position:relative;z-index:1;}'+
+      '.ost-video-btn__tip{position:absolute;left:132px;top:50%;transform:translateY(-50%);white-space:nowrap;'+
+      'background:rgba(20,16,12,.92);color:#f4ecd8;font-size:.8rem;padding:6px 10px;border-radius:6px;'+
       'opacity:0;pointer-events:none;transition:opacity .2s;}'+
       '.ost-video-btn:hover .ost-video-btn__tip{opacity:1;}'+
       '#genesis-modal-overlay.active ~ .ost-video-btn{opacity:0!important;pointer-events:none!important;}'+
@@ -36,7 +40,9 @@
       'border:none;background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:1;cursor:pointer;'+
       'display:flex;align-items:center;justify-content:center;}'+
       '.ost-video-close:hover{background:rgba(255,255,255,.25);}'+
-      '@media (max-width:768px){.ost-video-btn{left:16px;bottom:20px;width:52px;height:52px;}'+
+      '@media (max-width:768px){.ost-video-btn{left:16px;bottom:20px;width:100px;height:66px;}'+
+      '.ost-video-btn::before,.ost-video-btn::after{height:12px;}'+
+      '.ost-video-btn svg{width:22px;height:22px;}'+
       '.ost-video-btn__tip{display:none;}.ost-video-close{top:-46px;}}';
     document.head.appendChild(style);
 
