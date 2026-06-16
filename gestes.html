@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Gestes — L'Année · Lumières d'Israël · Ora Shel Torah</title>
+<meta name="description" content="Les gestes de l'année juive en vidéo : compagnon du Tome III « L'Année ». Chaque code du livre renvoie ici ; les liens sont tenus à jour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Frank+Ruhl+Libre:wght@500;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-0:#0a1c14;      /* deepest */
+    --green-1:#0e2419;
+    --green-2:#143123;
+    --green-3:#1b3d2d;
+    --navy:#0a0f1c;          /* top bar */
+    --gold:#d6b262;
+    --gold-hi:#ecd49a;
+    --gold-deep:#bd9743;
+    --ivory:#f0e8d7;
+    --muted:#a6bcac;
+    --muted-dim:#7e948a;
+    --card:rgba(255,255,255,.035);
+    --card-line:rgba(214,178,98,.22);
+    --radius:16px;
+    --maxw:1080px;
+    --head-h:118px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 700px at 50% -8%, #224733 0%, rgba(34,71,51,0) 60%),
+      linear-gradient(180deg, var(--green-1) 0%, var(--green-0) 100%);
+    background-attachment:fixed;
+    color:var(--ivory);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+
+  /* ---------- top utility bar ---------- */
+  .topbar{
+    background:var(--navy);
+    border-bottom:1px solid rgba(214,178,98,.18);
+    color:var(--gold);
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+  .topbar .wrap{
+    max-width:var(--maxw);margin:0 auto;padding:9px 24px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  .topbar .tag{font-weight:600;letter-spacing:.06em}
+  .topbar .contact{display:flex;gap:18px;align-items:center;color:var(--ivory);font-size:12.5px}
+  .topbar .contact span{color:var(--gold)}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,15,28,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(214,178,98,.16);
+  }
+  .nav .wrap{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;gap:22px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
+  .brand svg{display:block}
+  .brand .name{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  .nav-links{display:flex;gap:22px;margin-left:8px;flex:1 1 auto}
+  .nav-links a{text-decoration:none;color:var(--ivory);font-size:14.5px;font-weight:500;opacity:.9;transition:color .2s,opacity .2s}
+  .nav-links a:hover{color:var(--gold-hi);opacity:1}
+  .btn-pre{
+    text-decoration:none;flex:0 0 auto;
+    background:linear-gradient(180deg,var(--gold-hi),var(--gold) 55%,var(--gold-deep));
+    color:#2a1f08;font-weight:700;font-size:14px;
+    padding:10px 20px;border-radius:999px;
+    box-shadow:0 4px 16px rgba(0,0,0,.25);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .btn-pre:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;max-width:var(--maxw);margin:0 auto;padding:78px 24px 34px;text-align:center}
+  .hero .watermark{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:"Frank Ruhl Libre",serif;font-weight:700;
+    font-size:min(46vw,560px);line-height:1;color:var(--gold);
+    opacity:.05;pointer-events:none;user-select:none;z-index:0;
+    transform:translateY(-4%);
+  }
+  .hero>*{position:relative;z-index:1}
+  .eyebrow{font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px}
+  .hero h1{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(42px,7vw,76px);margin:0 0 14px;color:var(--ivory);letter-spacing:.01em}
+  .hero .lede{font-family:"EB Garamond",serif;font-style:italic;font-size:clamp(19px,2.4vw,23px);color:var(--muted);max-width:640px;margin:0 auto}
+  .hero .note{font-size:14px;color:var(--muted-dim);max-width:600px;margin:24px auto 0;line-height:1.65}
+  .hero .note b{color:var(--gold);font-weight:600}
+  .rule{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px auto 0;border:0}
+
+  /* ---------- sections ---------- */
+  main{max-width:var(--maxw);margin:0 auto;padding:12px 24px 40px}
+  .chapter{margin-top:48px}
+  .chapter>.chap-head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  .chap-head .label{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap}
+  .chap-head .line{height:1px;background:linear-gradient(90deg,var(--card-line),transparent);flex:1}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media (max-width:720px){.grid{grid-template-columns:1fr}}
+
+  .geste{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--card-line);
+    border-radius:var(--radius);
+    padding:22px 22px 20px;
+    scroll-margin-top:var(--head-h);
+    transition:border-color .3s,box-shadow .3s,background .3s;
+  }
+  .geste .code{
+    position:absolute;top:18px;right:20px;
+    font-size:11.5px;letter-spacing:.12em;color:var(--muted-dim);font-weight:600;
+  }
+  .geste h3{
+    font-family:"Playfair Display",serif;font-weight:600;font-size:21px;
+    margin:0 30px 8px 0;color:var(--ivory);line-height:1.25;
+  }
+  .geste .desc{font-family:"EB Garamond",serif;font-size:18px;color:var(--muted);margin:0 0 18px;line-height:1.5}
+  .actions{display:flex;flex-wrap:wrap;gap:10px}
+
+  .btn{
+    text-decoration:none;display:inline-flex;flex-direction:column;gap:2px;
+    padding:10px 16px;border-radius:11px;
+    background:linear-gradient(180deg,var(--gold-hi),var(--gold) 60%,var(--gold-deep));
+    color:#2a1f08;transition:transform .18s,box-shadow .18s;
+    box-shadow:0 3px 12px rgba(0,0,0,.22);
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .btn .b-main{font-weight:700;font-size:14.5px}
+  .btn .b-sub{font-size:11px;font-weight:600;letter-spacing:.04em;opacity:.72;text-transform:uppercase}
+  .btn.ghost{
+    background:transparent;color:var(--gold-hi);
+    border:1px solid var(--card-line);box-shadow:none;
+  }
+  .btn.ghost:hover{border-color:var(--gold);background:rgba(214,178,98,.07)}
+  .btn.ghost .b-sub{opacity:.6;color:var(--muted)}
+
+  /* fiche box */
+  .fiche{
+    margin:6px 0 18px;padding:16px 18px;
+    border:1px solid var(--card-line);border-left:3px solid var(--gold);
+    border-radius:10px;background:rgba(214,178,98,.05);
+  }
+  .fiche .ftitle{font-family:"Playfair Display",serif;font-size:16px;color:var(--gold-hi);margin:0 0 8px}
+  .fiche p{font-family:"EB Garamond",serif;font-size:16.5px;color:var(--ivory);margin:0 0 8px;line-height:1.55;opacity:.92}
+  .fiche p:last-child{margin-bottom:0}
+  .fiche .pending{display:inline-block;margin-top:6px;font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-dim)}
+
+  /* scanned (QR target) highlight */
+  .scanned{display:none;margin-bottom:12px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .geste:target{
+    border-color:var(--gold);
+    background:rgba(214,178,98,.08);
+    box-shadow:0 0 0 1px var(--gold), 0 0 32px rgba(214,178,98,.28);
+  }
+  .geste:target .scanned{display:block}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid rgba(214,178,98,.16);background:var(--navy);margin-top:56px}
+  footer .wrap{max-width:var(--maxw);margin:0 auto;padding:34px 24px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+  footer .tag{font-family:"Playfair Display",serif;letter-spacing:.06em;color:var(--gold)}
+  footer .meta{font-size:13px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+  footer .meta span{color:var(--gold)}
+
+  @media (max-width:860px){
+    .nav-links{display:none}
+    :root{--head-h:86px}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="tag">✦ De génération en génération</div>
+      <div class="contact"><span>↑ Lyon, France</span> · Contact · <span>06 18 06 10 00</span></div>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="https://orasheltorah.fr/">
+        <svg width="30" height="34" viewBox="0 0 30 34" fill="none" aria-hidden="true">
+          <path d="M15 2c2 6-3 7-3 12a3 3 0 006 0c0-2-1-3-1-5 4 3 6 7 6 11a8 8 0 11-16 0c0-7 6-9 8-18z" fill="#d6b262"/>
+        </svg>
+        <span class="name">Ora Shel Torah</span>
+      </a>
+      <nav class="nav-links">
+        <a href="https://orasheltorah.fr/notre-histoire">Notre histoire</a>
+        <a href="https://orasheltorah.fr/philosophie">Philosophie</a>
+        <a href="https://orasheltorah.fr/nos-livres">Nos livres</a>
+        <a href="https://orasheltorah.fr/boutique">Boutique</a>
+        <a href="https://orasheltorah.fr/glossaire">Glossaire</a>
+        <a href="https://orasheltorah.fr/contact">Contact</a>
+      </nav>
+      <a class="btn-pre" href="https://orasheltorah.fr/boutique">Précommander</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="watermark" aria-hidden="true">הַשָּׁנָה</div>
+    <div class="eyebrow">Lumières d'Israël · Tome III · L'Année</div>
+    <h1>Les Gestes</h1>
+    <p class="lede">Voir le geste avant de l'accomplir — compagnon vidéo de l'année juive.</p>
+    <p class="note">Chaque code du livre <i>L'Année</i> conduit ici. Les vidéos sont choisies pour la clarté du geste ; pour les <b>points d'usage propres à la tradition séfarade (rite marocain)</b>, reportez-vous au livre et à votre rav. Un lien rompu ? Il est <b>remplacé sans réimpression</b> — vous tombez toujours au bon endroit.</p>
+    <hr class="rule">
+  </section>
+
+  <main>
+
+    <!-- ROCH HODESH -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Roch Hodesh</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="1-1">
+          <div class="code">g/1-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Birkat ha-Levana</h3>
+          <p class="desc">La bénédiction de la nouvelle lune, récitée à la belle étoile.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=0M8BsKLruIA" target="_blank" rel="noopener"><span class="b-main">Voir la récitation →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROCH HACHANA -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Roch Hachana</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="2-1">
+          <div class="code">g/2-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Sonneries du chofar</h3>
+          <p class="desc">La tenue de l'instrument et la production des sons.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=SI1TyIHRdJA" target="_blank" rel="noopener"><span class="b-main">Voir &amp; entendre →</span><span class="b-sub">YouTube · le geste</span></a>
+            <a class="btn ghost" href="https://www.youtube.com/shorts/7R6NJkCuagY" target="_blank" rel="noopener"><span class="b-main">La signification →</span><span class="b-sub">YouTube · chaque son</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- YOM KIPPOUR -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Yom Kippour</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="4-5">
+          <div class="code">g/4-5</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Vidouï</h3>
+          <p class="desc">La confession et le rythme de la frappe sur la poitrine.</p>
+          <div class="actions">
+            <a class="btn" href="https://docs.torah-box.com/pdf/explication-du-vidouy.pdf" target="_blank" rel="noopener"><span class="b-main">Télécharger le guide →</span><span class="b-sub">PDF · Torah Box</span></a>
+          </div>
+        </article>
+        <article class="geste" id="4-6">
+          <div class="code">g/4-6</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Birkat Cohanim</h3>
+          <p class="desc">La réception et l'exécution de la bénédiction des Cohanim.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=TiZPWJNnJys" target="_blank" rel="noopener"><span class="b-main">Le chant →</span><span class="b-sub">YouTube</span></a>
+            <a class="btn ghost" href="https://www.youtube.com/watch?v=cp2OfvC8uoY" target="_blank" rel="noopener"><span class="b-main">L'explication →</span><span class="b-sub">YouTube · le sens</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SOUKKOT -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Soukkot</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="5-1">
+          <div class="code">g/5-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Construction de la soucca</h3>
+          <p class="desc">Monter la soucca, du toit de branchages aux parois.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.torah-box.com/mitsvot/comment-construire-une-soucca_9759.html" target="_blank" rel="noopener"><span class="b-main">Voir le guide →</span><span class="b-sub">Torah Box</span></a>
+          </div>
+        </article>
+        <article class="geste" id="5-3">
+          <div class="code">g/5-3</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Choix des 4 espèces</h3>
+          <p class="desc">Reconnaître un bel etrog et bien choisir ses espèces.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=69MT7lYgwPs" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+        <article class="geste" id="5-4">
+          <div class="code">g/5-4</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Secouage du loulav</h3>
+          <p class="desc">La bénédiction et le mouvement du loulav.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=o6fmch-03NI" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- POURIM -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Pourim</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="10-1">
+          <div class="code">g/10-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Lecture de la Meguila</h3>
+          <p class="desc">La lecture du rouleau d'Esther, le soir et le matin.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=aBkjTGtbSyE" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+        <article class="geste" id="10-6">
+          <div class="code">g/10-6</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Oznei Haman</h3>
+          <p class="desc">Façonner et cuire les oreilles d'Aman.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.tiktok.com/@whatsupclara1/video/7204338011398622470" target="_blank" rel="noopener"><span class="b-main">Voir la recette →</span><span class="b-sub">TikTok</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PESSAH -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Pessah</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="11-1">
+          <div class="code">g/11-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Bedikat hamets</h3>
+          <p class="desc">La recherche du hamets à la veille de Pessah.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.facebook.com/watch/?v=1267961501472570" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">Facebook</span></a>
+          </div>
+        </article>
+        <article class="geste" id="11-5">
+          <div class="code">g/11-5</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Les 15 étapes du Séder</h3>
+          <p class="desc">Le déroulé des quinze étapes du Séder.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.torah-box.com/vie-juive/fetes/pessah/comment-realiser-les-mitsvot-du-seder-de-pessa-h_30548.html" target="_blank" rel="noopener"><span class="b-main">Voir le guide →</span><span class="b-sub">Torah Box</span></a>
+          </div>
+        </article>
+        <article class="geste" id="11-11">
+          <div class="code">g/11-11</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Kashérisation de la cuisine</h3>
+          <p class="desc">Rendre la cuisine cachère pour Pessah.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=GjseCzO_LoQ" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+        <article class="geste" id="11-15">
+          <div class="code">g/11-15</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Mimouna</h3>
+          <p class="desc">La moufleta et la table séfarade de fin de Pessah.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.instagram.com/reels/DIjgYP8zzLt/" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">Instagram</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SEFIRAT HAOMER -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Sefirat HaOmer</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="12-1">
+          <div class="code">g/12-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Compter l'Omer</h3>
+          <p class="desc">Compter l'Omer chaque soir, du 2<sup>e</sup> jour de Pessah à Chavouot.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.instagram.com/reels/DIie4PNMwd3/" target="_blank" rel="noopener"><span class="b-main">Voir l'outil →</span><span class="b-sub">Instagram</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CHABBAT -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Chabbat</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="b1-1">
+          <div class="code">g/b1-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Hafrachat halla</h3>
+          <p class="desc">Le prélèvement de la halla sur la pâte.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=-ntVUCRYxkI" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+        <article class="geste" id="b1-2">
+          <div class="code">g/b1-2</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Allumage des bougies</h3>
+          <p class="desc">L'allumage des bougies du vendredi soir.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=RUClxY41qtM" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+        <article class="geste" id="b1-3">
+          <div class="code">g/b1-3</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Kiddouch du vendredi soir</h3>
+          <p class="desc">La coupe, le vin et la récitation du kiddouch.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=-DpLkEIblEg" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+        <article class="geste" id="b1-6">
+          <div class="code">g/b1-6</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Havdala</h3>
+          <p class="desc">Coupe, bougie et bessamim à la sortie du Chabbat.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.facebook.com/TorahBox/videos/1604820479536973/" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">Facebook · Torah Box</span></a>
+          </div>
+        </article>
+        <article class="geste" id="b1-8">
+          <div class="code">g/b1-8</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Confection de la halla</h3>
+          <p class="desc">Le façonnage et le tressage des pains du Chabbat.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=iY46aRvznDI" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRIERE QUOTIDIENNE -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Prière quotidienne</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="b2-1">
+          <div class="code">g/b2-1</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Mise des tefilines</h3>
+          <p class="desc">La pose des tefilines, pas à pas.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.youtube.com/watch?v=OLEjbTqKmng" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">YouTube</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MARQUEURS DOMESTIQUES -->
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Marqueurs domestiques</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="b3-5">
+          <div class="code">g/b3-5</div><div class="scanned">↳ Geste scanné</div>
+          <h3>Cacherout de la cuisine</h3>
+          <p class="desc">Organiser une cuisine lait / viande au quotidien.</p>
+          <div class="fiche">
+            <p class="ftitle">Organiser une cuisine cachère — lait et viande</p>
+            <p>La séparation du lait et de la viande structure la cuisine au quotidien. En pratique, on distingue deux ensembles : vaisselle, ustensiles et plans de travail réservés à chaque catégorie. Beaucoup de familles les distinguent par une couleur ou un marquage, et les rangent séparément.</p>
+            <p>La vaisselle se lave séparément (deux bassines, ou l'une après l'autre avec un égouttoir dédié). Les aliments neutres (<i>parvé</i> — fruits, légumes, œufs, poisson) s'accommodent des deux, sous réserve d'ustensiles propres.</p>
+            <p>Après un repas carné, on observe un délai avant de consommer du laitage ; sa durée suit l'usage de votre famille ou de votre communauté. Pour les cas particuliers — cuisson, four, casherisation d'un ustensile — référez-vous à votre rav.</p>
+            <span class="pending">Texte à valider · Rav Lebrun</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="https://www.tiktok.com/@simalayani/video/7326979045294411040" target="_blank" rel="noopener"><span class="b-main">Voir la vidéo →</span><span class="b-sub">TikTok</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="tag">Ora Shel Torah · Lumières d'Israël</div>
+      <div class="meta"><span>↑ Lyon, France</span> · Contact · <span>06 18 06 10 00</span></div>
+    </div>
+  </footer>
+
+</body>
+</html>

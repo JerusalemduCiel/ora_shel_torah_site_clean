@@ -26,6 +26,111 @@
   to = "/"
   status = 301
 
+[[redirects]]
+  from = "/g/1-1"
+  to = "/gestes#1-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/2-1"
+  to = "/gestes#2-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/4-5"
+  to = "/gestes#4-5"
+  status = 302
+
+[[redirects]]
+  from = "/g/4-6"
+  to = "/gestes#4-6"
+  status = 302
+
+[[redirects]]
+  from = "/g/5-1"
+  to = "/gestes#5-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/5-3"
+  to = "/gestes#5-3"
+  status = 302
+
+[[redirects]]
+  from = "/g/5-4"
+  to = "/gestes#5-4"
+  status = 302
+
+[[redirects]]
+  from = "/g/10-1"
+  to = "/gestes#10-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/10-6"
+  to = "/gestes#10-6"
+  status = 302
+
+[[redirects]]
+  from = "/g/11-1"
+  to = "/gestes#11-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/11-5"
+  to = "/gestes#11-5"
+  status = 302
+
+[[redirects]]
+  from = "/g/11-11"
+  to = "/gestes#11-11"
+  status = 302
+
+[[redirects]]
+  from = "/g/11-15"
+  to = "/gestes#11-15"
+  status = 302
+
+[[redirects]]
+  from = "/g/12-1"
+  to = "/gestes#12-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/b1-1"
+  to = "/gestes#b1-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/b1-2"
+  to = "/gestes#b1-2"
+  status = 302
+
+[[redirects]]
+  from = "/g/b1-3"
+  to = "/gestes#b1-3"
+  status = 302
+
+[[redirects]]
+  from = "/g/b1-6"
+  to = "/gestes#b1-6"
+  status = 302
+
+[[redirects]]
+  from = "/g/b1-8"
+  to = "/gestes#b1-8"
+  status = 302
+
+[[redirects]]
+  from = "/g/b2-1"
+  to = "/gestes#b2-1"
+  status = 302
+
+[[redirects]]
+  from = "/g/b3-5"
+  to = "/gestes#b3-5"
+  status = 302
+
 # ========================================
 # HEADERS DE SÉCURITÉ
 # ========================================
