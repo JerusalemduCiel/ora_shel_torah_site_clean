@@ -131,6 +131,223 @@
   to = "/gestes#b3-5"
   status = 302
 
+[[redirects]]
+  from = "/g/1-2"
+  to = "/gestes#1-2"
+  status = 302
+[[redirects]]
+  from = "/g/1-3"
+  to = "/gestes#1-3"
+  status = 302
+[[redirects]]
+  from = "/g/1-4"
+  to = "/gestes#1-4"
+  status = 302
+[[redirects]]
+  from = "/g/2-4"
+  to = "/gestes#2-4"
+  status = 302
+[[redirects]]
+  from = "/g/2-6"
+  to = "/gestes#2-6"
+  status = 302
+[[redirects]]
+  from = "/g/2-7"
+  to = "/gestes#2-7"
+  status = 302
+[[redirects]]
+  from = "/g/2-10"
+  to = "/gestes#2-10"
+  status = 302
+[[redirects]]
+  from = "/g/3-1"
+  to = "/gestes#3-1"
+  status = 302
+[[redirects]]
+  from = "/g/4-1"
+  to = "/gestes#4-1"
+  status = 302
+[[redirects]]
+  from = "/g/4-2"
+  to = "/gestes#4-2"
+  status = 302
+[[redirects]]
+  from = "/g/4-3"
+  to = "/gestes#4-3"
+  status = 302
+[[redirects]]
+  from = "/g/4-8"
+  to = "/gestes#4-8"
+  status = 302
+[[redirects]]
+  from = "/g/4-11"
+  to = "/gestes#4-11"
+  status = 302
+[[redirects]]
+  from = "/g/4-13"
+  to = "/gestes#4-13"
+  status = 302
+[[redirects]]
+  from = "/g/5-2"
+  to = "/gestes#5-2"
+  status = 302
+[[redirects]]
+  from = "/g/5-5"
+  to = "/gestes#5-5"
+  status = 302
+[[redirects]]
+  from = "/g/5-8"
+  to = "/gestes#5-8"
+  status = 302
+[[redirects]]
+  from = "/g/5-9"
+  to = "/gestes#5-9"
+  status = 302
+[[redirects]]
+  from = "/g/6-1"
+  to = "/gestes#6-1"
+  status = 302
+[[redirects]]
+  from = "/g/7-1"
+  to = "/gestes#7-1"
+  status = 302
+[[redirects]]
+  from = "/g/8-2"
+  to = "/gestes#8-2"
+  status = 302
+[[redirects]]
+  from = "/g/8-4"
+  to = "/gestes#8-4"
+  status = 302
+[[redirects]]
+  from = "/g/9-1"
+  to = "/gestes#9-1"
+  status = 302
+[[redirects]]
+  from = "/g/9-2"
+  to = "/gestes#9-2"
+  status = 302
+[[redirects]]
+  from = "/g/10-3"
+  to = "/gestes#10-3"
+  status = 302
+[[redirects]]
+  from = "/g/10-4"
+  to = "/gestes#10-4"
+  status = 302
+[[redirects]]
+  from = "/g/10-7"
+  to = "/gestes#10-7"
+  status = 302
+[[redirects]]
+  from = "/g/11-2"
+  to = "/gestes#11-2"
+  status = 302
+[[redirects]]
+  from = "/g/11-3"
+  to = "/gestes#11-3"
+  status = 302
+[[redirects]]
+  from = "/g/11-10"
+  to = "/gestes#11-10"
+  status = 302
+[[redirects]]
+  from = "/g/11-16"
+  to = "/gestes#11-16"
+  status = 302
+[[redirects]]
+  from = "/g/12-3"
+  to = "/gestes#12-3"
+  status = 302
+[[redirects]]
+  from = "/g/13-1"
+  to = "/gestes#13-1"
+  status = 302
+[[redirects]]
+  from = "/g/13-4"
+  to = "/gestes#13-4"
+  status = 302
+[[redirects]]
+  from = "/g/13-6"
+  to = "/gestes#13-6"
+  status = 302
+[[redirects]]
+  from = "/g/14-1"
+  to = "/gestes#14-1"
+  status = 302
+[[redirects]]
+  from = "/g/15-3"
+  to = "/gestes#15-3"
+  status = 302
+[[redirects]]
+  from = "/g/15-4"
+  to = "/gestes#15-4"
+  status = 302
+[[redirects]]
+  from = "/g/15-5"
+  to = "/gestes#15-5"
+  status = 302
+[[redirects]]
+  from = "/g/15-6"
+  to = "/gestes#15-6"
+  status = 302
+[[redirects]]
+  from = "/g/15-7"
+  to = "/gestes#15-7"
+  status = 302
+[[redirects]]
+  from = "/g/15-9"
+  to = "/gestes#15-9"
+  status = 302
+[[redirects]]
+  from = "/g/16-1"
+  to = "/gestes#16-1"
+  status = 302
+[[redirects]]
+  from = "/g/b1-5"
+  to = "/gestes#b1-5"
+  status = 302
+[[redirects]]
+  from = "/g/b1-7"
+  to = "/gestes#b1-7"
+  status = 302
+[[redirects]]
+  from = "/g/b1-10"
+  to = "/gestes#b1-10"
+  status = 302
+[[redirects]]
+  from = "/g/b1-12"
+  to = "/gestes#b1-12"
+  status = 302
+[[redirects]]
+  from = "/g/b1-13"
+  to = "/gestes#b1-13"
+  status = 302
+[[redirects]]
+  from = "/g/b1-14"
+  to = "/gestes#b1-14"
+  status = 302
+[[redirects]]
+  from = "/g/b2-4"
+  to = "/gestes#b2-4"
+  status = 302
+[[redirects]]
+  from = "/g/b2-5"
+  to = "/gestes#b2-5"
+  status = 302
+[[redirects]]
+  from = "/g/b2-8"
+  to = "/gestes#b2-8"
+  status = 302
+[[redirects]]
+  from = "/g/b3-2"
+  to = "/gestes#b3-2"
+  status = 302
+[[redirects]]
+  from = "/g/b3-4"
+  to = "/gestes#b3-4"
+  status = 302
+
 # ========================================
 # HEADERS DE SÉCURITÉ
 # ========================================
