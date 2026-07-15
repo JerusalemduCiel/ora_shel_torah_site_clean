@@ -39,7 +39,8 @@ exports.handler = async (event) => {
     const unavailableProducts = [];
     const priceMap = {
       'price_1TBx06LLfYKjr3rUsr9pM5WE': 'jdc',
-      'price_1TBx06LLfYKjr3rUqsV4WG2Z': 'moh'
+      'price_1TBx06LLfYKjr3rUqsV4WG2Z': 'moh',
+      'price_1TgIhwLLfYKjr3rUAALun0DH': 'lannee'
     };
     
     const requestedProducts = items.map(item => priceMap[item.priceId]).filter(Boolean);
@@ -90,6 +91,7 @@ exports.handler = async (event) => {
     });
 
     const shippingMethod = body.shipping_method || 'colissimo';
+    const hasLannee = items.some(item => priceMap[item.priceId] === 'lannee');
 
     const optionCollect = {
       shipping_rate_data: {
@@ -170,7 +172,11 @@ exports.handler = async (event) => {
         shipping_method: shipping_method || 'colissimo',
         pickup_store: pickup_store || '',
         total_weight: totalWeight.toFixed(2),
-        shipping_cost: shippingCost.toFixed(2)
+        shipping_cost: shippingCost.toFixed(2),
+        ...(hasLannee ? {
+          order_type: 'precommande',
+          product_name: "L'Année d'Israël"
+        } : {})
       }
     });
 
