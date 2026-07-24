@@ -15,6 +15,23 @@ function truncateMetadata(value) {
   return text.length <= METADATA_MAX_LENGTH ? text : text.slice(0, METADATA_MAX_LENGTH);
 }
 
+/** Résumé panier : "Titre ×qté + Titre ×qté" (≤ 500 car., coupure sur un article complet). */
+function buildOrderSummary(lines) {
+  const parts = lines.map(line => `${line.name} ×${line.qty}`);
+  let summary = '';
+  for (const part of parts) {
+    const next = summary ? `${summary} + ${part}` : part;
+    if (next.length > METADATA_MAX_LENGTH) {
+      break;
+    }
+    summary = next;
+  }
+  if (!summary && parts.length > 0) {
+    return parts[0].slice(0, METADATA_MAX_LENGTH);
+  }
+  return summary;
+}
+
 function resolveModeLivraison(shippingMethod, pickupStore) {
   const method = (shippingMethod || '').toLowerCase();
   if (method.includes('collect') || method.includes('pickup') || method.includes('ney') || method.includes('chapeaux')) {
@@ -86,14 +103,14 @@ function buildOrderTrackingMetadata(items, catalog, orderType, deliveryContext) 
     pickup_store
   } = deliveryContext;
 
-  const lines = items.map(item => {
-    const qty = item.quantity || 1;
+  const lines = (items || []).map(item => {
+    const qty = Number(item.quantity) > 0 ? Number(item.quantity) : 1;
     const name = item.name || catalog[item.priceId] || catalog[item.id] || catalog[item.productId] || 'Produit';
     return { name, qty };
   });
 
   return {
-    order_summary: truncateMetadata(lines.map(line => `${line.name} x${line.qty}`).join(', ')),
+    order_summary: buildOrderSummary(lines),
     quantite_totale: truncateMetadata(String(lines.reduce((sum, line) => sum + line.qty, 0))),
     order_type: truncateMetadata(orderType),
     destinataire: truncateMetadata(customerInfo?.name || ''),
@@ -269,7 +286,25 @@ exports.handler = async (event) => {
       shippingOptions = [optionColissimo, optionMR, optionCollect];
     }
 
-    // Créer session Stripe
+    const sessionMetadata = {
+      ...orderTracking,
+      customer_name: customerInfo.name,
+      customer_email: customerInfo.email,
+      customer_phone: customerInfo.phone,
+      customer_address: customerInfo.address || '',
+      customer_city: customerInfo.city || '',
+      customer_zip: customerInfo.postal || customerInfo.zip || '',
+      relay_name: relay_name || '',
+      relay_address: relay_address || '',
+      relay_city: relay_city || '',
+      relay_id: relay_id || '',
+      shipping_method: shipping_method || 'colissimo',
+      pickup_store: pickup_store || '',
+      total_weight: totalWeight.toFixed(2),
+      shipping_cost: shippingCost.toFixed(2)
+    };
+
+    // Créer session Stripe (métadonnées aussi sur le PaymentIntent pour Make / webhooks PI)
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: lineItems,
@@ -279,22 +314,23 @@ exports.handler = async (event) => {
       success_url: `${process.env.URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.URL}/#boutique`,
       customer_email: customerInfo.email,
-      metadata: {
-        ...orderTracking,
-        customer_name: customerInfo.name,
-        customer_email: customerInfo.email,
-        customer_phone: customerInfo.phone,
-        customer_address: customerInfo.address || '',
-        customer_city: customerInfo.city || '',
-        customer_zip: customerInfo.postal || customerInfo.zip || '',
-        relay_name: relay_name || '',
-        relay_address: relay_address || '',
-        relay_city: relay_city || '',
-        relay_id: relay_id || '',
-        shipping_method: shipping_method || 'colissimo',
-        pickup_store: pickup_store || '',
-        total_weight: totalWeight.toFixed(2),
-        shipping_cost: shippingCost.toFixed(2)
+      metadata: sessionMetadata,
+      payment_intent_data: {
+        metadata: {
+          order_summary: orderTracking.order_summary,
+          quantite_totale: orderTracking.quantite_totale,
+          order_type: orderTracking.order_type,
+          destinataire: orderTracking.destinataire,
+          adresse: orderTracking.adresse,
+          code_postal: orderTracking.code_postal,
+          ville: orderTracking.ville,
+          pays: orderTracking.pays,
+          mode_livraison: orderTracking.mode_livraison,
+          customer_name: customerInfo.name,
+          customer_email: customerInfo.email,
+          shipping_method: shipping_method || 'colissimo',
+          pickup_store: pickup_store || ''
+        }
       }
     });
 

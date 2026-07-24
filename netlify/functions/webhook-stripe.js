@@ -12,6 +12,7 @@ function adminTrackingSheetLinkHtml() {
 
 const PRICE_TO_PRODUCT = {
   'price_1TBx07LLfYKjr3rUGkvFpLOf': 'pt',
+  'price_1Scn6GL4ecjfMIxOPxaM9FMl': 'pt',
   'price_1TBx06LLfYKjr3rUqsV4WG2Z': 'moh',
   'price_1TgIhwLLfYKjr3rUAALun0DH': 'lannee',
 };
@@ -24,6 +25,21 @@ function productLabel(productKey) {
   if (productKey === 'lannee') return "L'Année d'Israël";
   if (productKey === 'moh') return 'Minhag ou Halakha';
   return 'La Parole Transmise';
+}
+
+/** Liste complète des articles pour l'email vendeur (metadata ou line items Stripe). */
+function buildAdminProductSummary(session, lineItemsData) {
+  const fromMeta = (session.metadata?.order_summary || '').trim();
+  if (fromMeta) return fromMeta;
+
+  const parts = (lineItemsData || [])
+    .filter(li => li.price?.type !== 'recurring')
+    .map(li => {
+      const name = li.description || productLabel(resolveProductKey(li.price?.id));
+      const qty = li.quantity || 1;
+      return `${name} ×${qty}`;
+    });
+  return parts.join(' + ') || 'Produit';
 }
 
 function buildPtClientShippingHtml(sessionId, smLower, isClickCollect, shippingText) {
@@ -180,9 +196,10 @@ exports.handler = async (event) => {
     try {
       const session = stripeEvent.data.object;
 
-      const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 1 });
+      const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { limit: 100 });
       const priceId = lineItems.data[0]?.price?.id;
       const productKey = resolveProductKey(priceId);
+      const productSummary = buildAdminProductSummary(session, lineItems.data);
 
       const customerName = session.metadata?.customer_name || 'Client';
       const customerEmail = session.customer_email;
@@ -199,7 +216,7 @@ exports.handler = async (event) => {
       const isClickCollectPt = smLower.includes('collect') || smLower.includes('pickup');
       const isClickCollectLannee = isClickCollectPt || smLower.includes('ney') || smLower.includes('chapeaux');
       const isPrecommande = session.metadata?.order_type === 'precommande';
-      const label = productLabel(productKey);
+      const hasLannee = lineItems.data.some(li => resolveProductKey(li.price?.id) === 'lannee');
 
       let clientShippingHtml;
       let clientEmailHtml;
@@ -232,11 +249,7 @@ exports.handler = async (event) => {
       }
 
       // EMAIL CLIENT
-      if (productKey === 'lannee') {
-        console.log('Envoi email client à:', customerEmail, '(produit: lannee)');
-      } else {
-        console.log('Envoi email client à:', customerEmail);
-      }
+      console.log('Envoi email client à:', customerEmail, '(produits:', productSummary, ')');
       const clientResult = await sendEmail(
         customerEmail,
         '✅ Votre commande Ora Shel Torah est confirmée !',
@@ -260,13 +273,9 @@ exports.handler = async (event) => {
         `relay_name=${encodeURIComponent(session.metadata?.relay_name || '')}&` +
         `relay_address=${encodeURIComponent(session.metadata?.relay_address || '')}&` +
         `relay_city=${encodeURIComponent(session.metadata?.relay_city || '')}&` +
-        `product=${encodeURIComponent(
-          session.metadata?.product_name ||
-          (productKey === 'moh' ? 'Minhag ou Halakha' :
-            productKey === 'lannee' ? label : 'La Parole Transmise')
-        )}&` +
+        `product=${encodeURIComponent(productSummary)}&` +
         `session=${encodeURIComponent(sessionId)}`;
-      console.log('Envoi email admin à: mlumbroso68@gmail.com');
+      console.log('Envoi email admin à: mlumbroso68@gmail.com', '(produits:', productSummary, ')');
       const adminResult = await sendEmail(
         'mlumbroso68@gmail.com',
         `🛒 Nouvelle commande — ${customerName} — ${amount} €`,
@@ -275,15 +284,16 @@ exports.handler = async (event) => {
           <h2 style="color: #eda234;">Nouvelle commande reçue !</h2>
           ${adminTrackingSheetLinkHtml()}
           <table style="width: 100%; border-collapse: collapse;">
-            ${productKey === 'lannee' ? '<tr><td><strong>Produit :</strong></td><td>' + label + '</td></tr>' : ''}
+            <tr><td><strong>Produit :</strong></td><td>${productSummary}</td></tr>
+            <tr><td><strong>Qté totale :</strong></td><td>${session.metadata?.quantite_totale || ''}</td></tr>
             <tr><td><strong>Nom :</strong></td><td>${customerName}</td></tr>
             <tr><td><strong>Email :</strong></td><td>${customerEmail}</td></tr>
             <tr><td><strong>Téléphone :</strong></td><td>${customerPhone}</td></tr>
             <tr><td><strong>Adresse :</strong></td><td>${adresse}</td></tr>
             <tr><td><strong>Montant :</strong></td><td>${amount} €</td></tr>
             <tr><td><strong>Référence :</strong></td><td>${sessionId}</td></tr>
-            ${productKey === 'lannee'
-              ? buildAdminCollectRow(productKey, isClickCollectAdmin, session)
+            ${hasLannee
+              ? buildAdminCollectRow('lannee', isClickCollectAdmin, session)
               : (isClickCollectAdmin
                 ? '<tr><td colspan="2">📍 Retrait en boutique : Blush Général Store<br/>7 Rue de Sèze, 69006 Lyon</td></tr>'
                 : '')}
