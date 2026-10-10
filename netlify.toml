@@ -32,6 +32,12 @@
   to = "/gestes#:splat"
   status = 302
 
+# Page vente caritative (URL propre, non listée)
+[[redirects]]
+  from = "/vente"
+  to = "/vente.html"
+  status = 200
+
 # ========================================
 # HEADERS DE SÉCURITÉ
 # ========================================

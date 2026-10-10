@@ -160,11 +160,24 @@ exports.handler = async (event) => {
 
   try {
     const body = JSON.parse(event.body);
-    const { items, customerInfo, relay_name, relay_address, relay_city, relay_id, shipping_method, pickup_store } = body;
+    const { items, relay_name, relay_address, relay_city, relay_id, shipping_method, pickup_store } = body;
+    const customerInfo = body.customerInfo || {};
+    const isVenteCaritative =
+      body.order_type === 'vente caritative' ||
+      body.vente_caritative === true ||
+      (shipping_method || '').toLowerCase() === 'vente-caritative';
 
     // Vérifier que la clé secrète Stripe est configurée
     if (!process.env.STRIPE_SECRET_KEY) {
       throw new Error('STRIPE_SECRET_KEY manquante dans les variables d\'environnement');
+    }
+
+    if (!Array.isArray(items) || items.length === 0) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ error: 'Aucun article dans la commande.' })
+      };
     }
 
     // Vérifier que les produits demandés sont disponibles
@@ -193,15 +206,32 @@ exports.handler = async (event) => {
     // Estimation simple : ~1 kg par article
     const totalItems = items.reduce((sum, item) => sum + (item.quantity || 1), 0);
     const totalWeight = totalItems * 1.0;
+    const effectiveShippingMethod = isVenteCaritative
+      ? 'vente-caritative'
+      : (shipping_method || 'colissimo');
     const orderTracking = buildOrderTrackingMetadata(
       items,
       PRODUCT_NAMES,
-      hasLannee ? 'precommande' : 'commande',
-      { customerInfo, relay_name, relay_address, relay_city, shipping_method, pickup_store }
+      isVenteCaritative ? 'vente caritative' : (hasLannee ? 'precommande' : 'commande'),
+      {
+        customerInfo,
+        relay_name,
+        relay_address,
+        relay_city,
+        shipping_method: effectiveShippingMethod,
+        pickup_store
+      }
     );
+    if (isVenteCaritative) {
+      orderTracking.mode_livraison = truncateMetadata('Retrait sur place — vente caritative');
+      orderTracking.order_type = truncateMetadata('vente caritative');
+      orderTracking.adresse = truncateMetadata('Retrait sur place — vente caritative');
+      orderTracking.ville = truncateMetadata('');
+      orderTracking.code_postal = truncateMetadata('');
+    }
 
-    // Frais de port fixes Colissimo
-    const shippingCost = 7.59;
+    // Frais de port fixes Colissimo (0 € pour vente caritative / retrait forcé)
+    const shippingCost = isVenteCaritative ? 0 : 7.59;
 
     // Line items Stripe
     const lineItems = items.map(item => {
@@ -229,7 +259,7 @@ exports.handler = async (event) => {
       };
     });
 
-    const shippingMethod = body.shipping_method || 'colissimo';
+    const shippingMethod = effectiveShippingMethod;
 
     const optionCollect = {
       shipping_rate_data: {
@@ -242,6 +272,21 @@ exports.handler = async (event) => {
         delivery_estimate: {
           minimum: { unit: 'hour', value: 2 },
           maximum: { unit: 'hour', value: 4 }
+        }
+      }
+    };
+
+    const optionVenteCaritative = {
+      shipping_rate_data: {
+        type: 'fixed_amount',
+        fixed_amount: {
+          amount: 0,
+          currency: 'eur'
+        },
+        display_name: 'Retrait sur place — vente caritative',
+        delivery_estimate: {
+          minimum: { unit: 'hour', value: 1 },
+          maximum: { unit: 'hour', value: 2 }
         }
       }
     };
@@ -277,7 +322,9 @@ exports.handler = async (event) => {
     };
 
     let shippingOptions;
-    if (shippingMethod.includes('collect')) {
+    if (isVenteCaritative) {
+      shippingOptions = [optionVenteCaritative];
+    } else if (shippingMethod.includes('collect')) {
       shippingOptions = [optionCollect, optionColissimo, optionMR];
     } else if (shippingMethod.includes('relay') ||
       shippingMethod.includes('mondial')) {
@@ -288,9 +335,9 @@ exports.handler = async (event) => {
 
     const sessionMetadata = {
       ...orderTracking,
-      customer_name: customerInfo.name,
-      customer_email: customerInfo.email,
-      customer_phone: customerInfo.phone,
+      customer_name: customerInfo.name || '',
+      customer_email: customerInfo.email || '',
+      customer_phone: customerInfo.phone || '',
       customer_address: customerInfo.address || '',
       customer_city: customerInfo.city || '',
       customer_zip: customerInfo.postal || customerInfo.zip || '',
@@ -298,22 +345,22 @@ exports.handler = async (event) => {
       relay_address: relay_address || '',
       relay_city: relay_city || '',
       relay_id: relay_id || '',
-      shipping_method: shipping_method || 'colissimo',
+      shipping_method: shippingMethod,
       pickup_store: pickup_store || '',
       total_weight: totalWeight.toFixed(2),
       shipping_cost: shippingCost.toFixed(2)
     };
 
     // Créer session Stripe (métadonnées aussi sur le PaymentIntent pour Make / webhooks PI)
-    const session = await stripe.checkout.sessions.create({
+    const sessionConfig = {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      shipping_address_collection: { allowed_countries: ['FR'] },
       shipping_options: shippingOptions,
       success_url: `${process.env.URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.URL}/#boutique`,
-      customer_email: customerInfo.email,
+      cancel_url: isVenteCaritative
+        ? `${process.env.URL}/vente`
+        : `${process.env.URL}/#boutique`,
       metadata: sessionMetadata,
       payment_intent_data: {
         metadata: {
@@ -326,13 +373,23 @@ exports.handler = async (event) => {
           ville: orderTracking.ville,
           pays: orderTracking.pays,
           mode_livraison: orderTracking.mode_livraison,
-          customer_name: customerInfo.name,
-          customer_email: customerInfo.email,
-          shipping_method: shipping_method || 'colissimo',
+          customer_name: customerInfo.name || '',
+          customer_email: customerInfo.email || '',
+          shipping_method: shippingMethod,
           pickup_store: pickup_store || ''
         }
       }
-    });
+    };
+
+    // Boutique : adresse requise. Vente caritative : retrait forcé, email collecté par Stripe.
+    if (!isVenteCaritative) {
+      sessionConfig.shipping_address_collection = { allowed_countries: ['FR'] };
+    }
+    if (customerInfo.email) {
+      sessionConfig.customer_email = customerInfo.email;
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
 
     return {
       statusCode: 200,

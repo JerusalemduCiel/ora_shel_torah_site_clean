@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Vente en main propre — Ora Shel Torah</title>
+  <link rel="icon" type="image/png" href="images/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    :root {
+      --bg: #0a1220;
+      --bg-card: #121c2e;
+      --gold: #eda234;
+      --gold-soft: #f4c86f;
+      --text: #f5f0e8;
+      --muted: #b8b0a0;
+      --line: rgba(237, 162, 52, 0.28);
+      --danger: #c0392b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(237, 162, 52, 0.18), transparent 55%),
+        linear-gradient(165deg, #0a1220 0%, #152238 45%, #0d1828 100%);
+    }
+
+    .banner {
+      background: linear-gradient(90deg, #8a5a12, #eda234, #8a5a12);
+      color: #1a1208;
+      text-align: center;
+      font-family: Cinzel, serif;
+      font-weight: 700;
+      font-size: clamp(0.78rem, 2.2vw, 0.95rem);
+      letter-spacing: 0.04em;
+      padding: 0.85rem 1rem;
+    }
+
+    .wrap {
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 3.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header .brand {
+      font-family: Cinzel, serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .books {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .book {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      background: rgba(18, 28, 46, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .book img {
+      width: 96px;
+      height: 128px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+      background: #0a1220;
+    }
+
+    .book h2 {
+      font-family: Cinzel, serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.25;
+    }
+
+    .book .price {
+      margin-top: 0.35rem;
+      color: var(--gold-soft);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .qty button {
+      width: 2.2rem;
+      height: 2.2rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--gold);
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .qty button:hover { background: rgba(237, 162, 52, 0.12); }
+
+    .qty button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .qty span {
+      min-width: 1.6rem;
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .checkout {
+      margin-top: 1.75rem;
+      padding: 1.25rem 1.35rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(10, 18, 32, 0.75);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .total-label {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .total-value {
+      display: block;
+      margin-top: 0.15rem;
+      font-family: Cinzel, serif;
+      font-size: clamp(1.5rem, 4vw, 1.9rem);
+      color: var(--gold);
+    }
+
+    #pay-btn {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      padding: 0.95rem 2.2rem;
+      font-family: Cinzel, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, #eda234, #d4881a);
+      color: #1a1208;
+      cursor: pointer;
+      min-width: 10rem;
+    }
+
+    #pay-btn:hover:not(:disabled) {
+      filter: brightness(1.06);
+    }
+
+    #pay-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      filter: grayscale(0.2);
+    }
+
+    .note {
+      margin-top: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .error {
+      margin-top: 1rem;
+      color: #ffb4a8;
+      text-align: center;
+      min-height: 1.4rem;
+    }
+
+    @media (max-width: 640px) {
+      .book {
+        grid-template-columns: 72px 1fr;
+        grid-template-rows: auto auto;
+      }
+      .book img {
+        width: 72px;
+        height: 96px;
+        grid-row: 1 / span 2;
+      }
+      .qty {
+        grid-column: 2;
+        justify-content: flex-start;
+      }
+      .checkout {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      #pay-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">Vente en main propre — retrait sur place, aucune expédition.</div>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">Ora Shel Torah</div>
+      <p>Choisissez vos livres, puis payez en une seule fois.</p>
+    </header>
+
+    <div class="books" id="books"></div>
+
+    <div class="checkout">
+      <div>
+        <span class="total-label">Total</span>
+        <span class="total-value" id="total">0,00 €</span>
+      </div>
+      <button type="button" id="pay-btn" disabled>Payer</button>
+    </div>
+
+    <p class="note">Retrait sur place uniquement · Port 0 € · Paiement sécurisé Stripe</p>
+    <p class="error" id="error" aria-live="polite"></p>
+  </div>
+
+  <script>
+    const STRIPE_PK = 'pk_live_51SBeyrLLfYKjr3rUDC9XHZw0mEQPPnQnR7bWnhkec0MqOGh6BfNKm1z9PAHmoT5ozk21RiZI2g4CZYBPb8DP8PZ000gcXNmXeL';
+
+    const BOOKS = [
+      {
+        id: 'moh',
+        name: 'Minhag ou Halakha',
+        shortName: 'Minhag ou Halakha',
+        price: 44.90,
+        priceId: 'price_1TBx06LLfYKjr3rUqsV4WG2Z',
+        image: 'images/gabarit/moh_recto.jpg'
+      },
+      {
+        id: 'lumieres',
+        name: 'La Parole Transmise',
+        shortName: 'La Parole Transmise',
+        price: 39.90,
+        priceId: 'price_1Scn6GL4ecjfMIxOPxaM9FMl',
+        image: 'images/gabarit/pt_recto.jpg'
+      },
+      {
+        id: 'lannee',
+        name: "L'Année d'Israël",
+        shortName: "L'Année",
+        price: 159.90,
+        priceId: 'price_1TgIhwLLfYKjr3rUAALun0DH',
+        image: 'images/gabarit/lannee_recto.jpg'
+      }
+    ];
+
+    const qty = Object.fromEntries(BOOKS.map(b => [b.id, 0]));
+
+    const booksEl = document.getElementById('books');
+    const totalEl = document.getElementById('total');
+    const payBtn = document.getElementById('pay-btn');
+    const errorEl = document.getElementById('error');
+
+    function formatPrice(n) {
+      return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(n);
+    }
+
+    function getTotal() {
+      return BOOKS.reduce((sum, b) => sum + b.price * qty[b.id], 0);
+    }
+
+    function render() {
+      booksEl.innerHTML = BOOKS.map(b => `
+        <article class="book" data-id="${b.id}">
+          <img src="${b.image}" alt="${b.name}" width="96" height="128" loading="lazy">
+          <div>
+            <h2>${b.name}</h2>
+            <div class="price">${formatPrice(b.price)}</div>
+          </div>
+          <div class="qty">
+            <button type="button" data-action="minus" data-id="${b.id}" aria-label="Diminuer" ${qty[b.id] <= 0 ? 'disabled' : ''}>−</button>
+            <span aria-live="polite">${qty[b.id]}</span>
+            <button type="button" data-action="plus" data-id="${b.id}" aria-label="Augmenter">+</button>
+          </div>
+        </article>
+      `).join('');
+
+      const total = getTotal();
+      totalEl.textContent = formatPrice(total);
+      payBtn.disabled = total <= 0;
+    }
+
+    booksEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-action]');
+      if (!btn) return;
+      const id = btn.dataset.id;
+      const action = btn.dataset.action;
+      if (action === 'plus') qty[id] += 1;
+      if (action === 'minus') qty[id] = Math.max(0, qty[id] - 1);
+      errorEl.textContent = '';
+      render();
+    });
+
+    payBtn.addEventListener('click', async () => {
+      if (getTotal() <= 0) return;
+
+      const items = BOOKS
+        .filter(b => qty[b.id] > 0)
+        .map(b => ({
+          priceId: b.priceId,
+          quantity: qty[b.id],
+          name: b.shortName
+        }));
+
+      payBtn.disabled = true;
+      const original = payBtn.textContent;
+      payBtn.textContent = 'Redirection…';
+      errorEl.textContent = '';
+
+      try {
+        const response = await fetch('/.netlify/functions/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items,
+            order_type: 'vente caritative',
+            shipping_method: 'vente-caritative',
+            vente_caritative: true
+          })
+        });
+
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || !data.sessionId) {
+          throw new Error(data.error || 'Impossible de créer la session de paiement.');
+        }
+
+        const stripe = Stripe(STRIPE_PK);
+        const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+        if (error) throw error;
+      } catch (err) {
+        console.error(err);
+        errorEl.textContent = err.message || 'Une erreur est survenue. Réessayez.';
+        payBtn.disabled = getTotal() <= 0;
+        payBtn.textContent = original;
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>
