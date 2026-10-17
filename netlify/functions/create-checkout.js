@@ -384,6 +384,8 @@ exports.handler = async (event) => {
     // Boutique : adresse requise. Vente caritative : retrait forcé, email collecté par Stripe.
     if (!isVenteCaritative) {
       sessionConfig.shipping_address_collection = { allowed_countries: ['FR'] };
+    } else {
+      sessionConfig.allow_promotion_codes = true;
     }
     if (customerInfo.email) {
       sessionConfig.customer_email = customerInfo.email;
