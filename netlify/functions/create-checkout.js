@@ -231,7 +231,23 @@ exports.handler = async (event) => {
     }
 
     // Frais de port fixes Colissimo (0 € pour vente caritative / retrait forcé)
-    const shippingCost = isVenteCaritative ? 0 : 7.59;
+    // ── Offre Hanoukka 2026 : Minhag ou Halakha + La Parole Transmise dans le même panier
+    //    → Colissimo et Mondial Relay offerts, jusqu'au 26/11/2026 inclus (heure de Paris).
+    const OFFRE_HANOUKKA_FIN = Date.parse('2026-11-27T00:00:00+01:00');
+    const isMohItem = (i) => i.priceId === 'price_1TBx06LLfYKjr3rUqsV4WG2Z' || i.id === 'moh' || i.productId === 'moh';
+    const isLptItem = (i) =>
+      i.priceId === 'price_1Scn6GL4ecjfMIxOPxaM9FMl' ||
+      i.priceId === 'price_1TBx07LLfYKjr3rUGkvFpLOf' ||
+      i.id === 'lumieres' ||
+      i.productId === 'lumieres';
+    const offreHanoukka =
+      !isVenteCaritative &&
+      Date.now() < OFFRE_HANOUKKA_FIN &&
+      items.some(isMohItem) &&
+      items.some(isLptItem);
+    const OFFRE_SUFFIXE = offreHanoukka ? ' — offerte (offre Hanoukka)' : '';
+
+    const shippingCost = (isVenteCaritative || offreHanoukka) ? 0 : 7.59;
 
     // Line items Stripe
     const lineItems = items.map(item => {
@@ -295,10 +311,10 @@ exports.handler = async (event) => {
       shipping_rate_data: {
         type: 'fixed_amount',
         fixed_amount: {
-          amount: 490,
+          amount: offreHanoukka ? 0 : 490,
           currency: 'eur'
         },
-        display_name: 'Mondial Relay (Point Relais)',
+        display_name: 'Mondial Relay (Point Relais)' + OFFRE_SUFFIXE,
         delivery_estimate: {
           minimum: { unit: 'business_day', value: 3 },
           maximum: { unit: 'business_day', value: 5 }
@@ -310,10 +326,10 @@ exports.handler = async (event) => {
       shipping_rate_data: {
         type: 'fixed_amount',
         fixed_amount: {
-          amount: 790,
+          amount: offreHanoukka ? 0 : 790,
           currency: 'eur'
         },
-        display_name: 'Colissimo (Domicile)',
+        display_name: 'Colissimo (Domicile)' + OFFRE_SUFFIXE,
         delivery_estimate: {
           minimum: { unit: 'business_day', value: 2 },
           maximum: { unit: 'business_day', value: 3 }
@@ -334,6 +350,7 @@ exports.handler = async (event) => {
     }
 
     const sessionMetadata = {
+      offre: offreHanoukka ? 'Hanoukka 2026 - livraison offerte' : '',
       ...orderTracking,
       customer_name: customerInfo.name || '',
       customer_email: customerInfo.email || '',
