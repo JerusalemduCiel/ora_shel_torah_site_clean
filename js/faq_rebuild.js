@@ -30,22 +30,22 @@ const faqData = [
     question: `Qu'est-ce que la collection Lumières d'Israël ?`,
     answer: `<p>Lumières d'Israël est la collection de livres patrimoniaux d'Ora Shel Torah. Elle compte aujourd'hui trois tomes :</p>
 <ul>
-<li><strong>Tome I — La Parole Transmise</strong> : 118 grandes figures qui ont façonné l'histoire et la pensée juives (296 pages).</li>
-<li><strong>Tome II — Minhag ou Halakha</strong> : distinguer la loi (Halakha) de la coutume (Minhag), sources classiques à l'appui (18 chapitres, 344 pages).</li>
-<li><strong>Tome III — L'Année d'Israël</strong> : le cycle des fêtes juives selon les quatre chemins de lecture du PaRDeS (552 pages).</li>
+<li><strong>La Parole Transmise</strong> : 118 grandes figures qui ont façonné l'histoire et la pensée juives (296 pages).</li>
+<li><strong>Minhag ou Halakha</strong> : distinguer la loi (Halakha) de la coutume (Minhag), sources classiques à l'appui (18 chapitres, 344 pages).</li>
+<li><strong>L'Année d'Israël</strong> : le cycle des fêtes juives selon les quatre chemins de lecture du PaRDeS (552 pages).</li>
 </ul>`
   },
 
   // === LES LIVRES ===
   {
     category: 'livres',
-    question: `Qu'est-ce que La Parole Transmise ? (Tome I)`,
+    question: `Qu'est-ce que La Parole Transmise ?`,
     answer: `<p>Premier tome de la collection, <strong>La Parole Transmise</strong> réunit 118 grandes figures qui ont porté et transmis la tradition juive au fil des siècles.</p>
 <p>Chaque figure est présentée dans son contexte et son apport, pour saisir la chaîne de transmission qui relie les générations — et mettre des visages et des récits sur l'histoire de la pensée juive. (296 pages.)</p>`
   },
   {
     category: 'livres',
-    question: `Qu'est-ce que Minhag ou Halakha ? (Tome II)`,
+    question: `Qu'est-ce que Minhag ou Halakha ?`,
     answer: `<p>Deuxième tome, <strong>Minhag ou Halakha</strong> passe dix-huit pratiques juives au crible d'une question simple et vertigineuse : est-ce la Loi (Halakha) ou la coutume (Minhag) ?</p>
 <p>Pour chaque cas, sources classiques à l'appui, le chapitre rend son verdict. Un ouvrage d'étude clair et honnête — quelque 150 lois et usages — pour comprendre ce que l'on fait, et pourquoi. (18 chapitres, 344 pages, relié.)</p>`
   },
@@ -56,7 +56,7 @@ const faqData = [
   },
   {
     category: 'livres',
-    question: `Qu'est-ce que L'Année d'Israël ? (Tome III)`,
+    question: `Qu'est-ce que L'Année d'Israël ?`,
     answer: `<p>Troisième tome, <strong>L'Année d'Israël</strong> parcourt le cycle complet des fêtes juives, de Roch Hachana à Tou BeAv.</p>
 <p>Chaque fête est abordée selon les quatre chemins de lecture du PaRDeS, pour la vivre à la fois dans son récit, son foyer, sa liturgie et son sens profond. Un grand ouvrage relié de 552 pages, compagnon de toute l'année juive.</p>`
   },

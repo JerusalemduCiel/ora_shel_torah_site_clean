@@ -580,6 +580,7 @@
             <span class="zoom-hint">🔍 Survol / clic</span>
           </div>
           <button type="button" class="btn-feuilleter" data-feuilleter data-pages="24" data-img-base="animation/pt/images/page">Feuilleter le livre</button>
+          <button type="button" class="btn-feuilleter btn-video-lpt" data-video-lpt>&#9654; Voir la vidéo</button>
           <div class="thumbs">
             <button class="thumb active" data-src="images/gabarit/pt_recto.jpg"><img src="images/gabarit/pt_recto.jpg" alt="Recto"></button>
             <button class="thumb" data-src="images/gabarit/pt_verso.jpg"><img src="images/gabarit/pt_verso.jpg" alt="Verso"></button>
@@ -588,7 +589,7 @@
           </div>
         </div>
         <div class="gabarit-editorial">
-          <p class="collection-label">Lumières d'Israël · Tome I</p>
+          <p class="collection-label">Lumières d'Israël</p>
           <h2 class="gabarit-title">La Parole Transmise</h2>
           <p class="gabarit-subtitle">Les grandes figures de l'histoire juive</p>
           <p class="desc">Cent dix-huit visages qui ont porté la tradition, de la Bible à nos jours. Patriarches, prophètes, sages du Talmud, maîtres du Moyen Âge et penseurs contemporains : chaque notice retrace une vie, une œuvre et l'empreinte laissée dans la mémoire d'Israël.</p>
@@ -607,6 +608,38 @@
         </div>
       </div>
     </section>
+
+    <!-- Vidéo La Parole Transmise (Reel Rambam) -->
+    <div id="lpt-video-modal" class="lpt-vmodal" aria-hidden="true">
+      <div class="lpt-vbox" role="dialog" aria-modal="true" aria-label="Vidéo La Parole Transmise">
+        <button type="button" class="lpt-vclose" aria-label="Fermer">&times;</button>
+        <video controls playsinline preload="none" poster="images/lpt-rambam-poster.jpg">
+          <source src="videos/lpt-rambam.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="btn-commander lpt-vcta" data-action="store">Commander — 39,90 €</button>
+      </div>
+    </div>
+    <style>
+      .lpt-vmodal{position:fixed;inset:0;z-index:10002;display:none;align-items:center;justify-content:center;background:rgba(8,6,4,.94);padding:56px 16px 16px;}
+      .lpt-vmodal.active{display:flex;}
+      .lpt-vbox{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;max-width:100%;}
+      .lpt-vbox video{height:min(76vh,calc((100vw - 32px)*16/9));aspect-ratio:9/16;max-width:100%;border-radius:10px;background:#000;box-shadow:0 12px 50px rgba(0,0,0,.6);}
+      .lpt-vclose{position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.14);color:#fff;font-size:24px;line-height:1;cursor:pointer;}
+      .btn-video-lpt{margin-top:10px;}
+    </style>
+    <script>
+    (function(){
+      var m=document.getElementById('lpt-video-modal'); if(!m) return;
+      var v=m.querySelector('video');
+      function open(){m.classList.add('active');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var t=document.getElementById('ost-theme-audio');if(t&&!t.paused)t.pause();var p=v.play();if(p&&p.catch)p.catch(function(){});}
+      function close(){m.classList.remove('active');m.setAttribute('aria-hidden','true');document.body.style.overflow='';v.pause();}
+      document.querySelectorAll('[data-video-lpt]').forEach(function(b){b.addEventListener('click',open);});
+      m.querySelector('.lpt-vclose').addEventListener('click',close);
+      m.addEventListener('click',function(e){if(e.target===m)close();});
+      m.querySelector('.lpt-vcta').addEventListener('click',close);
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('active'))close();});
+    })();
+    </script>
 
     <!-- ACTE 4: HERO BIS - Minhag ou Halakha -->
     <section id="hero-bis-moh" class="gabarit gabarit-moh">
@@ -628,7 +661,7 @@
           </div>
         </div>
         <div class="gabarit-editorial">
-          <p class="collection-label">Lumières d'Israël · Tome II</p>
+          <p class="collection-label">Lumières d'Israël</p>
           <h2 class="gabarit-title">Minhag ou Halakha</h2>
           <p class="gabarit-subtitle">Distinguer la loi de la coutume</p>
           <p class="desc">Dix-huit pratiques juives passées au crible : pour chacune, une question simple et vertigineuse — est-ce la Loi (Halakha) ou la coutume (Minhag) ? Sources classiques à l'appui, chaque chapitre rend son verdict.</p>
@@ -700,7 +733,7 @@
           </div>
         </div>
         <div class="gabarit-editorial">
-          <p class="collection-label">Lumières d'Israël · Tome III</p>
+          <p class="collection-label">Lumières d'Israël</p>
           <h2 class="gabarit-title">L'Année</h2>
           <p class="gabarit-subtitle">Le calendrier des fêtes juives, de Roch Hachana à Tou BeAv</p>
           <p class="desc">Une traversée de l'année hébraïque, fête après fête, selon quatre chemins de lecture (PaRDeS) : le récit, le foyer, la liturgie et le sens. Un grand livre relié et illustré, à vivre au fil des saisons.</p>
