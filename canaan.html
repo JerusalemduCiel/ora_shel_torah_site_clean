@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De Canaan à Jérusalem — Pour aller plus loin · Ora Shel Torah</title>
+<meta name="description" content="Compagnon en ligne du livre « De Canaan à Jérusalem » : chaque code du livre conduit ici, vers les lieux, les textes et les documents. Les liens sont tenus à jour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Frank+Ruhl+Libre:wght@500;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-0:#0a1c14;      /* deepest */
+    --green-1:#0e2419;
+    --green-2:#143123;
+    --green-3:#1b3d2d;
+    --navy:#0a0f1c;          /* top bar */
+    --gold:#d6b262;
+    --gold-hi:#ecd49a;
+    --gold-deep:#bd9743;
+    --ivory:#f0e8d7;
+    --muted:#a6bcac;
+    --muted-dim:#7e948a;
+    --card:rgba(255,255,255,.035);
+    --card-line:rgba(214,178,98,.22);
+    --radius:16px;
+    --maxw:1080px;
+    --head-h:118px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 700px at 50% -8%, #224733 0%, rgba(34,71,51,0) 60%),
+      linear-gradient(180deg, var(--green-1) 0%, var(--green-0) 100%);
+    background-attachment:fixed;
+    color:var(--ivory);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+
+  /* ---------- top utility bar ---------- */
+  .topbar{
+    background:var(--navy);
+    border-bottom:1px solid rgba(214,178,98,.18);
+    color:var(--gold);
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+  .topbar .wrap{
+    max-width:var(--maxw);margin:0 auto;padding:9px 24px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  .topbar .tag{font-weight:600;letter-spacing:.06em}
+  .topbar .contact{display:flex;gap:18px;align-items:center;color:var(--ivory);font-size:12.5px}
+  .topbar .contact span{color:var(--gold)}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,15,28,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(214,178,98,.16);
+  }
+  .nav .wrap{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;gap:22px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
+  .brand svg{display:block}
+  .brand .name{font-family:"Playfair Display",serif;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  .nav-links{display:flex;gap:22px;margin-left:8px;flex:1 1 auto}
+  .nav-links a{text-decoration:none;color:var(--ivory);font-size:14.5px;font-weight:500;opacity:.9;transition:color .2s,opacity .2s}
+  .nav-links a:hover{color:var(--gold-hi);opacity:1}
+  .btn-pre{
+    text-decoration:none;flex:0 0 auto;
+    background:linear-gradient(180deg,var(--gold-hi),var(--gold) 55%,var(--gold-deep));
+    color:#2a1f08;font-weight:700;font-size:14px;
+    padding:10px 20px;border-radius:999px;
+    box-shadow:0 4px 16px rgba(0,0,0,.25);
+    transition:transform .2s,box-shadow .2s;
+  }
+  .btn-pre:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;max-width:var(--maxw);margin:0 auto;padding:78px 24px 34px;text-align:center}
+  .hero .watermark{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:"Frank Ruhl Libre",serif;font-weight:700;
+    font-size:min(46vw,560px);line-height:1;color:var(--gold);
+    opacity:.05;pointer-events:none;user-select:none;z-index:0;
+    transform:translateY(-4%);
+  }
+  .hero>*{position:relative;z-index:1}
+  .eyebrow{font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px}
+  .hero h1{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(42px,7vw,76px);margin:0 0 14px;color:var(--ivory);letter-spacing:.01em}
+  .hero .lede{font-family:"EB Garamond",serif;font-style:italic;font-size:clamp(19px,2.4vw,23px);color:var(--muted);max-width:640px;margin:0 auto}
+  .hero .note{font-size:14px;color:var(--muted-dim);max-width:600px;margin:24px auto 0;line-height:1.65}
+  .hero .note b{color:var(--gold);font-weight:600}
+  .rule{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:30px auto 0;border:0}
+
+  /* ---------- sections ---------- */
+  main{max-width:var(--maxw);margin:0 auto;padding:12px 24px 40px}
+  .chapter{margin-top:48px}
+  .chapter>.chap-head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  .chap-head .label{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap}
+  .chap-head .line{height:1px;background:linear-gradient(90deg,var(--card-line),transparent);flex:1}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media (max-width:720px){.grid{grid-template-columns:1fr}}
+
+  .geste{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--card-line);
+    border-radius:var(--radius);
+    padding:22px 22px 20px;
+    scroll-margin-top:var(--head-h);
+    transition:border-color .3s,box-shadow .3s,background .3s;
+  }
+  .geste .code{
+    position:absolute;top:18px;right:20px;
+    font-size:11.5px;letter-spacing:.12em;color:var(--muted-dim);font-weight:600;
+  }
+  .geste h3{
+    font-family:"Playfair Display",serif;font-weight:600;font-size:21px;
+    margin:0 30px 8px 0;color:var(--ivory);line-height:1.25;
+  }
+  .geste .desc{font-family:"EB Garamond",serif;font-size:18px;color:var(--muted);margin:0 0 18px;line-height:1.5}
+  .actions{display:flex;flex-wrap:wrap;gap:10px}
+
+  .btn{
+    text-decoration:none;display:inline-flex;flex-direction:column;gap:2px;
+    padding:10px 16px;border-radius:11px;
+    background:linear-gradient(180deg,var(--gold-hi),var(--gold) 60%,var(--gold-deep));
+    color:#2a1f08;transition:transform .18s,box-shadow .18s;
+    box-shadow:0 3px 12px rgba(0,0,0,.22);
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .btn .b-main{font-weight:700;font-size:14.5px}
+  .btn .b-sub{font-size:11px;font-weight:600;letter-spacing:.04em;opacity:.72;text-transform:uppercase}
+  .btn.ghost{
+    background:transparent;color:var(--gold-hi);
+    border:1px solid var(--card-line);box-shadow:none;
+  }
+  .btn.ghost:hover{border-color:var(--gold);background:rgba(214,178,98,.07)}
+  .btn.ghost .b-sub{opacity:.6;color:var(--muted)}
+
+  /* fiche box */
+  .fiche{
+    margin:6px 0 18px;padding:16px 18px;
+    border:1px solid var(--card-line);border-left:3px solid var(--gold);
+    border-radius:10px;background:rgba(214,178,98,.05);
+  }
+  .fiche .ftitle{font-family:"Playfair Display",serif;font-size:16px;color:var(--gold-hi);margin:0 0 8px}
+  .fiche p{font-family:"EB Garamond",serif;font-size:16.5px;color:var(--ivory);margin:0 0 8px;line-height:1.55;opacity:.92}
+  .fiche p:last-child{margin-bottom:0}
+  .fiche .pending{display:inline-block;margin-top:6px;font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-dim)}
+
+  /* scanned (QR target) highlight */
+  .scanned{display:none;margin-bottom:12px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .geste:target{
+    border-color:var(--gold);
+    animation:scan-halo 2.6s ease-out forwards;
+  }
+  .geste:target .scanned{display:block}
+  @keyframes scan-halo{
+    0%   {background:rgba(214,178,98,.22); box-shadow:0 0 0 3px var(--gold), 0 0 0 0 rgba(214,178,98,.6); transform:scale(1.02);}
+    20%  {box-shadow:0 0 0 3px var(--gold), 0 0 50px 12px rgba(214,178,98,.55);}
+    45%  {box-shadow:0 0 0 3px var(--gold), 0 0 22px 3px rgba(214,178,98,.28);}
+    70%  {box-shadow:0 0 0 3px var(--gold), 0 0 50px 10px rgba(214,178,98,.5);}
+    100% {background:rgba(214,178,98,.08); box-shadow:0 0 0 2px var(--gold), 0 0 18px rgba(214,178,98,.3); transform:scale(1);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .geste:target{animation:none; box-shadow:0 0 0 2px var(--gold), 0 0 24px rgba(214,178,98,.4);}
+  }
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid rgba(214,178,98,.16);background:var(--navy);margin-top:56px}
+  footer .wrap{max-width:var(--maxw);margin:0 auto;padding:34px 24px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+  footer .tag{font-family:"Playfair Display",serif;letter-spacing:.06em;color:var(--gold)}
+  footer .meta{font-size:13px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+  footer .meta span{color:var(--gold)}
+
+  @media (max-width:860px){
+    .nav-links{display:none}
+    :root{--head-h:86px}
+  }
+
+  .geste.ref{padding:16px 18px}
+  .geste.ref h3{font-size:18px;margin:2px 30px 8px 0}
+  .ref-chap{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px}
+  .soon{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px dashed var(--card-line);border-radius:8px;padding:5px 11px}
+  .geste .src{font-size:12.5px;color:var(--muted-dim);margin:-10px 0 14px;font-style:italic}
+  .partie{margin-top:46px}
+  .partie > h2{font-family:"Playfair Display",serif;font-weight:600;font-size:27px;color:var(--gold-hi);margin:0 0 4px}
+  .partie > p{font-family:"EB Garamond",serif;color:var(--muted);font-size:18px;margin:0 0 6px}
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="tag">✦ De génération en génération</div>
+      <div class="contact"><span>↑ Lyon, France</span> · Contact · <span>06 18 06 10 00</span></div>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="https://orasheltorah.fr/">
+        <svg width="30" height="34" viewBox="0 0 30 34" fill="none" aria-hidden="true">
+          <path d="M15 2c2 6-3 7-3 12a3 3 0 006 0c0-2-1-3-1-5 4 3 6 7 6 11a8 8 0 11-16 0c0-7 6-9 8-18z" fill="#d6b262"/>
+        </svg>
+        <span class="name">Ora Shel Torah</span>
+      </a>
+      <nav class="nav-links">
+        <a href="https://orasheltorah.fr/notre-histoire">Notre histoire</a>
+        <a href="https://orasheltorah.fr/philosophie">Philosophie</a>
+        <a href="https://orasheltorah.fr/nos-livres">Nos livres</a>
+        <a href="https://orasheltorah.fr/boutique">Boutique</a>
+        <a href="https://orasheltorah.fr/glossaire">Glossaire</a>
+        <a href="https://orasheltorah.fr/contact">Contact</a>
+      </nav>
+      <a class="btn-pre" href="https://orasheltorah.fr/boutique">Précommander</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="watermark" aria-hidden="true">מִכְּנַעַן לִירוּשָׁלַיִם</div>
+    <div class="eyebrow">Lumières d'Israël · De Canaan à Jérusalem</div>
+    <h1>Pour aller plus loin</h1>
+    <p class="lede">Les lieux, les textes et les documents de chaque double-page.</p>
+    <p class="note">Chaque code du livre <i>De Canaan à Jérusalem</i> conduit ici, sur la fiche de la double-page. Les liens mènent vers des ressources publiques (encyclopédie, textes sources) et seront enrichis au fil du temps : musées, archives, visites. Un lien rompu ? Il est <b>remplacé sans réimpression</b> — vous tombez toujours au bon endroit.</p>
+    <hr class="rule">
+  </section>
+
+  <main>
+  <section class="partie"><h2>Partie I · Les origines</h2><p>D&#x27;Ur à Massada.</p></section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère I — Les patriarches</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="ur">
+          <div class="code">I-01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le départ</h3>
+          <p class="desc">Ur en images : les collections en ligne du British Museum et du Penn Museum.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ur_%28M%C3%A9sopotamie%29" target="_blank" rel="noopener"><span class="b-main">Ur (Mésopotamie) →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Genesis.11?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Genèse 11 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="canaan">
+          <div class="code">I-02</div><div class="scanned">↳ Code scanné</div>
+          <h3>La terre des collines</h3>
+          <p class="desc">Les lettres d&#x27;Amarna au Louvre et au British Museum.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Lettres_d%27Amarna" target="_blank" rel="noopener"><span class="b-main">Lettres d&#x27;Amarna →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Genesis.12?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Genèse 12 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Deuteronomy.8?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Dt 8 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hebron">
+          <div class="code">I-03</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;alliance et Hébron</h3>
+          <p class="desc">Hébron et Makhpéla : visite et histoire du lieu.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Tombeau_des_Patriarches" target="_blank" rel="noopener"><span class="b-main">Tombeau des Patriarches →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Genesis.15?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Genèse 15 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="beer-sheva">
+          <div class="code">I-04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les puits d&#x27;Isaac</h3>
+          <p class="desc">Tel Beer-Sheva, site du patrimoine mondial de l&#x27;UNESCO.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Tel_Beer_Sheva" target="_blank" rel="noopener"><span class="b-main">Tel Beer Sheva →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Genesis.21?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Genèse 21 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="bethel">
+          <div class="code">I-05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Jacob devient Israël</h3>
+          <p class="desc">Béthel, le Yabboq et le tombeau de Rachel : les lieux de Jacob.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/B%C3%A9thel" target="_blank" rel="noopener"><span class="b-main">Béthel →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Tombeau_de_Rachel" target="_blank" rel="noopener"><span class="b-main">Tombeau de Rachel →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Genesis.28?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Genèse 28 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Jeremiah.31?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Jérémie 31 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="goshen">
+          <div class="code">I-06</div><div class="scanned">↳ Code scanné</div>
+          <h3>La descente en Égypte</h3>
+          <p class="desc">Les Hyksos d&#x27;Avaris et la vie des Sémites en Égypte.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hyks%C3%B4s" target="_blank" rel="noopener"><span class="b-main">Hyksôs →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Avaris" target="_blank" rel="noopener"><span class="b-main">Avaris →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Genesis.37?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Genèse 37 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère II — L&#x27;Égypte et l&#x27;Exode</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="goshen-pitom">
+          <div class="code">I-07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Esclaves en Égypte</h3>
+          <p class="desc">Avaris, Pi-Ramsès et les Sémites du delta.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Pi-Rams%C3%A8s" target="_blank" rel="noopener"><span class="b-main">Pi-Ramsès →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Avaris" target="_blank" rel="noopener"><span class="b-main">Avaris →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Exodus.1?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Exode 1 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="pessah">
+          <div class="code">I-08</div><div class="scanned">↳ Code scanné</div>
+          <h3>La sortie d&#x27;Égypte</h3>
+          <p class="desc">Pessah, du récit biblique au Séder d&#x27;aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Pessa%27h" target="_blank" rel="noopener"><span class="b-main">Pessa&#x27;h →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/S%C3%A9der_de_Pessa%27h" target="_blank" rel="noopener"><span class="b-main">Séder de Pessa&#x27;h →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Exodus.2?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Exode 2 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="sinai">
+          <div class="code">I-09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Sinaï et le désert</h3>
+          <p class="desc">Le Sinaï, le Michkan et les étapes du désert.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Mont_Sina%C3%AF" target="_blank" rel="noopener"><span class="b-main">Mont Sinaï →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Tabernacle" target="_blank" rel="noopener"><span class="b-main">Tabernacle →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Exodus.16?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Exode 16 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère III — L&#x27;installation en Canaan</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="jericho">
+          <div class="code">I-10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Josué passe le Jourdain</h3>
+          <p class="desc">Jéricho, Guilgal et le partage des tribus.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/J%C3%A9richo" target="_blank" rel="noopener"><span class="b-main">Jéricho →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Guilgal" target="_blank" rel="noopener"><span class="b-main">Guilgal →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Joshua.2?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Josué 2 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="silo">
+          <div class="code">I-11</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le temps des Juges</h3>
+          <p class="desc">Les fouilles de Tel Shilo, l&#x27;antique Silo.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Silo_%28Canaan%29" target="_blank" rel="noopener"><span class="b-main">Silo (Canaan) →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Livre_des_Juges" target="_blank" rel="noopener"><span class="b-main">Livre des Juges →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/I_Samuel.1?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 1 Samuel 1 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="merenptah">
+          <div class="code">I-12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Israël apparaît</h3>
+          <p class="desc">La stèle de Mérenptah et les reliefs de Médinet Habou.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/St%C3%A8le_de_M%C3%A9renptah" target="_blank" rel="noopener"><span class="b-main">Stèle de Mérenptah →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/M%C3%A9dinet_Habou" target="_blank" rel="noopener"><span class="b-main">Médinet Habou →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/I_Samuel.4?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 1 Samuel 4 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère IV — Le royaume uni</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="david">
+          <div class="code">I-13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Saül et David</h3>
+          <p class="desc">La stèle de Tel Dan et la Cité de David.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/St%C3%A8le_de_Tel_Dan" target="_blank" rel="noopener"><span class="b-main">Stèle de Tel Dan →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Cit%C3%A9_de_David" target="_blank" rel="noopener"><span class="b-main">Cité de David →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="temple">
+          <div class="code">I-14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Salomon et le Premier Temple</h3>
+          <p class="desc">Le Premier Temple d&#x27;après le livre des Rois.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Temple_de_Salomon" target="_blank" rel="noopener"><span class="b-main">Temple de Salomon →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/I_Kings.1?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 1 Rois 1 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Chronicles.3?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Chroniques 3 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère V — Deux royaumes</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="karnak">
+          <div class="code">I-15</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le schisme</h3>
+          <p class="desc">Le portail de Shéshonq à Karnak.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Sheshonq_Ier" target="_blank" rel="noopener"><span class="b-main">Sheshonq Ier →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/I_Kings.12?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 1 Rois 12 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Chronicles.11?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Chroniques 11 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="mesha">
+          <div class="code">I-16</div><div class="scanned">↳ Code scanné</div>
+          <h3>Samarie et la voix des prophètes</h3>
+          <p class="desc">La stèle de Mésha au Louvre.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/St%C3%A8le_de_Mesha" target="_blank" rel="noopener"><span class="b-main">Stèle de Mesha →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/I_Kings.16?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 1 Rois 16 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Kings.1?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Rois 1 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="sargon">
+          <div class="code">I-17</div><div class="scanned">↳ Code scanné</div>
+          <h3>722 : la fin du royaume du Nord</h3>
+          <p class="desc">Les reliefs et les annales de Sargon II au Louvre.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Sargon_II" target="_blank" rel="noopener"><span class="b-main">Sargon II →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Royaume_d%27Isra%C3%ABl" target="_blank" rel="noopener"><span class="b-main">Royaume d&#x27;Israël →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Kings.15?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Rois 15 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Chronicles.30?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Chroniques 30 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="lakish">
+          <div class="code">I-18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Jérusalem assiégée</h3>
+          <p class="desc">Les reliefs de Lakish et le tunnel d&#x27;Ézéchias.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Si%C3%A8ge_de_Lakish" target="_blank" rel="noopener"><span class="b-main">Siège de Lakish →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Tunnel_d%27%C3%89z%C3%A9chias" target="_blank" rel="noopener"><span class="b-main">Tunnel d&#x27;Ézéchias →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Kings.16?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Rois 16 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Isaiah.36?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Isaïe 36 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="josias">
+          <div class="code">I-19</div><div class="scanned">↳ Code scanné</div>
+          <h3>Josias et le livre retrouvé</h3>
+          <p class="desc">Les bulles d&#x27;argile de la Cité de David.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Josias" target="_blank" rel="noopener"><span class="b-main">Josias →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Cit%C3%A9_de_David" target="_blank" rel="noopener"><span class="b-main">Cité de David →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Kings.21?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Rois 21 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Chronicles.33?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Chroniques 33 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère VI — Babylone et le retour</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="lettres-lakish">
+          <div class="code">I-20</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Temple détruit</h3>
+          <p class="desc">Les lettres de Lakish au British Museum et au musée d&#x27;Israël.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Lettres_de_Lakish" target="_blank" rel="noopener"><span class="b-main">Lettres de Lakish →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/II_Kings.24?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : 2 Rois 24 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Jeremiah.32?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Jérémie 32 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="al-yahudu">
+          <div class="code">I-21</div><div class="scanned">↳ Code scanné</div>
+          <h3>Au bord des fleuves de Babylone</h3>
+          <p class="desc">Les tablettes d&#x27;Al-Yahoudou et les tablettes de Joïakîn.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Exil_%C3%A0_Babylone" target="_blank" rel="noopener"><span class="b-main">Exil à Babylone →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Psalms.137?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Psaume 137 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Jeremiah.29?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Jérémie 29 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="elephantine">
+          <div class="code">I-22</div><div class="scanned">↳ Code scanné</div>
+          <h3>Éléphantine, une colonie juive sur le Nil</h3>
+          <p class="desc">Les papyrus d&#x27;Éléphantine au Brooklyn Museum et à Berlin.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Papyrus_d%27%C3%89l%C3%A9phantine" target="_blank" rel="noopener"><span class="b-main">Papyrus d&#x27;Éléphantine →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/%C3%8Ele_%C3%89l%C3%A9phantine" target="_blank" rel="noopener"><span class="b-main">Île Éléphantine →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Jeremiah.43?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Jérémie 43 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="cyrus">
+          <div class="code">I-23</div><div class="scanned">↳ Code scanné</div>
+          <h3>Cyrus, le retour et le Second Temple</h3>
+          <p class="desc">Le cylindre de Cyrus au British Museum.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Cylindre_de_Cyrus" target="_blank" rel="noopener"><span class="b-main">Cylindre de Cyrus →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="suse">
+          <div class="code">I-24</div><div class="scanned">↳ Code scanné</div>
+          <h3>Suse et le temps d&#x27;Esther</h3>
+          <p class="desc">La frise des archers de Suse au Louvre.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Frise_des_archers" target="_blank" rel="noopener"><span class="b-main">Frise des archers →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Suse" target="_blank" rel="noopener"><span class="b-main">Suse →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Nehemiah.1?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Néhémie 1 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère VII — Les Grecs et les Hasmonéens</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="alexandrie">
+          <div class="code">I-25</div><div class="scanned">↳ Code scanné</div>
+          <h3>Alexandre et Alexandrie</h3>
+          <p class="desc">Alexandrie juive et la Septante.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Septante" target="_blank" rel="noopener"><span class="b-main">Septante →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_de_l%27%C3%89gypte_hell%C3%A9nistique_et_romaine" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs de l&#x27;Égypte hellénistique et romaine →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="modiin">
+          <div class="code">I-26</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Maccabées et Hanoukka</h3>
+          <p class="desc">Modiïn et les lieux des Maccabées.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Maccab%C3%A9es" target="_blank" rel="noopener"><span class="b-main">Maccabées →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Modiin-Maccabim-Reout" target="_blank" rel="noopener"><span class="b-main">Modiin-Maccabim-Reout →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Shabbat.21b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Chabbat 21b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="monnaies-hasmoneennes">
+          <div class="code">I-27</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le royaume hasmonéen</h3>
+          <p class="desc">Les monnaies hasmonéennes au musée d&#x27;Israël.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hasmon%C3%A9ens" target="_blank" rel="noopener"><span class="b-main">Hasmonéens →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Taanit.23a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Taanit 23a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ère VIII — Rome</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="herodion">
+          <div class="code">I-28</div><div class="scanned">↳ Code scanné</div>
+          <h3>Pompée et Hérode</h3>
+          <p class="desc">L&#x27;Hérodion et le tombeau d&#x27;Hérode.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/H%C3%A9rodion" target="_blank" rel="noopener"><span class="b-main">Hérodion →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/H%C3%A9rode_Ier_le_Grand" target="_blank" rel="noopener"><span class="b-main">Hérode Ier le Grand →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bava_Batra.3b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Baba Batra 3b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="qoumran">
+          <div class="code">I-29</div><div class="scanned">↳ Code scanné</div>
+          <h3>Pharisiens, sadducéens, esséniens</h3>
+          <p class="desc">Les manuscrits de la mer Morte en ligne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Manuscrits_de_la_mer_Morte" target="_blank" rel="noopener"><span class="b-main">Manuscrits de la mer Morte →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Ess%C3%A9niens" target="_blank" rel="noopener"><span class="b-main">Esséniens →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Shabbat.31a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Chabbat 31a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="titus">
+          <div class="code">I-30</div><div class="scanned">↳ Code scanné</div>
+          <h3>70 : la destruction du Second Temple</h3>
+          <p class="desc">L&#x27;arc de Titus et sa reconstitution en couleurs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Arc_de_Titus" target="_blank" rel="noopener"><span class="b-main">Arc de Titus →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Si%C3%A8ge_de_J%C3%A9rusalem_%2870%29" target="_blank" rel="noopener"><span class="b-main">Siège de Jérusalem (70) →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Gittin.55b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Guittin 55b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Makkot.24b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Makkot 24b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="massada">
+          <div class="code">I-31</div><div class="scanned">↳ Code scanné</div>
+          <h3>Massada et Yavné</h3>
+          <p class="desc">Le site de Massada, patrimoine mondial de l&#x27;UNESCO.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Massada" target="_blank" rel="noopener"><span class="b-main">Massada →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Yavn%C3%A9" target="_blank" rel="noopener"><span class="b-main">Yavné →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Gittin.56a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Guittin 56a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Berakhot.27b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Berakhot 27b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="nahal-hever">
+          <div class="code">I-32</div><div class="scanned">↳ Code scanné</div>
+          <h3>Bar Kokhba</h3>
+          <p class="desc">Les lettres de Bar Kokhba au musée d&#x27;Israël.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/R%C3%A9volte_de_Bar_Kokhba" target="_blank" rel="noopener"><span class="b-main">Révolte de Bar Kokhba →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Shimon_bar_Kokhba" target="_blank" rel="noopener"><span class="b-main">Shimon bar Kokhba →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Berakhot.61b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Berakhot 61b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="beit-shearim">
+          <div class="code">I-33</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Galilée et la Michna</h3>
+          <p class="desc">Beit Shearim et Sepphoris.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Be%C3%AFt-Sh%C3%A9arim" target="_blank" rel="noopener"><span class="b-main">Beït-Shéarim →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Sepphoris" target="_blank" rel="noopener"><span class="b-main">Sepphoris →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Avodah_Zarah.10a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Avoda Zara 10a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  <section class="partie"><h2>Partie II · Les foyers de la diaspora</h2><p>Huit foyers, de Babylone à l&#x27;Occident moderne.</p></section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Babylonie</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="parthes">
+          <div class="code">II-B01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Ceux qui sont restés</h3>
+          <p class="desc">Néhardéa, Nisibe et l&#x27;Adiabène sur la carte des Parthes.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Adiab%C3%A8ne" target="_blank" rel="noopener"><span class="b-main">Adiabène →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Ezra.2?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Esdras 2 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Jeremiah.29?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Jérémie 29 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="exilarque">
+          <div class="code">II-B02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Prince de l&#x27;exil</h3>
+          <p class="desc">L&#x27;investiture de l&#x27;exilarque selon Nathan le Babylonien.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Exilarque" target="_blank" rel="noopener"><span class="b-main">Exilarque →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Sanhedrin.5a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Sanhédrin 5a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="nehardea">
+          <div class="code">II-B03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Néhardéa, la ville-mère</h3>
+          <p class="desc">Néhardéa et les villes juives de Mésopotamie.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Nehardea" target="_blank" rel="noopener"><span class="b-main">Nehardea →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Megillah.29a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Meguila 29a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Shabbat.21b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Chabbat 21b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="rav-soura">
+          <div class="code">II-B04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Rav fonde Soura</h3>
+          <p class="desc">Rav et Samuel, les deux fondateurs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Rav_%28Amora%29" target="_blank" rel="noopener"><span class="b-main">Rav (Amora) →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Acad%C3%A9mie_de_Soura" target="_blank" rel="noopener"><span class="b-main">Académie de Soura →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Chullin.137b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Houlin 137b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bekhorot.49b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Bekhorot 49b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="samuel">
+          <div class="code">II-B05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Samuel : « la loi du royaume est la loi »</h3>
+          <p class="desc">Dina de-malkhouta dina et ses limites.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Shmouel" target="_blank" rel="noopener"><span class="b-main">Shmouel →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Berakhot.58b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Berakhot 58b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Nedarim.28a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Nedarim 28a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="poumbedita">
+          <div class="code">II-B06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Poumbedita, l&#x27;autre académie</h3>
+          <p class="desc">La carte des académies de Babylonie.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Poumbedita" target="_blank" rel="noopener"><span class="b-main">Poumbedita →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bava_Metzia.38b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Baba Metsia 38b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Chullin.127a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Houlin 127a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="kalla">
+          <div class="code">II-B07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les mois de Kalla</h3>
+          <p class="desc">Les mois de Kalla et l&#x27;étude en commun.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Acad%C3%A9mies_talmudiques_en_Babylonie" target="_blank" rel="noopener"><span class="b-main">Académies talmudiques en Babylonie →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Berakhot.6b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Berakhot 6b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bava_Kamma.113a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Baba Kamma 113a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="abbaye-rava">
+          <div class="code">II-B08</div><div class="scanned">↳ Code scanné</div>
+          <h3>Abbayé et Rava</h3>
+          <p class="desc">Une page de débat d&#x27;Abbayé et Rava.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Abaye" target="_blank" rel="noopener"><span class="b-main">Abaye →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Rava" target="_blank" rel="noopener"><span class="b-main">Rava →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Sukkah.28a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Soukka 28a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bava_Metzia.22b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Baba Metsia 22b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="talmud-bavli">
+          <div class="code">II-B09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Talmud de Babylone</h3>
+          <p class="desc">Une page du Talmud de Babylone expliquée.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Talmud_de_Babylone" target="_blank" rel="noopener"><span class="b-main">Talmud de Babylone →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bava_Metzia.86a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Baba Metsia 86a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bava_Batra.157b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Baba Batra 157b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="coupes">
+          <div class="code">II-B10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Vivre sous la Perse sassanide</h3>
+          <p class="desc">Les coupes d&#x27;incantation araméennes.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Bol_d%27incantation" target="_blank" rel="noopener"><span class="b-main">Bol d&#x27;incantation →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Sassanides" target="_blank" rel="noopener"><span class="b-main">Sassanides →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Bava_Batra.55a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Baba Batra 55a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Taanit.24b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Taanit 24b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="bagdad">
+          <div class="code">II-B11</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;islam arrive : Bagdad</h3>
+          <p class="desc">Bagdad, la ville ronde, et ses quartiers juifs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Bagdad" target="_blank" rel="noopener"><span class="b-main">Bagdad →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Irak" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Irak →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="cherira">
+          <div class="code">II-B12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Gaonim répondent au monde entier</h3>
+          <p class="desc">L&#x27;Épître de Rav Chérira Gaon, présentation et extraits.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Sherira_Gaon" target="_blank" rel="noopener"><span class="b-main">Sherira Gaon →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="siddour">
+          <div class="code">II-B13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le premier livre de prières</h3>
+          <p class="desc">Le Seder Rav Amram et l&#x27;histoire du livre de prières.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Amram_Gaon" target="_blank" rel="noopener"><span class="b-main">Amram Gaon →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Menachot.43b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Menahot 43b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Shabbat.115b?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Chabbat 115b →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="saadia">
+          <div class="code">II-B14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Saadia Gaon, le philosophe</h3>
+          <p class="desc">Saadia Gaon et le Livre des croyances et des opinions.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Saadia_Gaon" target="_blank" rel="noopener"><span class="b-main">Saadia Gaon →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="karaites">
+          <div class="code">II-B15</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Karaïtes</h3>
+          <p class="desc">Les Karaïtes d&#x27;hier et d&#x27;aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Kara%C3%AFsme" target="_blank" rel="noopener"><span class="b-main">Karaïsme →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hai-gaon">
+          <div class="code">II-B16</div><div class="scanned">↳ Code scanné</div>
+          <h3>Haï Gaon, le dernier</h3>
+          <p class="desc">Les responsa de Rav Haï Gaon.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ha%C3%AF_Gaon" target="_blank" rel="noopener"><span class="b-main">Haï Gaon →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="quatre-captifs">
+          <div class="code">II-B17</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les quatre captifs</h3>
+          <p class="desc">Le récit des quatre captifs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Quatre_captifs" target="_blank" rel="noopener"><span class="b-main">Quatre captifs →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Moshe_ben_Hanokh" target="_blank" rel="noopener"><span class="b-main">Moshe ben Hanokh →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="bagdad-moderne">
+          <div class="code">II-B18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs de Bagdad</h3>
+          <p class="desc">Bagdad, de Benjamin de Tudela au Ben Ich Haï.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ben_Ich_Ha%C3%AF" target="_blank" rel="noopener"><span class="b-main">Ben Ich Haï →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Irak" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Irak →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Sefarad</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="hispanie">
+          <div class="code">II-S01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Des Juifs en Hispanie</h3>
+          <p class="desc">Les plus anciennes traces juives en Espagne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Espagne" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Espagne →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Obadiah.1?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Abdias 1 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="al-andalus">
+          <div class="code">II-S02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Sous le Croissant : 711</h3>
+          <p class="desc">Al-Andalus, la conquête et ses suites.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Al-Andalus" target="_blank" rel="noopener"><span class="b-main">Al-Andalus →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Conqu%C3%AAte_musulmane_de_l%27Hispanie" target="_blank" rel="noopener"><span class="b-main">Conquête musulmane de l&#x27;Hispanie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hasdai">
+          <div class="code">II-S03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Cordoue : Hasdaï ibn Chaprout</h3>
+          <p class="desc">La lettre de Hasdaï au roi des Khazars.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hasda%C3%AF_ibn_Shaprut" target="_blank" rel="noopener"><span class="b-main">Hasdaï ibn Shaprut →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="poetes">
+          <div class="code">II-S04</div><div class="scanned">↳ Code scanné</div>
+          <h3>La langue retrouvée</h3>
+          <p class="desc">Les poèmes de Juda Halévi, en hébreu et en français.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juda_Halevi" target="_blank" rel="noopener"><span class="b-main">Juda Halevi →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="lucena">
+          <div class="code">II-S05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Tolède, Grenade, Séville, Lucena</h3>
+          <p class="desc">La carte des communautés juives d&#x27;al-Andalus.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Lucena" target="_blank" rel="noopener"><span class="b-main">Lucena →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/%C3%82ge_d%27or_de_la_culture_juive_en_Espagne" target="_blank" rel="noopener"><span class="b-main">Âge d&#x27;or de la culture juive en Espagne →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tolede-traducteurs">
+          <div class="code">II-S06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les traducteurs de Tolède</h3>
+          <p class="desc">L&#x27;atelier d&#x27;Alphonse X et les Tables alphonsines.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Tables_alphonsines" target="_blank" rel="noopener"><span class="b-main">Tables alphonsines →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Traductions_latines_du_XIIe_si%C3%A8cle" target="_blank" rel="noopener"><span class="b-main">Traductions latines du XIIe siècle →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="maimonide">
+          <div class="code">II-S07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Maïmonide</h3>
+          <p class="desc">Maïmonide, de Cordoue à Fostat.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Mo%C3%AFse_Ma%C3%AFmonide" target="_blank" rel="noopener"><span class="b-main">Moïse Maïmonide →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="toledo-synagogues">
+          <div class="code">II-S08</div><div class="scanned">↳ Code scanné</div>
+          <h3>La vie quotidienne en Sefarad</h3>
+          <p class="desc">Visite des synagogues de Tolède.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Synagogue_El_Tr%C3%A1nsito_de_Tol%C3%A8de" target="_blank" rel="noopener"><span class="b-main">Synagogue El Tránsito de Tolède →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ramban">
+          <div class="code">II-S09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Nahmanide et la dispute de Barcelone</h3>
+          <p class="desc">Le récit de la dispute de Barcelone.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Disputation_de_Barcelone" target="_blank" rel="noopener"><span class="b-main">Disputation de Barcelone →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Nahmanide" target="_blank" rel="noopener"><span class="b-main">Nahmanide →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="1391">
+          <div class="code">II-S10</div><div class="scanned">↳ Code scanné</div>
+          <h3>1391 : les pogroms</h3>
+          <p class="desc">La lettre de Hasdaï Crescas sur 1391.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Pers%C3%A9cutions_anti-juives_de_1391_en_Espagne" target="_blank" rel="noopener"><span class="b-main">Persécutions anti-juives de 1391 en Espagne →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Hasda%C3%AF_Crescas" target="_blank" rel="noopener"><span class="b-main">Hasdaï Crescas →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="inquisition">
+          <div class="code">II-S11</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le siècle des conversos</h3>
+          <p class="desc">L&#x27;Inquisition espagnole et les conversos.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Inquisition_espagnole" target="_blank" rel="noopener"><span class="b-main">Inquisition espagnole →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Converso" target="_blank" rel="noopener"><span class="b-main">Converso →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="1492">
+          <div class="code">II-S12</div><div class="scanned">↳ Code scanné</div>
+          <h3>1492 : l&#x27;édit de Grenade</h3>
+          <p class="desc">Le texte de l&#x27;édit de 1492, traduit.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/D%C3%A9cret_de_l%27Alhambra" target="_blank" rel="noopener"><span class="b-main">Décret de l&#x27;Alhambra →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="routes-exil">
+          <div class="code">II-S13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les routes de l&#x27;exil</h3>
+          <p class="desc">La grande carte de la dispersion séfarade.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/S%C3%A9farades" target="_blank" rel="noopener"><span class="b-main">Séfarades →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="belmonte">
+          <div class="code">II-S14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Portugal</h3>
+          <p class="desc">Belmonte et les derniers crypto-juifs du Portugal.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Belmonte_%28Portugal%29" target="_blank" rel="noopener"><span class="b-main">Belmonte (Portugal) →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Crypto-juda%C3%AFsme" target="_blank" rel="noopener"><span class="b-main">Crypto-judaïsme →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="abravanel">
+          <div class="code">II-S15</div><div class="scanned">↳ Code scanné</div>
+          <h3>Isaac Abravanel, l&#x27;exilé</h3>
+          <p class="desc">Abravanel et sa méthode de commentaire.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Isaac_Abravanel" target="_blank" rel="noopener"><span class="b-main">Isaac Abravanel →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ameriques">
+          <div class="code">II-S16</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les nouveaux-chrétiens outre-mer</h3>
+          <p class="desc">Recife, Curaçao, New York.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Synagogue_de_Willemstad" target="_blank" rel="noopener"><span class="b-main">Synagogue de Willemstad →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Synagogue_Kahal_Zur_Israel" target="_blank" rel="noopener"><span class="b-main">Synagogue Kahal Zur Israel →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="esnoga">
+          <div class="code">II-S17</div><div class="scanned">↳ Code scanné</div>
+          <h3>Amsterdam, la Jérusalem du Nord</h3>
+          <p class="desc">L&#x27;Esnoga d&#x27;Amsterdam en visite.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Synagogue_portugaise_d%27Amsterdam" target="_blank" rel="noopener"><span class="b-main">Synagogue portugaise d&#x27;Amsterdam →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ladino">
+          <div class="code">II-S18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le judéo-espagnol</h3>
+          <p class="desc">Chants et proverbes judéo-espagnols.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Jud%C3%A9o-espagnol" target="_blank" rel="noopener"><span class="b-main">Judéo-espagnol →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Me%27am_Lo%27ez" target="_blank" rel="noopener"><span class="b-main">Me&#x27;am Lo&#x27;ez →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="heritage">
+          <div class="code">II-S19</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;héritage séfarade</h3>
+          <p class="desc">L&#x27;origine séfarade des noms de famille.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/S%C3%A9farades" target="_blank" rel="noopener"><span class="b-main">Séfarades →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Ashkénaz</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="cologne-321">
+          <div class="code">II-A01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les premiers Juifs du Rhin</h3>
+          <p class="desc">Le décret de 321 et les fouilles de Cologne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Allemagne" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Allemagne →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="kalonymos">
+          <div class="code">II-A02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Kalonymos, de Lucques à Mayence</h3>
+          <p class="desc">La famille Kalonymos et le rite ashkénaze.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hassidisme_m%C3%A9di%C3%A9val" target="_blank" rel="noopener"><span class="b-main">Hassidisme médiéval →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="shum">
+          <div class="code">II-A03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les cités ShUM : Spire, Worms, Mayence</h3>
+          <p class="desc">Les sites ShUM au patrimoine mondial.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Villes_SchUM" target="_blank" rel="noopener"><span class="b-main">Villes SchUM →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="guershom">
+          <div class="code">II-A04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Rabbénou Guershom, lumière de l&#x27;exil</h3>
+          <p class="desc">Les ordonnances de Rabbénou Guershom.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Guershom_Meor_Hagola" target="_blank" rel="noopener"><span class="b-main">Guershom Meor Hagola →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="rachi">
+          <div class="code">II-A05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Rachi à Troyes</h3>
+          <p class="desc">Le vieux français de Rachi.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Rachi" target="_blank" rel="noopener"><span class="b-main">Rachi →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tossafot">
+          <div class="code">II-A06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les tossafistes</h3>
+          <p class="desc">Lire une page avec Rachi et les Tossafot.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Tossafistes" target="_blank" rel="noopener"><span class="b-main">Tossafistes →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="judengasse">
+          <div class="code">II-A07</div><div class="scanned">↳ Code scanné</div>
+          <h3>La rue des Juifs</h3>
+          <p class="desc">Une journée dans une rue juive du Moyen Âge.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juiverie" target="_blank" rel="noopener"><span class="b-main">Juiverie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="mikve-spire">
+          <div class="code">II-A08</div><div class="scanned">↳ Code scanné</div>
+          <h3>La synagogue de Worms et le bain rituel de Spire</h3>
+          <p class="desc">Le mikvé de Spire et la synagogue de Worms.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Synagogue_de_Worms" target="_blank" rel="noopener"><span class="b-main">Synagogue de Worms →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_%C3%A0_Spire" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs à Spire →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hassidei-ashkenaz">
+          <div class="code">II-A09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les pieux d&#x27;Allemagne</h3>
+          <p class="desc">Le Sefer Hassidim, extraits.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hassidisme_m%C3%A9di%C3%A9val" target="_blank" rel="noopener"><span class="b-main">Hassidisme médiéval →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="yiddish">
+          <div class="code">II-A10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Naissance du yiddish</h3>
+          <p class="desc">La plus ancienne phrase yiddish.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Yiddish" target="_blank" rel="noopener"><span class="b-main">Yiddish →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="1096">
+          <div class="code">II-A11</div><div class="scanned">↳ Code scanné</div>
+          <h3>1096 : les martyrs du Rhin</h3>
+          <p class="desc">Les chroniques hébraïques de 1096.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Pers%C3%A9cution_des_Juifs_pendant_la_premi%C3%A8re_croisade" target="_blank" rel="noopener"><span class="b-main">Persécution des Juifs pendant la première croisade →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Croisade_populaire" target="_blank" rel="noopener"><span class="b-main">Croisade populaire →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="calomnie">
+          <div class="code">II-A12</div><div class="scanned">↳ Code scanné</div>
+          <h3>La calomnie du meurtre rituel</h3>
+          <p class="desc">Histoire d&#x27;une calomnie.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Accusation_de_meurtre_rituel" target="_blank" rel="noopener"><span class="b-main">Accusation de meurtre rituel →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="rouelle">
+          <div class="code">II-A13</div><div class="scanned">↳ Code scanné</div>
+          <h3>La rouelle : le concile de Latran</h3>
+          <p class="desc">La rouelle et les signes distinctifs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Rouelle" target="_blank" rel="noopener"><span class="b-main">Rouelle →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Quatri%C3%A8me_concile_du_Latran" target="_blank" rel="noopener"><span class="b-main">Quatrième concile du Latran →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="talmud-1242">
+          <div class="code">II-A14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Paris 1242 : on brûle le Talmud</h3>
+          <p class="desc">Le procès du Talmud de 1240.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Proc%C3%A8s_du_Talmud" target="_blank" rel="noopener"><span class="b-main">Procès du Talmud →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="expulsions">
+          <div class="code">II-A15</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les expulsions : Angleterre et France</h3>
+          <p class="desc">La carte des expulsions en Europe.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Expulsion_des_Juifs" target="_blank" rel="noopener"><span class="b-main">Expulsion des Juifs →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/%C3%89dit_d%27Expulsion_%281290%29" target="_blank" rel="noopener"><span class="b-main">Édit d&#x27;Expulsion (1290) →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="erfurt">
+          <div class="code">II-A16</div><div class="scanned">↳ Code scanné</div>
+          <h3>La peste noire</h3>
+          <p class="desc">Le trésor et la synagogue d&#x27;Erfurt.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Patrimoine_m%C3%A9di%C3%A9val_juif_d%27Erfurt" target="_blank" rel="noopener"><span class="b-main">Patrimoine médiéval juif d&#x27;Erfurt →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Synagogue_d%27Erfurt" target="_blank" rel="noopener"><span class="b-main">Synagogue d&#x27;Erfurt →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="maharil">
+          <div class="code">II-A17</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Maharil et les coutumes ashkénazes</h3>
+          <p class="desc">Les mélodies du Sinaï.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Jacob_Moelin" target="_blank" rel="noopener"><span class="b-main">Jacob Moelin →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="vers-l-est">
+          <div class="code">II-A18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Vers l&#x27;Est : la grande migration</h3>
+          <p class="desc">La migration vers l&#x27;Est.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Pologne" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Pologne →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="heritage-ashkenaze">
+          <div class="code">II-A19</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;héritage ashkénaze</h3>
+          <p class="desc">L&#x27;origine ashkénaze des noms de famille.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ashk%C3%A9nazes" target="_blank" rel="noopener"><span class="b-main">Ashkénazes →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Italie</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="rome-antique">
+          <div class="code">II-I01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs de Rome depuis les Maccabées</h3>
+          <p class="desc">L&#x27;arc de Titus et la Rome juive antique.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_dans_l%E2%80%99Empire_romain" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs dans l’Empire romain →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Arc_de_Titus" target="_blank" rel="noopener"><span class="b-main">Arc de Titus →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="catacombes">
+          <div class="code">II-I02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les catacombes juives de Rome</h3>
+          <p class="desc">Visite des catacombes juives de Rome.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Catacombes_de_Rome" target="_blank" rel="noopener"><span class="b-main">Catacombes de Rome →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="italkim">
+          <div class="code">II-I03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Italkim, un rite à part</h3>
+          <p class="desc">Une prière selon le rite italien.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Rite_italien" target="_blank" rel="noopener"><span class="b-main">Rite italien →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Ben%C3%A9_Roma" target="_blank" rel="noopener"><span class="b-main">Bené Roma →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ahimaaz">
+          <div class="code">II-I04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Bari et Otrante : la chronique d&#x27;Ahimaaz</h3>
+          <p class="desc">La chronique d&#x27;Ahimaaz.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ahimaatz_ben_Paltiel" target="_blank" rel="noopener"><span class="b-main">Ahimaatz ben Paltiel →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="aroukh">
+          <div class="code">II-I05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Nathan de Rome et l&#x27;Aroukh</h3>
+          <p class="desc">L&#x27;Aroukh, page commentée.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Nathan_ben_Yehiel" target="_blank" rel="noopener"><span class="b-main">Nathan ben Yehiel →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Aroukh" target="_blank" rel="noopener"><span class="b-main">Aroukh →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="immanuel">
+          <div class="code">II-I06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Immanuel de Rome, poète</h3>
+          <p class="desc">Les sonnets d&#x27;Immanuel de Rome.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Immanuel_ben_Salomon" target="_blank" rel="noopener"><span class="b-main">Immanuel ben Salomon →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="banquiers">
+          <div class="code">II-I07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les banquiers juifs de la Renaissance</h3>
+          <p class="desc">Les banquiers juifs de la Renaissance.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Italie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Italie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="imprimeurs">
+          <div class="code">II-I08</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les imprimeurs : de Soncino à Venise</h3>
+          <p class="desc">Les premiers livres hébreux imprimés.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Famille_Soncino" target="_blank" rel="noopener"><span class="b-main">Famille Soncino →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Daniel_Bomberg" target="_blank" rel="noopener"><span class="b-main">Daniel Bomberg →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ghetto-venise">
+          <div class="code">II-I09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le ghetto de Venise : naissance d&#x27;un mot</h3>
+          <p class="desc">Le ghetto de Venise et ses synagogues.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ghetto_de_Venise" target="_blank" rel="noopener"><span class="b-main">Ghetto de Venise →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ghetto-rome">
+          <div class="code">II-I10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Rome 1553-1555 : le Talmud brûlé, le ghetto imposé</h3>
+          <p class="desc">Le ghetto de Rome, 1555-1870.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ghetto_de_Rome" target="_blank" rel="noopener"><span class="b-main">Ghetto de Rome →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Cum_nimis_absurdum" target="_blank" rel="noopener"><span class="b-main">Cum nimis absurdum →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="dona-gracia">
+          <div class="code">II-I11</div><div class="scanned">↳ Code scanné</div>
+          <h3>Doña Gracia et le boycott d&#x27;Ancône</h3>
+          <p class="desc">Doña Gracia, la Dame des conversos.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Gracia_Nassi" target="_blank" rel="noopener"><span class="b-main">Gracia Nassi →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="leon-de-modene">
+          <div class="code">II-I12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Léon de Modène et les synagogues de Venise</h3>
+          <p class="desc">Les Cantiques de Salomon de Rossi.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Salomone_Rossi" target="_blank" rel="noopener"><span class="b-main">Salomone Rossi →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/L%C3%A9on_de_Mod%C3%A8ne" target="_blank" rel="noopener"><span class="b-main">Léon de Modène →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ramhal">
+          <div class="code">II-I13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Ramhal à Padoue</h3>
+          <p class="desc">Messilat Yecharim, présentation.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Moch%C3%A9_Ha%C3%AFm_Luzzatto" target="_blank" rel="noopener"><span class="b-main">Moché Haïm Luzzatto →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Messilat_Yecharim" target="_blank" rel="noopener"><span class="b-main">Messilat Yecharim →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="livourne">
+          <div class="code">II-I14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Livourne, port libre</h3>
+          <p class="desc">Livourne, le port des marchands juifs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Livourne" target="_blank" rel="noopener"><span class="b-main">Livourne →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="risorgimento">
+          <div class="code">II-I15</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;émancipation et le Risorgimento</h3>
+          <p class="desc">De l&#x27;ouverture des ghettos à l&#x27;unité.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Risorgimento" target="_blank" rel="noopener"><span class="b-main">Risorgimento →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Italie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Italie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tempio-maggiore">
+          <div class="code">II-I16</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs dans l&#x27;Italie unifiée</h3>
+          <p class="desc">La grande synagogue de Rome.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Grande_synagogue_de_Rome" target="_blank" rel="noopener"><span class="b-main">Grande synagogue de Rome →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="heritage-italien">
+          <div class="code">II-I17</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;héritage italien</h3>
+          <p class="desc">Les synagogues italiennes en Israël.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Italie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Italie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Maghreb</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="afrique-antique">
+          <div class="code">II-M01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs d&#x27;Afrique du Nord antique</h3>
+          <p class="desc">Les traces juives de l&#x27;Afrique du Nord antique.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Origines_des_Juifs_d%27Afrique_du_Nord" target="_blank" rel="noopener"><span class="b-main">Origines des Juifs d&#x27;Afrique du Nord →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="kahina">
+          <div class="code">II-M02</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Kahina, légende et histoire</h3>
+          <p class="desc">La Kahina, de l&#x27;histoire à la légende.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Dihya" target="_blank" rel="noopener"><span class="b-main">Dihya →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="kairouan">
+          <div class="code">II-M03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Kairouan, la ville des savants</h3>
+          <p class="desc">Kairouan, capitale juive du Xᵉ siècle.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Kairouan" target="_blank" rel="noopener"><span class="b-main">Kairouan →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Tunisie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Tunisie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="fes-juive">
+          <div class="code">II-M04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Fès et Isaac Alfassi</h3>
+          <p class="desc">Fès juive, du Funduq al-Yahudi au mellah.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Isaac_ben_Jacob_Alfassi" target="_blank" rel="noopener"><span class="b-main">Isaac ben Jacob Alfassi →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Mellah" target="_blank" rel="noopener"><span class="b-main">Mellah →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="almohades">
+          <div class="code">II-M05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Almohades : le temps des conversions forcées</h3>
+          <p class="desc">L&#x27;élégie d&#x27;Abraham ibn Ezra.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Almohades" target="_blank" rel="noopener"><span class="b-main">Almohades →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Abraham_ibn_Ezra" target="_blank" rel="noopener"><span class="b-main">Abraham ibn Ezra →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="dhimmi">
+          <div class="code">II-M06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le statut de dhimmi</h3>
+          <p class="desc">Le statut de dhimmi au Maghreb.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Dhimmi" target="_blank" rel="noopener"><span class="b-main">Dhimmi →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="megorashim">
+          <div class="code">II-M07</div><div class="scanned">↳ Code scanné</div>
+          <h3>1391 et 1492 : les megorashim arrivent</h3>
+          <p class="desc">Les exilés d&#x27;Espagne au Maroc.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Megorachim" target="_blank" rel="noopener"><span class="b-main">Megorachim →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_au_Maroc" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs au Maroc →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="mellah-fes">
+          <div class="code">II-M08</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le mellah de Fès</h3>
+          <p class="desc">Promenade dans le mellah de Fès.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Mellah" target="_blank" rel="noopener"><span class="b-main">Mellah →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="rivach-rachbats">
+          <div class="code">II-M09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Alger : le Rivach et le Rachbats</h3>
+          <p class="desc">Les responsa du Rivach et du Rachbats.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Isaac_ben_Chechet" target="_blank" rel="noopener"><span class="b-main">Isaac ben Chechet →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tlemcen">
+          <div class="code">II-M10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Tlemcen et Éphraïm Enkaoua</h3>
+          <p class="desc">Tlemcen et le pèlerinage du Rab.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ephraim_Al-Naqawa" target="_blank" rel="noopener"><span class="b-main">Ephraim Al-Naqawa →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Tlemcen" target="_blank" rel="noopener"><span class="b-main">Tlemcen →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ghriba">
+          <div class="code">II-M11</div><div class="scanned">↳ Code scanné</div>
+          <h3>Djerba et la Ghriba</h3>
+          <p class="desc">Le pèlerinage de la Ghriba.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Synagogue_de_la_Ghriba_%28Djerba%29" target="_blank" rel="noopener"><span class="b-main">Synagogue de la Ghriba (Djerba) →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tunis-juive">
+          <div class="code">II-M12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Tunis : Twansa et Granas</h3>
+          <p class="desc">Tunis juive, de la hara à la ville européenne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hara_%28Tunis%29" target="_blank" rel="noopener"><span class="b-main">Hara (Tunis) →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Granas" target="_blank" rel="noopener"><span class="b-main">Granas →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hiloula">
+          <div class="code">II-M13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les saints et la hiloula</h3>
+          <p class="desc">Les grands pèlerinages juifs du Maroc.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hiloula" target="_blank" rel="noopener"><span class="b-main">Hiloula →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Amram_ben_Diwan" target="_blank" rel="noopener"><span class="b-main">Amram ben Diwan →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="essaouira">
+          <div class="code">II-M14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Marrakech et Essaouira : les négociants du sultan</h3>
+          <p class="desc">Essaouira, la ville des négociants juifs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Essaouira" target="_blank" rel="noopener"><span class="b-main">Essaouira →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Ha%C3%AFm_Pinto" target="_blank" rel="noopener"><span class="b-main">Haïm Pinto →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="cremieux">
+          <div class="code">II-M15</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le décret Crémieux</h3>
+          <p class="desc">Le texte du décret Crémieux.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/D%C3%A9cret_Cr%C3%A9mieux" target="_blank" rel="noopener"><span class="b-main">Décret Crémieux →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="alliance">
+          <div class="code">II-M16</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;Alliance israélite universelle</h3>
+          <p class="desc">Les écoles de l&#x27;Alliance au Maghreb.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Alliance_isra%C3%A9lite_universelle" target="_blank" rel="noopener"><span class="b-main">Alliance israélite universelle →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="maroc-1912-1956">
+          <div class="code">II-M17</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Maroc des protectorats</h3>
+          <p class="desc">Le Maroc juif de 1912 à 1956.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_au_Maroc" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs au Maroc →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Protectorat_fran%C3%A7ais_au_Maroc" target="_blank" rel="noopener"><span class="b-main">Protectorat français au Maroc →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="guerre-afn">
+          <div class="code">II-M18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Vichy et la guerre en Afrique du Nord</h3>
+          <p class="desc">Les Juifs d&#x27;Afrique du Nord pendant la guerre.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Statut_des_Juifs" target="_blank" rel="noopener"><span class="b-main">Statut des Juifs →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Op%C3%A9ration_Torch" target="_blank" rel="noopener"><span class="b-main">Opération Torch →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="bakkachot">
+          <div class="code">II-M19</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;héritage du Maghreb juif</h3>
+          <p class="desc">Les bakkachot du Maroc, à écouter.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Bakkashot" target="_blank" rel="noopener"><span class="b-main">Bakkashot →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Mimouna" target="_blank" rel="noopener"><span class="b-main">Mimouna →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Orient ottoman et Levant</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="romaniotes">
+          <div class="code">II-O01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Romaniotes de Byzance</h3>
+          <p class="desc">Les Romaniotes, de Byzance à aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Romaniotes" target="_blank" rel="noopener"><span class="b-main">Romaniotes →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ben-ezra">
+          <div class="code">II-O02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Fostat : les Juifs de l&#x27;Égypte médiévale</h3>
+          <p class="desc">La synagogue Ben Ezra et le Vieux-Caire.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Synagogue_Ben_Ezra" target="_blank" rel="noopener"><span class="b-main">Synagogue Ben Ezra →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Fostat" target="_blank" rel="noopener"><span class="b-main">Fostat →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="gueniza">
+          <div class="code">II-O03</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Guéniza du Caire</h3>
+          <p class="desc">La Guéniza du Caire en ligne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Gu%C3%A9niza_du_Caire" target="_blank" rel="noopener"><span class="b-main">Guéniza du Caire →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="naguid">
+          <div class="code">II-O04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le naguid d&#x27;Égypte, chef des Juifs</h3>
+          <p class="desc">Les chefs des Juifs d&#x27;Égypte.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Samuel_ibn_Nagrela" target="_blank" rel="noopener"><span class="b-main">Samuel ibn Nagrela →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="exiles-ottomans">
+          <div class="code">II-O05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Bayézid II accueille les exilés</h3>
+          <p class="desc">L&#x27;accueil des exilés dans l&#x27;Empire ottoman.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Bay%C3%A9zid_II" target="_blank" rel="noopener"><span class="b-main">Bayézid II →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Turquie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Turquie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="salonique">
+          <div class="code">II-O06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Salonique, la « Jérusalem des Balkans »</h3>
+          <p class="desc">Salonique juive, en images.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_%C3%A0_Salonique" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs à Salonique →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="imprimeurs-istanbul">
+          <div class="code">II-O07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Istanbul et les imprimeurs</h3>
+          <p class="desc">Les premiers livres imprimés à Istanbul.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Arbaa_Tourim" target="_blank" rel="noopener"><span class="b-main">Arbaa Tourim →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tiberiade-nassi">
+          <div class="code">II-O08</div><div class="scanned">↳ Code scanné</div>
+          <h3>Doña Gracia et Joseph Nassi : Tibériade</h3>
+          <p class="desc">Tibériade et le projet des Nassi.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Joseph_Nassi" target="_blank" rel="noopener"><span class="b-main">Joseph Nassi →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Tib%C3%A9riade" target="_blank" rel="noopener"><span class="b-main">Tibériade →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="safed">
+          <div class="code">II-O09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Safed : Joseph Caro et le Choulhan Aroukh</h3>
+          <p class="desc">Safed, la ville des Sages.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Joseph_Karo" target="_blank" rel="noopener"><span class="b-main">Joseph Karo →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Choulhan_Aroukh" target="_blank" rel="noopener"><span class="b-main">Choulhan Aroukh →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="louria">
+          <div class="code">II-O10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Safed : Isaac Louria et la Kabbale</h3>
+          <p class="desc">La Kabbale de Safed expliquée simplement.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Isaac_Louria" target="_blank" rel="noopener"><span class="b-main">Isaac Louria →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Kabbale_lourianique" target="_blank" rel="noopener"><span class="b-main">Kabbale lourianique →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="lekha-dodi">
+          <div class="code">II-O11</div><div class="scanned">↳ Code scanné</div>
+          <h3>Lekha Dodi : accueillir le chabbat</h3>
+          <p class="desc">Le Lekha Dodi sur plusieurs mélodies.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Lekha_Dodi" target="_blank" rel="noopener"><span class="b-main">Lekha Dodi →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Shabbat.119a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Chabbat 119a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="sabbatai-tsevi">
+          <div class="code">II-O12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Sabbataï Tsevi, le faux messie</h3>
+          <p class="desc">Sabbataï Tsevi et l&#x27;attente de 1666.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Sabbata%C3%AF_Tsevi" target="_blank" rel="noopener"><span class="b-main">Sabbataï Tsevi →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="jerusalem-ottomane">
+          <div class="code">II-O13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Jérusalem ottomane et le Yichouv ancien</h3>
+          <p class="desc">Jérusalem ottomane.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Vieux_Yichouv" target="_blank" rel="noopener"><span class="b-main">Vieux Yichouv →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="couronne-alep">
+          <div class="code">II-O14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Alep et Damas : la Couronne d&#x27;Alep</h3>
+          <p class="desc">La Couronne d&#x27;Alep page par page.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Codex_d%27Alep" target="_blank" rel="noopener"><span class="b-main">Codex d&#x27;Alep →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="affaire-damas">
+          <div class="code">II-O15</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;affaire de Damas (1840)</h3>
+          <p class="desc">L&#x27;affaire de Damas et la mission Montefiore-Crémieux.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Affaire_de_Damas" target="_blank" rel="noopener"><span class="b-main">Affaire de Damas →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="shabazi">
+          <div class="code">II-O16</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Yémen : Shalom Shabazi et l&#x27;exil de Mawza</h3>
+          <p class="desc">Les chants de Shalom Shabazi.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Im_Nin%27alu" target="_blank" rel="noopener"><span class="b-main">Im Nin&#x27;alu →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Exil_de_Mawza" target="_blank" rel="noopener"><span class="b-main">Exil de Mawza →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="perse-boukhara">
+          <div class="code">II-O17</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Perse et Boukhara</h3>
+          <p class="desc">Les Juifs de Perse et de Boukhara.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juifs_de_Boukhara" target="_blank" rel="noopener"><span class="b-main">Juifs de Boukhara →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Iran" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Iran →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="juifs-kurdes">
+          <div class="code">II-O18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs kurdes et l&#x27;araméen</h3>
+          <p class="desc">L&#x27;araméen des Juifs kurdes, à écouter.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_au_Kurdistan" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs au Kurdistan →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Jud%C3%A9o-aram%C3%A9en" target="_blank" rel="noopener"><span class="b-main">Judéo-araméen →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="alliance-orient">
+          <div class="code">II-O19</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les réformes ottomanes et l&#x27;Alliance</h3>
+          <p class="desc">Les écoles de l&#x27;Alliance en Orient.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Alliance_isra%C3%A9lite_universelle" target="_blank" rel="noopener"><span class="b-main">Alliance israélite universelle →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Tanzimat" target="_blank" rel="noopener"><span class="b-main">Tanzimat →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="musiques-orient">
+          <div class="code">II-O20</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;héritage oriental</h3>
+          <p class="desc">Musiques juives d&#x27;Orient.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Musique_juive" target="_blank" rel="noopener"><span class="b-main">Musique juive →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Juifs_Mizrahim" target="_blank" rel="noopener"><span class="b-main">Juifs Mizrahim →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Europe de l&#x27;Est</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="kalisz">
+          <div class="code">II-E01</div><div class="scanned">↳ Code scanné</div>
+          <h3>La charte de Kalisz (1264)</h3>
+          <p class="desc">La charte de Kalisz et le musée Polin.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Charte_de_Kalisz" target="_blank" rel="noopener"><span class="b-main">Charte de Kalisz →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Mus%C3%A9e_de_l%27Histoire_des_Juifs_polonais" target="_blank" rel="noopener"><span class="b-main">Musée de l&#x27;Histoire des Juifs polonais →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="khazars">
+          <div class="code">II-E02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Khazars : légende et histoire</h3>
+          <p class="desc">Les Khazars, entre histoire et légende.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Khazars" target="_blank" rel="noopener"><span class="b-main">Khazars →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="kazimierz">
+          <div class="code">II-E03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Cracovie : Kazimierz et le Rema</h3>
+          <p class="desc">Kazimierz, le quartier juif de Cracovie.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Kazimierz" target="_blank" rel="noopener"><span class="b-main">Kazimierz →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Rema" target="_blank" rel="noopener"><span class="b-main">Rema →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="quatre-pays">
+          <div class="code">II-E04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Conseil des Quatre Pays</h3>
+          <p class="desc">Le Conseil des Quatre Pays.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Conseil_des_Quatre_Pays" target="_blank" rel="noopener"><span class="b-main">Conseil des Quatre Pays →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="lublin">
+          <div class="code">II-E05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les yechivot de Lublin</h3>
+          <p class="desc">Lublin, ville des Sages.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Yechiva_Chachmei_Lublin" target="_blank" rel="noopener"><span class="b-main">Yechiva Chachmei Lublin →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Lublin" target="_blank" rel="noopener"><span class="b-main">Lublin →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="1648">
+          <div class="code">II-E06</div><div class="scanned">↳ Code scanné</div>
+          <h3>1648 : Khmelnitski</h3>
+          <p class="desc">1648 dans la mémoire juive.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Soul%C3%A8vement_de_Khmelnytsky" target="_blank" rel="noopener"><span class="b-main">Soulèvement de Khmelnytsky →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="baal-chem-tov">
+          <div class="code">II-E07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Baal Chem Tov</h3>
+          <p class="desc">Les histoires du Baal Chem Tov.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Baal_Shem_Tov" target="_blank" rel="noopener"><span class="b-main">Baal Shem Tov →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="gaon-vilna">
+          <div class="code">II-E08</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Gaon de Vilna et les mitnagdim</h3>
+          <p class="desc">Le Gaon de Vilna, sa vie et son œuvre.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Gaon_de_Vilna" target="_blank" rel="noopener"><span class="b-main">Gaon de Vilna →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Mitnagdim" target="_blank" rel="noopener"><span class="b-main">Mitnagdim →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="volozhin">
+          <div class="code">II-E09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Volozhin, la mère des yechivot</h3>
+          <p class="desc">Volozhin et les yechivot lituaniennes.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Yechiva_de_Volojine" target="_blank" rel="noopener"><span class="b-main">Yechiva de Volojine →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="shtetl">
+          <div class="code">II-E10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le shtetl</h3>
+          <p class="desc">Images et musiques du shtetl.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Shtetl" target="_blank" rel="noopener"><span class="b-main">Shtetl →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="zone-residence">
+          <div class="code">II-E11</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Zone de résidence (1791)</h3>
+          <p class="desc">Carte de la Zone de résidence.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Zone_de_r%C3%A9sidence" target="_blank" rel="noopener"><span class="b-main">Zone de résidence →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="cantonistes">
+          <div class="code">II-E12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les cantonistes</h3>
+          <p class="desc">Les cantonistes dans la mémoire juive.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Cantoniste" target="_blank" rel="noopener"><span class="b-main">Cantoniste →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="haskala">
+          <div class="code">II-E13</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Haskala à l&#x27;Est</h3>
+          <p class="desc">La Haskala et la renaissance de l&#x27;hébreu.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Haskala" target="_blank" rel="noopener"><span class="b-main">Haskala →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="moussar">
+          <div class="code">II-E14</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le moussar : Israël Salanter</h3>
+          <p class="desc">Israël Salanter et le moussar.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Isra%C3%ABl_de_Salant" target="_blank" rel="noopener"><span class="b-main">Israël de Salant →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/%C3%89thique_juive" target="_blank" rel="noopener"><span class="b-main">Éthique juive →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="pogroms">
+          <div class="code">II-E15</div><div class="scanned">↳ Code scanné</div>
+          <h3>1881 et Kichinev (1903) : les pogroms</h3>
+          <p class="desc">1881-1906, les pogroms dans l&#x27;Empire russe.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Pogroms_de_Kichinev" target="_blank" rel="noopener"><span class="b-main">Pogroms de Kichinev →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Pogroms_en_Russie" target="_blank" rel="noopener"><span class="b-main">Pogroms en Russie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="bund">
+          <div class="code">II-E16</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Bund et les partis juifs</h3>
+          <p class="desc">Le Bund et les mouvements juifs.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Bund" target="_blank" rel="noopener"><span class="b-main">Bund →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="yiddish-litterature">
+          <div class="code">II-E17</div><div class="scanned">↳ Code scanné</div>
+          <h3>La littérature yiddish : Mendele, Shalom Aleichem, Peretz</h3>
+          <p class="desc">Écouter le yiddish.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Litt%C3%A9rature_yiddish" target="_blank" rel="noopener"><span class="b-main">Littérature yiddish →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Cholem_Aleikhem" target="_blank" rel="noopener"><span class="b-main">Cholem Aleikhem →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ellis-island">
+          <div class="code">II-E18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le grand départ vers l&#x27;Amérique</h3>
+          <p class="desc">Les registres d&#x27;Ellis Island.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ellis_Island" target="_blank" rel="noopener"><span class="b-main">Ellis Island →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="dynasties-hassidiques">
+          <div class="code">II-E19</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les dynasties hassidiques : Loubavitch, Ger, Belz</h3>
+          <p class="desc">Les cours hassidiques d&#x27;hier et d&#x27;aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hassidisme" target="_blank" rel="noopener"><span class="b-main">Hassidisme →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Dynastie_hassidique" target="_blank" rel="noopener"><span class="b-main">Dynastie hassidique →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="vilna">
+          <div class="code">II-E20</div><div class="scanned">↳ Code scanné</div>
+          <h3>Vilna, la « Jérusalem de Lituanie »</h3>
+          <p class="desc">Vilna juive d&#x27;avant-guerre.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Lituanie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Lituanie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="pologne-1939">
+          <div class="code">II-E21</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;entre-deux-guerres</h3>
+          <p class="desc">La vie juive en Pologne avant 1939.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Pologne" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Pologne →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="villes-ancetres">
+          <div class="code">II-E22</div><div class="scanned">↳ Code scanné</div>
+          <h3>Ce que la carte allait perdre</h3>
+          <p class="desc">Retrouver la ville de vos ancêtres.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Shtetl" target="_blank" rel="noopener"><span class="b-main">Shtetl →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Occident moderne</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="bevis-marks">
+          <div class="code">II-W01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le retour en Angleterre : Menasseh ben Israël (1656)</h3>
+          <p class="desc">Bevis Marks et le retour des Juifs à Londres.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Manasse_ben_Isra%C3%ABl" target="_blank" rel="noopener"><span class="b-main">Manasse ben Israël →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Synagogue_de_Bevis_Marks" target="_blank" rel="noopener"><span class="b-main">Synagogue de Bevis Marks →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="juifs-de-cour">
+          <div class="code">II-W02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs de cour</h3>
+          <p class="desc">Les Juifs de cour, de Vienne à Berlin.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juif_de_cour" target="_blank" rel="noopener"><span class="b-main">Juif de cour →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Samuel_Oppenheimer" target="_blank" rel="noopener"><span class="b-main">Samuel Oppenheimer →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="mendelssohn">
+          <div class="code">II-W03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Moses Mendelssohn à Berlin</h3>
+          <p class="desc">Moses Mendelssohn et les Lumières juives.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Moses_Mendelssohn" target="_blank" rel="noopener"><span class="b-main">Moses Mendelssohn →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="1791">
+          <div class="code">II-W04</div><div class="scanned">↳ Code scanné</div>
+          <h3>1791 : la France émancipe ses Juifs</h3>
+          <p class="desc">Le décret du 27 septembre 1791.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/%C3%89mancipation_des_Juifs" target="_blank" rel="noopener"><span class="b-main">Émancipation des Juifs →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="sanhedrin">
+          <div class="code">II-W05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Grand Sanhédrin de Napoléon (1807)</h3>
+          <p class="desc">Le Grand Sanhédrin de 1807.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Grand_Sanh%C3%A9drin" target="_blank" rel="noopener"><span class="b-main">Grand Sanhédrin →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="consistoire">
+          <div class="code">II-W06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le consistoire</h3>
+          <p class="desc">Les grandes synagogues consistoriales.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Consistoire_central_isra%C3%A9lite_de_France" target="_blank" rel="noopener"><span class="b-main">Consistoire central israélite de France →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Grande_synagogue_de_Paris" target="_blank" rel="noopener"><span class="b-main">Grande synagogue de Paris →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="courants">
+          <div class="code">II-W07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le judaïsme réformé</h3>
+          <p class="desc">Les courants du judaïsme aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juda%C3%AFsme_r%C3%A9form%C3%A9" target="_blank" rel="noopener"><span class="b-main">Judaïsme réformé →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hirsch">
+          <div class="code">II-W08</div><div class="scanned">↳ Code scanné</div>
+          <h3>Samson Raphaël Hirsch et la néo-orthodoxie</h3>
+          <p class="desc">Samson Raphaël Hirsch et l&#x27;orthodoxie moderne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Samson_Raphael_Hirsch" target="_blank" rel="noopener"><span class="b-main">Samson Raphael Hirsch →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="wissenschaft">
+          <div class="code">II-W09</div><div class="scanned">↳ Code scanné</div>
+          <h3>La « science du judaïsme »</h3>
+          <p class="desc">La science du judaïsme et ses savants.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Wissenschaft_des_Judentums" target="_blank" rel="noopener"><span class="b-main">Wissenschaft des Judentums →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Leopold_Zunz" target="_blank" rel="noopener"><span class="b-main">Leopold Zunz →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="rothschild">
+          <div class="code">II-W10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Rothschild</h3>
+          <p class="desc">Edmond de Rothschild et les premières colonies.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Famille_Rothschild" target="_blank" rel="noopener"><span class="b-main">Famille Rothschild →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Edmond_de_Rothschild" target="_blank" rel="noopener"><span class="b-main">Edmond de Rothschild →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="dreyfus">
+          <div class="code">II-W11</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;affaire Dreyfus</h3>
+          <p class="desc">L&#x27;affaire Dreyfus pas à pas.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Affaire_Dreyfus" target="_blank" rel="noopener"><span class="b-main">Affaire Dreyfus →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="herzl">
+          <div class="code">II-W12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Herzl et le congrès de Bâle (1897)</h3>
+          <p class="desc">Herzl et les débuts du sionisme.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Theodor_Herzl" target="_blank" rel="noopener"><span class="b-main">Theodor Herzl →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Premier_congr%C3%A8s_sioniste" target="_blank" rel="noopener"><span class="b-main">Premier congrès sioniste →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="premiers-juifs-amerique">
+          <div class="code">II-W13</div><div class="scanned">↳ Code scanné</div>
+          <h3>New Amsterdam (1654) : les vingt-trois</h3>
+          <p class="desc">Les premiers Juifs d&#x27;Amérique.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Congr%C3%A9gation_Shearith_Isra%C3%ABl" target="_blank" rel="noopener"><span class="b-main">Congrégation Shearith Israël →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Synagogue_Touro" target="_blank" rel="noopener"><span class="b-main">Synagogue Touro →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="lower-east-side">
+          <div class="code">II-W14</div><div class="scanned">↳ Code scanné</div>
+          <h3>La grande immigration : le Lower East Side</h3>
+          <p class="desc">Le Lower East Side d&#x27;hier et d&#x27;aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Lower_East_Side" target="_blank" rel="noopener"><span class="b-main">Lower East Side →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="gauchos-juifs">
+          <div class="code">II-W15</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les colonies juives d&#x27;Argentine</h3>
+          <p class="desc">Les gauchos juifs d&#x27;Argentine.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Mois%C3%A9s_Ville" target="_blank" rel="noopener"><span class="b-main">Moisés Ville →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Gauchos_juifs" target="_blank" rel="noopener"><span class="b-main">Gauchos juifs →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="east-end">
+          <div class="code">II-W16</div><div class="scanned">↳ Code scanné</div>
+          <h3>Londres : l&#x27;East End</h3>
+          <p class="desc">Promenade dans l&#x27;East End juif.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/East_End" target="_blank" rel="noopener"><span class="b-main">East End →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="vienne-1900">
+          <div class="code">II-W17</div><div class="scanned">↳ Code scanné</div>
+          <h3>Vienne fin de siècle</h3>
+          <p class="desc">La Vienne juive de 1900.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/S%C3%A9cession_viennoise" target="_blank" rel="noopener"><span class="b-main">Sécession viennoise →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Autriche" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Autriche →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="berlin-1920">
+          <div class="code">II-W18</div><div class="scanned">↳ Code scanné</div>
+          <h3>Berlin dans les années 1920</h3>
+          <p class="desc">La vie juive à Berlin avant 1933.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Nouvelle_synagogue_de_Berlin" target="_blank" rel="noopener"><span class="b-main">Nouvelle synagogue de Berlin →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Allemagne" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Allemagne →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="institutions-americaines">
+          <div class="code">II-W19</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;Amérique juive et ses institutions</h3>
+          <p class="desc">Les grandes institutions juives américaines.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Hebrew_Union_College-Jewish_Institute_of_Religion" target="_blank" rel="noopener"><span class="b-main">Hebrew Union College-Jewish Institute of Religion →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_aux_%C3%89tats-Unis" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs aux États-Unis →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="occident-aujourdhui">
+          <div class="code">II-W20</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;héritage occidental</h3>
+          <p class="desc">Les communautés juives occidentales aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Europe" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Europe →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  <section class="partie"><h2>Partie III · Les derniers exodes et le retour</h2><p>Le XXᵉ siècle redessine la carte juive.</p></section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">La destruction (1933-1945)</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="1933">
+          <div class="code">III-D01</div><div class="scanned">↳ Code scanné</div>
+          <h3>1933 : les Juifs d&#x27;Allemagne exclus</h3>
+          <p class="desc">1933 : l&#x27;exclusion des Juifs d&#x27;Allemagne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Boycott_antis%C3%A9mite_de_1933_en_Allemagne" target="_blank" rel="noopener"><span class="b-main">Boycott antisémite de 1933 en Allemagne →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Loi_allemande_sur_la_restauration_de_la_fonction_publique_du_7_avril_1933" target="_blank" rel="noopener"><span class="b-main">Loi allemande sur la restauration de la fonction publique du 7 avril 1933 →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="nuit-de-cristal">
+          <div class="code">III-D02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Nuremberg (1935) et la Nuit de cristal (1938)</h3>
+          <p class="desc">Les lois de Nuremberg et la Nuit de cristal.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Lois_de_Nuremberg" target="_blank" rel="noopener"><span class="b-main">Lois de Nuremberg →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Nuit_de_Cristal" target="_blank" rel="noopener"><span class="b-main">Nuit de Cristal →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="saint-louis">
+          <div class="code">III-D03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Évian (1938) et le Saint-Louis : les portes fermées</h3>
+          <p class="desc">Évian et le voyage du Saint-Louis.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Conf%C3%A9rence_d%27%C3%89vian" target="_blank" rel="noopener"><span class="b-main">Conférence d&#x27;Évian →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/MS_St._Louis" target="_blank" rel="noopener"><span class="b-main">MS St. Louis →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="varsovie">
+          <div class="code">III-D04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le ghetto de Varsovie</h3>
+          <p class="desc">Le ghetto de Varsovie et les archives Ringelblum.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ghetto_de_Varsovie" target="_blank" rel="noopener"><span class="b-main">Ghetto de Varsovie →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Emanuel_Ringelblum" target="_blank" rel="noopener"><span class="b-main">Emanuel Ringelblum →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ghettos">
+          <div class="code">III-D05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Lodz, Vilna, Kovno : les ghettos de l&#x27;Est</h3>
+          <p class="desc">Les ghettos de Lodz, Vilna et Kovno.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ghetto_de_%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener"><span class="b-main">Ghetto de Łódź →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Ghetto_de_Vilnius" target="_blank" rel="noopener"><span class="b-main">Ghetto de Vilnius →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="babi-yar">
+          <div class="code">III-D06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Babi Yar et les fusillades à l&#x27;Est</h3>
+          <p class="desc">Babi Yar et la Shoah par balles.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Massacre_de_Babi_Yar" target="_blank" rel="noopener"><span class="b-main">Massacre de Babi Yar →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Einsatzgruppen" target="_blank" rel="noopener"><span class="b-main">Einsatzgruppen →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="wannsee">
+          <div class="code">III-D07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Wannsee et les camps d&#x27;extermination</h3>
+          <p class="desc">La conférence de Wannsee.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Conf%C3%A9rence_de_Wannsee" target="_blank" rel="noopener"><span class="b-main">Conférence de Wannsee →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="auschwitz">
+          <div class="code">III-D08</div><div class="scanned">↳ Code scanné</div>
+          <h3>Auschwitz</h3>
+          <p class="desc">Auschwitz et les témoins.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Auschwitz" target="_blank" rel="noopener"><span class="b-main">Auschwitz →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="vel-d-hiv">
+          <div class="code">III-D09</div><div class="scanned">↳ Code scanné</div>
+          <h3>France : le Vel d&#x27;Hiv et Drancy</h3>
+          <p class="desc">Le Vel d&#x27;Hiv et Drancy.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Rafle_du_V%C3%A9lodrome_d%27Hiver" target="_blank" rel="noopener"><span class="b-main">Rafle du Vélodrome d&#x27;Hiver →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Camp_de_Drancy" target="_blank" rel="noopener"><span class="b-main">Camp de Drancy →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="salonique-1943">
+          <div class="code">III-D10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Salonique et Rhodes (1943-1944)</h3>
+          <p class="desc">Les Juifs de Salonique et de Rhodes.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_%C3%A0_Salonique" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs à Salonique →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_%C3%A0_Rhodes" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs à Rhodes →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hongrie-1944">
+          <div class="code">III-D11</div><div class="scanned">↳ Code scanné</div>
+          <h3>Hongrie, 1944</h3>
+          <p class="desc">La déportation des Juifs de Hongrie.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Shoah_en_Hongrie" target="_blank" rel="noopener"><span class="b-main">Shoah en Hongrie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="resistance">
+          <div class="code">III-D12</div><div class="scanned">↳ Code scanné</div>
+          <h3>Résister : l&#x27;insurrection du ghetto, les partisans, Sobibor</h3>
+          <p class="desc">La résistance juive.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Soul%C3%A8vement_du_ghetto_de_Varsovie" target="_blank" rel="noopener"><span class="b-main">Soulèvement du ghetto de Varsovie →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/R%C3%A9sistance_juive_pendant_la_Shoah" target="_blank" rel="noopener"><span class="b-main">Résistance juive pendant la Shoah →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="justes">
+          <div class="code">III-D13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Justes, et les survivants</h3>
+          <p class="desc">Les Justes parmi les nations.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juste_parmi_les_nations" target="_blank" rel="noopener"><span class="b-main">Juste parmi les nations →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Sanhedrin.37a?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Talmud, Sanhédrin 37a →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Le retour (1882-1949)</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="premiere-alya">
+          <div class="code">III-R01</div><div class="scanned">↳ Code scanné</div>
+          <h3>La première alya : Rishon le-Tsion et Petah Tikva</h3>
+          <p class="desc">La première alya et ses villages.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Premi%C3%A8re_Aliyah" target="_blank" rel="noopener"><span class="b-main">Première Aliyah →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Rishon_LeZion" target="_blank" rel="noopener"><span class="b-main">Rishon LeZion →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="degania">
+          <div class="code">III-R02</div><div class="scanned">↳ Code scanné</div>
+          <h3>La deuxième alya : Degania, le premier kibboutz</h3>
+          <p class="desc">Degania et l&#x27;histoire du kibboutz.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Kibboutz" target="_blank" rel="noopener"><span class="b-main">Kibboutz →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tel-aviv">
+          <div class="code">III-R03</div><div class="scanned">↳ Code scanné</div>
+          <h3>Tel-Aviv, 1909</h3>
+          <p class="desc">La naissance de Tel-Aviv.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Tel_Aviv-Jaffa" target="_blank" rel="noopener"><span class="b-main">Tel Aviv-Jaffa →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Independence_Hall_%28Isra%C3%ABl%29" target="_blank" rel="noopener"><span class="b-main">Independence Hall (Israël) →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Ezekiel.3?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Ézéchiel 3 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="hebreu">
+          <div class="code">III-R04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Éliézer Ben Yehouda et la renaissance de l&#x27;hébreu</h3>
+          <p class="desc">La renaissance de l&#x27;hébreu.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/%C3%89li%C3%A9zer_Ben-Yehoudah" target="_blank" rel="noopener"><span class="b-main">Éliézer Ben-Yehoudah →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="balfour">
+          <div class="code">III-R05</div><div class="scanned">↳ Code scanné</div>
+          <h3>La déclaration Balfour (1917)</h3>
+          <p class="desc">La déclaration Balfour et le mandat.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/D%C3%A9claration_Balfour" target="_blank" rel="noopener"><span class="b-main">Déclaration Balfour →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Palestine_mandataire" target="_blank" rel="noopener"><span class="b-main">Palestine mandataire →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="yichouv">
+          <div class="code">III-R06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Yichouv sous mandat : Hébron 1929, les troubles de 1936</h3>
+          <p class="desc">Le Yichouv sous le mandat britannique.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Yichouv" target="_blank" rel="noopener"><span class="b-main">Yichouv →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Massacre_d%27H%C3%A9bron_%281929%29" target="_blank" rel="noopener"><span class="b-main">Massacre d&#x27;Hébron (1929) →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="aliya-beth">
+          <div class="code">III-R07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Livre blanc et l&#x27;immigration clandestine</h3>
+          <p class="desc">L&#x27;immigration clandestine.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Mossad_Le%27aliyah_Bet" target="_blank" rel="noopener"><span class="b-main">Mossad Le&#x27;aliyah Bet →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Livre_blanc_de_1939" target="_blank" rel="noopener"><span class="b-main">Livre blanc de 1939 →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="exodus">
+          <div class="code">III-R08</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;Exodus (1947)</h3>
+          <p class="desc">L&#x27;histoire de l&#x27;Exodus.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Exodus_1947" target="_blank" rel="noopener"><span class="b-main">Exodus 1947 →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="partage">
+          <div class="code">III-R09</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le plan de partage (29 novembre 1947)</h3>
+          <p class="desc">Le plan de partage de 1947.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Plan_de_partage_de_la_Palestine" target="_blank" rel="noopener"><span class="b-main">Plan de partage de la Palestine →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="independance">
+          <div class="code">III-R10</div><div class="scanned">↳ Code scanné</div>
+          <h3>14 mai 1948</h3>
+          <p class="desc">La Déclaration d&#x27;indépendance.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/D%C3%A9claration_d%27ind%C3%A9pendance_de_l%27%C3%89tat_d%27Isra%C3%ABl" target="_blank" rel="noopener"><span class="b-main">Déclaration d&#x27;indépendance de l&#x27;État d&#x27;Israël →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="jerusalem-1948">
+          <div class="code">III-R11</div><div class="scanned">↳ Code scanné</div>
+          <h3>La guerre d&#x27;Indépendance et Jérusalem divisée</h3>
+          <p class="desc">La guerre d&#x27;Indépendance et Jérusalem divisée.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Guerre_isra%C3%A9lo-arabe_de_1948-1949" target="_blank" rel="noopener"><span class="b-main">Guerre israélo-arabe de 1948-1949 →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Les derniers exodes</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="irak">
+          <div class="code">III-E01</div><div class="scanned">↳ Code scanné</div>
+          <h3>Bagdad : le Farhoud (1941) et l&#x27;opération Ezra et Néhémie</h3>
+          <p class="desc">Les Juifs d&#x27;Irak, de Babylone à Israël.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Farhoud" target="_blank" rel="noopener"><span class="b-main">Farhoud →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Op%C3%A9ration_Ezra_et_N%C3%A9h%C3%A9mie" target="_blank" rel="noopener"><span class="b-main">Opération Ezra et Néhémie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="yemen">
+          <div class="code">III-E02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Yémen : le « tapis volant » (1949-1950)</h3>
+          <p class="desc">Les Juifs du Yémen.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Op%C3%A9ration_Tapis_volant" target="_blank" rel="noopener"><span class="b-main">Opération Tapis volant →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Juifs_y%C3%A9m%C3%A9nites" target="_blank" rel="noopener"><span class="b-main">Juifs yéménites →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Exodus.19?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Exode 19 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="egypte">
+          <div class="code">III-E03</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;Égypte : 1948, 1956-1957</h3>
+          <p class="desc">Les Juifs d&#x27;Égypte.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_%C3%89gypte" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Égypte →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="libye">
+          <div class="code">III-E04</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Libye : 1945, 1948, 1967</h3>
+          <p class="desc">Les Juifs de Libye.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Libye" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Libye →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="syrie-liban">
+          <div class="code">III-E05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Syrie et Liban</h3>
+          <p class="desc">Les Juifs de Syrie et du Liban.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juifs_Mizrahim" target="_blank" rel="noopener"><span class="b-main">Juifs Mizrahim →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_au_Liban" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs au Liban →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="maroc">
+          <div class="code">III-E06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le Maroc : départs et opération Yakhin</h3>
+          <p class="desc">Les Juifs du Maroc.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_au_Maroc" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs au Maroc →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Op%C3%A9ration_Yakhin" target="_blank" rel="noopener"><span class="b-main">Opération Yakhin →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="algerie">
+          <div class="code">III-E07</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;Algérie, 1962 : l&#x27;arrivée en France</h3>
+          <p class="desc">Les Juifs d&#x27;Algérie et l&#x27;arrivée en France.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Alg%C3%A9rie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Algérie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="tunisie">
+          <div class="code">III-E08</div><div class="scanned">↳ Code scanné</div>
+          <h3>La Tunisie : 1956-1967</h3>
+          <p class="desc">Les Juifs de Tunisie.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Tunisie" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Tunisie →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="iran">
+          <div class="code">III-E09</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;Iran, 1979</h3>
+          <p class="desc">Les Juifs d&#x27;Iran.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Iran" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Iran →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="maabarot">
+          <div class="code">III-E10</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les maabarot : arriver en Israël</h3>
+          <p class="desc">L&#x27;immigration de masse et les maabarot.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Ma%27abarot" target="_blank" rel="noopener"><span class="b-main">Ma&#x27;abarot →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="refuzniks">
+          <div class="code">III-E11</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs d&#x27;URSS et les refuzniks</h3>
+          <p class="desc">Les Juifs d&#x27;URSS et les refuzniks.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Refuznik" target="_blank" rel="noopener"><span class="b-main">Refuznik →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Exodus.5?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Exode 5 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="alya-1990">
+          <div class="code">III-E12</div><div class="scanned">↳ Code scanné</div>
+          <h3>1990 : la grande alya soviétique</h3>
+          <p class="desc">La grande alya des années 1990.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Alya" target="_blank" rel="noopener"><span class="b-main">Alya →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="ethiopie">
+          <div class="code">III-E13</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les Juifs d&#x27;Éthiopie : opérations Moïse (1984) et Salomon (1991)</h3>
+          <p class="desc">Les Juifs d&#x27;Éthiopie.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Juifs_%C3%A9thiopiens" target="_blank" rel="noopener"><span class="b-main">Juifs éthiopiens →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Op%C3%A9ration_Salomon" target="_blank" rel="noopener"><span class="b-main">Opération Salomon →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">Israël, le foyer reconstruit</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="loi-du-retour">
+          <div class="code">III-I01</div><div class="scanned">↳ Code scanné</div>
+          <h3>La loi du Retour (1950)</h3>
+          <p class="desc">La loi du Retour.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Loi_du_retour" target="_blank" rel="noopener"><span class="b-main">Loi du retour →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="eichmann">
+          <div class="code">III-I02</div><div class="scanned">↳ Code scanné</div>
+          <h3>Le procès Eichmann (1961)</h3>
+          <p class="desc">Le procès Eichmann.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Adolf_Eichmann" target="_blank" rel="noopener"><span class="b-main">Adolf Eichmann →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="1967">
+          <div class="code">III-I03</div><div class="scanned">↳ Code scanné</div>
+          <h3>1967 : la guerre des Six Jours et le Mur</h3>
+          <p class="desc">La guerre des Six Jours et Jérusalem.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Guerre_des_Six_Jours" target="_blank" rel="noopener"><span class="b-main">Guerre des Six Jours →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Mur_des_Lamentations" target="_blank" rel="noopener"><span class="b-main">Mur des Lamentations →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="kippour">
+          <div class="code">III-I04</div><div class="scanned">↳ Code scanné</div>
+          <h3>1973 : Kippour</h3>
+          <p class="desc">De Kippour à aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Guerre_du_Kippour" target="_blank" rel="noopener"><span class="b-main">Guerre du Kippour →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="societe">
+          <div class="code">III-I05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Une société de toutes les diasporas</h3>
+          <p class="desc">La société israélienne.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/D%C3%A9mographie_d%27Isra%C3%ABl" target="_blank" rel="noopener"><span class="b-main">Démographie d&#x27;Israël →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Isra%C3%A9liens" target="_blank" rel="noopener"><span class="b-main">Israéliens →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="yad-vashem">
+          <div class="code">III-I06</div><div class="scanned">↳ Code scanné</div>
+          <h3>Yad Vashem et la mémoire</h3>
+          <p class="desc">Yad Vashem et la base des noms.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Yad_Vashem" target="_blank" rel="noopener"><span class="b-main">Yad Vashem →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Isaiah.56?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Isaïe 56 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+        <article class="geste" id="jerusalem">
+          <div class="code">III-I07</div><div class="scanned">↳ Code scanné</div>
+          <h3>Jérusalem aujourd&#x27;hui</h3>
+          <p class="desc">Jérusalem aujourd&#x27;hui.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/J%C3%A9rusalem" target="_blank" rel="noopener"><span class="b-main">Jérusalem →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Psalms.137?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Psaumes 137 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="chapter">
+      <div class="chap-head"><div class="label">La carte juive d&#x27;aujourd&#x27;hui</div><div class="line"></div></div>
+      <div class="grid">
+        <article class="geste" id="amerique">
+          <div class="code">III-C01</div><div class="scanned">↳ Code scanné</div>
+          <h3>L&#x27;Amérique juive</h3>
+          <p class="desc">Les Juifs d&#x27;Amérique.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_aux_%C3%89tats-Unis" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs aux États-Unis →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="france">
+          <div class="code">III-C02</div><div class="scanned">↳ Code scanné</div>
+          <h3>La France, premier foyer d&#x27;Europe</h3>
+          <p class="desc">Les Juifs de France.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_France" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en France →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="monde">
+          <div class="code">III-C03</div><div class="scanned">↳ Code scanné</div>
+          <h3>De Londres à Buenos Aires, de Moscou à Melbourne</h3>
+          <p class="desc">Les communautés juives du monde.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Diaspora_juive" target="_blank" rel="noopener"><span class="b-main">Diaspora juive →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="renaissance">
+          <div class="code">III-C04</div><div class="scanned">↳ Code scanné</div>
+          <h3>Les communautés qui renaissent : Berlin, Cracovie, Vilnius</h3>
+          <p class="desc">Les communautés qui renaissent.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_des_Juifs_en_Allemagne" target="_blank" rel="noopener"><span class="b-main">Histoire des Juifs en Allemagne →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://fr.wikipedia.org/wiki/Kazimierz" target="_blank" rel="noopener"><span class="b-main">Kazimierz →</span><span class="b-sub">Wikipédia</span></a>
+          </div>
+        </article>
+        <article class="geste" id="canaan-jerusalem">
+          <div class="code">III-C05</div><div class="scanned">↳ Code scanné</div>
+          <h3>Épilogue : de Canaan à Jérusalem</h3>
+          <p class="desc">La carte interactive du livre.</p>
+          <div class="actions">
+            <a class="btn" href="https://fr.wikipedia.org/wiki/Histoire_du_peuple_juif" target="_blank" rel="noopener"><span class="b-main">Histoire du peuple juif →</span><span class="b-sub">Wikipédia</span></a>
+            <a class="btn ghost" href="https://www.sefaria.org/Genesis.12?lang=bi" target="_blank" rel="noopener"><span class="b-main">Lire : Genèse 12 →</span><span class="b-sub">Sefaria · hébreu et traduction</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="tag">Ora Shel Torah · Lumières d'Israël</div>
+      <div class="meta"><span>↑ Lyon, France</span> · Contact · <span>06 18 06 10 00</span></div>
+    </div>
+  </footer>
+
+</body>
+</html>

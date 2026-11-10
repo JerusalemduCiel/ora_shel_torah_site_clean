@@ -32,6 +32,12 @@
   to = "/gestes#:splat"
   status = 302
 
+# Relais QR /canaan/{code} → ancre sur /canaan (livre De Canaan à Jérusalem)
+[[redirects]]
+  from = "/canaan/*"
+  to = "/canaan#:splat"
+  status = 302
+
 # Page vente caritative (URL propre, non listée)
 [[redirects]]
   from = "/vente"
