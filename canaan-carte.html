@@ -103,10 +103,11 @@ const yToT = y => { const a = Math.sign(y - Y0) * Math.pow(Math.abs(y - Y0) / (Y
 const tToY = t => Math.round(Y0 + Math.pow(t / 1000, 1 / 0.62) * (Y1 - Y0));
 const fmt = y => y < 0 ? (-y) + ' av. n. è.' : (y < 1000 ? y + ' de n. è.' : String(y));
 const rng = document.getElementById('rng'); rng.max = 1000; rng.value = 1000;
-const map = L.map('map', {zoomControl: true, worldCopyJump: true, minZoom: 2}).setView([38, 22], 4);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-  subdomains: 'abcd', maxZoom: 12,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'}).addTo(map);
+const map = L.map('map', {zoomControl: true, worldCopyJump: true, minZoom: 2, maxZoom: 13}).setView([38, 22], 4);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 13, attribution: 'Fond &copy; Esri (relief) &mdash; Esri, USGS, NOAA'}).addTo(map);
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 13, attribution: 'Noms &copy; Esri, HERE, Garmin, OpenStreetMap'}).addTo(map);
 // regroupement par lieu
 const places = {};
 D.forEach(u => { const k = u.a.toFixed(2) + ',' + u.o.toFixed(2); (places[k] = places[k] || {k, a: u.a, o: u.o, units: []}).units.push(u); });
