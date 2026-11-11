@@ -32,6 +32,12 @@
   to = "/gestes#:splat"
   status = 302
 
+# QR de l'épilogue (III-C05) → carte interactive du livre
+[[redirects]]
+  from = "/canaan/canaan-jerusalem"
+  to = "/canaan-carte"
+  status = 302
+
 # Relais QR /canaan/{code} → ancre sur /canaan (livre De Canaan à Jérusalem)
 [[redirects]]
   from = "/canaan/*"
